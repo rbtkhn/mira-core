@@ -62,7 +62,7 @@ branches, using `menu-contract-decision-v1` and the prospective
 readiness or authority.
 
 Set `final_response: true` only when a decision-navigation surface is actually
-used as the response's terminal A-D menu. Validation then requires two to four
+used as the response's terminal decision menu. Validate before presentation with two to four
 options and an explicit `learning_eligibility` on every option. Completion of an
 action does not determine the next menu. `closure_state: settled` records that
 completion; ordinary decision menus may still offer independently bounded next
@@ -71,8 +71,7 @@ option support and default missing eligibility to `eligible`. Neutral-evidence
 surfaces cannot set `final_response`.
 
 Use `surface_kind: response-controls` only after separately assessing whether
-useful next options exist. Use it only when controls are explicitly requested;
-this mode requires two to four navigation-only controls,
+useful next options exist. Use it only when controls are explicitly requested; it requires two to four navigation-only controls,
 each with `learning_eligibility: none`, and carries no action authority.
 Both this mode and `closure_state: settled` require `next_option_assessment`:
 a nonempty `basis` and a `candidates` list. Candidate fields are `label`,
@@ -139,8 +138,7 @@ read-only, reports contradictions, and grants no authority.
 Use `decision-navigation` for judgment, preference, or path selection:
 
 - Present two to four genuinely distinct paths.
-- Bind `recommended`, `alternative`, and `overlooked`; add
-  `pause-or-deepen` only when it is real.
+- Put `recommended` first; choose unique remaining roles only when meaningful.
 - Give every option a `selection_effect`: `navigate`, `execute`, `stage`, `commit`,
   `push`, or `send`.
 - Give the surface machine-checked `action_readiness` metadata.
@@ -240,16 +238,19 @@ three; ask one blocking question at a time in text. Stop current and remaining
 batches immediately on an explicit controlling `Hold`. Ask only questions that
 can change the next action.
 
-After three consecutive compact selections within one objective, continue the
-selected branch to a meaningful result. Do not present another substantive
-Elicitation surface unless a newly emerged blocker passes all five
-implicit-invocation conditions. After settlement, use compact settled closure;
-do not manufacture another substantive decision surface merely to carry generic
-controls. Learn From Choices' earlier two-selection saturation rule controls
-when both rules describe repeated navigation-only deepening; this three-selection
-bound governs other mixed compact sequences.
-Explicit creative or preference discovery may continue within the ten-question limit
-because each answer supplies missing human evidence.
+After two consecutive navigation-only selections, or three compact selections
+within the same inquiry, complete the authorized work, synthesize, and pause
+automatic menus. An inquiry is its governing question or intended outcome;
+a new artifact, revised simulation, counter-reading, or audit does not reset it.
+Use transient conversation context, never a new ledger or persistent counter.
+Resume menus only when the operator requests further directions, explicitly
+starts a distinct objective, or a newly emerged blocker requires a decision.
+An assistant-generated follow-up suggestion cannot reset the limit. A blocker
+must pass the five implicit-invocation conditions; resolve that blocker without
+renewing automatic follow-ups. Explicit requested discovery remains available
+within the ten-question limit. Preserve direct commands, executable-option
+validation, and separate publication authority. Do not interrupt authorized
+work or infer shared-reading closure from silence or selection.
 
 ## Retain conservatively
 

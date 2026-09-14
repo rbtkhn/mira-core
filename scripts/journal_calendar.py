@@ -6,6 +6,7 @@ LEGACY_TIMEZONE = "America/Denver"
 CURRENT_TIMEZONE = "America/New_York"
 TRANSITION_DAY = date(2026, 9, 5)
 POLICY_ID = "journal-calendar-eastern-20260905-v1"
+DREAM_CLOSEOUT_CUTOFF = time(6, 0)
 
 
 def timezone_name(day: date) -> str:
@@ -29,6 +30,20 @@ def current_date(when: datetime | None = None) -> date:
     transition_start, _ = day_bounds(TRANSITION_DAY)
     zone = LEGACY_TIMEZONE if when < transition_start else CURRENT_TIMEZONE
     return when.astimezone(ZoneInfo(zone)).date()
+
+
+def dream_close_date(when: datetime | None = None) -> date:
+    """Return the lived workday Dream should close by default."""
+    when = when or datetime.now(timezone.utc)
+    if when.tzinfo is None:
+        raise ValueError("Calendar timestamp must include a timezone")
+    transition_start, _ = day_bounds(TRANSITION_DAY)
+    zone = LEGACY_TIMEZONE if when < transition_start else CURRENT_TIMEZONE
+    local = when.astimezone(ZoneInfo(zone))
+    close_day = local.date()
+    if close_day > TRANSITION_DAY and local.time() < DREAM_CLOSEOUT_CUTOFF:
+        close_day -= timedelta(days=1)
+    return close_day
 
 
 def metadata(day: date) -> dict:

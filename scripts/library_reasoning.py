@@ -11,6 +11,7 @@ import time
 import xml.etree.ElementTree as ET
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
+from repository_paths import resolve_repository_path
 from pathlib import Path
 from statistics import median
 from typing import Any, Iterable
@@ -42,6 +43,10 @@ COGNITIVE_DISPOSITIONS = {"used-materially", "used-nonmaterially", "rejected", "
 COGNITIVE_EFFECTS = {
     "nominated-source", "clarified-mechanism", "introduced-tension",
     "introduced-rival", "strengthened-anti-analogy", "no-material-change",
+}
+HARVEST_DISPOSITIONS = {
+    "no-change", "open-question", "note-candidate", "successor-note-candidate",
+    "routing-observation-only",
 }
 ABLATION_METRICS = {
     "mechanism_clarity", "evidence_integrity", "credible_rival_quality",
@@ -110,6 +115,68 @@ def file_sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def encoded_json(value: dict[str, Any]) -> bytes:
+    return (json.dumps(value, indent=2, ensure_ascii=False) + "\n").encode("utf-8")
+
+
+def artifact_ref(path: Path) -> str:
+    resolved = path.resolve()
+    try:
+        return resolved.relative_to(REPO_ROOT.resolve()).as_posix()
+    except ValueError:
+        return str(resolved)
+
+
+def resolve_artifact_ref(value: str, *, relative_to: Path | None = None) -> Path:
+    path = Path(value)
+    if path.is_absolute():
+        return path.resolve()
+    repository_path = resolve_repository_path(REPO_ROOT, path.as_posix()).resolve()
+    if repository_path.is_file() or relative_to is None:
+        return repository_path
+    return (relative_to / path).resolve()
+
+
+def artifact_binding(path: Path, *, role: str, artifact_id: str | None = None) -> dict[str, Any]:
+    binding: dict[str, Any] = {
+        "role": role,
+        "ref": artifact_ref(path),
+        "sha256": file_sha256(path),
+    }
+    if artifact_id:
+        binding["artifact_id"] = artifact_id
+    return binding
+
+
+def validate_artifact_binding(
+    binding: Any,
+    *,
+    expected_path: Path | None = None,
+    expected_id: str | None = None,
+    relative_to: Path | None = None,
+) -> list[str]:
+    failures: list[str] = []
+    if not isinstance(binding, dict):
+        return ["artifact binding is missing or malformed"]
+    ref = binding.get("ref")
+    digest = binding.get("sha256")
+    if not isinstance(ref, str) or not ref:
+        failures.append("artifact binding ref is missing")
+        return failures
+    path = resolve_artifact_ref(ref, relative_to=relative_to)
+    if expected_path is not None and path != expected_path.resolve():
+        failures.append("artifact binding ref does not name the selected file")
+    if expected_id is not None and binding.get("artifact_id") != expected_id:
+        failures.append("artifact binding id does not match the selected artifact")
+    if not path.is_file():
+        failures.append(f"bound artifact is missing: {ref}")
+    elif not isinstance(digest, str) or not re.fullmatch(r"[0-9a-f]{64}", digest):
+        failures.append(f"bound artifact digest is malformed: {ref}")
+    elif file_sha256(path) != digest:
+        failures.append(f"bound artifact digest mismatch: {ref}")
+    return failures
+
+
 def _signature_matches(values: Any, query_tokens: set[str]) -> list[str]:
     if not isinstance(values, list):
         return []
@@ -117,6 +184,75 @@ def _signature_matches(values: Any, query_tokens: set[str]) -> list[str]:
         str(value) for value in values
         if isinstance(value, str) and len(tokens(value) & query_tokens) >= 2
     )
+
+
+def _constellation(manifest: dict[str, Any], constellation_id: str | None) -> dict[str, Any] | None:
+    if not constellation_id:
+        return None
+    constellation = manifest.get("constellation")
+    if not isinstance(constellation, dict) or constellation.get("constellation_id") != constellation_id:
+        raise ReasoningError(f"unknown Library constellation: {constellation_id}")
+    members = constellation.get("member_work_ids")
+    if (
+        constellation.get("status") not in {"current", "analysis-pending"}
+        or not isinstance(members, list)
+        or not 2 <= len(members) <= 5
+        or any(not isinstance(value, str) or not value for value in members)
+        or len(set(members)) != len(members)
+    ):
+        raise ReasoningError(f"Library constellation is stale or malformed: {constellation_id}")
+    return constellation
+
+
+def _anchored_passages(profile: dict[str, Any], source: dict[str, Any]) -> list[dict[str, Any]]:
+    bodies = {str(row.get("body_id")): row for row in body_records(source)}
+    passages: list[dict[str, Any]] = []
+    for anchor in profile.get("textual_basis", {}).get("passage_anchors", []):
+        if not isinstance(anchor, dict):
+            raise ReasoningError("Library profile has a malformed passage anchor")
+        body_id = str(anchor.get("body_id"))
+        body = bodies.get(body_id)
+        if body is None:
+            raise ReasoningError(f"Library passage anchor names an unknown body: {body_id}")
+        state, path = body_state(body)
+        if state != "hash-verified" or path is None:
+            raise ReasoningError(f"Library passage anchor body is not hash verified: {body_id}")
+        locator = anchor.get("locator", {})
+        start, end = locator.get("line_start"), locator.get("line_end")
+        if not isinstance(start, int) or not isinstance(end, int) or start < 1 or end < start:
+            raise ReasoningError(f"Library passage anchor has an invalid locator: {anchor.get('passage_id')}")
+        lines = path.read_text(encoding="utf-8").splitlines()
+        excerpt = "\n".join(lines[start - 1:end])
+        digest = hashlib.sha256(excerpt.encode("utf-8")).hexdigest()
+        if digest != anchor.get("raw_span_sha256"):
+            raise ReasoningError(f"Library passage anchor digest mismatch: {anchor.get('passage_id')}")
+        passages.append({
+            "passage_id": anchor.get("passage_id"), "body_id": body_id,
+            "locator": locator, "anchor_summary": anchor.get("anchor_summary"),
+            "supports": anchor.get("supports", []), "raw_span_sha256": digest,
+            "excerpt": excerpt,
+        })
+    if not passages:
+        raise ReasoningError(f"Library profile has no admitted passage anchors: {profile.get('canonical_work_id')}")
+    return passages
+
+
+_COGNITIVE_CACHE: dict[str, dict[str, Any]] = {}
+
+
+def cognitive_inventory(question: str, mechanism: str, constellation_id: str | None = None) -> dict[str, Any]:
+    # Explicit constellations read private passage bytes and must revalidate them.
+    if constellation_id:
+        return _cognitive_inventory(question, mechanism, constellation_id)
+    root = REPO_ROOT / "archive/library"
+    controls = sorted(p for p in root.rglob("*") if p.is_file() and p.suffix in {".json", ".md"})
+    key = hashlib.sha256(json.dumps([str(REPO_ROOT), question, mechanism,
+        [(str(p.relative_to(root)), file_sha256(p)) for p in controls]], sort_keys=True).encode()).hexdigest()
+    if key not in _COGNITIVE_CACHE:
+        value = _cognitive_inventory(question, mechanism, constellation_id)
+        _COGNITIVE_CACHE.clear()
+        _COGNITIVE_CACHE[key] = copy.deepcopy(value)
+    return copy.deepcopy(_COGNITIVE_CACHE[key])
 
 
 def _cognitive_inventory(question: str, mechanism: str, constellation_id: str | None = None) -> dict[str, Any]:
@@ -127,6 +263,7 @@ def _cognitive_inventory(question: str, mechanism: str, constellation_id: str | 
         raise ReasoningError("Library cognitive controls invalid: " + "; ".join(failures[:10]))
     work_registry = library_integration.load_work_registry(REPO_ROOT)
     manifest = library_integration.load_manifest(REPO_ROOT)
+    selected_constellation = _constellation(manifest, constellation_id)
     note_index = load_json(REPO_ROOT / "archive/library/integrations/note-link-index.json")
     route_index = load_json(REPO_ROOT / "archive/library/integrations/route-index.json")
     if note_index.get("schema_version") != "mira-library-note-link-index-v2":
@@ -137,15 +274,18 @@ def _cognitive_inventory(question: str, mechanism: str, constellation_id: str | 
     for route in route_index.get("routes", []):
         routes_by_work[str(route.get("canonical_work_id"))].append(route)
     rows: dict[str, dict[str, Any]] = {}
+    profiles: dict[str, dict[str, Any]] = {}
+    sources: dict[str, dict[str, Any]] = {}
     envelopes: dict[str, dict[str, Any]] = {}
     for work in work_registry.get("works", []):
         work_id = str(work.get("canonical_work_id"))
         note_ref = library_integration.revision_head_note_ref(work)
-        note_path = REPO_ROOT / note_ref
+        note_path = resolve_repository_path(REPO_ROOT, note_ref)
         envelope = library_integration.parse_note_envelope(note_path)
         work_dir = REPO_ROOT / str(work.get("artifact_root"))
         profile_path = work_dir / "profile.json"
         profile = load_json(profile_path)
+        source = archive_library.find_source(registry, str(work.get("library_source_id")))
         relation_failures = library_integration.validate_library_relations(
             envelope, known, label=note_ref
         )
@@ -194,6 +334,8 @@ def _cognitive_inventory(question: str, mechanism: str, constellation_id: str | 
             "cognitive_effects": [],
             "reviewed_passage_digests": [],
         }
+        profiles[work_id] = profile
+        sources[work_id] = source
         envelopes[work_id] = envelope
     direct = [rows[key] for key in sorted(rows) if rows[key]["matched_positive_signatures"]]
     promoted = [row for row in direct if row["promotion_state"] == "promoted"]
@@ -224,29 +366,35 @@ def _cognitive_inventory(question: str, mechanism: str, constellation_id: str | 
                 break
         if len(companions) == 4:
             break
+    explicit: list[dict[str, Any]] = []
+    if selected_constellation:
+        missing = sorted(set(selected_constellation["member_work_ids"]) - set(rows))
+        if missing:
+            raise ReasoningError("Library constellation has missing current members: " + ", ".join(missing))
+        for work_id in selected_constellation["member_work_ids"]:
+            row = dict(rows[work_id])
+            row.update({
+                "nomination_basis": "explicit-constellation", "constellation_id": constellation_id,
+                "analysis_state": "explicit-review", "promotion_state": "explicit-review",
+                "eligible_route_ids": [], "route_state": "nonoperational-constellation",
+                "consumption_scope": "own-admitted-passages-and-framing",
+                "passages": _anchored_passages(profiles[work_id], sources[work_id]),
+            })
+            explicit.append(row)
     return {
         "works": [rows[key] for key in sorted(rows)],
         "direct": direct,
         "companions": companions,
+        "explicit_constellation": explicit,
+        "constellation": ({
+            "constellation_id": constellation_id,
+            "status": selected_constellation.get("status"),
+            "member_work_ids": list(selected_constellation["member_work_ids"]),
+            "edge_policy": selected_constellation.get("edge_policy"),
+            "manifest_sha256": file_sha256(REPO_ROOT / "archive/library/integrations/manifest.json"),
+        } if selected_constellation else None),
         "preferred_source_ids": sorted(str(row["library_source_id"]) for row in promoted),
     }
-
-
-_COGNITIVE_CACHE: dict[str, dict[str, Any]] = {}
-
-def cognitive_inventory(question: str, mechanism: str, constellation_id: str | None = None) -> dict[str, Any]:
-    # Explicit constellations read private passage bytes and must revalidate them.
-    if constellation_id:
-        raise ReasoningError("Explicit constellation support is outside this retrieval interface")
-    root = REPO_ROOT / "archive/library"
-    controls = sorted(p for p in root.rglob("*") if p.is_file() and p.suffix in {".json", ".md"})
-    key = hashlib.sha256(json.dumps([str(REPO_ROOT), question, mechanism,
-        [(str(p.relative_to(root)), file_sha256(p)) for p in controls]], sort_keys=True).encode()).hexdigest()
-    if key not in _COGNITIVE_CACHE:
-        value = _cognitive_inventory(question, mechanism, constellation_id)
-        _COGNITIVE_CACHE.clear()
-        _COGNITIVE_CACHE[key] = copy.deepcopy(value)
-    return copy.deepcopy(_COGNITIVE_CACHE[key])
 
 
 def source_text(source: dict[str, Any]) -> str:
@@ -295,6 +443,10 @@ def routing_decision(question: str, mechanism: str) -> dict[str, Any]:
     }
 
 
+def score_source(source: dict[str, Any], query_tokens: set[str], profiles: list[str], cognitive_preferred: set[str] | None = None) -> int:
+    return source_score_components(source, query_tokens, profiles, cognitive_preferred)["total"]
+
+
 def source_score_components(source: dict[str, Any], query_tokens: set[str], profiles: list[str], cognitive_preferred: set[str] | None = None) -> dict[str, Any]:
     haystack = source_text(source).lower()
     meaningful = query_tokens - {"the", "and", "what", "which", "this", "that", "from", "with", "for", "does", "how", "can"}
@@ -314,7 +466,6 @@ def source_score_components(source: dict[str, Any], query_tokens: set[str], prof
     return {"relevant": relevant, "overlap": sorted(overlap), "profile_match": profile_match,
             "relevance": score, "availability": availability, "learned": learned,
             "total": score + availability + learned if relevant else 0}
-
 
 
 def select_cognitive_sources(ranked, cognitive):
@@ -345,45 +496,6 @@ def select_cognitive_sources(ranked, cognitive):
     return selected, {"selected": decisions, "excluded": [{"source_id": r["source_id"], "reason": "negative signature" if r["source_id"] in excluded else "role/selection budget"} for r in ranked if r not in selected], "gaps": gaps}
 
 
-
-def _anchored_passages(profile: dict[str, Any], source: dict[str, Any]) -> list[dict[str, Any]]:
-    bodies = {str(row.get("body_id")): row for row in body_records(source)}
-    passages: list[dict[str, Any]] = []
-    for anchor in profile.get("textual_basis", {}).get("passage_anchors", []):
-        if not isinstance(anchor, dict):
-            raise ReasoningError("Library profile has a malformed passage anchor")
-        body_id = str(anchor.get("body_id"))
-        body = bodies.get(body_id)
-        if body is None:
-            raise ReasoningError(f"Library passage anchor names an unknown body: {body_id}")
-        state, path = body_state(body)
-        if state != "hash-verified" or path is None:
-            raise ReasoningError(f"Library passage anchor body is not hash verified: {body_id}")
-        locator = anchor.get("locator", {})
-        start, end = locator.get("line_start"), locator.get("line_end")
-        if not isinstance(start, int) or not isinstance(end, int) or start < 1 or end < start:
-            raise ReasoningError(f"Library passage anchor has an invalid locator: {anchor.get('passage_id')}")
-        lines = path.read_text(encoding="utf-8").splitlines()
-        excerpt = "\n".join(lines[start - 1:end])
-        digest = hashlib.sha256(excerpt.encode("utf-8")).hexdigest()
-        if digest != anchor.get("raw_span_sha256"):
-            raise ReasoningError(f"Library passage anchor digest mismatch: {anchor.get('passage_id')}")
-        passages.append({
-            "passage_id": anchor.get("passage_id"), "body_id": body_id,
-            "locator": locator, "anchor_summary": anchor.get("anchor_summary"),
-            "supports": anchor.get("supports", []), "raw_span_sha256": digest,
-            "excerpt": excerpt,
-        })
-    if not passages:
-        raise ReasoningError(f"Library profile has no admitted passage anchors: {profile.get('canonical_work_id')}")
-    return passages
-
-
-
-def score_source(source: dict[str, Any], query_tokens: set[str], profiles: list[str], cognitive_preferred: set[str] | None = None) -> int:
-    return source_score_components(source, query_tokens, profiles, cognitive_preferred)["total"]
-
-
 def ranked_sources(question: str, mechanism: str, *, limit: int = 20, profiles: list[str] | None = None, cognitive_preferred: set[str] | None = None) -> list[dict[str, Any]]:
     registry = archive_library.load_registry()
     query_tokens = tokens(f"{question} {mechanism}")
@@ -403,11 +515,11 @@ def family_key(source: dict[str, Any]) -> str:
     return f"{source.get('subject_era', 'unknown')}:{tags[0]}:{source.get('source_type', 'unknown')}"
 
 
-def pre_scan(question: str, mechanism: str, limit: int = 5, cognitive: dict[str, Any] | None = None) -> dict[str, Any]:
+def pre_scan(question: str, mechanism: str, limit: int = 5, cognitive: dict[str, Any] | None = None, constellation_id: str | None = None) -> dict[str, Any]:
     decision = routing_decision(question, mechanism)
-    cognitive = cognitive_inventory(question, mechanism) if cognitive is None else cognitive
-    if cognitive["direct"] and decision["decision"] == "skip":
-        decision = {"decision": "invoke", "profiles": [], "reason": "governed cognitive signature cleared the two-term relevance floor"}
+    cognitive = cognitive_inventory(question, mechanism, constellation_id) if cognitive is None else cognitive
+    if (cognitive["direct"] or cognitive.get("explicit_constellation")) and decision["decision"] == "skip":
+        decision = {"decision": "invoke", "profiles": [], "reason": "governed cognitive selection cleared the relevance floor"}
     families: list[dict[str, Any]] = []
     seen: set[str] = set()
     preferred = set(cognitive["preferred_source_ids"])
@@ -433,7 +545,8 @@ def pre_scan(question: str, mechanism: str, limit: int = 5, cognitive: dict[str,
         "mechanism": mechanism,
         "families": families,
         "family_limit": limit,
-        "passage_retrieval_performed": False,
+        "passage_retrieval_performed": bool(cognitive.get("explicit_constellation")),
+        "constellation": cognitive.get("constellation"),
         "authority_boundary": "Candidate historical families only; Geo-Strategy owns interpretation.",
     }
 
@@ -596,11 +709,11 @@ def representation_gaps(selected: Iterable[dict[str, Any]]) -> list[str]:
     return gaps
 
 
-def geo_packet(run_date: str, crisis_object: str, mechanism: str) -> dict[str, Any]:
+def geo_packet(run_date: str, crisis_object: str, mechanism: str, constellation_id: str | None = None) -> dict[str, Any]:
     query_tokens = tokens(f"{crisis_object} {mechanism}")
     words = TOKEN_RE.findall(f"{crisis_object} {mechanism}".lower())
     query_phrases = {" ".join(words[index:index + 2]) for index in range(len(words) - 1)}
-    cognitive = cognitive_inventory(crisis_object, mechanism)
+    cognitive = cognitive_inventory(crisis_object, mechanism, constellation_id)
     decision = routing_decision(crisis_object, mechanism)
     if (cognitive["direct"] or cognitive.get("explicit_constellation")) and decision["decision"] == "skip":
         decision = {"decision": "invoke", "profiles": [], "reason": "governed cognitive selection cleared the relevance floor"}
@@ -695,7 +808,7 @@ def geo_packet(run_date: str, crisis_object: str, mechanism: str) -> dict[str, A
     packet = {
         "schema_version": "mira-library-geo-pilot-v3",
         "packet_id": "MLGP-" + hashlib.sha256(
-            f"{run_date}|{crisis_object}|{mechanism}".encode("utf-8")
+            f"{run_date}|{crisis_object}|{mechanism}|{constellation_id or ''}".encode("utf-8")
         ).hexdigest()[:16],
         "created_at": datetime.now(timezone.utc).isoformat(),
         "date": run_date,
@@ -706,6 +819,7 @@ def geo_packet(run_date: str, crisis_object: str, mechanism: str) -> dict[str, A
         "selection": selection,
         "score_components": {r["source_id"]: source_score_components(r, query_tokens, decision["profiles"], set(cognitive["preferred_source_ids"])) for r in ranked},
         "routing": decision,
+        "constellation": cognitive.get("constellation"),
         "candidates": candidates,
         "cognitive_context": (
             cognitive["explicit_constellation"]
@@ -806,7 +920,82 @@ def validate_adjudication(packet: dict[str, Any]) -> list[str]:
             failures.append(f"{work_id} has invalid cognitive effects: {', '.join(invalid)}")
         if row.get("nomination_basis") == "comparative-one-hop" and row.get("reviewed_passage_digests"):
             failures.append(f"{work_id} comparative context may not borrow passages")
+        if row.get("nomination_basis") == "explicit-constellation":
+            owned = {item.get("raw_span_sha256") for item in row.get("passages", [])}
+            reviewed = set(row.get("reviewed_passage_digests", []))
+            if reviewed - owned:
+                failures.append(f"{work_id} constellation context may review only its own admitted passages")
+            if disposition in {"used-materially", "used-nonmaterially"} and not reviewed:
+                failures.append(f"{work_id} constellation use must review at least one owned passage")
     return failures
+
+
+def harvest_note_candidates(packet_file: Path, *, check: bool) -> dict[str, Any]:
+    packet = load_json(packet_file)
+    if packet.get("review_state") != "adjudicated":
+        raise ReasoningError("note-candidate harvest requires an adjudicated packet")
+    constellation = packet.get("constellation")
+    if not isinstance(constellation, dict) or not constellation.get("constellation_id"):
+        raise ReasoningError("note-candidate harvest requires an explicit constellation packet")
+    candidates: list[dict[str, Any]] = []
+    for row in packet.get("cognitive_context", []):
+        if row.get("nomination_basis") != "explicit-constellation":
+            continue
+        disposition = {
+            "used-materially": "note-candidate",
+            "used-nonmaterially": "open-question",
+            "rejected": "no-change",
+            "held": "open-question",
+        }.get(row.get("cognitive_disposition"))
+        if disposition not in HARVEST_DISPOSITIONS:
+            raise ReasoningError(f"cannot harvest an unadjudicated cognitive member: {row.get('canonical_work_id')}")
+        reviewed = set(row.get("reviewed_passage_digests", []))
+        supports = [
+            {
+                "passage_id": item.get("passage_id"),
+                "passage_sha256": item.get("raw_span_sha256"),
+                "anchor_summary": item.get("anchor_summary"),
+            }
+            for item in row.get("passages", []) if item.get("raw_span_sha256") in reviewed
+        ]
+        candidates.append({
+            "canonical_work_id": row.get("canonical_work_id"),
+            "note_ref": row.get("note_ref"), "note_sha256": row.get("note_sha256"),
+            "disposition": disposition, "source_support": supports,
+            "case_prompt": {
+                "crisis_object": packet.get("crisis_object"),
+                "provisional_mechanism": packet.get("provisional_mechanism"),
+            },
+            "interpretive_change": {
+                "cognitive_disposition": row.get("cognitive_disposition"),
+                "cognitive_effects": row.get("cognitive_effects", []),
+            },
+            "geo_only_evidence": "The case supplied the prompt and current-event evidence; neither is Library source support or note evidence.",
+            "current_note_state": "unchanged; explicit Library Integration authorship is required",
+        })
+    if len(candidates) != len(constellation.get("member_work_ids", [])):
+        raise ReasoningError("harvest membership does not match the bound constellation")
+    source_packet = artifact_binding(
+        packet_file, role="source-packet", artifact_id=str(packet.get("packet_id"))
+    )
+    harvest = {
+        "schema_version": "mira-library-cognitive-harvest-v2",
+        "harvest_id": "MLCH-" + hashlib.sha256(json.dumps({
+            "source_packet": source_packet, "members": candidates,
+        }, sort_keys=True, separators=(",", ":")).encode("utf-8")).hexdigest()[:16],
+        "source_packet_id": packet.get("packet_id"),
+        "source_packet": source_packet,
+        "artifact_bindings": [source_packet],
+        "lineage_status": "digest-bound",
+        "constellation": constellation,
+        "candidates": candidates,
+        "authority_boundary": "Review candidates only; no note, successor, route, registry change, staging, publication, or action authority is created.",
+    }
+    target = resolve_packet_root() / "harvest" / f"{harvest['harvest_id']}.json"
+    if not check:
+        target.parent.mkdir(parents=True, exist_ok=True)
+        atomic_json_write(target, harvest)
+    return {"status": "ok", "harvest": harvest, "private_packet": None if check else str(target), "written": not check}
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -814,6 +1003,112 @@ def load_json(path: Path) -> dict[str, Any]:
     if not isinstance(value, dict):
         raise ReasoningError(f"expected JSON object: {path}")
     return value
+
+
+def verify_lineage(artifact_file: Path, *, require_digest_bound: bool = False) -> dict[str, Any]:
+    ranks = {"digest-bound": 0, "legacy-id-bound": 1, "missing": 2, "mismatch": 3}
+    nodes: list[dict[str, Any]] = []
+    visited: set[Path] = set()
+
+    def record(path: Path, status: str, detail: str) -> str:
+        nodes.append({"ref": artifact_ref(path), "status": status, "detail": detail})
+        return status
+
+    def combine(statuses: Iterable[str]) -> str:
+        return max(statuses, key=lambda value: ranks[value], default="digest-bound")
+
+    def walk(path: Path, *, root: bool = False) -> str:
+        resolved = path.resolve()
+        if resolved in visited:
+            return "digest-bound"
+        visited.add(resolved)
+        if not resolved.is_file():
+            return record(resolved, "missing", "artifact file is missing")
+        try:
+            value = load_json(resolved)
+        except (OSError, json.JSONDecodeError, ReasoningError) as error:
+            return record(resolved, "mismatch", f"artifact is not a valid JSON object: {error}")
+        schema = str(value.get("schema_version", ""))
+        if schema == "mira-library-cognitive-harvest-v1":
+            return record(resolved, "legacy-id-bound", "harvest carries source_packet_id without a packet digest")
+        bindings = value.get("artifact_bindings")
+        if isinstance(bindings, list) and bindings:
+            statuses: list[str] = []
+            for binding in bindings:
+                failures = validate_artifact_binding(binding, relative_to=resolved.parent)
+                if failures:
+                    status = "missing" if any("is missing" in failure for failure in failures) else "mismatch"
+                    statuses.append(status)
+                    nodes.append({
+                        "ref": str(binding.get("ref")) if isinstance(binding, dict) else "unknown",
+                        "status": status,
+                        "detail": "; ".join(failures),
+                    })
+                    continue
+                bound_path = resolve_artifact_ref(str(binding["ref"]), relative_to=resolved.parent)
+                if bound_path.suffix.lower() != ".json":
+                    statuses.append("digest-bound")
+                    continue
+                child = load_json(bound_path)
+                child_schema = str(child.get("schema_version", ""))
+                if (
+                    child_schema in {
+                        "mira-library-adjudication-receipt-v1",
+                        "mira-library-cognitive-harvest-v1",
+                        "mira-library-cognitive-harvest-v2",
+                    }
+                    or isinstance(child.get("artifact_bindings"), list)
+                    or child.get("source_packet_id")
+                ):
+                    statuses.append(walk(bound_path))
+                else:
+                    statuses.append("digest-bound")
+            if schema == "mira-library-adjudication-receipt-v1":
+                pending = value.get("pending_packet")
+                input_binding = next(
+                    (
+                        item for item in bindings
+                        if isinstance(item, dict) and item.get("role") == "adjudication-input"
+                    ),
+                    None,
+                )
+                if not isinstance(pending, dict) or not isinstance(input_binding, dict):
+                    statuses.append("missing")
+                    nodes.append({
+                        "ref": artifact_ref(resolved),
+                        "status": "missing",
+                        "detail": "receipt lacks pending-packet or adjudication-input binding",
+                    })
+                else:
+                    input_path = resolve_artifact_ref(str(input_binding.get("ref")), relative_to=resolved.parent)
+                    adjudication = load_json(input_path)
+                    declared = adjudication.get("source_packet")
+                    fields = ("artifact_id", "ref", "sha256")
+                    if not isinstance(declared, dict) or any(declared.get(field) != pending.get(field) for field in fields):
+                        statuses.append("mismatch")
+                        nodes.append({
+                            "ref": artifact_ref(resolved),
+                            "status": "mismatch",
+                            "detail": "recorded pending packet does not match the bound adjudication input",
+                        })
+            status = combine(statuses)
+            return record(resolved, status, f"{len(bindings)} digest binding(s) checked")
+        if value.get("source_packet_id"):
+            return record(resolved, "legacy-id-bound", "source packet is identified without a digest binding")
+        if root:
+            return record(resolved, "missing", "artifact declares no lineage bindings")
+        return "digest-bound"
+
+    status = walk(artifact_file, root=True)
+    result_status = "strict-lineage-failed" if require_digest_bound and status != "digest-bound" else status
+    return {
+        "status": result_status,
+        "lineage_status": status,
+        "artifact": artifact_ref(artifact_file),
+        "nodes": nodes,
+        "require_digest_bound": require_digest_bound,
+        "authority_boundary": "Read-only lineage verification; no artifact, route, note, or publication state is changed.",
+    }
 
 
 def feedback_path() -> Path:
@@ -824,7 +1119,9 @@ def cognitive_feedback_path() -> Path:
     return resolve_packet_root() / "learning" / "cognitive-events.jsonl"
 
 
-def append_feedback(packet: dict[str, Any], adjudication: dict[str, Any]) -> int:
+def append_feedback(
+    packet: dict[str, Any], adjudication: dict[str, Any], packet_sha256: str | None = None
+) -> int:
     if packet.get("evaluation_kind") == "retrospective-rehearsal":
         return 0
     path = feedback_path()
@@ -843,7 +1140,9 @@ def append_feedback(packet: dict[str, Any], adjudication: dict[str, Any]) -> int
             "skip_condition_terms": skip_condition_terms,
         }
         routing_digest = hashlib.sha256(json.dumps(observation, sort_keys=True, separators=(",", ":")).encode("utf-8")).hexdigest()
-        event_id = hashlib.sha256(f"{packet.get('packet_id')}|{row.get('source_id')}|{routing_digest}".encode("utf-8")).hexdigest()
+        event_id = hashlib.sha256(
+            f"{packet.get('packet_id')}|{packet_sha256 or ''}|{row.get('source_id')}|{routing_digest}".encode("utf-8")
+        ).hexdigest()
         if event_id in existing_ids:
             continue
         events.append({
@@ -853,6 +1152,7 @@ def append_feedback(packet: dict[str, Any], adjudication: dict[str, Any]) -> int
             "supersedes_event_id": latest.get((packet.get("packet_id"), row.get("source_id")), {}).get("event_id"),
             "observed_at": datetime.now(timezone.utc).isoformat(),
             "packet_id": packet.get("packet_id"),
+            "packet_sha256": packet_sha256,
             "profile_ids": profiles,
             "crisis_signature": packet.get("crisis_signature") or hashlib.sha256(str(packet.get("crisis_object", "")).encode("utf-8")).hexdigest(),
             "source_id": row.get("source_id"),
@@ -870,7 +1170,7 @@ def append_feedback(packet: dict[str, Any], adjudication: dict[str, Any]) -> int
     with path.open("a", encoding="utf-8", newline="\n") as handle:
         for event in events:
             handle.write(json.dumps(event, ensure_ascii=False, separators=(",", ":")) + "\n")
-    return len(events) + append_cognitive_feedback(packet)
+    return len(events) + append_cognitive_feedback(packet, packet_sha256)
 
 
 def read_cognitive_feedback() -> list[dict[str, Any]]:
@@ -888,7 +1188,7 @@ def read_cognitive_feedback() -> list[dict[str, Any]]:
     return rows
 
 
-def append_cognitive_feedback(packet: dict[str, Any]) -> int:
+def append_cognitive_feedback(packet: dict[str, Any], packet_sha256: str | None = None) -> int:
     if packet.get("evaluation_kind") == "retrospective-rehearsal":
         return 0
     rows = read_cognitive_feedback()
@@ -897,6 +1197,7 @@ def append_cognitive_feedback(packet: dict[str, Any]) -> int:
     for row in packet.get("cognitive_context", []):
         payload = {
             "packet_id": packet.get("packet_id"),
+            "packet_sha256": packet_sha256,
             "canonical_work_id": row.get("canonical_work_id"),
             "nomination_basis": row.get("nomination_basis"),
             "matched_positive_signatures": row.get("matched_positive_signatures", []),
@@ -927,6 +1228,51 @@ def append_cognitive_feedback(packet: dict[str, Any]) -> int:
     return len(events)
 
 
+def adjudication_receipt(
+    packet_file: Path,
+    packet: dict[str, Any],
+    adjudication_file: Path,
+    source_packet: dict[str, Any],
+    adjudicated_packet_sha256: str,
+) -> dict[str, Any]:
+    adjudication_input = artifact_binding(
+        adjudication_file, role="adjudication-input"
+    )
+    final_packet = {
+        "role": "adjudicated-packet",
+        "artifact_id": packet.get("packet_id"),
+        "ref": artifact_ref(packet_file),
+        "sha256": adjudicated_packet_sha256,
+    }
+    basis = {
+        "packet_id": packet.get("packet_id"),
+        "source_packet_sha256": source_packet.get("sha256"),
+        "adjudication_input_sha256": adjudication_input.get("sha256"),
+        "adjudicated_packet_sha256": adjudicated_packet_sha256,
+    }
+    receipt_id = "MLAR-" + hashlib.sha256(
+        json.dumps(basis, sort_keys=True, separators=(",", ":")).encode("utf-8")
+    ).hexdigest()[:16]
+    return {
+        "schema_version": "mira-library-adjudication-receipt-v1",
+        "receipt_id": receipt_id,
+        "packet_id": packet.get("packet_id"),
+        "constellation_id": (packet.get("constellation") or {}).get("constellation_id"),
+        "pending_packet": {
+            **source_packet,
+            "role": "pending-packet-prestate",
+            "verification_scope": "recorded pre-adjudication bytes; the selected packet path now contains the adjudicated state",
+        },
+        "artifact_bindings": [adjudication_input, final_packet],
+        "reviewed_passage_digests": {
+            str(row.get("canonical_work_id")): list(row.get("reviewed_passage_digests", []))
+            for row in packet.get("cognitive_context", [])
+        },
+        "lineage_status": "digest-bound",
+        "authority_boundary": "Private adjudication receipt only; no note, route, staging, publication, or action authority is created.",
+    }
+
+
 def adjudicate(packet_file: Path, adjudication_file: Path, *, check: bool) -> dict[str, Any]:
     packet = load_json(packet_file)
     adjudication = load_json(adjudication_file)
@@ -934,6 +1280,17 @@ def adjudicate(packet_file: Path, adjudication_file: Path, *, check: bool) -> di
         if adjudication["evaluation_kind"] not in {"retrospective-rehearsal", "subsequent-use"}:
             raise ReasoningError("unsupported adjudication evaluation_kind")
         packet["evaluation_kind"] = adjudication["evaluation_kind"]
+    if adjudication.get("schema_version") != "mira-library-adjudication-v2":
+        raise ReasoningError("adjudication requires mira-library-adjudication-v2 digest binding")
+    source_packet = adjudication.get("source_packet")
+    binding_failures = validate_artifact_binding(
+        source_packet,
+        expected_path=packet_file,
+        expected_id=str(packet.get("packet_id")),
+        relative_to=adjudication_file.parent,
+    )
+    if binding_failures:
+        raise ReasoningError("adjudication source packet binding invalid: " + "; ".join(binding_failures))
     rows = {row.get("source_id"): row for row in adjudication.get("candidates", [])}
     for candidate in packet.get("candidates", []):
         update = rows.get(candidate.get("source_id"))
@@ -968,11 +1325,30 @@ def adjudicate(packet_file: Path, adjudication_file: Path, *, check: bool) -> di
             failures.append("skip condition requires crisis-object-mismatch on every candidate")
     if failures:
         return {"status": "invalid", "failures": failures, "packet": packet, "written": False}
+    encoded = encoded_json(packet)
+    final_packet_sha256 = hashlib.sha256(encoded).hexdigest()
+    receipt = adjudication_receipt(
+        packet_file, packet, adjudication_file, source_packet, final_packet_sha256
+    )
     events_appended = 0
+    receipt_path: Path | None = None
     if not check:
-        packet_file.write_text(json.dumps(packet, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-        events_appended = append_feedback(packet, adjudication)
-    return {"status": "ok", "failures": [], "packet": packet, "written": not check, "learning_events_appended": events_appended}
+        atomic_json_write(packet_file, packet)
+        if file_sha256(packet_file) != final_packet_sha256:
+            raise ReasoningError("adjudicated packet digest changed during atomic write")
+        receipt_path = packet_file.parent / "reviews" / f"{packet.get('packet_id')}-{receipt['receipt_id']}.json"
+        atomic_json_write(receipt_path, receipt)
+        events_appended = append_feedback(packet, adjudication, final_packet_sha256)
+    return {
+        "status": "ok",
+        "failures": [],
+        "packet": packet,
+        "packet_sha256": final_packet_sha256,
+        "receipt": receipt,
+        "private_receipt": str(receipt_path) if receipt_path else None,
+        "written": not check,
+        "learning_events_appended": events_appended,
+    }
 
 
 def route_review_candidates(*, check: bool) -> dict[str, Any]:
@@ -1244,7 +1620,7 @@ def validate_memory(memory: dict[str, Any]) -> None:
 def atomic_json_write(path: Path, value: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_name(f".{path.name}.{time.time_ns()}.tmp")
-    temporary.write_text(json.dumps(value, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    temporary.write_bytes(encoded_json(value))
     temporary.replace(path)
 
 
@@ -1373,6 +1749,8 @@ def rollback_routing_memory(*, check: bool) -> dict[str, Any]:
 
 def validate_ablation_review(review: dict[str, Any]) -> list[str]:
     failures: list[str] = []
+    if "evaluation_kind" in review and review["evaluation_kind"] not in {"retrospective-rehearsal", "subsequent-use"}:
+        failures.append("invalid evaluation_kind")
     case_id = str(review.get("case_id") or "")
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]{0,119}", case_id):
         failures.append("ablation review requires safe case_id")
@@ -1436,7 +1814,7 @@ def advancement_status() -> dict[str, Any]:
             review = load_json(path)
         except (OSError, json.JSONDecodeError, ReasoningError):
             continue
-        if not validate_ablation_review(review):
+        if not validate_ablation_review(review) and review.get("evaluation_kind") != "retrospective-rehearsal":
             reviews.append(review)
     improved = sum(bool(row.get("materially_improved")) for row in reviews)
     laundering = any(bool(row.get("evidence_laundering_failure")) for row in reviews)
@@ -1461,7 +1839,7 @@ def calibration_status() -> dict[str, Any]:
             row = load_json(path)
         except (OSError, json.JSONDecodeError, ReasoningError):
             continue
-        if not validate_ablation_review(row) and row.get("comparison_phase") in {"baseline", "shadow"}:
+        if not validate_ablation_review(row) and row.get("evaluation_kind") != "retrospective-rehearsal" and row.get("comparison_phase") in {"baseline", "shadow"}:
             reviews.append(row)
 
     def summarize(rows: list[dict[str, Any]]) -> dict[str, Any]:
@@ -1518,11 +1896,13 @@ def parser() -> argparse.ArgumentParser:
     scan = sub.add_parser("pre-scan")
     scan.add_argument("--crisis-object", required=True)
     scan.add_argument("--mechanism", required=True)
+    scan.add_argument("--constellation-id")
     scan.add_argument("--json", action="store_true")
     pilot = sub.add_parser("geo-pilot")
     pilot.add_argument("--date", required=True)
     pilot.add_argument("--crisis-object", required=True)
     pilot.add_argument("--mechanism", required=True)
+    pilot.add_argument("--constellation-id")
     pilot.add_argument("--check", action="store_true")
     pilot.add_argument("--json", action="store_true")
     review = sub.add_parser("adjudicate")
@@ -1530,6 +1910,14 @@ def parser() -> argparse.ArgumentParser:
     review.add_argument("--adjudication", type=Path, required=True)
     review.add_argument("--check", action="store_true")
     review.add_argument("--json", action="store_true")
+    harvest = sub.add_parser("harvest-note-candidates")
+    harvest.add_argument("--packet", type=Path, required=True)
+    harvest.add_argument("--check", action="store_true")
+    harvest.add_argument("--json", action="store_true")
+    lineage = sub.add_parser("verify-lineage")
+    lineage.add_argument("--artifact", type=Path, required=True)
+    lineage.add_argument("--require-digest-bound", action="store_true")
+    lineage.add_argument("--json", action="store_true")
     ablation = sub.add_parser("ablation-review")
     ablation.add_argument("--review", type=Path, required=True)
     ablation.add_argument("--check", action="store_true")
@@ -1569,13 +1957,19 @@ def main(arguments: list[str] | None = None) -> int:
     args = parser().parse_args(arguments)
     try:
         if args.command == "pre-scan":
-            result = pre_scan(args.crisis_object, args.mechanism)
+            result = pre_scan(args.crisis_object, args.mechanism, constellation_id=args.constellation_id)
         elif args.command == "geo-pilot":
-            packet = geo_packet(args.date, args.crisis_object, args.mechanism)
+            packet = geo_packet(args.date, args.crisis_object, args.mechanism, args.constellation_id)
             target = None if args.check else save_private_packet(packet)
             result = {"status": "ok", "packet": packet, "private_packet": str(target) if target else None, "written": target is not None}
         elif args.command == "adjudicate":
             result = adjudicate(args.packet, args.adjudication, check=args.check)
+        elif args.command == "harvest-note-candidates":
+            result = harvest_note_candidates(args.packet, check=args.check)
+        elif args.command == "verify-lineage":
+            result = verify_lineage(
+                args.artifact, require_digest_bound=args.require_digest_bound
+            )
         elif args.command == "ablation-review":
             result = record_ablation_review(args.review, check=args.check)
         elif args.command == "advancement-status":
@@ -1598,7 +1992,7 @@ def main(arguments: list[str] | None = None) -> int:
         print(f"library reasoning error: {error}", file=os.sys.stderr)
         return 1
     print(json.dumps(result, indent=2, ensure_ascii=False) if getattr(args, "json", False) else result)
-    allowed = {"ok", "pilot-pass", "pilot-incomplete-or-failed", "calibration-incomplete-or-failed", "shadow-pass", "insufficient-evidence", "no-active-memory", "no-rollback-version"}
+    allowed = {"ok", "digest-bound", "legacy-id-bound", "missing", "pilot-pass", "pilot-incomplete-or-failed", "calibration-incomplete-or-failed", "shadow-pass", "insufficient-evidence", "no-active-memory", "no-rollback-version"}
     return 0 if result.get("status", "ok") in allowed else 1
 
 

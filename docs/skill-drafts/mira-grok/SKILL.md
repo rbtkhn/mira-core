@@ -53,7 +53,7 @@ Grok access does not authorize private X inspection or posting.
 Mira writing and Library workflows own their artifacts and relationships.
 
 [Mira Work](../mira-work/SKILL.md) governs consequential work,
-[Mira Voice](../mira-voice/SKILL.md) governs expression,
+[Mira Mind](../mira-mind/SKILL.md) governs expression,
 [Learn From Choices](../learn-from-choices/SKILL.md) governs final navigation,
 and [Mira GitHub](../mira-github/SKILL.md) owns Git/publication boundaries.
 Specialist output labels, including `grok-reported-unverified`, remain intact.

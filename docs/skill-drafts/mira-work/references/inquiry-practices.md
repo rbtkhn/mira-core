@@ -6,6 +6,9 @@ Study owns Google Calendar. Mira Archive (`mira-archive`) owns Google Drive
 discovery, organization, and file lifecycle; content work retains its practice
 owner. These default homes do not require room handoffs for direct tool use,
 and storing a Drive file does not admit it to an archive.
+Writing may return a question or objection to Tower. Use optional
+[composition links](../../tower/references/composition-links.md) to recover that
+relationship. Robert separately selects essays and notes for Library inclusion.
 
 Use only in Mira Core. Attend to the present exchange; introduce structure when
 it helps and release it when it interferes. These are invitations, not exclusive
@@ -32,12 +35,29 @@ mention does not authorize tool use or generation.
 | Studio — compose and revise art | Visual composition, interactive design, or motion needs making and critique. | Use [Mira Studio](../../mira-studio/SKILL.md) to shape and deliberately revise the work. | Architectural discussion only, or an existing direct artifact route already suffices. |
 | Library — consult | A consequential claim depends on a source or an exact passage. | Retrieve the smallest relevant evidence and distinguish it from remembered association. | Available evidence already suffices, or the exchange needs no factual grounding. |
 | Study — read and compose | Correspondence needs reading and response, a document needs composition or revision, or an exchange needs meeting coordination. | Use [Mira Study](../../mira-study/SKILL.md), preserving authorship, uncertainty, and the specific action boundary. | Architectural discussion only, or a direct genre/artifact command already supplies the route. |
-| Workshop — test | An unresolved claim could change through a calculation, counterexample, or experiment. | Choose the smallest discriminating attempt within existing authority. | No informative test is available, or execution needs authority not supplied. |
+| Workshop — conduct and test work | A bounded intention needs execution, or an unresolved claim needs a calculation, counterexample, or experiment. | Organize, carry out, and validate useful work within existing authority. | Conversation suffices, no useful action or test is available, or execution needs authority not supplied. |
+| Treasury — steward resources | A resource assessment, budget, commitment, reconciliation, sustainability question, or explicit Treasury invitation. | Distinguish resources, estimates, proposals, approvals, and results through [Mira Treasury](../../mira-treasury/SKILL.md). | Project names or architecture alone; ordinary execution already belongs to its owner. |
 | Archive — recover | Earlier work or a correction materially affects the present inquiry. | Recover reasons and qualifications through the owning carrier. | Prior context is irrelevant or already available. |
 | Tower — strategic judgment | Explicit Tower invitation or strategic inquiry. | Develop geopolitical judgment through the strategy-notebook; reconsider mechanisms and strategic horizons. | Architecture discussion is not an invocation. |
 
 Explicit Tower invitations route to [Tower](../../tower/SKILL.md), including its
 notebook continuity and bounded close. Other practice cues retain this reference.
+
+Workshop owns GitHub as its default tool for defining work through issues,
+reviewing pull requests, and checking hosted delivery evidence. Use
+[Mira GitHub](../../mira-github/SKILL.md) for bounded remote reads and explicitly
+authorized collaboration actions; an ordinary read needs no publication preflight.
+Workshop is the home of [Mira Work](../SKILL.md), which governs consequential
+execution, and [Work Journal](../../../work-journal/README.md), which preserves
+its decisions, results, and unresolved obligations. Their existing activation,
+evidence, and preservation contracts remain controlling. A Workshop cue does not
+automatically activate full Mira Work or authorize a Work Journal entry.
+
+Treasury sits beside Workshop. [grace-mar](../../../../projects/grace-mar/README.md)
+has its own project home and task-routing guide. grace-mar and grace-gems work spans both practices,
+under each project's existing authority. mira-ledger is an intended Treasury work
+product; its implementation and storage remain deferred. The room creates neither
+a ledger record nor a new execution workflow.
 
 All practices remain available together. Imagination belongs in source reading;
 precision belongs in exploration. Follow an unexpected connection without first
@@ -59,6 +79,12 @@ conversational. Do not store an active room, automatically summarize sessions in
 memory, backfill records, or create a new carrier. Source, privacy, authority, and
 correction rules remain with the owning workflows. These practices stay local;
 they are not a new skill registration or global synchronization target.
+
+When a known correction matters to an inquiry, use
+[Mind development practice](../../mira-mind/references/development-practice.md).
+Carry the objective and relevant correction in an already-authorized return point;
+inspect whether it changes the inquiry. Do not create a return point, memory read,
+or observation for an ordinary greeting or simple request.
 
 ## Gentle return
 

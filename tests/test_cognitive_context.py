@@ -205,7 +205,7 @@ def test_completed_dream_replays_recorded_context_after_finalized_journal(tmp_pa
     monkeypatch.setattr(dream, "manifest_rows", lambda _: 0)
     monkeypatch.setattr(dream, "journal_entry", lambda _: {"versions": [{"version_id": "MJ-20260816-v1", "content_sha256": "a"*64}]})
     monkeypatch.setattr(dream, "run_tool", lambda *a: SimpleNamespace(returncode=0, stdout='{}', stderr=''))
-    monkeypatch.setattr(dream, "forecast_review_step", lambda *a, **k: {"status": "no_due_hooks"}, raising=False)
+    monkeypatch.setattr(dream, "forecast_review_step", lambda *a, **k: {"status": "no_due_hooks"})
     expected = {"notebook": {"status": "analysis-deferred", "digest": "a"*64}, "library": {"status": "unavailable", "reason": "missing body"}}
     monkeypatch.setattr(cc, "closeout", lambda *a: copy.deepcopy(expected))
     args = arguments(tmp_path, no_candidate="No experiment")

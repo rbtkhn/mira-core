@@ -10,28 +10,21 @@ from typing import Any, Iterable
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 GLOB_TOKENS = "*?["
-RETIRED_PROJECT_PATHS = frozenset(['projects/grace-gems/README.md', 'projects/grace-gems/admission-matrix.md', 'projects/grace-mar/ottoman-rugs/README.md', 'projects/lab/README.md', 'projects/media-production/README.md'])
+RETIRED_PROJECT_PATHS = frozenset(['projects/grace-gems/README.md', 'projects/grace-gems/admission-matrix.md', 'projects/ottoman-rugs/README.md', 'projects/lab/README.md', 'projects/media-production/README.md'])
 MANUAL_PROJECT_RECONCILIATION_CHECK = (
     "Verify exact retired-path removal and preserved starting bytes; retain project owners, "
     "repair active navigation, and do not admit privately preserved material."
 )
 
-MANUAL_LEARNING_CORE_CHECK = (
-    "Review Learning Core privacy, attribution, educational claims, hypothetical examples, "
-    "and guardian/teacher/clinical/institutional authority. Keep templates blank and "
-    "completed family records outside Git. Verify all 60 pinned source dispositions. "
-    "Ready is not approval; plan and parent changes must agree; activity is not proof "
-    "of mastery. No inherited commercial terms, learner facts, or operational authority. "
-    "Check exact candidate dependencies; neighboring records remain unapproved."
-)
-MANUAL_WORK_JOURNAL_CHECK = (
-    "Validate Work Journal source-linked decisions, temporal accuracy, attribution, "
-    "privacy, separation of completion from effectiveness, unresolved obligations, "
-    "authority effect none, and preservation of owning records and historical references."
-)
 MANUAL_NOTE_CHECK = (
     "Validate note lifecycle/status, privacy, provenance, authority effect, and "
     "absence of credentials or restricted source bodies through mira-notes."
+)
+MANUAL_LETTER_CHECK = (
+    "Validate letter sender, recipients, lifecycle/status, unsent or delivery disposition, "
+    "privacy, provenance, attribution, links, version chain, authority effect, and "
+    "absence of credentials or restricted source bodies through mira-letters. "
+    "Repository staging or commit does not authorize sending or external commitments."
 )
 MANUAL_LIBRARY_COGNITIVE_NOTE_CHECK = (
     "Validate Library cognitive-note authorship, template order, admitted-body dependency "
@@ -51,10 +44,10 @@ MANUAL_MIRA_JOURNAL_CHECK = (
     "reference integrity, continuity-index coherence, privacy boundary, and "
     "absence of research-evidence or publication-authority promotion."
 )
-MANUAL_DEV_JOURNAL_CHECK = (
-    "Validate Dev Journal neutral engineering voice, rationale focus, authority "
-    "effect none, and separation from Mira selfhood, audits, tests, evidence, "
-    "publication, and workflow authority."
+MANUAL_WORK_JOURNAL_CHECK = (
+    "Validate Work Journal source-linked decisions, temporal accuracy, attribution, "
+    "privacy, separation of completion from effectiveness, unresolved obligations, "
+    "authority effect none, and preservation of owning records and historical references."
 )
 MANUAL_GRACE_GEMS_CHECK = (
     "Validate Grace Gems provenance, privacy exclusions, stewardship-versus-ownership "
@@ -67,7 +60,6 @@ MANUAL_GRACE_MAR_CHECK = (
     "project-owner authority. Verify links against the exact admission candidate; "
     "other Grace Mar files are not covered by this route."
 )
-
 MANUAL_OTTOMAN_RUGS_CHECK = (
     "Validate Ottoman Rugs orientation against dated, attributed sources: keep "
     "supplier evidence private, requested terms separate from agreed terms, "
@@ -75,7 +67,6 @@ MANUAL_OTTOMAN_RUGS_CHECK = (
     "preview distinct from operating storefront. Preserve human approval and "
     "launch boundaries; no neighboring files are covered."
 )
-
 MANUAL_PROJECT_ORIENTATION_CHECK = (
     "Review the complete exact project orientation, including pre-existing content: "
     "verify source attribution, privacy, owner authority, and prepared-versus-executed "
@@ -83,7 +74,6 @@ MANUAL_PROJECT_ORIENTATION_CHECK = (
     "control dependencies; never admit a linked body merely to satisfy a link. "
     "A navigation repair does not admit earlier project work or neighboring files."
 )
-
 MANUAL_MOUNTAIN_VILLA_CHECK = (
     "Review Mountain Villa source attribution, privacy exclusions, and owner/professional "
     "authority. Keep current templates blank, examples hypothetical, and upstream "
@@ -91,7 +81,34 @@ MANUAL_MOUNTAIN_VILLA_CHECK = (
     "operating activation, or inherited role authority may be inferred. Confirm "
     "private completed records stay outside Git and all source dispositions are accounted for."
 )
-
+MANUAL_MOUNTAIN_VILLA_CHECK = (
+    "Review Mountain Villa source attribution, privacy exclusions, and owner/professional "
+    "authority. Keep current templates blank, examples hypothetical, and upstream "
+    "decisions historical. No property facts, sale targets, validated safety model, "
+    "operating activation, or inherited role authority may be inferred. Confirm "
+    "private completed records stay outside Git and all source dispositions are accounted for."
+)
+MANUAL_PROJECT_ORIENTATION_CHECK = (
+    "Review the complete exact project orientation, including pre-existing content: "
+    "verify source attribution, privacy, owner authority, and prepared-versus-executed "
+    "pilot status. Classify local-only/private references separately from publishable "
+    "control dependencies; never admit a linked body merely to satisfy a link. "
+    "A navigation repair does not admit earlier project work or neighboring files."
+)
+MANUAL_LEARNING_CORE_CHECK = (
+    "Review Learning Core privacy, attribution, educational claims, hypothetical examples, "
+    "and guardian/teacher/clinical/institutional authority. Keep templates blank and "
+    "completed family records outside Git. Verify all 60 pinned source dispositions. "
+    "Ready is not approval; plan and parent changes must agree; activity is not proof "
+    "of mastery. No inherited commercial terms, learner facts, or operational authority. "
+    "Check exact candidate dependencies; neighboring records remain unapproved."
+)
+MANUAL_MENTORSHIP_ARTIFACT_CHECK = (
+    "Validate mentorship purpose, learner authority, privacy, provenance, developmental "
+    "claims, task-versus-mentorship closure, communication boundaries, and absence of "
+    "credentials, restricted source bodies, external commitments, legal/financial advice, "
+    "or unsupported capability claims through mira-mentor."
+)
 MANUAL_NARRATIVE_GEOPOLITICS_CHECK = (
     "Validate Narrative Geopolitics provenance, source/voice routing, bounded-analysis "
     "posture, verification boundaries, and absence of unsupported public factual use."
@@ -414,13 +431,6 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
         path = "narrative-geopolitics/" + path.removeprefix("geopolitics/")
     if path.startswith(("archive/sessions/transcripts/", "archive/sessions/daily/")):
         raise RoutingError("Private session payloads cannot be admitted to Git")
-    if path == "docs/work-journal/README.md":
-        return {
-            "owner": "work-journal",
-            "validation_class": "domain-governed",
-            "commands": [],
-            "manual_checks": [MANUAL_WORK_JOURNAL_CHECK],
-        }
     if path in RETIRED_WORKTREE_POINTERS:
         if not _retired_worktree_pointer(path, repo_root):
             raise RoutingError("only absent tracked worktree pointers may be retired: " + path)
@@ -467,20 +477,50 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
             "manual_checks": [MANUAL_PROJECT_ORIENTATION_CHECK],
         }
     if path in {
-        "projects/mountain-villa/README.md",
-        "projects/mountain-villa/intake.md",
-        "projects/mountain-villa/operating-review.md",
-        "projects/mountain-villa/risk-register.md",
-        "projects/mountain-villa/decision-log.md",
-        "projects/mountain-villa/preparation-plan.md",
-        "projects/mountain-villa/creative-interface.md",
-        "projects/mountain-villa/source-map.md",
+        "projects/grace-mar/mountain-villa/README.md",
+        "projects/grace-mar/mountain-villa/intake.md",
+        "projects/grace-mar/mountain-villa/operating-review.md",
+        "projects/grace-mar/mountain-villa/risk-register.md",
+        "projects/grace-mar/mountain-villa/decision-log.md",
+        "projects/grace-mar/mountain-villa/preparation-plan.md",
+        "projects/grace-mar/mountain-villa/creative-interface.md",
+        "projects/grace-mar/mountain-villa/source-map.md",
     }:
         return {
             "owner": "mountain-villa/stewardship",
             "validation_class": "domain-governed",
             "commands": ["tools/run.ps1 test --path tests/test_publication_validation.py"],
             "manual_checks": [MANUAL_MOUNTAIN_VILLA_CHECK],
+        }
+    if path in {
+        "projects/grace-mar/mountain-villa/README.md",
+        "projects/grace-mar/mountain-villa/intake.md",
+        "projects/grace-mar/mountain-villa/operating-review.md",
+        "projects/grace-mar/mountain-villa/risk-register.md",
+        "projects/grace-mar/mountain-villa/decision-log.md",
+        "projects/grace-mar/mountain-villa/preparation-plan.md",
+        "projects/grace-mar/mountain-villa/creative-interface.md",
+        "projects/grace-mar/mountain-villa/source-map.md",
+    }:
+        return {
+            "owner": "mountain-villa/stewardship",
+            "validation_class": "domain-governed",
+            "commands": ["tools/run.ps1 test --path tests/test_publication_validation.py"],
+            "manual_checks": [MANUAL_MOUNTAIN_VILLA_CHECK],
+        }
+    project_orientation_owners = {
+        "projects/README.md": "projects/index",
+        "projects/lab/README.md": "projects/lab-orientation",
+        "projects/media-production/README.md": "projects/media-production-orientation",
+    }
+    if path in project_orientation_owners:
+        return {
+            "owner": project_orientation_owners[path],
+            "validation_class": "domain-governed",
+            "commands": [
+                "tools/run.ps1 test --path tests/test_publication_validation.py"
+            ],
+            "manual_checks": [MANUAL_PROJECT_ORIENTATION_CHECK],
         }
     project_orientation_owners = {
         "projects/README.md": "projects/index",
@@ -505,7 +545,7 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
             ],
             "manual_checks": [MANUAL_GRACE_MAR_CHECK],
         }
-    if path == "projects/ottoman-rugs/README.md":
+    if path == "projects/grace-mar/ottoman-rugs/README.md":
         return {
             "owner": "ottoman-rugs/orientation",
             "validation_class": "domain-governed",
@@ -525,6 +565,13 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
             "validation_class": "domain-governed",
             "commands": [],
             "manual_checks": [MANUAL_GRACE_GEMS_CHECK],
+        }
+    if path.startswith("artifacts/mentorship/"):
+        return {
+            "owner": "mira-mentor/artifacts",
+            "validation_class": "domain-governed",
+            "commands": [],
+            "manual_checks": [MANUAL_MENTORSHIP_ARTIFACT_CHECK],
         }
     if _registered_library_note(path, repo_root=repo_root):
         return _library_validation_route(cognitive_note=True)
@@ -555,6 +602,13 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
                 "tools/run.ps1 test --path tests/test_youtube_capture.py",
             ],
             "manual_checks": [MANUAL_YOUTUBE_CAPTURE_CHECK],
+        }
+    if path.startswith("archive/letters/"):
+        return {
+            "owner": "mira-letters",
+            "validation_class": "domain-governed",
+            "commands": [],
+            "manual_checks": [MANUAL_LETTER_CHECK],
         }
     if path.startswith("archive/notes/"):
         return {
@@ -773,12 +827,12 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
                 "decision thresholds, and separation between evaluation and mutation authority."
             ],
         }
-    if path.startswith("docs/dev-journal/"):
+    if path.startswith(("docs/work-journal/", "docs/dev-journal/")):
         return {
-            "owner": "dev-journal",
+            "owner": "work-journal",
             "validation_class": "repo-structural",
             "commands": ["tools/run.ps1 test --path tests/test_publication_validation.py"],
-            "manual_checks": [MANUAL_DEV_JOURNAL_CHECK],
+            "manual_checks": [MANUAL_WORK_JOURNAL_CHECK],
         }
     if (
         path.startswith("archive/library/")

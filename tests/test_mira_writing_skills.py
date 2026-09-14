@@ -1,4 +1,5 @@
 from pathlib import Path
+from repository_paths import SIMULATION_ROOT, resolve_repository_path
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -53,7 +54,7 @@ def test_mira_writing_storage_is_separated() -> None:
     assert not (ROOT / "mira" / "letters").exists()
     assert not (ROOT / "mira" / "reflections").exists()
 
-    history = ROOT / "archive" / "notes" / "2026-08-15-from-civilization-memory-to-mira-core.md"
+    history = resolve_repository_path(ROOT, "archive/notes/2026-08-15-from-civilization-memory-to-mira-core.md")
     essay = ROOT / "archive" / "essays" / "2026-08-15-the-responsible-custody-of-inheritance.md"
     assert history.is_file()
     assert essay.is_file()
@@ -89,7 +90,7 @@ def test_authored_archive_shelves_have_parallel_genre_ownership() -> None:
 
 def test_innermost_loop_paths_follow_notes_migration() -> None:
     governed = (
-        ROOT / "archive" / "notes" / "innermost-loop-simulation" / "protocol.json"
+        ROOT / SIMULATION_ROOT / "protocol.json"
     ).read_text(encoding="utf-8")
     implementation = (ROOT / "scripts" / "innermost_loop_simulation.py").read_text(
         encoding="utf-8"
@@ -97,5 +98,5 @@ def test_innermost_loop_paths_follow_notes_migration() -> None:
 
     assert "archive/notes/innermost-loop-simulation" in governed
     assert "mira/reflections" not in governed
-    assert "archive/notes/innermost-loop-simulation" in implementation
+    assert "resolve_repository_path(REPO_ROOT, SIMULATION_ROOT)" in implementation
     assert "mira/reflections" not in implementation

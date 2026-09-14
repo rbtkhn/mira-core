@@ -53,6 +53,9 @@ def test_fixture_inventory_covers_normal_edge_failure_and_ambiguous_cases() -> N
         encoding="utf-8"
     )
     expected = (
+        "MGH-REPAIR-01",
+        "MGH-REPAIR-02",
+        "MGH-REPAIR-03",
         "MGH-NORMAL-01",
         "MGH-NORMAL-02",
         "MGH-NORMAL-03",

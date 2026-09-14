@@ -70,6 +70,10 @@ def emit(payload: dict, output_format: str) -> None:
 
 
 def main(arguments: list[str] | None = None) -> int:
+    values = list(sys.argv[1:] if arguments is None else arguments)
+    if values and values[0] == "contextual":
+        import contextual_asr
+        return contextual_asr.main(values[1:])
     args = parse_args(arguments)
     try:
         plan = engine.build_plan(

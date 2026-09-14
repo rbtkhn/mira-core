@@ -603,3 +603,127 @@ def test_strategy_notebook_library_pressure_requires_registered_refs_and_safegua
 
     assert "daily artifact Library reference does not resolve: LIB-MISSING" in failures
     assert any("lacks safeguard fields: LIB-GROTIUS" in item for item in failures)
+    assert any("requires a reviewed operational route id: LIB-GROTIUS" in item for item in failures)
+
+
+def test_strategy_notebook_accepts_only_eligible_bound_operational_route(
+    monkeypatch, tmp_path: Path
+) -> None:
+    configure_fixture(monkeypatch, tmp_path, complete_sources_text())
+    library = tmp_path / "archive" / "library"
+    integrations = library / "integrations"
+    integrations.mkdir(parents=True)
+    (library / "library-registry.json").write_text(
+        json.dumps(
+            {
+                "sources": [
+                    {
+                        "source_id": "LIB-GROTIUS",
+                        "text_bodies": [
+                            {"body_id": "LIB-GROTIUS-LATIN", "status": "available"}
+                        ],
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    route = {
+        "route_id": "MIRA-ROUTE-GROTIUS-OPEN-ACCESS-COERCION",
+        "library_refs": ["LIB-GROTIUS", "LIB-GROTIUS-LATIN"],
+        "mechanism_signatures": ["maritime_access_order"],
+        "notebook_eligibility": "eligible",
+        "ineligibility_reasons": [],
+    }
+    (integrations / "route-index.json").write_text(
+        json.dumps({"routes": [route]}), encoding="utf-8"
+    )
+    notebook = (
+        tmp_path
+        / "narrative-geopolitics"
+        / "work"
+        / "daily"
+        / "2026-07-09"
+        / "strategy-notebook.md"
+    )
+    notebook.write_text(
+        "\n".join(
+            [
+                "## Library Pressure Test",
+                "",
+                "| Route ID | Library Ref | Mechanism Signature | Disposition | Shared Mechanism | Structural Difference | Rejection Condition | Effect On Estimate | Boundary |",
+                "| --- | --- | --- | --- | --- | --- | --- | --- | --- |",
+                "| `MIRA-ROUTE-GROTIUS-OPEN-ACCESS-COERCION` | `LIB-GROTIUS-LATIN` | maritime_access_order | narrowed | access order | modern law and operating control differ | reject without evidence of arranged access | lowers confidence in neutral-law framing | no present-fact verification |",
+            ]
+        ),
+        encoding="utf-8",
+    )
+
+    assert validator.historical_pressure_failures("2026-07-09") == []
+
+    route["notebook_eligibility"] = "ineligible"
+    route["ineligibility_reasons"] = ["route-review-provisional"]
+    (integrations / "route-index.json").write_text(
+        json.dumps({"routes": [route]}), encoding="utf-8"
+    )
+    failures = validator.historical_pressure_failures("2026-07-09")
+    assert any("route is not Notebook-eligible" in item for item in failures)
+
+
+def test_strategy_notebook_rejects_route_binding_and_signature_mismatch(
+    monkeypatch, tmp_path: Path
+) -> None:
+    configure_fixture(monkeypatch, tmp_path, complete_sources_text())
+    library = tmp_path / "archive" / "library"
+    integrations = library / "integrations"
+    integrations.mkdir(parents=True)
+    (library / "library-registry.json").write_text(
+        json.dumps(
+            {
+                "sources": [
+                    {"source_id": "LIB-GROTIUS", "text_bodies": []},
+                    {"source_id": "LIB-OTHER", "text_bodies": []},
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    (integrations / "route-index.json").write_text(
+        json.dumps(
+            {
+                "routes": [
+                    {
+                        "route_id": "MIRA-ROUTE-GROTIUS-INTERESTED-UNIVERSAL",
+                        "library_refs": ["LIB-GROTIUS"],
+                        "mechanism_signatures": ["maritime_access_order"],
+                        "notebook_eligibility": "eligible",
+                        "ineligibility_reasons": [],
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    notebook = (
+        tmp_path
+        / "narrative-geopolitics"
+        / "work"
+        / "daily"
+        / "2026-07-09"
+        / "strategy-notebook.md"
+    )
+    notebook.write_text(
+        "\n".join(
+            [
+                "## Library Pressure Test",
+                "",
+                "| Route ID | Library Ref | Mechanism Signature | Disposition | Shared Mechanism | Structural Difference | Rejection Condition | Effect On Estimate | Boundary |",
+                "| --- | --- | --- | --- | --- | --- | --- | --- | --- |",
+                "| `MIRA-ROUTE-GROTIUS-INTERESTED-UNIVERSAL` | `LIB-OTHER` | logistics_as_strategy | adopted | access order | modern law differs | reject without arranged access | changes estimate | no present-fact verification |",
+            ]
+        ),
+        encoding="utf-8",
+    )
+    failures = validator.historical_pressure_failures("2026-07-09")
+    assert any("does not bind Library ref: LIB-OTHER" in item for item in failures)
+    assert any("does not authorize mechanism signature: logistics_as_strategy" in item for item in failures)

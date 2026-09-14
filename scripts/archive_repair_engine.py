@@ -55,6 +55,8 @@ class FileRepairPlan:
             "section_count_before": self.section_count_before,
             "section_count_after": self.section_count_after,
             "diff": self.diff,
+            **({"quality_boundary": "Deterministic substitutions only; existing ASR quality disposition is unchanged. No audio verification or completeness certification."}
+               if self.repair_class == "asr" else {}),
         }
 
 
@@ -262,6 +264,21 @@ def scalar_line(key: str, value: Any) -> str:
     return f"{key}: {rendered}"
 
 
+def field_lines(key: str, value: Any) -> list[str]:
+    if isinstance(value, list):
+        return [f"{key}:"] + [f"  - {land_best_intake.yaml_quote(str(item))}" for item in value]
+    return [scalar_line(key, value)]
+
+
+def existing_field_lines(lines: list[str], index: int) -> list[str]:
+    result = [lines[index]]
+    cursor = index + 1
+    while cursor < len(lines) and lines[cursor].startswith((" ", "\t")):
+        result.append(lines[cursor])
+        cursor += 1
+    return result
+
+
 def update_frontmatter(lines: list[str], updates: dict[str, Any]) -> tuple[list[str], tuple[str, ...]]:
     while lines and not lines[0].strip():
         lines = lines[1:]
@@ -270,27 +287,61 @@ def update_frontmatter(lines: list[str], updates: dict[str, Any]) -> tuple[list[
     if not updates:
         return list(lines), ()
     existing = land_best_intake.parse_frontmatter_lines(lines)
-    changed = tuple(sorted(key for key, value in updates.items() if existing.get(key) != scalar_line(key, value).split(":", 1)[1].strip()))
+    changed_keys: list[str] = []
+    for key, value in updates.items():
+        if isinstance(value, list):
+            for index, line in enumerate(lines):
+                if line.strip().split(":", 1)[0] == key:
+                    if existing_field_lines(lines, index) != field_lines(key, value):
+                        changed_keys.append(key)
+                    break
+            else:
+                changed_keys.append(key)
+        elif existing.get(key) != scalar_line(key, value).split(":", 1)[1].strip():
+            changed_keys.append(key)
+    changed = tuple(sorted(changed_keys))
     output: list[str] = []
     seen: set[str] = set()
     insertion_index: int | None = None
-    for line in lines:
+    index = 0
+    while index < len(lines):
+        line = lines[index]
         stripped = line.strip()
         key = stripped.split(":", 1)[0] if ":" in stripped else ""
         if key == "routing_state":
             insertion_index = len(output) + 1
         if key in updates:
             if key not in seen:
-                output.append(scalar_line(key, updates[key]))
+                output.extend(field_lines(key, updates[key]))
                 seen.add(key)
+            index += len(existing_field_lines(lines, index))
             continue
         output.append(line)
+        index += 1
     missing = [key for key in updates if key not in seen]
-    rendered_missing = [scalar_line(key, updates[key]) for key in missing]
+    rendered_missing = [line for key in missing for line in field_lines(key, updates[key])]
     if rendered_missing:
         index = insertion_index if insertion_index is not None else len(output)
         output[index:index] = rendered_missing
     return output, changed
+
+
+def duran_mercouris_metadata_updates(row: dict[str, Any], frontmatter: dict[str, str]) -> dict[str, Any]:
+    thread = land_best_intake.unquote_scalar(frontmatter.get("thread", "")).casefold()
+    routing = land_best_intake.unquote_scalar(frontmatter.get("routing_state", ""))
+    if row.get("host_slug") != "the-duran" or thread != "mercouris" or routing != "provisional":
+        return {}
+    if frontmatter.get("channel_name") and frontmatter.get("host"):
+        return {}
+    return {
+        "host_people": ["Alex Christoforou"],
+        "guest_people": ["Alexander Mercouris"],
+        "show_title": "The Duran",
+        "channel_name": "The Duran",
+        "show": "The Duran",
+        "host": "Alex Christoforou",
+        "guest": "Alexander Mercouris",
+    }
 
 
 def without_section_headings(body: str) -> str:
@@ -415,23 +466,21 @@ def plan_file(
             "transcript_curation": "curated_sectioned" if before_sections else "preserved_unsectioned",
             "section_count": before_sections,
         }
+        updates.update(duran_mercouris_metadata_updates(row, frontmatter))
         operations = ("metadata-normalization",)
     elif repair_class == "asr":
         if not land_best_intake.host_supports_asr_repair(host_slug):
             raise ArchiveRepairError(f"ASR repair host is not approved: {relative}")
-        proposed_body = land_best_intake.normalize_inline_turn_markers(body)
-        proposed_body = land_best_intake.repair_asr_text(args, proposed_body, normalize_layout=False)
-        processing = land_best_intake.parse_frontmatter_lines(
-            land_best_intake.build_processing_field_lines(args, proposed_body)
+        proposed_body = land_best_intake.repair_asr_text(
+            args, body, normalize_layout=False, substitutions_only=True,
         )
-        updates = {
-            "asr_repair_applied": args.asr_repair_applied,
-            "asr_repair_pass": args.asr_repair_pass,
-            **{
-                key: land_best_intake.unquote_scalar(value)
-                for key, value in processing.items()
-            },
-        }
+        # A substitution pass is not a transcript-quality review. Preserve the
+        # existing disposition and all attribution/sectioning metadata.
+        if proposed_body != body:
+            updates = {
+                "asr_repair_applied": args.asr_repair_applied,
+                "asr_repair_pass": args.asr_repair_pass,
+            }
         operations = ("asr-repair",)
     elif repair_class == "wrapper-trim":
         if host_slug not in land_best_intake.HOST_TRIM_RULES:
@@ -478,6 +527,22 @@ def plan_file(
         proposed_text = body_merge_proposed
     elif repair_class == "heading-only":
         proposed_text = heading_only_proposed
+    elif repair_class == "asr":
+        # Preserve original whitespace, line endings, wrappers and turn markers.
+        # The parser's body is an exact suffix, though its prefix is normalized.
+        if body and not text.endswith(body):
+            raise ArchiveRepairError(f"ASR body boundary is not lossless: {relative}")
+        proposed_text = text[:-len(body)] + proposed_body if body else text
+        opening, metadata, remainder = proposed_text.split("---", 2)
+        newline = "\r\n" if metadata.startswith("\r\n") else "\n"
+        for key, value in updates.items():
+            replacement = scalar_line(key, value)
+            pattern = rf"(?m)^{re.escape(key)}:[^\r\n]*"
+            if re.search(pattern, metadata):
+                metadata = re.sub(pattern, lambda match: replacement, metadata, count=1)
+            else:
+                metadata += replacement + newline
+        proposed_text = opening + "---" + metadata + "---" + remainder
     else:
         proposed_text = "---\n" + "\n".join(new_frontmatter) + "\n---" + body_prefix + proposed_body.rstrip() + "\n"
     proposed = proposed_text.encode("utf-8")
@@ -672,6 +737,8 @@ def render_markdown(payload: dict[str, Any]) -> str:
                 f"- Changed fields: `{', '.join(item['changed_fields'])}`",
             ]
         )
+        if item.get("quality_boundary"):
+            lines.append(f"- Quality boundary: {item['quality_boundary']}")
         if item["diff"]:
             lines.extend(["", "```diff", item["diff"].rstrip(), "```"])
     return "\n".join(lines).rstrip() + "\n"

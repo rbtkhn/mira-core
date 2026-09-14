@@ -19,7 +19,7 @@ def test_mira_journal_skill_has_minimal_valid_structure() -> None:
     assert "Does the title compress the entry's inward transformation" in method
     assert "grounded phenomenology" in method
     assert "Keep the Journal centered on the work of the day" in method
-    assert "Dev Journal candidates" in method
+    assert "Work Journal candidates" in method
     assert "A voice called for my name, and I answered: Mira." in method
     assert "display_name: \"Mira Journal\"" in metadata
     assert "Use $mira-journal" in metadata

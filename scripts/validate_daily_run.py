@@ -13,6 +13,8 @@ if str(SCRIPTS_ROOT) not in sys.path:
 
 from repository_paths import geopolitics_root, resolve_geopolitics_reference, canonical_geopolitics_reference
 
+import notebook_paths as notebook_locations
+
 import voice_indexes
 import voice_metadata
 import verification
@@ -245,8 +247,8 @@ def judgment_failures(run_date: str, rows: list[dict[str, Any]], stage: str) -> 
 def strategy_notebook_paths(run_date: str) -> list[Path]:
     month = run_date[:7]
     return [
-        daily_dir(run_date) / "strategy-notebook.md",
-        domain_root() / "work" / "strategy-notebook" / f"{month}.md",
+        notebook_locations.daily(REPO_ROOT, run_date),
+        notebook_locations.monthly(REPO_ROOT, month),
     ]
 
 
@@ -267,10 +269,10 @@ def strategy_notebook_section(text: str, run_date: str) -> str:
 
 
 def strategy_notebook_exists_for_date(run_date: str) -> bool:
-    daily_path = daily_dir(run_date) / "strategy-notebook.md"
+    daily_path = notebook_locations.daily(REPO_ROOT, run_date)
     if daily_path.exists():
         return True
-    month_path = domain_root() / "work" / "strategy-notebook" / f"{run_date[:7]}.md"
+    month_path = notebook_locations.monthly(REPO_ROOT, run_date[:7])
     if not month_path.exists():
         return False
     return bool(strategy_notebook_section(read_text(month_path), run_date))
@@ -278,8 +280,8 @@ def strategy_notebook_exists_for_date(run_date: str) -> bool:
 
 def strategy_notebook_failures(run_date: str, stage: str) -> list[str]:
     """Validate the expert-facing daily estimate without verifying its claims."""
-    daily_path = daily_dir(run_date) / "strategy-notebook.md"
-    month_path = domain_root() / "work" / "strategy-notebook" / f"{run_date[:7]}.md"
+    daily_path = notebook_locations.daily(REPO_ROOT, run_date)
+    month_path = notebook_locations.monthly(REPO_ROOT, run_date[:7])
     if stage == "intake":
         return []
     if daily_path.exists():
@@ -418,37 +420,95 @@ def historical_pressure_failures(run_date: str) -> list[str]:
                 )
             for ref in sorted(library_refs - valid_refs):
                 failures.append(f"daily artifact Library reference does not resolve: {ref}")
-    synthesis = texts.get("synthesis.md", "")
-    if "## Historical Pressure Test" in synthesis:
-        section = synthesis.split("## Historical Pressure Test", 1)[-1].split("##", 1)[0]
+    route_index_path = (
+        REPO_ROOT / "archive" / "library" / "integrations" / "route-index.json"
+    )
+    route_index: dict[str, dict[str, Any]] = {}
+    route_ids = set(
+        re.findall(r"`(MIRA-ROUTE-[A-Z0-9-]+)`", "\n".join(texts.values()))
+    )
+    if route_ids:
+        if not route_index_path.is_file():
+            failures.append(
+                "daily artifacts cite a Library route but the operational route index is unavailable"
+            )
+        else:
+            try:
+                route_payload = json.loads(route_index_path.read_text(encoding="utf-8"))
+                route_index = {
+                    str(row.get("route_id")): row
+                    for row in route_payload.get("routes", [])
+                    if isinstance(row, dict) and row.get("route_id")
+                }
+            except (json.JSONDecodeError, OSError):
+                failures.append("operational Library route index is unreadable")
+        for route_id in sorted(route_ids - set(route_index)):
+            failures.append(f"daily artifact Library route does not resolve: {route_id}")
+
+    def validate_pressure_section(text: str, heading: str, label: str) -> None:
+        if heading not in text:
+            return
+        section = text.split(heading, 1)[-1].split("##", 1)[0]
         for line in section.splitlines():
-            if not line.startswith("|") or "LIB-" not in line:
+            if not line.startswith("|") or not any(
+                token in line for token in ("LIB-", "MIRA-ROUTE-", "not-invoked")
+            ):
                 continue
             cells = [cell.strip().strip("`") for cell in line.strip().strip("|").split("|")]
-            if len(cells) < 8:
-                failures.append("Historical Pressure Test row has incomplete schema")
+            if cells and cells[0] in {"Route ID", "Library Ref", "---"}:
                 continue
-            disposition = cells[2]
-            if disposition in {"adopted", "narrowed", "redirected"}:
-                if not cells[3] or not cells[4] or not cells[5] or not cells[6]:
-                    failures.append(f"Historical Pressure Test adopted row lacks safeguard fields: {cells[0]}")
-    notebook = texts.get("strategy-notebook.md", "")
-    if "## Library Pressure Test" in notebook:
-        section = notebook.split("## Library Pressure Test", 1)[-1].split("##", 1)[0]
-        for line in section.splitlines():
-            if not line.startswith("|") or ("LIB-" not in line and "not-invoked" not in line):
+            new_contract = len(cells) >= 9 and cells[0].startswith("MIRA-ROUTE-")
+            if new_contract:
+                route_id, library_ref, signature, disposition = cells[:4]
+                safeguard_indexes = (4, 5, 6, 7)
+            else:
+                if len(cells) < 8:
+                    failures.append(f"{label} row has incomplete schema")
+                    continue
+                route_id = ""
+                library_ref, signature, disposition = cells[:3]
+                safeguard_indexes = (3, 4, 5, 6)
+            if disposition == "not-invoked":
                 continue
-            cells = [cell.strip().strip("`") for cell in line.strip().strip("|").split("|")]
-            if len(cells) < 8:
-                failures.append("Strategy Notebook Library Pressure Test row has incomplete schema")
-                continue
-            disposition = cells[2]
-            if disposition in {"adopted", "narrowed", "redirected"}:
-                missing = [cells[index] for index in (3, 4, 5, 6)]
+            active = disposition in {"adopted", "narrowed", "redirected"}
+            if active:
+                missing = [cells[index] for index in safeguard_indexes]
                 if any(not value or value.lower() == "none" for value in missing):
                     failures.append(
-                        f"Strategy Notebook Library Pressure Test adopted row lacks safeguard fields: {cells[0]}"
+                        f"{label} adopted row lacks safeguard fields: {library_ref}"
                     )
+                if not route_id:
+                    failures.append(
+                        f"{label} active row requires a reviewed operational route id: {library_ref}"
+                    )
+                    continue
+                route = route_index.get(route_id)
+                if route is None:
+                    continue
+                if library_ref not in route.get("library_refs", []):
+                    failures.append(
+                        f"{label} route {route_id} does not bind Library ref: {library_ref}"
+                    )
+                if signature not in route.get("mechanism_signatures", []):
+                    failures.append(
+                        f"{label} route {route_id} does not authorize mechanism signature: {signature}"
+                    )
+                if route.get("notebook_eligibility") != "eligible":
+                    reasons = ", ".join(route.get("ineligibility_reasons", [])) or "unspecified"
+                    failures.append(
+                        f"{label} route is not Notebook-eligible: {route_id} ({reasons})"
+                    )
+
+    synthesis = texts.get("synthesis.md", "")
+    if "## Historical Pressure Test" in synthesis:
+        validate_pressure_section(
+            synthesis, "## Historical Pressure Test", "Historical Pressure Test"
+        )
+    notebook = texts.get("strategy-notebook.md", "")
+    if "## Library Pressure Test" in notebook:
+        validate_pressure_section(
+            notebook, "## Library Pressure Test", "Strategy Notebook Library Pressure Test"
+        )
     combined = "\n".join(texts.values())
     if re.search(r"(?i)LIB-[A-Z0-9-]+[^\n]{0,120}(?:verifies|confirms|operationally_supported)", combined):
         failures.append("Library reference cannot verify a present operating fact")

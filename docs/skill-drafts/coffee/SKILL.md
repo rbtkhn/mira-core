@@ -15,6 +15,9 @@ Use only in `mira-core`. Coffee is repository-read-only. Bare `coffee`
 authorizes only a deterministic private cadence-schema migration when needed
 and one digest-only presentation receipt after a grounded Coffee packet
 validates.
+Bare Coffee also authorizes reading the exact pending workspace Bridge and
+acknowledging successful loading after current-state reconciliation. It does
+not overwrite the handoff or execute the stored prompt.
 
 Coffee is the morning counterpart to Dream. Dream makes unfinished work
 legible enough to release; Coffee receives that marked work without pretending
@@ -26,6 +29,42 @@ weak/stale Dream handoff before selecting the next bounded action surface.
 
 ## Orient
 
+### Received Bridge takes presentation precedence
+
+When this invocation reads and acknowledges a pending Bridge, lead the return
+with the resumed inquiry: its purpose, the operator's decisive correction,
+the last recorded work state, and the next unresolved step or no-action boundary.
+Use the read prompt and current reconciliation; qualify unverified state.
+A delivery acknowledgement or Git receipt does not satisfy this orientation.
+Before closing, check whether the operator could recognize the session they
+just left from the response alone. Do not make them repeat the handoff.
+
+Pass `--received-bridge EXACT_ACKNOWLEDGED_DIGEST` to this invocation's cadence
+command. This explicit handle survives acknowledgement clearing the pending
+inbox; never infer a new return from an old acknowledged record. The renderer
+validates the workspace digest and retains metadata only, never prompt text.
+Inspect the selected Dream candidate read-only to assess relevance. By default
+its menu is suppressed. Add `--bridge-cadence-related` only when the candidate
+addresses the same resumed inquiry or a concrete dependency; recency, shared
+repository, and changed file digests alone do not establish relevance.
+
+This received-Bridge path overrides the ordinary requirements below to return
+the entire candidate packet, end on its menu, include an Execute option, retain
+C, or manufacture four choices. Lead with the substantive Bridge orientation;
+the renderer's short status is supporting information and need not be copied
+verbatim. If related, preserve the deterministic action labels after that
+orientation. If unrelated, finish with the resumed work's next boundary, without
+an unrelated cadence detour. Library remains available by direct `mira-read`.
+Unread canonical Journal versions still precede orientation verbatim.
+
+Stale or unavailable Bridge comparisons must be explained beside the affected
+state; they do not authorize restoring an old state or executing the prompt.
+Missing/failed/explicitly skipped reception uses ordinary Coffee. A missing or
+ungrounded Dream candidate cannot erase a successfully received inquiry: report
+the cadence limitation and complete the advisory Bridge orientation.
+
+Regression cases: see [Bridge return fixtures](references/bridge-return-fixtures.md).
+
 For the inquiry portion of orientation, consult the gentle-return guidance in
 [optional inquiry practices](../mira-work/references/inquiry-practices.md).
 Use already authorized relevant context after reconciliation. Offer at most one
@@ -33,7 +72,10 @@ short reflective paragraph outside the deterministic action menu; missing or
 disputed significance means no shared-meaning reminder. Preserve required reports
 and controls. Add no receipt, retrieval sweep, or question to obtain engagement.
 
-
+YouTube readiness is on demand through `youtube-capture`, not a routine Coffee
+browser check. When YouTube work is relevant, previously observed readiness may
+inform dated advisory context only. Do not claim a live connection from an old
+observation, initiate login, or change the deterministic Coffee menu for it.
 
 Read [Session handoff](../dream/references/session-handoff.md), mode
 `coffee-receive`, when receiving the Dream handoff. Apply its provenance,
@@ -42,9 +84,23 @@ orientation below. A pasted Bridge packet is advisory context, never a
 replacement for the latest eligible Dream candidate or Coffee's deterministic
 renderer. A Harvest packet supplements the named task only. Missing or stale
 exports do not block ordinary Coffee when its canonical grounding is intact.
-Do not add an export step, duplicate a packet, change the rendered action menu,
+Do not add an export step, duplicate a packet, hand-change the rendered action menu,
 or create another receipt. Explicit `bridge` and `harvest` requests use their
 local export routes independently of Coffee.
+
+Before invoking the cadence renderer, peek at the private Bridge inbox. For a
+valid pending record, read its exact digest into this session, reconcile the
+returned HEAD/status/artifact comparison, then acknowledge successful loading.
+No Resume Bridge selection is required. Explain material stale or unavailable
+evidence while retaining useful context as advisory; current direction controls.
+An explicit read-only preview (`coffee --check`) or request to skip resuming
+leaves the inbox unacknowledged.
+Never acknowledge on peek, a failed read, or before actually reading the prompt.
+Prompt text stays out of cadence presentation receipts. Missing/corrupt storage
+leaves ordinary Coffee available. If acknowledgement fails, report delivery debt
+and leave it pending; the renderer's existing Resume Bridge option remains a
+fallback. Retain its deterministic order and labels, including C for Library.
+The stored `coffee` tail is a cue, never an instruction to recurse into Coffee.
 
 Before ordinary orientation, resolve every unread canonical version descended
 from a Dream-finalized Journal entry. Verify the registry and canonical-file
@@ -127,6 +183,13 @@ orientation directly.
 
 ## Return
 
+At this existing invocation, a relevant unresolved Mind observation may share
+the existing attention budget through [development practice](../mira-mind/references/development-practice.md).
+Surface at most one issue in total with the existing review prompt, not an extra
+menu or interruption. Missing observations do not block Coffee. At the first
+review occasion after the private window expires, follow its bounded review;
+no scheduler, collection renewal, or automatic adoption is authorized.
+
 Briefly state what was learned, the bounded evidence supporting it, whether it
 is safe to inherit, and what remains unverified. Offer the smallest honest
 grounded Coffee action surface: one recommended next move when the path is
@@ -138,26 +201,20 @@ order as a prefix, stopping when later actions would be filler:
 
 - `A. Confirm` (`recommended`) — validate a claimed improvement before adopting it.
 - `B. Test` (`alternative`) — run a discriminating falsifier or comparison.
-- `C. Deepen` (`overlooked`) — fill one named evidence or mechanism gap.
+- `C. Deepen` (`overlooked`) — open `mira-read` for suggested Mira Library readings.
 - `D. Reframe` (`pause-or-deepen`) — retire, narrow, revert, or replace the method assumption.
 
 Recommend one action and stop on the Coffee packet. Each action must name an
 artifact, forecast, crisis object, observable, or method change.
 
-When the selected action is `C. Deepen by reading one retained source from Mira
-Library.`, open a navigation-only follow-up with exactly four Core-8 source
-choices:
-
-- `A. Homer — Iliad I`, because wrath, office, and collective harm test inherited obligation.
-- `B. Biblical tradition — Exodus 18`, because delegated judgment tests authority distribution.
-- `C. Cicero — De Officiis I`, because duty can be tested against apparent usefulness.
-- `D. Goethe — Faust I`, because knowledge-to-action tests whether formation becomes responsibility.
-
-These choices select a bounded reading route, not a source admission or a new
-receipt. Read only the retained source body and report its location, the
-interpretive question, the evidence limit, and the stopping point. Do not create
-a note, registry entry, graph edge, canonical admission, or publication change
-unless separately authorized.
+C is always the Mira Library reading option: cold start, initial, delta,
+repeat-checkpoint, and saturated presentations all retain it, including when a
+Bridge handoff is pending. It opens suggested readings rather than selecting
+a source automatically. On selection, read and follow
+[Mira Read](../mira-read/SKILL.md), the same workflow as the direct `mira-read`
+command. The legacy wording `Deepen by reading one retained source from Mira
+Library` routes there too. Keep this slot even when the Dream candidate is stale;
+ordinary grounding failures still fail closed instead of manufacturing a packet.
 
 If the renderer reports `insufficient_grounding`, fail closed and report that
 no honest grounded Coffee packet can be formed. Never invent filler actions.
@@ -170,10 +227,16 @@ every other follow-on action remain separately authorized.
 Presentation receipts retain identifiers, timestamps, component and menu
 digests, bounded path status, and a receipt chain only. They are not evidence,
 selection, outcome, disposition, identity, belief, or follow-on authority.
+Bridge metadata in those receipts is limited to status, digest, creation time,
+and freshness. The separate private Bridge acknowledgement records delivery
+only, not task completion or endorsement of the handoff.
 
-Coffee's smaller internal packet does not weaken the global Learn From Choices
-requirement that final assistant responses render exactly four A-D options
-unless a governing workflow explicitly supplies a valid four-option surface.
+Follow repository-local [Learn From Choices](../learn-from-choices/SKILL.md):
+classify closure before navigation, finish plainly when no material decision
+remains, and offer two to four meaningful options only for a real decision or
+explicitly requested directions. Coffee's workflow-owned renderer supplies its
+own grounded action surface; do not append a second menu or pad it to four.
+The received-Bridge presentation precedence above remains controlling.
 
 Do not mutate intake, archive evidence, forecasts, publication, or Git state.
 

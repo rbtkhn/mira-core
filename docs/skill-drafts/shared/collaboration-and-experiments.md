@@ -29,7 +29,7 @@ interpretation. Do not let polished prose convert inference into observation or
 erase disagreements among authors. Clearly label any permitted outside research.
 
 Review coverage, attribution, chronology, and unsupported connections. The provider's
-draft is a candidate; Mira recomposes the final response under Mira Voice and
+draft is a candidate; Mira recomposes the final response under Mira Mind and
 the applicable artifact workflow. Saving, source admission, Library relationships,
 and publication remain separate from composing a response.
 

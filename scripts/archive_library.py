@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Any, Iterable, Mapping
 
 from portable_paths import require_private_path, state_path
+import library_integration
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -60,6 +61,36 @@ LICENSE_STATUSES = {
 }
 TEXT_EXTENSIONS = {".txt", ".md", ".xml"}
 BODY_STATUSES = {"available", "verified", "needs-review"}
+MEDIATION_TYPES = {
+    "original-language",
+    "translation",
+    "editorial-rendering",
+    "ocr",
+    "unknown",
+}
+MEDIATION_FIELD_STATUSES = {"known", "unknown", "not-applicable"}
+MEDIATION_SCHEMA = "mira-library-mediation-v1"
+TEXT_RELATION_KINDS = {"original-language", "translation", "bilingual", "unknown"}
+TEXT_RELATION_STATUSES = {"known", "partial", "unknown"}
+MEDIATION_LAYER_KINDS = {
+    "translation",
+    "critical-edition",
+    "selection",
+    "abridgment",
+    "annotation",
+    "editorial-framing",
+    "transcription",
+    "scan",
+    "ocr",
+    "normalization",
+    "correction",
+    "digital-rendering",
+    "file-conversion",
+    "packaging",
+    "unknown",
+}
+MEDIATION_LAYER_STATUSES = {"known", "partial", "unknown"}
+REVISION_RELEVANCE_VALUES = {"interpretive", "textual-integrity", "carrier-only"}
 TEXT_CHROME_PATTERNS = (
     re.compile(r"^Jump to (navigation|search)$", re.IGNORECASE),
     re.compile(r"^Search (Swaveda|Wikisource)$", re.IGNORECASE),
@@ -209,7 +240,7 @@ def single_body_from_source(source: Mapping[str, Any]) -> Mapping[str, Any] | No
     status = text(source.get("text_status"))
     if status not in {"available", "verified"}:
         return None
-    return {
+    body = {
         "body_id": text(source.get("source_id")),
         "work_title": text(source.get("title")),
         "text_location": source.get("text_location"),
@@ -224,6 +255,10 @@ def single_body_from_source(source: Mapping[str, Any]) -> Mapping[str, Any] | No
         "license_notes": source.get("license_notes"),
         "status": status,
     }
+    for field in ("mediation_type", "translator_status", "editor_status", "mediation"):
+        if field in source:
+            body[field] = source.get(field)
+    return body
 
 
 def all_text_bodies(source: Mapping[str, Any]) -> list[Mapping[str, Any]]:
@@ -279,11 +314,17 @@ def source_text(source: Mapping[str, Any]) -> str:
         "language",
         "translator",
         "editor",
+        "mediation_type",
+        "translator_status",
+        "editor_status",
         "edition_label",
         "license_status",
         "license_notes",
     ):
         parts.append(text(source.get(key)))
+    source_mediation = source.get("mediation")
+    if isinstance(source_mediation, Mapping):
+        parts.append(json.dumps(source_mediation, ensure_ascii=True, sort_keys=True))
     for body in source_text_bodies(source):
         for key in (
             "body_id",
@@ -294,6 +335,9 @@ def source_text(source: Mapping[str, Any]) -> str:
             "language",
             "translator",
             "editor",
+            "mediation_type",
+            "translator_status",
+            "editor_status",
             "edition_label",
             "license_status",
             "license_notes",
@@ -301,6 +345,9 @@ def source_text(source: Mapping[str, Any]) -> str:
             "coverage_notes",
         ):
             parts.append(text(body.get(key)))
+        mediation = body.get("mediation")
+        if isinstance(mediation, Mapping):
+            parts.append(json.dumps(mediation, ensure_ascii=True, sort_keys=True))
     for key in ("civilization_tags", "secondary_eras"):
         value = source.get(key, [])
         if isinstance(value, list):
@@ -315,6 +362,216 @@ def source_text(source: Mapping[str, Any]) -> str:
             else:
                 parts.append(text(value))
     return " ".join(part for part in parts if part).casefold()
+
+
+def mediation_legacy_projection(mediation: Mapping[str, Any]) -> dict[str, str]:
+    relation = mediation.get("text_relation", {})
+    relation_kind = text(relation.get("kind")) if isinstance(relation, Mapping) else "unknown"
+    layers = mediation.get("primary_path", [])
+    layer_rows = [row for row in layers if isinstance(row, Mapping)] if isinstance(layers, list) else []
+    layer_kinds = {text(row.get("kind")) for row in layer_rows}
+    if "editorial-framing" in layer_kinds:
+        mediation_type = "editorial-rendering"
+    elif "translation" in layer_kinds:
+        mediation_type = "translation"
+    elif "ocr" in layer_kinds:
+        mediation_type = "ocr"
+    elif relation_kind == "original-language":
+        mediation_type = "original-language"
+    else:
+        mediation_type = "unknown"
+
+    def person_projection(role: str) -> tuple[str, str]:
+        matching_agents: list[Mapping[str, Any]] = []
+        for layer in layer_rows:
+            agents = layer.get("agents", [])
+            if isinstance(agents, list):
+                matching_agents.extend(
+                    agent
+                    for agent in agents
+                    if isinstance(agent, Mapping) and text(agent.get("role")) == role
+                )
+        known_names = sorted({
+            text(agent.get("name"))
+            for agent in matching_agents
+            if text(agent.get("status")) == "known" and text(agent.get("name"))
+        })
+        unresolved = any(text(agent.get("status")) != "known" for agent in matching_agents)
+        if known_names and not unresolved:
+            return "; ".join(known_names), "known"
+        if matching_agents:
+            return "", "unknown"
+        if role == "translator" and relation_kind == "original-language":
+            return "", "not-applicable"
+        return "", "unknown"
+
+    translator, translator_status = person_projection("translator")
+    editor, editor_status = person_projection("editor")
+    edition_identity = mediation.get("edition_identity", {})
+    edition_label = text(edition_identity.get("label")) if isinstance(edition_identity, Mapping) else ""
+    return {
+        "mediation_type": mediation_type,
+        "translator": translator,
+        "translator_status": translator_status,
+        "editor": editor,
+        "editor_status": editor_status,
+        "edition_label": edition_label,
+    }
+
+
+def default_mediation_record(body_id: str, body: Mapping[str, Any]) -> dict[str, Any]:
+    mediation_type = text(body.get("mediation_type")) or "unknown"
+    body_language = text(body.get("language"))
+    translator = text(body.get("translator"))
+    translator_status = text(body.get("translator_status")) or ("known" if translator else "unknown")
+    editor = text(body.get("editor"))
+    editor_status = text(body.get("editor_status")) or ("known" if editor else "unknown")
+    if mediation_type == "translation" or translator:
+        relation_kind = "translation"
+        relation_status = "partial"
+        source_languages: list[str] = []
+    elif mediation_type == "original-language":
+        relation_kind = "original-language"
+        relation_status = "known" if body_language else "partial"
+        source_languages = [body_language] if body_language else []
+    else:
+        relation_kind = "unknown"
+        relation_status = "unknown"
+        source_languages = []
+
+    layer_specs: list[tuple[str, str, str, str, str]] = []
+    if mediation_type == "translation":
+        layer_specs.append(("translation", "interpretive", "translator", translator, translator_status))
+    elif mediation_type == "editorial-rendering":
+        layer_specs.append(("editorial-framing", "interpretive", "editor", editor, editor_status))
+    elif mediation_type == "ocr":
+        layer_specs.append(("ocr", "textual-integrity", "ocr-provider", "", "unknown"))
+    else:
+        layer_specs.append(("unknown", "textual-integrity", "unknown", "", "unknown"))
+    primary_path = []
+    for sequence, (kind, relevance, role, name, status) in enumerate(layer_specs, start=1):
+        primary_path.append({
+            "layer_id": f"MED-{body_id}-{sequence:02d}",
+            "sequence": sequence,
+            "kind": kind,
+            "status": "known" if kind != "unknown" else "unknown",
+            "revision_relevance": relevance,
+            "agents": [{"role": role, "name": name, "status": status}],
+            "scope": "Admitted text body",
+        })
+    unresolved_questions = []
+    if relation_kind == "translation" and not source_languages:
+        unresolved_questions.append("Source language is not yet recorded.")
+    if mediation_type == "unknown":
+        unresolved_questions.append("Upstream edition and transformation lineage remain unresolved.")
+    return {
+        "schema_version": MEDIATION_SCHEMA,
+        "text_relation": {
+            "kind": relation_kind,
+            "source_languages": source_languages,
+            "body_language": body_language,
+            "status": relation_status,
+        },
+        "edition_identity": {
+            "label": text(body.get("edition_label")),
+            "status": "known" if text(body.get("edition_label")) else "unknown",
+        },
+        "primary_path": primary_path,
+        "lineage_graph_ref": None,
+        "unresolved_questions": unresolved_questions,
+    }
+
+
+def validate_mediation_record(mediation: Any, body: Mapping[str, Any], label: str) -> list[str]:
+    failures: list[str] = []
+    if not isinstance(mediation, Mapping):
+        return [f"{label} mediation must be an object"]
+    if mediation.get("schema_version") != MEDIATION_SCHEMA:
+        failures.append(f"{label} mediation has invalid schema_version: {mediation.get('schema_version')}")
+    relation = mediation.get("text_relation")
+    if not isinstance(relation, Mapping):
+        failures.append(f"{label} mediation text_relation must be an object")
+    else:
+        relation_kind = text(relation.get("kind"))
+        relation_status = text(relation.get("status"))
+        source_languages = relation.get("source_languages")
+        if relation_kind not in TEXT_RELATION_KINDS:
+            failures.append(f"{label} mediation has invalid text relation kind: {relation.get('kind')}")
+        if relation_status not in TEXT_RELATION_STATUSES:
+            failures.append(f"{label} mediation has invalid text relation status: {relation.get('status')}")
+        if not isinstance(source_languages, list) or any(not text(item) for item in source_languages):
+            failures.append(f"{label} mediation source_languages must be an array of non-blank strings")
+        if text(relation.get("body_language")) != text(body.get("language")):
+            failures.append(f"{label} mediation body_language must match body language")
+    edition_identity = mediation.get("edition_identity")
+    if not isinstance(edition_identity, Mapping):
+        failures.append(f"{label} mediation edition_identity must be an object")
+    else:
+        if text(edition_identity.get("status")) not in TEXT_RELATION_STATUSES:
+            failures.append(f"{label} mediation has invalid edition identity status: {edition_identity.get('status')}")
+        if text(edition_identity.get("label")) != text(body.get("edition_label")):
+            failures.append(f"{label} mediation edition label must match body edition_label")
+    primary_path = mediation.get("primary_path")
+    if not isinstance(primary_path, list) or not primary_path:
+        failures.append(f"{label} mediation primary_path must be a non-empty array")
+        primary_path = []
+    layer_ids: set[str] = set()
+    expected_sequences = list(range(1, len(primary_path) + 1))
+    actual_sequences: list[Any] = []
+    for layer in primary_path:
+        if not isinstance(layer, Mapping):
+            failures.append(f"{label} mediation layer must be an object")
+            continue
+        layer_id = text(layer.get("layer_id"))
+        if not layer_id:
+            failures.append(f"{label} mediation layer has blank layer_id")
+        elif layer_id in layer_ids:
+            failures.append(f"{label} mediation has duplicate layer_id: {layer_id}")
+        layer_ids.add(layer_id)
+        actual_sequences.append(layer.get("sequence"))
+        if text(layer.get("kind")) not in MEDIATION_LAYER_KINDS:
+            failures.append(f"{label} mediation layer {layer_id} has invalid kind: {layer.get('kind')}")
+        if text(layer.get("status")) not in MEDIATION_LAYER_STATUSES:
+            failures.append(f"{label} mediation layer {layer_id} has invalid status: {layer.get('status')}")
+        if text(layer.get("revision_relevance")) not in REVISION_RELEVANCE_VALUES:
+            failures.append(f"{label} mediation layer {layer_id} has invalid revision_relevance: {layer.get('revision_relevance')}")
+        if not isinstance(layer.get("scope"), str) or not text(layer.get("scope")):
+            failures.append(f"{label} mediation layer {layer_id} requires non-blank scope")
+        agents = layer.get("agents")
+        if not isinstance(agents, list):
+            failures.append(f"{label} mediation layer {layer_id} agents must be an array")
+            continue
+        for agent in agents:
+            if not isinstance(agent, Mapping):
+                failures.append(f"{label} mediation layer {layer_id} agent must be an object")
+                continue
+            role = text(agent.get("role"))
+            name = text(agent.get("name"))
+            status = text(agent.get("status"))
+            if not role:
+                failures.append(f"{label} mediation layer {layer_id} agent requires a role")
+            if status not in MEDIATION_FIELD_STATUSES:
+                failures.append(f"{label} mediation layer {layer_id} agent has invalid status: {agent.get('status')}")
+            if status == "known" and not name:
+                failures.append(f"{label} mediation layer {layer_id} known agent requires a name")
+            if status in {"unknown", "not-applicable"} and name:
+                failures.append(f"{label} mediation layer {layer_id} unresolved agent requires blank name")
+    if actual_sequences != expected_sequences:
+        failures.append(f"{label} mediation layer sequence must be contiguous and ordered from 1")
+    graph_ref = mediation.get("lineage_graph_ref")
+    if graph_ref is not None and (not isinstance(graph_ref, str) or not text(graph_ref)):
+        failures.append(f"{label} mediation lineage_graph_ref must be null or a non-blank string")
+    unresolved = mediation.get("unresolved_questions")
+    if not isinstance(unresolved, list) or any(not isinstance(item, str) or not text(item) for item in unresolved):
+        failures.append(f"{label} mediation unresolved_questions must be an array of non-blank strings")
+    projection = mediation_legacy_projection(mediation)
+    for field, expected in projection.items():
+        if text(body.get(field)) != expected:
+            failures.append(
+                f"{label} legacy {field} does not match canonical mediation projection: "
+                f"expected {expected!r}, got {text(body.get(field))!r}"
+            )
+    return failures
 
 
 def validate_text_body(body: Any, source_label: str, seen_body_ids: set[str], index: int) -> list[str]:
@@ -353,6 +610,36 @@ def validate_text_body(body: Any, source_label: str, seen_body_ids: set[str], in
     for field in ("language", "translator", "editor", "edition_label", "license_notes", "coverage_notes"):
         if field in body and body.get(field) is not None and not isinstance(body.get(field), str):
             failures.append(f"{label} {field} must be a string or null")
+    mediation_fields = ("mediation_type", "translator_status", "editor_status")
+    if any(field in body for field in mediation_fields):
+        for field in mediation_fields:
+            if field not in body:
+                failures.append(f"{label} mediation seal missing field: {field}")
+        mediation_type = text(body.get("mediation_type"))
+        if mediation_type not in MEDIATION_TYPES:
+            failures.append(f"{label} has invalid mediation_type: {body.get('mediation_type')}")
+        for field in ("translator_status", "editor_status"):
+            value = text(body.get(field))
+            if value not in MEDIATION_FIELD_STATUSES:
+                failures.append(f"{label} has invalid {field}: {body.get(field)}")
+        translator = text(body.get("translator"))
+        translator_status = text(body.get("translator_status"))
+        editor = text(body.get("editor"))
+        editor_status = text(body.get("editor_status"))
+        if translator and translator_status != "known":
+            failures.append(f"{label} named translator requires translator_status known")
+        if translator_status == "known" and not translator:
+            failures.append(f"{label} translator_status known requires a named translator")
+        if translator_status == "not-applicable" and translator:
+            failures.append(f"{label} translator_status not-applicable requires blank translator")
+        if editor and editor_status != "known":
+            failures.append(f"{label} named editor requires editor_status known")
+        if editor_status == "known" and not editor:
+            failures.append(f"{label} editor_status known requires a named editor")
+        if editor_status == "not-applicable" and editor:
+            failures.append(f"{label} editor_status not-applicable requires blank editor")
+    if "mediation" in body:
+        failures.extend(validate_mediation_record(body.get("mediation"), body, label))
     return failures
 
 
@@ -422,6 +709,9 @@ def validate_source(source: Any, seen: set[str], index: int) -> list[str]:
         for field in ("text_location", "text_sha256", "text_bytes", "text_encoding", "license_status"):
             if field not in source or source.get(field) is None or (isinstance(source.get(field), str) and not source.get(field).strip()):
                 failures.append(f"{label} text_status {text_status} requires {field}")
+        single_body = single_body_from_source(source)
+        if single_body is not None:
+            failures.extend(validate_text_body(single_body, label, set(), 1))
     bodies = source.get("text_bodies", [])
     if bodies is not None:
         if not isinstance(bodies, list):
@@ -480,6 +770,7 @@ def validate_scaffold(repo_root: Path | None = None) -> list[str]:
     except LibraryError as error:
         return [str(error)]
     failures.extend(validate_registry(registry))
+    failures.extend(library_integration.validate_repository(root.parent.parent, registry))
     text_sources_index = root / "text-sources-index.md"
     if text_sources_index.is_file() and text_sources_index.read_text(encoding="utf-8") != render_text_sources_index(registry):
         failures.append(f"library text sources index is stale: {relative(text_sources_index)}")
@@ -1151,8 +1442,6 @@ def admit_text_command(args: argparse.Namespace) -> dict[str, Any]:
     resolved_text_root = text_root.resolve()
     if not private_text_root_allowed(resolved_text_root):
         raise LibraryError(f"library text root must remain outside Git: {resolved_text_root}")
-    if not args.check:
-        resolved_text_root = ensure_private_text_root(text_root)
     registry = load_registry()
     failures = validate_registry(registry)
     if failures:
@@ -1166,6 +1455,30 @@ def admit_text_command(args: argparse.Namespace) -> dict[str, Any]:
         data.decode(args.encoding)
     except (LookupError, UnicodeDecodeError) as error:
         raise LibraryError(f"text is not readable as {args.encoding}") from error
+    body_record = {
+        "body_id": body_id,
+        "work_title": work_title,
+        "text_location": text_uri(target, resolved_text_root),
+        "text_sha256": hashlib.sha256(data).hexdigest(),
+        "text_bytes": len(data),
+        "text_encoding": args.encoding,
+        "language": args.language or "",
+        "translator": args.translator or "",
+        "editor": args.editor or "",
+        "mediation_type": args.mediation_type,
+        "translator_status": args.translator_status or ("known" if args.translator else "unknown"),
+        "editor_status": args.editor_status or ("known" if args.editor else "unknown"),
+        "edition_label": args.edition,
+        "license_status": args.license_status,
+        "license_notes": args.license_notes or "",
+        "coverage_status": args.coverage_status,
+        "coverage_notes": args.coverage_notes or "",
+        "status": "available",
+    }
+    body_record["mediation"] = default_mediation_record(body_id, body_record)
+    proposed_failures = validate_text_body(body_record, args.source_id, set(), 1)
+    if proposed_failures:
+        raise LibraryError("invalid proposed text body: " + "; ".join(proposed_failures))
     dry_run = {
         "status": "ok",
         "source_id": args.source_id,
@@ -1173,16 +1486,21 @@ def admit_text_command(args: argparse.Namespace) -> dict[str, Any]:
         "work_title": work_title,
         "would_copy": source_path != target,
         "target_path": str(target),
-        "text_location": text_uri(target, resolved_text_root),
-        "text_sha256": hashlib.sha256(data).hexdigest(),
-        "text_bytes": len(data),
+        "text_location": body_record["text_location"],
+        "text_sha256": body_record["text_sha256"],
+        "text_bytes": body_record["text_bytes"],
         "text_encoding": args.encoding,
         "license_status": args.license_status,
+        "mediation_type": body_record["mediation_type"],
+        "translator_status": body_record["translator_status"],
+        "editor_status": body_record["editor_status"],
+        "mediation": body_record["mediation"],
         "body_imported_to_archive": False,
         "registry_updated": False,
     }
     if args.check:
         return dry_run
+    resolved_text_root = ensure_private_text_root(text_root)
     existing_bodies = source_text_bodies(source)
     if existing_bodies or args.body_id or args.work_title:
         if any(text(body.get("body_id")) == body_id for body in existing_bodies) and not args.replace_body:
@@ -1196,24 +1514,6 @@ def admit_text_command(args: argparse.Namespace) -> dict[str, Any]:
             raise LibraryError(f"text body already exists, pass --replace-body to replace: {args.source_id}")
     if source_path != target:
         shutil.copyfile(source_path, target)
-    data = target.read_bytes()
-    body_record = {
-        "body_id": body_id,
-        "work_title": work_title,
-        "text_location": text_uri(target, text_root),
-        "text_sha256": hashlib.sha256(data).hexdigest(),
-        "text_bytes": len(data),
-        "text_encoding": args.encoding,
-        "language": args.language or "",
-        "translator": args.translator or "",
-        "editor": args.editor or "",
-        "edition_label": args.edition,
-        "license_status": args.license_status,
-        "license_notes": args.license_notes or "",
-        "coverage_status": args.coverage_status,
-        "coverage_notes": args.coverage_notes or "",
-        "status": "available",
-    }
     if existing_bodies or args.body_id or args.work_title:
         source["text_bodies"].append(body_record)
     else:
@@ -1224,17 +1524,18 @@ def admit_text_command(args: argparse.Namespace) -> dict[str, Any]:
             "text_sha256": body_record["text_sha256"],
             "text_bytes": body_record["text_bytes"],
             "text_encoding": args.encoding,
+            "language": args.language or "",
+            "translator": args.translator or "",
+            "editor": args.editor or "",
+            "mediation_type": args.mediation_type,
+            "translator_status": body_record["translator_status"],
+            "editor_status": body_record["editor_status"],
+            "mediation": body_record["mediation"],
             "edition_label": args.edition,
             "license_status": args.license_status,
             "license_notes": args.license_notes or "",
         }
         )
-        if args.language:
-            source["language"] = args.language
-        if args.translator:
-            source["translator"] = args.translator
-        if args.editor:
-            source["editor"] = args.editor
     save_registry(registry)
     return {
         "status": "ok",
@@ -1246,6 +1547,39 @@ def admit_text_command(args: argparse.Namespace) -> dict[str, Any]:
         "body_imported_to_archive": False,
         "registry_updated": True,
     }
+
+
+def integration_validate_command(args: argparse.Namespace) -> dict[str, Any]:
+    registry = load_registry()
+    failures = library_integration.validate_repository(REPO_ROOT, registry)
+    return {"status": "passed" if not failures else "failed", "failures": failures}
+
+
+def integration_render_command(args: argparse.Namespace) -> dict[str, Any]:
+    return library_integration.render_repository(REPO_ROOT, check=args.check)
+
+
+def integration_note_validate_command(args: argparse.Namespace) -> dict[str, Any]:
+    return library_integration.validate_note_paths(REPO_ROOT, args.note_refs or None)
+
+
+def route_index_command(args: argparse.Namespace) -> dict[str, Any]:
+    registry = load_registry()
+    return library_integration.route_index_repository(
+        REPO_ROOT, registry, check=args.check
+    )
+
+
+def integration_reconcile_command(args: argparse.Namespace) -> dict[str, Any]:
+    registry = load_registry()
+    return library_integration.reconcile_repository(REPO_ROOT, registry, write=args.write)
+
+
+def integration_apply_dispositions_command(args: argparse.Namespace) -> dict[str, Any]:
+    registry = load_registry()
+    return library_integration.apply_reviewed_no_change_dispositions(
+        REPO_ROOT, registry, write=args.write
+    )
 
 
 def parser() -> argparse.ArgumentParser:
@@ -1300,10 +1634,36 @@ def parser() -> argparse.ArgumentParser:
     admit.add_argument("--language")
     admit.add_argument("--translator")
     admit.add_argument("--editor")
+    admit.add_argument("--mediation-type", default="unknown", choices=sorted(MEDIATION_TYPES))
+    admit.add_argument("--translator-status", choices=sorted(MEDIATION_FIELD_STATUSES))
+    admit.add_argument("--editor-status", choices=sorted(MEDIATION_FIELD_STATUSES))
     admit.add_argument("--replace-body", action="store_true")
     admit.add_argument("--check", action="store_true")
     admit.add_argument("--json", action="store_true")
     admit.set_defaults(handler=admit_text_command)
+    integration_validate = sub.add_parser("integration-validate")
+    integration_validate.add_argument("--json", action="store_true")
+    integration_validate.set_defaults(handler=integration_validate_command)
+    integration_render = sub.add_parser("integration-render")
+    integration_render.add_argument("--check", action="store_true")
+    integration_render.add_argument("--json", action="store_true")
+    integration_render.set_defaults(handler=integration_render_command)
+    integration_note_validate = sub.add_parser("integration-note-validate")
+    integration_note_validate.add_argument("note_refs", nargs="*")
+    integration_note_validate.add_argument("--json", action="store_true")
+    integration_note_validate.set_defaults(handler=integration_note_validate_command)
+    route_index = sub.add_parser("route-index")
+    route_index.add_argument("--check", action="store_true")
+    route_index.add_argument("--json", action="store_true")
+    route_index.set_defaults(handler=route_index_command)
+    integration_reconcile = sub.add_parser("integration-reconcile")
+    integration_reconcile.add_argument("--write", action="store_true")
+    integration_reconcile.add_argument("--json", action="store_true")
+    integration_reconcile.set_defaults(handler=integration_reconcile_command)
+    integration_apply = sub.add_parser("integration-apply-dispositions")
+    integration_apply.add_argument("--write", action="store_true")
+    integration_apply.add_argument("--json", action="store_true")
+    integration_apply.set_defaults(handler=integration_apply_dispositions_command)
     return root
 
 

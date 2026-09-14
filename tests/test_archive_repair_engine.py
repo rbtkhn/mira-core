@@ -178,6 +178,49 @@ def test_metadata_class_changes_frontmatter_only(tmp_path: Path) -> None:
     assert item.operations == ("metadata-normalization",)
 
 
+def test_metadata_class_repairs_duran_mercouris_blank_host_metadata(tmp_path: Path) -> None:
+    extra = (
+        "source_form: interview\n"
+        "host_people:\n"
+        "  -\n"
+        "guest_people:\n"
+        "  -\n"
+        "show_title: \n"
+        "channel_name: \n"
+        "show: \n"
+        "host: \n"
+        "guest: \"\"\n"
+        "thread: mercouris\n"
+    )
+    repo, sources, manifest, paths = archive_repo(tmp_path, host="the-duran", extra=extra)
+    manifest_payload = json.loads(manifest.read_text(encoding="utf-8"))
+    manifest_payload["sources"][0]["voice_slugs"] = ["mercouris"]
+    manifest_payload["sources"][0]["source_class"] = "guest interview pressure test"
+    manifest.write_text(json.dumps(manifest_payload), encoding="utf-8")
+
+    plan = build(repo, sources, manifest, paths, "metadata")
+    item = plan.files[0]
+    proposed = item.proposed_bytes.decode("utf-8")
+
+    assert item.changed
+    assert item.operations == ("metadata-normalization",)
+    assert item.original_bytes.split(b"## Transcript", 1)[1] == item.proposed_bytes.split(b"## Transcript", 1)[1]
+    assert set(item.changed_fields) >= {
+        "channel_name",
+        "guest",
+        "guest_people",
+        "host",
+        "host_people",
+        "show",
+        "show_title",
+    }
+    assert 'host_people:\n  - "Alex Christoforou"\n' in proposed
+    assert 'guest_people:\n  - "Alexander Mercouris"\n' in proposed
+    assert 'channel_name: "The Duran"\n' in proposed
+    assert 'host: "Alex Christoforou"\n' in proposed
+    assert 'guest: "Alexander Mercouris"\n' in proposed
+
+
 def test_asr_class_preserves_layout_and_does_not_section_or_trim(tmp_path: Path) -> None:
     body = "The straight of hormones stayed broken in Anchora.\n\n\nSecond paragraph remains.\n"
     repo, sources, manifest, paths = archive_repo(tmp_path, body=body)
@@ -198,6 +241,51 @@ def test_asr_rejects_unapproved_host(tmp_path: Path) -> None:
     repo, sources, manifest, paths = archive_repo(tmp_path, host="neutrality-studies")
     with pytest.raises(engine.ArchiveRepairError, match="not approved"):
         build(repo, sources, manifest, paths, "asr")
+
+
+@pytest.mark.parametrize("newline", ["\n", "\r\n"])
+def test_asr_without_substitutions_is_byte_identical(tmp_path: Path, newline: str) -> None:
+    repo, sources, manifest, paths = archive_repo(
+        tmp_path, host="mario-nawfal",
+        body="Transcripts:\n\n  >> Chess Freeman.  \n\n\n",
+        extra="asr_disposition: needs-repair\nasr_repair_applied: false\n",
+    )
+    path = repo / paths[0]
+    path.write_bytes(path.read_bytes().replace(b"\n", newline.encode()))
+    item = build(repo, sources, manifest, paths, "asr").files[0]
+    assert item.proposed_bytes == item.original_bytes
+    assert not item.changed
+    assert item.changed_fields == ()
+
+
+@pytest.mark.parametrize("disposition", ["needs-repair", "repaired"])
+def test_asr_preserves_quality_and_other_processing_fields(tmp_path: Path, disposition: str) -> None:
+    body = "Transcripts:\n\n  >> The straight of hormones.  \n\n\nChess Freeman.\n"
+    extra = (
+        f"asr_disposition: {disposition}\n"
+        "speaker_attribution: unresolved\nsectioning_disposition: needs-review\n"
+        "asr_repair_applied: false\nasr_repair_pass: \"\"\n"
+    )
+    repo, sources, manifest, paths = archive_repo(tmp_path, body=body, extra=extra)
+    plan = build(repo, sources, manifest, paths, "asr")
+    item = plan.files[0]
+    proposed = item.proposed_bytes.decode()
+    assert proposed.split("## Transcript\n\n", 1)[1] == body.replace("straight of hormones", "Strait of Hormuz")
+    assert f"asr_disposition: {disposition}\n" in proposed
+    assert "speaker_attribution: unresolved\nsectioning_disposition: needs-review\n" in proposed
+    assert set(item.changed_fields) == {"asr_repair_applied", "asr_repair_pass"}
+    assert "No audio verification" in item.public()["quality_boundary"]
+    assert item.public()["quality_boundary"] in engine.render_markdown(plan.public())
+    (repo / paths[0]).write_bytes(item.proposed_bytes)
+    repeated = build(repo, sources, manifest, paths, "asr").files[0]
+    assert not repeated.changed
+
+
+def test_asr_does_not_apply_host_deletion_rules(tmp_path: Path) -> None:
+    body = "want breathing space before they continue their operation to capture car guy into whatever do you think you know this argument is gaining more weight \n"
+    repo, sources, manifest, paths = archive_repo(tmp_path, host="mario-nawfal", body=body)
+    item = build(repo, sources, manifest, paths, "asr").files[0]
+    assert item.proposed_bytes == item.original_bytes
 
 
 def test_wrapper_trim_is_its_own_class(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:

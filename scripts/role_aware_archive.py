@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from repository_paths import resolve_geopolitics_reference
+from voice_metadata import canonical_slug
 import argparse
 import json
 import re
@@ -41,20 +42,6 @@ _PATH_DEFAULTS = {
     'MANIFEST': (MANIFEST, lambda: _path('NG').parent / 'archive' / 'sources' / 'geopolitics' / 'source-manifest.json'),
     'PUBLICATIONS': (PUBLICATIONS, lambda: _path('NG') / 'publications'),
 }
-
-
-def canonical_slug(value: str) -> str:
-    aliases = {
-        "larry-johnson": "johnson",
-        "ted-postol": "postol",
-        "scott-ritter": "ritter",
-        "trita-parsi": "parsi",
-        "alexander-mercouris": "mercouris",
-        "alex-christoforou": "cristoforou",
-        "christoforou": "cristoforou",
-        "jiang-xueqin": "jiang",
-    }
-    return aliases.get(value, value)
 
 
 def load_manifest() -> dict[str, Any]:

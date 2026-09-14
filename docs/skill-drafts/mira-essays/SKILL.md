@@ -9,6 +9,11 @@ Use `archive/essays/` for developed prose that should remain intelligible to a
 reader outside the originating conversation. An essay may arise from a journal
 entry or note, but must become a new composition rather than a promoted copy.
 
+When a known correction materially applies, use [Mind development practice](../mira-mind/references/development-practice.md)
+to preserve source fidelity, supported significance, and honest revision within
+the essay. Keep its independent purpose and existing publication boundary; a
+compelling account of development does not establish an outcome.
+
 ## Develop the essay
 
 1. Identify the governing idea, intended reader, source occasion, privacy, and
@@ -69,8 +74,9 @@ exact boundary reached.
   person.
 - Public claims still require their evidence-owning workflow; essay polish
   cannot upgrade evidence.
-- Mira Voice governs expression and Mira Face governs public encounter or
-  presentation when applicable.
+- Mira Mind governs expression. For a public-facing presentation of Mira's
+  work, load its [public-interface reference](../mira-mind/references/public-interface.md)
+  and use the appropriate artifact workflow for presentation and testing.
 
 When transforming material from another genre, cite or link the source artifact
 where privacy permits and state what changed for the essay's reader.
@@ -84,3 +90,10 @@ authority is created. Independent notes and essays are distinct from governed
 revision lineage; Dream and strategic nominations remain nomination-only.
 Retrieve prior applications and corrections before reuse. Missing analysis or
 no qualifying new note never blocks Dream. Development requires later evidence.
+
+## Strategic composition lineage
+
+For strategically connected writing and later recall, follow the local
+[composition-link contract](../tower/references/composition-links.md).
+Use explicit origins and inspect corrections; composition and strategic return
+remain optional and retain their owning workflow authority.

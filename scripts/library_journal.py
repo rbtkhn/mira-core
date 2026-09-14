@@ -168,6 +168,14 @@ def entries(repo=REPO_ROOT, root=None):
 
 def context(focus="", repo=REPO_ROOT, root=None, thread_ids=None):
     all_entries = entries(repo, root)
+    retrieval_status = "populated"
+    if not all_entries:
+        try:
+            location(repo, root).stat()
+        except FileNotFoundError:
+            retrieval_status = "missing"
+        else:
+            retrieval_status = "empty"
     heads = {e["entry_id"]: e for e in all_entries}
     ordered = sorted(heads.values(), key=lambda e: (e["recorded_at"], e["entry_id"]), reverse=True)
     latest = ordered[:3]
@@ -216,6 +224,7 @@ def context(focus="", repo=REPO_ROOT, root=None, thread_ids=None):
     from library_growth import search
     from library_expectations import view
     return {"authority": "private interpretive context; not identity or RSI evidence", "core_8": CORE,
+            "retrieval_status": retrieval_status,
             "expectation_reviews": view(all_entries, focus, seen_threads, repo, root),
             "library_artifacts": search(focus, repo),
             "curiosity_history": [{"entry_id": e['entry_id'], "curiosity": e.get('curiosity', 'not-recorded')} for e in [r for r in ordered if r['kind'] == 'reading' and r.get('reading_mode') != 'rehearsal'][:4]],
@@ -381,7 +390,10 @@ def main():
         if result.get("status") in {"evidence-gaps", "partial"}:
             raise SystemExit(1)
     except (OSError, ValueError, KeyError, TypeError) as error:
-        print(json.dumps({"status": "error", "error": str(error), "writes_performed": False}))
+        category = ("permission-denied" if isinstance(error, PermissionError)
+                    else "io-error" if isinstance(error, OSError) else "invalid-data")
+        print(json.dumps({"status": "error", "error": str(error),
+                          "error_category": category, "writes_performed": False}))
         raise SystemExit(1)
 
 

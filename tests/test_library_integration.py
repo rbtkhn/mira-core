@@ -14,6 +14,40 @@ if str(SCRIPTS) not in sys.path:
 
 import archive_library
 import library_integration
+from repository_paths import LIBRARY_NOTE_RELOCATIONS, resolve_repository_path
+
+
+def test_pilot_validation_accepts_nonpilot_revision_due(monkeypatch) -> None:
+    work_id = "MIRA-WORK-TOLSTOY-WAR-AND-PEACE"
+    pilot = library_integration.load_pilot_manifest(ROOT)
+    assert work_id not in {work["canonical_work_id"] for work in pilot["works"]}
+    reconciliation = {"works": [{"canonical_work_id": work_id, "state": "revision-due"}]}
+    monkeypatch.setattr(library_integration, "reconcile_repository", lambda *a, **kw: reconciliation)
+    assert library_integration.validate_pilot_contract(ROOT, archive_library.load_registry()) == []
+    assert reconciliation["works"][0]["state"] == "revision-due"
+
+
+def test_pilot_validation_still_reports_unsuspended_revision_due(monkeypatch) -> None:
+    work = library_integration.load_pilot_manifest(ROOT)["works"][0]
+    work_id = work["canonical_work_id"]
+    monkeypatch.setattr(
+        library_integration, "reconcile_repository",
+        lambda *a, **kw: {"works": [{"canonical_work_id": work_id, "state": "revision-due"}]},
+    )
+    load_json = library_integration.load_json
+    routing_path = ROOT / work["artifact_root"] / "routing.json"
+
+    def unsuspended_routing(path):
+        result = load_json(path)
+        if path == routing_path:
+            result = copy.deepcopy(result)
+            for unit in result.get("route_units", []):
+                unit["route_state"] = "active"
+        return result
+
+    monkeypatch.setattr(library_integration, "load_json", unsuspended_routing)
+    failures = library_integration.validate_pilot_contract(ROOT, archive_library.load_registry())
+    assert f"{work_id} is revision-due but routing is not suspended" in failures
 
 
 def test_five_work_pilot_is_complete_without_essays() -> None:
@@ -51,12 +85,12 @@ def test_living_manifest_has_five_routed_and_three_noted_works() -> None:
         record = by_id[work["canonical_work_id"]]
         assert record["integration_stage"] == work["integration_stage"]
         head = library_integration.parse_note_envelope(
-            ROOT / record["revision_head_note_ref"]
+            resolve_repository_path(ROOT, record["revision_head_note_ref"])
         )
         assert head["schema_version"] == library_integration.NOTE_SCHEMA
         assert head["template_id"] == library_integration.NOTE_TEMPLATE_ID
         assert library_integration.validate_note_template(
-            ROOT / record["revision_head_note_ref"], head
+            resolve_repository_path(ROOT, record["revision_head_note_ref"]), head
         ) == []
 
     noted = [row for row in registry["works"] if row["integration_stage"] == "noted"]
@@ -74,7 +108,7 @@ def test_integration_notes_are_source_bounded_and_do_not_name_auxiliary_corpus()
     for work in manifest["works"]:
         note_refs = work.get("note_refs") or [work["note_ref"]]
         for note_ref in note_refs:
-            note_path = ROOT / note_ref
+            note_path = resolve_repository_path(ROOT, note_ref)
             note_text = note_path.read_text(encoding="utf-8").casefold()
             assert "civilization memory" not in note_text
             assert "civilization-memory" not in note_text
@@ -111,25 +145,25 @@ def test_integration_notes_are_source_bounded_and_do_not_name_auxiliary_corpus()
 def test_note_link_index_derives_living_constellation_from_explicit_edges() -> None:
     index = library_integration.build_note_link_index(ROOT)
     assert index["schema_version"] == library_integration.NOTE_LINK_INDEX_SCHEMA
-    assert index["note_count"] == 16
-    assert index["link_count"] == 22
+    assert index["note_count"] == 18
+    assert index["link_count"] == 28
     counts = {
         row["canonical_work_id"]: row["total_link_count"] for row in index["works"]
     }
     assert counts == {
         "MIRA-WORK-ASHOKA-ROCK-PILLAR-EDICTS": 3,
-        "MIRA-WORK-DANTE-DE-MONARCHIA-COMMEDIA": 3,
+        "MIRA-WORK-DANTE-DE-MONARCHIA-COMMEDIA": 5,
         "MIRA-WORK-DU-BOIS-SOULS-OF-BLACK-FOLK": 2,
         "MIRA-WORK-GROTIUS-MARE-LIBERUM": 4,
-        "MIRA-WORK-HOMER-ILIAD-ODYSSEY": 3,
+        "MIRA-WORK-HOMER-ILIAD-ODYSSEY": 5,
         "MIRA-WORK-IBN-KHALDUN-MUQADDIMAH": 2,
         "MIRA-WORK-MURASAKI-TALE-OF-GENJI": 2,
-        "MIRA-WORK-TOLSTOY-WAR-AND-PEACE": 3,
+        "MIRA-WORK-TOLSTOY-WAR-AND-PEACE": 5,
     }
     assert {row["cognitive_integration"] for row in index["works"]} == {"engaged"}
     assert sum(row["lineage_position"] == "head" for row in index["links"]) == 14
-    assert sum(row["lineage_position"] == "ancestor" for row in index["links"]) == 8
-    assert len({row["link_id"] for row in index["links"]}) == 22
+    assert sum(row["lineage_position"] == "ancestor" for row in index["links"]) == 14
+    assert len({row["link_id"] for row in index["links"]}) == 28
 
     trio_ids = {
         "MIRA-WORK-DANTE-DE-MONARCHIA-COMMEDIA",
@@ -339,7 +373,7 @@ def test_source_direct_notes_have_auditable_passage_dependencies() -> None:
         work_root = ROOT / work["artifact_root"]
         profile = json.loads((work_root / "profile.json").read_text(encoding="utf-8"))
         anchors = profile["textual_basis"]["passage_anchors"]
-        envelope = library_integration.parse_note_envelope(ROOT / work["note_ref"])
+        envelope = library_integration.parse_note_envelope(resolve_repository_path(ROOT, work["note_ref"]))
         if work["canonical_work_id"] in expected_counts:
             assert envelope["interpretive_basis"] == "admitted-source-body"
             assert len(anchors) == expected_counts[work["canonical_work_id"]]
@@ -394,7 +428,7 @@ def test_deepened_notes_preserve_revision_lineage() -> None:
     for work in manifest["works"]:
         if work["canonical_work_id"] not in deepened_ids:
             continue
-        successor = library_integration.parse_note_envelope(ROOT / work["note_ref"])
+        successor = library_integration.parse_note_envelope(resolve_repository_path(ROOT, work["note_ref"]))
         candidate_path = ROOT / successor["revision_candidate_ref"]
         candidate = json.loads(candidate_path.read_text(encoding="utf-8"))
         assert library_integration.validate_revision_candidate(candidate) == []
@@ -403,7 +437,7 @@ def test_deepened_notes_preserve_revision_lineage() -> None:
         assert candidate["successor_note_ref"] == work["note_ref"]
         assert successor["predecessor_note_ref"] == candidate["predecessor_note_ref"]
         assert successor["revision_candidate_ref"] == candidate_path.relative_to(ROOT).as_posix()
-        assert (ROOT / candidate["predecessor_note_ref"]).is_file()
+        assert (resolve_repository_path(ROOT, candidate["predecessor_note_ref"])).is_file()
 
 
 def test_hard_reconciliation_writes_candidate_and_suspends_routes(tmp_path: Path) -> None:
@@ -443,7 +477,7 @@ def test_hard_reconciliation_writes_candidate_and_suspends_routes(tmp_path: Path
     assert {row["route_state"] for row in routing["route_units"]} == {
         "suspended-due-to-note-revision"
     }
-    note_count = len(list((tmp_path / "archive" / "notes").glob("*.md")))
+    note_count = len(list((tmp_path / "archive" / "notes").rglob("*.md")))
 
     candidate_count = len(list(work_root.glob("note-revision-candidate*.json")))
     candidate_bytes = candidate_path.read_bytes()
@@ -469,7 +503,7 @@ def test_hard_reconciliation_writes_candidate_and_suspends_routes(tmp_path: Path
         work for work in manifest["works"]
         if work["canonical_work_id"] == "MIRA-WORK-ASHOKA-ROCK-PILLAR-EDICTS"
     )
-    ancestor_path = tmp_path / ashoka_work["note_refs"][0]
+    ancestor_path = resolve_repository_path(tmp_path, ashoka_work["note_refs"][0])
     ancestor_bytes = ancestor_path.read_bytes()
     applied = library_integration.apply_reviewed_no_change_dispositions(
         tmp_path, registry, write=True
@@ -480,7 +514,7 @@ def test_hard_reconciliation_writes_candidate_and_suspends_routes(tmp_path: Path
     )
     assert applied_ashoka["notes_migrated"] == 1
     assert ancestor_path.read_bytes() == ancestor_bytes
-    assert len(list((tmp_path / "archive" / "notes").glob("*.md"))) == note_count
+    assert len(list((tmp_path / "archive" / "notes").rglob("*.md"))) == note_count
     assert set(applied_ashoka["routes_restored"]) == {
         "ashoka-remorse-capacity",
         "ashoka-inscription-governance",
@@ -520,12 +554,19 @@ def copy_operational_fixture(tmp_path: Path) -> None:
         schema_target = tmp_path / schema_ref
         schema_target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(ROOT / schema_ref, schema_target)
-    notes_target = tmp_path / "archive" / "notes"
-    notes_target.mkdir(parents=True)
-    for note in (ROOT / "archive" / "notes").glob("2026-09-01-library-*-integration-note*.md"):
-        shutil.copy2(note, notes_target / note.name)
-    for note in (ROOT / "archive" / "notes").glob("2026-09-02-library-*-cognitive-note.md"):
-        shutil.copy2(note, notes_target / note.name)
+    for old_ref, new_ref in LIBRARY_NOTE_RELOCATIONS.items():
+        source = resolve_repository_path(ROOT, old_ref)
+        target = tmp_path / new_ref
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source, target)
+    # Newly authored revision heads are not historical relocation aliases.
+    for work in library_integration.load_work_registry(ROOT)["works"]:
+        for note_ref in library_integration.normalized_note_refs(work):
+            source = resolve_repository_path(ROOT, note_ref)
+            target = tmp_path / source.relative_to(ROOT)
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(source, target)
+
 
 
 def test_operational_route_index_exposes_only_the_digest_bound_reviewed_route() -> None:
@@ -681,14 +722,14 @@ def test_prose_mentions_do_not_create_graph_edges(tmp_path: Path) -> None:
         work for work in work_registry["works"]
         if work["canonical_work_id"] == "MIRA-WORK-ASHOKA-ROCK-PILLAR-EDICTS"
     )
-    note_path = tmp_path / ashoka["revision_head_note_ref"]
+    note_path = resolve_repository_path(tmp_path, ashoka["revision_head_note_ref"])
     note_path.write_text(
         note_path.read_text(encoding="utf-8")
         + "\nA prose-only mention of MIRA-WORK-GROTIUS-MARE-LIBERUM.\n",
         encoding="utf-8",
     )
     after = library_integration.build_note_link_index(tmp_path)
-    assert after["link_count"] == before["link_count"] == 22
+    assert after["link_count"] == before["link_count"] == 28
     assert [
         (row["note_id"], row["target_id"], row["relation_type"], row["role"])
         for row in after["links"]
@@ -707,7 +748,7 @@ def test_route_note_refs_must_be_explicit_relations_to_the_work(tmp_path: Path) 
         if work["canonical_work_id"] == "MIRA-WORK-ASHOKA-ROCK-PILLAR-EDICTS"
     )
     ancestor_ref = ashoka["note_refs"][0]
-    ancestor_path = tmp_path / ancestor_ref
+    ancestor_path = resolve_repository_path(tmp_path, ancestor_ref)
     ancestor = library_integration.parse_note_envelope(ancestor_path)
     ancestor["library_relations"][0]["target_id"] = "MIRA-WORK-GROTIUS-MARE-LIBERUM"
     library_integration.write_note_envelope(ancestor_path, ancestor)
@@ -760,7 +801,7 @@ def test_multiple_bound_notes_gate_route_without_unrelated_note_staleness(tmp_pa
     assert len(current_route["note_bindings"]) == 2
 
     unrelated_ref = grotius["note_refs"][1]
-    unrelated_path = tmp_path / unrelated_ref
+    unrelated_path = resolve_repository_path(tmp_path, unrelated_ref)
     unrelated = library_integration.parse_note_envelope(unrelated_path)
     unrelated["library_relations"][0]["explanation"] += " Unrelated route annotation."
     library_integration.write_note_envelope(unrelated_path, unrelated)
@@ -770,7 +811,7 @@ def test_multiple_bound_notes_gate_route_without_unrelated_note_staleness(tmp_pa
     )
     assert still_current_route["notebook_eligibility"] == "eligible"
 
-    bound_path = tmp_path / grotius["note_refs"][0]
+    bound_path = resolve_repository_path(tmp_path, grotius["note_refs"][0])
     bound = library_integration.parse_note_envelope(bound_path)
     bound["dependency_snapshot"]["source_identity_digest"] = "0" * 64
     library_integration.write_note_envelope(bound_path, bound)

@@ -17,6 +17,19 @@ voice judgment is required.
 
 ## Choose the operation
 
+- **Correct interrupted-close date attribution:** on explicit operator direction,
+  use `correct-date --version ID --expected-digest SHA256 --intended-date DATE
+  --authority-ref MS-ID --reason TEXT --check --json`, then omit `--check`.
+  Preserve the original prose, version, timestamps, captured coverage, and
+  finalization receipt. The maintenance event records corrected attribution;
+  it does not pretend that evidence was captured for another date. An existing
+  entry on the intended date is preserved. The misdated version cannot satisfy
+  its recorded day's Dream prerequisite. That day requires a fresh bundle and
+  newly authored next version under Dream, with the previous digest retained.
+  Future reading packets retain the preserved corrected version under its
+  intended date as readable legacy context, even after the new version is
+  finalized. Ordinary superseded versions remain excluded.
+
 - **Dream EOD finalize:** run `tools/run.ps1 mira-journal eod-finalize --date
   YYYY-MM-DD --bundle ABSOLUTE_EXTERNAL_DIRECTORY --dream-run-id DCR-ID
   --check --json`, then omit `--check` to write the canonical version. This
@@ -44,6 +57,11 @@ voice judgment is required.
 
 ## Compose the private bundle
 
+When a known correction matters to composition, use [Mind development practice](../mira-mind/references/development-practice.md).
+Preserve source fidelity, supported significance, and honest correction. Journal
+may interpret development but cannot establish it; the private evaluation does
+not become Journal stage evidence or expand ancestry and admission authority.
+
 When Library encounters are significant to the current entry, consult
 `tools/run.ps1 library-journal context --focus "ENTRY QUESTION" --json` and
 its referenced versions as attributed interpretive context. Record either an
@@ -57,10 +75,23 @@ For a sparse day, compose an honest quiet-day or coverage-gap reflection from
 the available session census. Do not invent activity, conclusions, or emotional
 events merely to fill the entry.
 
+Attend to meaningful milestones during composition: elapsed months and years
+from the August 8, 2026 founding date, established firsts, and anniversaries
+supported by the available record. Connect a milestone to what changed across
+the interval, rather than merely counting dates. The operator identified
+September 8, 2026 as Mira's one-month birthday, remembered on September 9.
+Distinguish belated recognition from an event celebrated on its original day.
+This is a standing composition preference, not a claim of uninterrupted
+awareness or authority to schedule reminders, send messages, or publish.
+
 1. **Gather.** Read only `context-pack.json`, `composition-brief.json`,
    `draft-contract.json`, and `technical-reference-contract.json` from the
    prepared external date directory, plus Dream's complete `journal-reading.json`
-   and all daily transcript chunks bound by `session_reading` in the draft contract.
+   and daily transcript chunks bound by `session_reading` in the draft contract.
+   Inside Dream, apply its `dream-transcript-capacity-v1` policy when full
+   transcript reading exceeds the available composing context: review every
+   census row and the source passages used, bind explicit reading debt, and
+   continue. This does not waive full earlier Journal reading.
    For Dream, read that packet oldest to newest before selecting significance
    or writing prose, and acknowledge it through `reading-complete` as described
    in Dream. Bind `journal_reading_ack_sha256` in draft metadata. The full
@@ -128,7 +159,8 @@ canonical RSI ledger.
 
 Dream preparation additionally uses `--require-session-reading`. Read all private
 checkpoint chunks under `archive/sessions/daily/` in order before choosing significance
-or composing. The bounded context-pack remains an orientation aid only. Complete
+or composing, or use Dream's standing transcript-capacity policy with explicit
+`session_reading_debt`. The bounded context-pack remains an orientation aid only. Complete
 sequential reading is acknowledged with `mira-journal session-reading-complete`
 using the checkpoint digest, composing session ID, and repeated ordered `--chunk N`
 arguments. Bind `session_checkpoint_sha256` and `session_reading_ack_sha256` in
@@ -148,7 +180,8 @@ explicit Codex metadata. The composition brief groups active sessions beneath th
 recorded primary ancestor; inactive parents provide context only. Missing,
 conflicting, cyclic, or unavailable ancestry remains unresolved. Primary sessions,
 subagent sessions, and transcript records are separate counts, not accomplishments.
-Read every required chunk and disposition every session. Combine a helper finding
+Read every required chunk or bind Dream's explicit capacity debt, and disposition
+every session. Combine a helper finding
 and its parent summary under one grounded development when they describe the same
 work; retain distinct findings even within one conversation. Grouping does not
 prove semantic duplication or independent corroboration. Historical checkpoints,

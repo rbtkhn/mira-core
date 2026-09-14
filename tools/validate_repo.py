@@ -10,6 +10,7 @@ import subprocess
 import sys
 import time
 import uuid
+from collections import deque
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Callable
@@ -123,12 +124,19 @@ def run_phase(
     timeout_seconds: int,
 ) -> int:
     started = clock()
+    log = None
+    output = None
+    log_root = environment.get('MIRA_CORE_VALIDATION_LOG_ROOT')
+    if log_root:
+        log = Path(log_root) / f'validation-{phase}-{uuid.uuid4().hex}.log'
+        output = log.open('xb')
     try:
         result = subprocess.run(
             command,
             cwd=REPO_ROOT,
-            env=environment,
+            env={**environment, 'PYTHONIOENCODING': 'utf-8'},
             timeout=timeout_seconds,
+            **({'stdout': output, 'stderr': subprocess.STDOUT} if output else {}),
         )
     except subprocess.TimeoutExpired:
         emit_timing(
@@ -147,6 +155,19 @@ def run_phase(
             status="failed",
         )
         raise
+    finally:
+        if output:
+            output.close()
+            tail = deque(maxlen=40)
+            count = 0
+            with log.open(encoding='utf-8', errors='replace') as saved:
+                for line in saved:
+                    count += 1
+                    tail.append(line[:1000])
+            encoding = getattr(sys.stdout, 'encoding', None) or 'utf-8'
+            excerpt = ''.join(tail)[-4000:]
+            print(excerpt.encode(encoding, errors='backslashreplace').decode(encoding), end='')
+            print(f'validation_output log={log} lines={count} display=last_40_lines_max_4000_chars')
     emit_timing(
         mode=mode,
         phase=phase,
@@ -204,6 +225,7 @@ def parse_args(arguments: list[str] | None = None) -> argparse.Namespace:
         action="store_true",
         help="report the fast-validation route as JSON without bootstrapping or running validation",
     )
+    parser.add_argument('--candidate-ref', help='Full immutable commit SHA; requires focused --path selections')
     return parser.parse_args(arguments)
 
 
@@ -410,6 +432,28 @@ def main(
         if args.scope != 'all' and (getattr(args, 'candidate_ref', None) is not None or args.paths or args.mode != 'full' or args.cache_only or args.force or args.explain_route):
             print('validation scope excludes candidate, focused, Fast and cache options', file=sys.stderr)
             return 2
+        if args.candidate_ref is not None:
+            if not args.paths or args.mode != 'full' or args.force or args.cache_only or args.explain_route:
+                print('candidate validation requires --path and excludes Fast, Force, CacheOnly and route preview', file=sys.stderr)
+                return 2
+            from candidate_validation import run_candidate, safe_path
+            try:
+                if not re.fullmatch(r'[0-9a-f]{40}', args.candidate_ref):
+                    raise ValueError('--candidate-ref requires a full lowercase commit SHA')
+                for path in args.paths:
+                    safe_path(path)
+                    if not path.startswith('tests/'):
+                        raise ValueError('candidate test selections must be under tests/')
+                temp_root = resolve_temp_root(args.temp_root)
+                python = resolve_validation_python(REPO_ROOT)
+            except (ValueError, BootstrapUnavailable) as error:
+                print(f'candidate validation unavailable: {error}', file=sys.stderr)
+                return 2
+            mode = 'candidate'
+            result = run_candidate(REPO_ROOT, args.candidate_ref, args.paths, python,
+                                   temp_root, validation_environment())
+            final_status = 'passed' if result == 0 else 'failed'
+            return result
         if args.cache_only and (args.mode != "full" or args.force or args.paths or args.explain_route):
             print("validation argument error: --cache-only requires Full and cannot be combined with --force, --path, or --explain-route", file=sys.stderr)
             return 2
@@ -497,6 +541,7 @@ def main(
             status="passed",
         )
         environment = validation_environment()
+        environment['MIRA_CORE_VALIDATION_LOG_ROOT'] = str(temp_root)
         pytest_paths = paths if paths else list(route.tests)
         pytest_command = [
             str(python),

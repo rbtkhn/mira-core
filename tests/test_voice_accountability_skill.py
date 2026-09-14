@@ -1,11 +1,17 @@
 from __future__ import annotations
 
 import json
+import hashlib
+import re
 import subprocess
 import sys
+from argparse import Namespace
+from datetime import date
 from pathlib import Path
 
 import pytest
+
+import voice_accountability
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -139,6 +145,55 @@ def test_finder_rejects_reversed_date_range(tmp_path: Path) -> None:
     assert result.returncode != 0
     assert "--from must not be later than --to" in result.stderr
     assert result.stdout == ""
+
+
+def test_legacy_alias_routes_to_the_canonical_skill_without_a_script_copy() -> None:
+    from validate_repository import LOCAL_SKILLS
+    from codex_skill_registry import DEPLOYABLE_SKILL_NAMES
+
+    alias = SKILL_ROOT.parent / "voice-revision-audit"
+    text = (alias / "SKILL.md").read_text(encoding="utf-8")
+    targets = re.findall(r"\[[^\]]+\]\(([^)]+)\)", text)
+    assert [(alias / target).resolve() for target in targets] == [
+        (SKILL_ROOT / "SKILL.md").resolve()
+    ]
+    assert not (alias / "scripts").exists()
+    assert "voice-revision-audit" in LOCAL_SKILLS
+    assert "voice-revision-audit" not in DEPLOYABLE_SKILL_NAMES
+    assert voice_accountability.CANDIDATE_SCRIPT.resolve() == SCRIPT.resolve()
+
+
+@pytest.mark.parametrize("dry_run", [True, False])
+def test_audit_does_not_write_sources_or_ledger_with_or_without_dry_run(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str],
+    dry_run: bool,
+) -> None:
+    write_source(
+        tmp_path, "2026-06-10", "source-example.md", "Example Voice",
+        "I was wrong. I thought the talks would succeed, but they did not.",
+    )
+    tracker = tmp_path / "narrative-geopolitics" / "work" / "voice-accountability"
+    tracker.mkdir(parents=True)
+    (tracker / "voice-revision-ledger.json").write_text('{"entries": []}', encoding="utf-8")
+    (tracker / "voice-revision-ledger.md").write_text("untouched mirror", encoding="utf-8")
+
+    def snapshot() -> dict[str, str]:
+        return {
+            path.relative_to(tmp_path).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
+            for path in tmp_path.rglob("*") if path.is_file()
+        }
+
+    before = snapshot()
+    monkeypatch.setattr(voice_accountability, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(voice_accountability, "LEDGER_JSON_PATH", tracker / "voice-revision-ledger.json")
+    monkeypatch.setattr(voice_accountability, "LEDGER_MD_PATH", tracker / "voice-revision-ledger.md")
+    args = Namespace(date_from=date(2026, 6, 10), date_to=date(2026, 6, 10),
+                     voice="Example Voice", mode="audit", dry_run=dry_run)
+    assert voice_accountability.run_candidates(args) == 0
+    payload = json.loads(capsys.readouterr().out)
+    assert payload["candidate_count"] > 0
+    assert payload["ledger_mutation"] == "none"
+    assert snapshot() == before
 
 
 @pytest.mark.skipif(

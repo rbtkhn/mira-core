@@ -23,6 +23,10 @@ and their explicit structured profile handles.
 
 ## Route the request
 
+For the history of shared readings and cognitive trials, use `library-journal`.
+Its entries may reference current notes and nominate revisions. A nomination
+does not authorize note authorship, graph edges, registry edits, or routing.
+
 Use this workflow for:
 
 - composing or revising a registered Mira Library cognitive note;

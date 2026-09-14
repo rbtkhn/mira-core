@@ -148,6 +148,8 @@ def authentication_status(repo: Path, url: str) -> str:
 
 def lfs_status(repo: Path) -> str:
     hook_path = run_git(repo, "config", "--get", "core.hookspath", check=False)
+    if hook_path.returncode not in (0, 1):
+        raise PushError("Git hook configuration could not be checked")
     candidates = []
     if hook_path.returncode == 0 and hook_path.stdout.strip():
         candidates.append((repo / hook_path.stdout.strip() / "pre-push").resolve())
@@ -305,6 +307,7 @@ def build_check_receipt(
         "remote": remote,
         "remote_identity": sanitize_remote(url),
         "source_sha": source,
+        "checked_head": run_git(repo, "rev-parse", "--verify", "HEAD").stdout.strip(),
         "target_ref": target,
         "observed_remote_sha": observed,
         "update_kind": update_kind,
@@ -375,6 +378,8 @@ def execute_push(receipt: dict[str, Any]) -> dict[str, Any]:
     if observed != receipt["observed_remote_sha"]:
         raise PushError("remote target changed after check; push not attempted")
     fetch_and_classify(repo, receipt["remote"], target, source, observed)
+    if run_git(repo, "rev-parse", "--verify", "HEAD").stdout.strip() != receipt.get("checked_head"):
+        raise PushError("source checkout changed after check; obtain a fresh receipt")
     result = run_git(
         repo, "push", receipt["remote"], f"{source}:{target}", check=False
     )
@@ -383,7 +388,11 @@ def execute_push(receipt: dict[str, Any]) -> dict[str, Any]:
             "exact-refspec push failed; remote success is unproven",
             remote_state_changed="unknown",
         )
-    verified = advertised_sha(repo, receipt["remote"], target)
+    try:
+        verified = advertised_sha(repo, receipt["remote"], target)
+    except (PushError, OSError, subprocess.SubprocessError) as error:
+        raise PushError("post-push remote verification unavailable; success is unproven",
+                        remote_state_changed="unknown") from error
     if verified != source:
         raise PushError(
             "post-push remote SHA does not equal the intended source SHA",

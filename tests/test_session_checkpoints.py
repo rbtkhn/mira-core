@@ -96,6 +96,57 @@ def test_changed_cutoff_adds_version_and_retains_previous(tmp_path):
     sc.checked(tmp_path, second)
 
 
+def test_authorized_reading_debt_never_claims_full_reading(tmp_path):
+    registry, _, _ = fixture(tmp_path, text="x" * 500)
+    cp, chunks = sc.build(tmp_path, "2026-09-04", START, START + timedelta(days=1), START + timedelta(days=1), registry, chunk_chars=100)
+    contract = sc.publish(tmp_path, cp, chunks)
+    bundle = tmp_path / "bundle"
+    sc.write_json(bundle / "draft-contract.json", {"session_reading": contract})
+    with pytest.raises(ValueError, match="authority"):
+        sc.acknowledge(tmp_path, bundle, SID, sc.digest(cp), [], defer_reason="Context limit")
+    with pytest.raises(ValueError, match="every session"):
+        sc.acknowledge(tmp_path, bundle, SID, sc.digest(cp), [], defer_reason="Context limit", authority_ref="explicit operator request")
+    sc.acknowledge(tmp_path, bundle, SID, sc.digest(cp), [1])
+    ack = sc.acknowledge(tmp_path, bundle, SID, sc.digest(cp), [], defer_reason="Context limit",
+                         authority_ref="explicit operator request", reviewed_sessions=[SID])
+    assert ack["complete"] is False
+    receipt = sc.load(Path(ack["receipt"]))
+    assert receipt["chunks"] == [1]
+    before = Path(ack["receipt"]).read_bytes()
+    assert sc.acknowledge(tmp_path, bundle, SID, sc.digest(cp), [], defer_reason="Context limit",
+                          authority_ref="explicit operator request", reviewed_sessions=[SID]) == ack
+    assert Path(ack["receipt"]).read_bytes() == before
+    with pytest.raises(ValueError, match="silently replaced"):
+        sc.acknowledge(tmp_path, bundle, SID, sc.digest(cp), [], defer_reason="Different reason",
+                       authority_ref="explicit operator request", reviewed_sessions=[SID])
+    assert Path(ack["receipt"]).read_bytes() == before
+    metadata = {"author": {"session_id": SID}, "session_checkpoint_sha256": sc.digest(cp),
+                "session_reading_ack_sha256": ack["acknowledgement_sha256"],
+                "authored_at": datetime.now(timezone.utc).isoformat()}
+    assert sc.reading_failures(tmp_path, bundle, metadata)
+    metadata["session_reading_debt"] = {k: receipt[k] for k in ("reading_status", "reason", "authority_ref", "reviewed_sessions")}
+    assert metadata["session_reading_debt"] == ack["session_reading_debt"]
+    assert not sc.reading_failures(tmp_path, bundle, metadata)
+    with pytest.raises(ValueError, match="relabeled"):
+        sc.acknowledge(tmp_path, bundle, SID, sc.digest(cp), [1])
+    (Path(ack["receipt"]).parent / "chunk-00001.json").write_text("{}")
+    assert sc.reading_failures(tmp_path, bundle, metadata)
+
+
+def test_capacity_policy_does_not_downgrade_completed_reading(tmp_path):
+    registry, _, _ = fixture(tmp_path)
+    cp, chunks = sc.build(tmp_path, "2026-09-04", START, START + timedelta(days=1), START + timedelta(days=1), registry)
+    contract = sc.publish(tmp_path, cp, chunks)
+    bundle = tmp_path / "bundle"
+    sc.write_json(bundle / "draft-contract.json", {"session_reading": contract})
+    ack = sc.acknowledge(tmp_path, bundle, SID, sc.digest(cp), [c["ordinal"] for c in chunks])
+    before = Path(ack["receipt"]).read_bytes()
+    with pytest.raises(ValueError, match="Complete reading"):
+        sc.acknowledge(tmp_path, bundle, SID, sc.digest(cp), [], defer_reason="Context limit",
+                       authority_ref="dream-transcript-capacity-v1", reviewed_sessions=[SID])
+    assert Path(ack["receipt"]).read_bytes() == before
+
+
 def test_path_exception_does_not_allow_other_private_state(tmp_path):
     with pytest.raises(ValueError):
         sc.private_child(tmp_path, "archive/other/private.sqlite3")

@@ -35,6 +35,18 @@ def snapshot_repo(tmp_path: Path) -> Path:
     return repo
 
 
+def test_unborn_repository_has_initial_state_without_snapshot_digest(tmp_path, git_cleanup):
+    repo = tmp_path / "unborn"
+    repo.mkdir()
+    git(repo, "init")
+    (repo / "draft.txt").write_text("initial draft")
+    result = subject.landed_state_snapshot(repo.resolve(), environment={"MIRA_CORE_STATE_ROOT": str(tmp_path / "state")})
+    assert result["head"] is None
+    assert result["snapshot_digest"] is None
+    assert result["state_kind"] == "unborn-initial-state"
+    assert result["dirty"]["count"] == 1
+
+
 @pytest.fixture
 def git_cleanup(tmp_path: Path):
     yield

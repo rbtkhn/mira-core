@@ -1861,3 +1861,35 @@ def test_manifest_row_carries_identity_and_date_basis() -> None:
     row = land_best_intake.build_manifest_row(normalized, path, "operator-paste://2026-07-24/a-title")
     assert row["source_identity"] == "youtube:abc123XYZ_1"
     assert row["date_basis"] == "operator-supplied"
+
+
+def test_known_voice_alias_is_canonicalized_before_manifest_validation() -> None:
+    args = build_fast_args(
+        "2026-09-09",
+        "https://www.youtube.com/watch?v=example123",
+        "Scott Ritter interview",
+        "Material source body.\n",
+    )
+    args.host_slug = "glenn-diesen"
+    args.voice_slugs = ["scott-ritter"]
+
+    normalized = land_best_intake.normalize_args(args)
+
+    assert normalized.voice_slugs == ["ritter"]
+    assert "canonical-voice-alias" in normalized.inference_basis
+
+
+def test_full_name_voice_aliases_canonicalize_to_last_name_slugs() -> None:
+    args = build_fast_args(
+        "2026-09-10",
+        "https://www.youtube.com/watch?v=voiceAlias123",
+        "Interview",
+        "Material source body.\n",
+    )
+    args.host_slug = "mario-nawfal"
+    args.voice_slugs = ["anthony-aguilar", "matthew-hoh", "aguilar", "hoh"]
+
+    normalized = land_best_intake.normalize_args(args)
+
+    assert normalized.voice_slugs == ["aguilar", "hoh"]
+    assert "canonical-voice-alias" in normalized.inference_basis

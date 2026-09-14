@@ -17,6 +17,7 @@ if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
 import voice_indexes
+from voice_metadata import canonical_slug
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 ARCHIVE_ROOT = REPO_ROOT / "archive" / "sources" / "geopolitics"
@@ -552,6 +553,14 @@ VOICE_HINTS: tuple[tuple[str, str, str], ...] = (
     ("steve jermy", "jermy", "Steve Jermy"),
 )
 
+def normalize_voice_slugs(args: SimpleNamespace) -> None:
+    original = [item.strip() for item in (getattr(args, "voice_slugs", None) or []) if item and item.strip()]
+    normalized = [canonical_slug(item) for item in original]
+    args.voice_slugs = list(dict.fromkeys(normalized))
+    if normalized != original:
+        args.inference_basis = list(getattr(args, "inference_basis", []))
+        args.inference_basis.append("canonical-voice-alias")
+
 
 def slugify(value: str) -> str:
     value = value.lower()
@@ -916,7 +925,7 @@ def normalize_args(args: SimpleNamespace) -> SimpleNamespace:
     infer_missing_metadata(args)
     args.host_people = [item for item in (args.host_people or []) if item]
     args.guest_people = [item for item in (args.guest_people or []) if item]
-    args.voice_slugs = [item for item in (args.voice_slugs or []) if item]
+    normalize_voice_slugs(args)
     ensure_required_fields(args)
     return args
 
@@ -1482,6 +1491,7 @@ def repair_asr_text(
     body: str,
     *,
     normalize_layout: bool = True,
+    substitutions_only: bool = False,
 ) -> str:
     prior_applied = bool(getattr(args, "asr_repair_applied", False))
     prior_pass = getattr(args, "asr_repair_pass", "")
@@ -1499,8 +1509,12 @@ def repair_asr_text(
 
     repaired = body
     for pattern, replacement in GLOBAL_ASR_REPAIRS:
+        if substitutions_only and not replacement:
+            continue
         repaired = re.sub(pattern, replacement, repaired)
     for pattern, replacement in HOST_ASR_REPAIRS.get(getattr(args, "host_slug", None), ()):
+        if substitutions_only and not replacement:
+            continue
         repaired = re.sub(pattern, replacement, repaired)
 
     if normalize_layout:

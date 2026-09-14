@@ -1579,6 +1579,8 @@ def build_parser() -> argparse.ArgumentParser:
     coffee.add_argument("--json", action="store_true")
     coffee.add_argument("--format", choices=("json", "markdown"))
     coffee.add_argument("--episode-id")
+    coffee.add_argument("--received-bridge", help="Exact Bridge digest read and acknowledged in this invocation.")
+    coffee.add_argument("--bridge-cadence-related", action="store_true", help="The agent established that the Dream candidate concerns the resumed inquiry.")
     coffee.add_argument("--check", action="store_true", help="Preview without migration or presentation receipt.")
     profile = subparsers.add_parser("profile", help="Inspect experiment profiles.")
     profile.add_argument("action", choices=("list", "show"))
@@ -1792,8 +1794,10 @@ def main() -> None:
         return
 
     if args.command == "coffee":
+        received_bridge = getattr(args, "received_bridge", None)
+        bridge_cadence_related = getattr(args, "bridge_cadence_related", False)
         resolution = cadence_ledger.resolve_store(args.db, require_exists=True)
-        ledger_required = args.format is not None or args.episode_id is not None
+        ledger_required = args.format is not None or args.episode_id is not None or received_bridge is not None or bridge_cadence_related
         if resolution.path is not None or ledger_required:
             if resolution.path is None:
                 raise SystemExit(resolution.reason or "private cadence store is unavailable")
@@ -1817,6 +1821,8 @@ def main() -> None:
                     connection, episode_id=args.episode_id,
                     rest_coverage_status=rest_status,
                     journal_entries=journal_entries,
+                    received_bridge=received_bridge,
+                    bridge_cadence_related=bridge_cadence_related,
                 )
                 rendered=cadence_ledger.render_coffee_markdown(context)
                 if not check:

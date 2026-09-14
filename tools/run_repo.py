@@ -18,9 +18,13 @@ from runtime_names import (  # noqa: E402
 ARGUMENTS_ENV = "MIRA_CORE_RUN_ARGUMENTS_JSON"
 ARGUMENTS_ENV_FLAG = "--arguments-env"
 SURFACES = {
+    "artifact-delivery": REPO_ROOT / "scripts" / "artifact_delivery.py",
     "ideation-benchmark": REPO_ROOT / "scripts" / "ideation_benchmark.py",
+    "bridge-handoff": REPO_ROOT / "scripts" / "bridge_handoff.py",
+    "change-review": REPO_ROOT / "scripts" / "change_review.py",
     "archive-audit": REPO_ROOT / "scripts" / "archive_audit.py",
     "archive-density": REPO_ROOT / "scripts" / "report_archive_density.py",
+    "archive-metrics": REPO_ROOT / "scripts" / "archive_metrics.py",
     "archive-repair": REPO_ROOT / "scripts" / "archive_repair.py",
     "archive": REPO_ROOT / "scripts" / "archive.py",
     "asr-repair": REPO_ROOT / "scripts" / "run_asr_repair_pilot.py",
@@ -49,6 +53,9 @@ SURFACES = {
     "mira-journal": REPO_ROOT / "scripts" / "mira_journal.py",
     "strategy-notebook": REPO_ROOT / "scripts" / "strategy_notebook.py",
     "tower": REPO_ROOT / "scripts" / "tower.py",
+    "geo-strategy-acquisition": REPO_ROOT / "scripts" / "geo_strategy_acquisition.py",
+    "notebook-migrate": REPO_ROOT / "scripts" / "notebook_migrate.py",
+    "newsletter-capture": REPO_ROOT / "scripts" / "newsletter_capture.py",
     "mira-memory": REPO_ROOT / "scripts" / "mira_memory.py",
     "mira-sessions": REPO_ROOT / "scripts" / "mira_sessions.py",
     "mira-state": REPO_ROOT / "scripts" / "mira_state.py",
@@ -80,9 +87,11 @@ SURFACES = {
     "voice-accountability": REPO_ROOT / "scripts" / "voice_accountability.py",
     "voice-judgment": REPO_ROOT / "scripts" / "voice_judgments.py",
     "voice-canonicalize": REPO_ROOT / "scripts" / "canonicalize_voice_metadata.py",
+    "voice-slug-audit": REPO_ROOT / "scripts" / "audit_voice_slug_integrity.py",
     "voice-sync": REPO_ROOT / "scripts" / "sync_voice_indexes.py",
     "voice-comparison": REPO_ROOT / "scripts" / "voice_comparison.py",
     "youtube-capture": REPO_ROOT / "scripts" / "youtube_capture.py",
+    "mira-youtube": REPO_ROOT / "scripts" / "mira_youtube.py",
 }
 
 

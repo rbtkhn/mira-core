@@ -16,6 +16,15 @@ def test_jiang_historical_alias_resolves_to_voice_directory_slug() -> None:
     assert voice_metadata.canonical_slug("jiang") == "jiang"
 
 
+def test_full_name_voice_aliases_resolve_to_last_name_slugs() -> None:
+    assert voice_metadata.canonical_slug("anthony-aguilar") == "aguilar"
+    assert voice_metadata.canonical_slug("matthew-hoh") == "hoh"
+
+
+def test_canonicalize_slugs_deduplicates_aliases() -> None:
+    assert voice_metadata.canonicalize_slugs(["anthony-aguilar", "aguilar", "matthew-hoh", "hoh"]) == ["aguilar", "hoh"]
+
+
 def source_document(*, thread: str, host: str, include_voice_slug: bool = False) -> bytes:
     voice = f"voice_slug: {thread}\n" if include_voice_slug else ""
     return (

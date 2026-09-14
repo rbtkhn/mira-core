@@ -148,12 +148,18 @@ def landed_state_snapshot(
     assert root_text is not None
     root = Path(root_text).resolve()
     branch = git(root, "branch", "--show-current") or None
-    head = git(root, "rev-parse", "HEAD")
+    head = git(root, "rev-parse", "--verify", "HEAD", required=False)
+    if head is None:
+        # Only a symbolic HEAD whose branch does not exist is an unborn repository.
+        symbolic = git(root, "symbolic-ref", "HEAD")
+        result = subprocess.run(["git", "-C", str(root), "show-ref", "--verify", "--quiet", symbolic], capture_output=True)
+        if result.returncode != 1:
+            raise ReceiptError("HEAD unavailable but repository is not demonstrably unborn")
     git_dir = git(root, "rev-parse", "--absolute-git-dir")
     common_dir = git(root, "rev-parse", "--path-format=absolute", "--git-common-dir")
     remote_sha = git(root, "rev-parse", "--verify", remote, required=False)
     ahead = behind = None
-    if remote_sha:
+    if remote_sha and head:
         counts = git(root, "rev-list", "--left-right", "--count", f"{remote}...HEAD")
         assert counts is not None
         behind, ahead = (int(value) for value in counts.split())
@@ -196,7 +202,8 @@ def landed_state_snapshot(
     }
     return {
         "schema_version": "1.0", "observed_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
-        **observed, "snapshot_digest": canonical_digest(observed),
+        **observed, "snapshot_digest": canonical_digest(observed) if head else None,
+        "state_kind": "landed" if head else "unborn-initial-state",
         "evidence_boundary": "local-git-state-and-resolved-local-carrier-availability",
         "authority_effect": "none",
     }

@@ -18,9 +18,9 @@ from runtime_names import resolve_environment
 from portable_paths import PortablePathError, require_private_path as portable_private_path, state_path
 
 
-SCHEMA_VERSION = 5
-READABLE_SCHEMA_VERSIONS = frozenset({1, 2, 3, 4, SCHEMA_VERSION})
-PROJECTION_VERSION = "1.2"
+SCHEMA_VERSION = 6
+READABLE_SCHEMA_VERSIONS = frozenset({1, 2, 3, 4, 5, SCHEMA_VERSION})
+PROJECTION_VERSION = "1.3"
 REVIEW_PROJECTION_VERSION = "2.0"
 DB_ENV = "MIRA_CORE_CHOICE_DB"
 GRACEFUL_CONNECTION_FAILURE_COMMANDS = frozenset(
@@ -96,7 +96,7 @@ def migration_required_payload(
         "review_cohort": sanitize_identifier(review_cohort),
         "current_schema_version": version,
         "required_schema_version": SCHEMA_VERSION,
-        "migration_trigger": "the next authorized writable choice operation",
+        "migration_trigger": "explicit choice migrate-store command",
         "migration_command": (
             f"tools/run.ps1 choice --db {store_path} migrate-store --json"
             if store_path is not None
@@ -121,11 +121,19 @@ def utc_now() -> str:
 def validate_timestamp(value: str) -> str:
     try:
         parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
-    except ValueError as error:
+    except (ValueError, AttributeError, TypeError) as error:
         raise ChoiceError(f"invalid timestamp: {value}") from error
     if parsed.tzinfo is None:
         raise ChoiceError("timestamps must include a timezone")
     return value
+
+
+def optional_timestamp(value: str | None) -> str | None:
+    return None if value is None else validate_timestamp(value)
+
+
+def time_status(row: sqlite3.Row | dict[str, Any], field: str) -> str:
+    return row[field + "_status"] if field + "_status" in row.keys() else "legacy-unassessed"
 
 
 def timestamp_order_key(value: str) -> int:
@@ -211,8 +219,8 @@ def sanitize_reference_list(values: Iterable[Any] | None) -> list[str]:
 
 
 def sanitize_options(raw: Any) -> list[dict[str, str]]:
-    if not isinstance(raw, list) or len(raw) not in (3, 4):
-        raise ChoiceError("possibility set must contain three or four options")
+    if not isinstance(raw, list) or len(raw) not in (2, 3, 4):
+        raise ChoiceError("possibility set must contain two to four options")
     options: list[dict[str, str]] = []
     keys: set[str] = set()
     roles: set[str] = set()
@@ -229,15 +237,9 @@ def sanitize_options(raw: Any) -> list[dict[str, str]]:
         keys.add(key)
         roles.add(role)
         options.append({"key": key, "role": role, "text": text})
-    required = {"recommended", "alternative"}
-    if len(options) == 4:
-        required = set(ROLES)
-    elif not roles & {"overlooked", "pause-or-deepen"}:
-        raise ChoiceError(
-            "a three-option set requires an overlooked or pause-or-deepen role"
-        )
-    if not required <= roles:
-        raise ChoiceError(f"possibility roles must include {sorted(required)}")
+    if options[0]["role"] != "recommended":
+        raise ChoiceError("possibility sets must start with recommended")
+    # Existing stored records are not rewritten; new selections use recommendation-first order.
     return options
 
 
@@ -252,11 +254,14 @@ def parse_json_argument(value: str) -> Any:
     return json.loads(value)
 
 
-def connect(path: Path) -> sqlite3.Connection:
+def connect(path: Path, *, allow_migration: bool = False, expected_history: dict[str, Any] | None = None) -> sqlite3.Connection:
     path.parent.mkdir(parents=True, exist_ok=True)
     connection = sqlite3.connect(path)
     try:
         connection.row_factory = sqlite3.Row
+        version = int(connection.execute("PRAGMA user_version").fetchone()[0])
+        if version not in (0, SCHEMA_VERSION) and not allow_migration:
+            raise ChoiceError("migration required: run choice migrate-store explicitly")
         connection.execute("PRAGMA foreign_keys = ON")
         journal_mode = connection.execute("PRAGMA journal_mode = DELETE").fetchone()[0]
         if str(journal_mode).lower() != "delete":
@@ -264,7 +269,10 @@ def connect(path: Path) -> sqlite3.Connection:
                 "choice store could not enter rollback-journal mode"
             )
         connection.execute("PRAGMA synchronous = FULL")
-        migrate(connection)
+        if expected_history is None:
+            migrate(connection)
+        else:
+            migrate(connection, expected_history=expected_history)
     except (ChoiceError, sqlite3.Error):
         connection.close()
         raise
@@ -317,7 +325,7 @@ def schema_version_at(path: Path) -> int:
         connection.close()
 
 
-def migrate(connection: sqlite3.Connection) -> None:
+def migrate(connection: sqlite3.Connection, *, expected_history: dict[str, Any] | None = None) -> None:
     version = int(connection.execute("PRAGMA user_version").fetchone()[0])
     if version > SCHEMA_VERSION:
         raise ChoiceError(f"choice store schema {version} is newer than supported {SCHEMA_VERSION}")
@@ -392,7 +400,7 @@ def migrate(connection: sqlite3.Connection) -> None:
                 END;
                 """
             )
-            connection.execute(f"PRAGMA user_version = {SCHEMA_VERSION}")
+            connection.execute("PRAGMA user_version = 5")
         elif version == 1:
             connection.execute("BEGIN IMMEDIATE")
             columns = {
@@ -530,6 +538,77 @@ def migrate(connection: sqlite3.Connection) -> None:
             )
             connection.execute("PRAGMA user_version = 5")
 
+    if int(connection.execute("PRAGMA user_version").fetchone()[0]) == 5:
+        migrate_unknown_times(connection, expected_history=expected_history)
+
+
+def historical_rows(connection: sqlite3.Connection) -> dict[str, Any]:
+    """Freeze every pre-v6 column, including payload bytes and event hashes."""
+    added = {"recorded_at", "presented_at_status", "selected_at_status", "occurred_at_status"}
+    result = {}
+    for table, order in (("choice_prompts", "choice_id"), ("choice_events", "choice_id, sequence")):
+        columns = [row[1] for row in connection.execute(f"PRAGMA table_info({table})") if row[1] not in added]
+        result[table] = {"columns": columns, "rows": [tuple(row) for row in connection.execute(
+            f"SELECT {','.join(columns)} FROM {table} ORDER BY {order}")]}
+    return result
+
+
+def migrate_unknown_times(connection: sqlite3.Connection, *, expected_history: dict[str, Any] | None = None) -> None:
+    """Rebuild nullable columns in one rollback-safe transaction; never rewrite history."""
+    if connection.in_transaction:
+        raise ChoiceError("migration requires a connection outside a transaction")
+    foreign_keys = connection.execute("PRAGMA foreign_keys").fetchone()[0]
+    connection.execute("PRAGMA foreign_keys = OFF")
+    try:
+        with connection:
+            connection.execute("BEGIN IMMEDIATE")
+            before = historical_rows(connection)
+            if expected_history is not None and before != expected_history:
+                raise ChoiceError("migration stopped: live history changed since verified backup")
+            for row in connection.execute("SELECT choice_id FROM choice_prompts").fetchall():
+                if not verify_choice(connection, row[0])["valid"]:
+                    raise ChoiceError(f"migration stopped: invalid historical chain {row[0]}")
+            for table, nullable, fields in (
+                ("choice_prompts", ("presented_at", "selected_at", "selected_at_utc_us"), ("presented_at", "selected_at")),
+                ("choice_events", ("occurred_at",), ("occurred_at",)),
+            ):
+                ddl = connection.execute("SELECT sql FROM sqlite_master WHERE type='table' AND name=?", (table,)).fetchone()[0]
+                objects = connection.execute("SELECT name, sql FROM sqlite_master WHERE tbl_name=? AND type IN ('index','trigger') AND sql IS NOT NULL", (table,)).fetchall()
+                temporary = table + "_v6"
+                ddl = ddl.replace(table, temporary, 1)
+                for field in nullable:
+                    ddl = re.sub(rf"\b{field}\s+(TEXT|INTEGER)\s+NOT NULL", rf"{field} \1", ddl)
+                columns = [row[1] for row in connection.execute(f"PRAGMA table_info({table})")]
+                additions = ["recorded_at TEXT"] + [
+                    f"{field}_status TEXT NOT NULL DEFAULT 'legacy-unassessed' CHECK ({field}_status IN ('exact','unknown','legacy-unassessed'))"
+                    for field in fields]
+                additions = [definition for definition in additions if definition.split()[0] not in columns]
+                position = ddl.rfind(")")
+                # Columns must precede table-level UNIQUE constraints.
+                unique = re.search(r"\bUNIQUE\s*\(", ddl)
+                if additions:
+                    position = unique.start() if unique else position
+                    insertion = ", ".join(additions)
+                    insertion = insertion + ", " if unique else ", " + insertion
+                    ddl = ddl[:position] + insertion + ddl[position:]
+                connection.execute(ddl)
+                connection.execute(f"INSERT INTO {temporary} ({','.join(columns)}) SELECT {','.join(columns)} FROM {table}")
+                connection.execute(f"DROP TABLE {table}")
+                connection.execute(f"ALTER TABLE {temporary} RENAME TO {table}")
+                for name, sql in objects:
+                    if name != "choice_prompts_selected_at_utc_required":
+                        connection.execute(sql)
+            if historical_rows(connection) != before:
+                raise ChoiceError("migration historical-value mismatch; transaction rolled back")
+            if connection.execute("PRAGMA foreign_key_check").fetchall():
+                raise ChoiceError("migration relationship check failed")
+            for row in connection.execute("SELECT choice_id FROM choice_prompts").fetchall():
+                if not verify_choice(connection, row[0])["valid"]:
+                    raise ChoiceError(f"migration event-chain mismatch: {row[0]}")
+            connection.execute("PRAGMA user_version = 6")
+    finally:
+        connection.execute(f"PRAGMA foreign_keys = {int(foreign_keys)}")
+
 
 def sanitize_compound_selection(
     *,
@@ -638,6 +717,10 @@ def inspect_store(path: Path) -> dict[str, Any]:
                 "FROM choice_events ORDER BY choice_id, sequence"
             )
         ]
+        # Backup parity covers all fields, including nullable ordering keys,
+        # compound relationships and v6 recording metadata.
+        prompt_rows = [dict(row) for row in connection.execute("SELECT * FROM choice_prompts ORDER BY choice_id")]
+        event_rows = [dict(row) for row in connection.execute("SELECT * FROM choice_events ORDER BY choice_id, sequence")]
         return {
             "path": str(resolved),
             "schema_version": int(
@@ -719,21 +802,30 @@ def _append_event(
     *,
     choice_id: str,
     event_type: str,
-    occurred_at: str,
+    occurred_at: str | None,
     idempotency_key: str,
     payload: dict[str, Any],
 ) -> tuple[dict[str, Any], bool]:
+    require_current_schema(connection)
     if event_type not in EVENT_TYPES:
         raise ChoiceError(f"unsupported event type: {event_type}")
-    payload_json = canonical_json(payload)
+    if event_type != "branch_selected":
+        validate_timestamp(occurred_at)
     existing = connection.execute(
         "SELECT * FROM choice_events WHERE choice_id=? AND idempotency_key=?",
         (choice_id, idempotency_key),
     ).fetchone()
     if existing:
-        if existing["event_type"] == event_type and existing["payload_json"] == payload_json:
+        prior_payload = json.loads(existing["payload_json"])
+        prior_payload.pop("timestamp_metadata", None)
+        if (existing["event_type"] == event_type and prior_payload == payload
+                and (event_type != "branch_selected" or existing["occurred_at"] == occurred_at)):
             return dict(existing), False
         raise ChoiceError("conflicting retry rejected; history was not overwritten")
+    recorded_at = utc_now()
+    occurred_at_status = "unknown" if occurred_at is None else "exact"
+    payload = payload | {"timestamp_metadata": {"recorded_at": recorded_at, "occurred_at_status": occurred_at_status}}
+    payload_json = canonical_json(payload)
     prior = connection.execute(
         "SELECT sequence, event_hash FROM choice_events WHERE choice_id=? ORDER BY sequence DESC LIMIT 1",
         (choice_id,),
@@ -754,8 +846,9 @@ def _append_event(
         """
         INSERT INTO choice_events(
             event_id, choice_id, sequence, event_type, occurred_at,
-            idempotency_key, payload_json, previous_hash, event_hash
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            idempotency_key, payload_json, previous_hash, event_hash,
+            recorded_at, occurred_at_status
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """,
         (
             event_id,
@@ -767,6 +860,8 @@ def _append_event(
             payload_json,
             previous_hash,
             hashed,
+            recorded_at,
+            occurred_at_status,
         ),
     )
     return dict(
@@ -787,8 +882,8 @@ def select_branch(
     consequence_level: str,
     decision_summary: str,
     actor: str,
-    presented_at: str,
-    selected_at: str,
+    presented_at: str | None = None,
+    selected_at: str | None = None,
     idempotency_key: str,
     review_cohort: str | None = None,
     learning_refs: Iterable[Any] | None = None,
@@ -798,6 +893,7 @@ def select_branch(
     compound_order: int | None = None,
     compound_size: int | None = None,
 ) -> dict[str, Any]:
+    require_current_schema(connection)
     sanitized = sanitize_options(options)
     selected_key = sanitize_text(selected_key, limit=80)
     keys = {item["key"] for item in sanitized}
@@ -821,9 +917,12 @@ def select_branch(
         "consequence_level": sanitize_text(consequence_level, limit=80),
         "decision_summary": sanitize_text(decision_summary),
         "actor": sanitize_text(actor, limit=120),
-        "presented_at": validate_timestamp(presented_at),
-        "selected_at": validate_timestamp(selected_at),
-        "selected_at_utc_us": timestamp_order_key(selected_at),
+        "presented_at": optional_timestamp(presented_at),
+        "selected_at": optional_timestamp(selected_at),
+        "selected_at_utc_us": timestamp_order_key(selected_at) if selected_at is not None else None,
+        "presented_at_status": "unknown" if presented_at is None else "exact",
+        "selected_at_status": "unknown" if selected_at is None else "exact",
+        "recorded_at": utc_now(),
         "options_json": canonical_json(sanitized),
         "options_hash": digest(sanitized),
         "recommended_key": recommended_key,
@@ -849,8 +948,11 @@ def select_branch(
             (prompt["choice_id"], idempotency_key),
         ).fetchone()
         if retried_event and retried_event["event_type"] == "branch_selected":
-            prompt["selected_at"] = existing["selected_at"]
-            prompt["selected_at_utc_us"] = existing["selected_at_utc_us"]
+            prompt["recorded_at"] = existing["recorded_at"]
+            # Historical retries preserve the original unassessed classification.
+            for field in ("presented_at", "selected_at"):
+                if existing[field + "_status"] == "legacy-unassessed" and prompt[field] == existing[field]:
+                    prompt[field + "_status"] = "legacy-unassessed"
         elif not retried_event:
             raise ChoiceError(
                 "choice already has a branch selection; new idempotency key rejected"
@@ -870,7 +972,7 @@ def select_branch(
             connection,
             choice_id=prompt["choice_id"],
             event_type="branch_selected",
-            occurred_at=validate_timestamp(selected_at),
+            occurred_at=optional_timestamp(selected_at),
             idempotency_key=idempotency_key,
             payload={
                 "selected_key": selected_key,
@@ -888,11 +990,20 @@ def select_branch(
                 {"review_cohort": prompt["review_cohort"]}
                 if prompt["review_cohort"]
                 else {}
+            ) | (
+                {"selection_times": {key: prompt[key] for key in (
+                    "presented_at", "selected_at", "presented_at_status", "selected_at_status", "recorded_at")}}
+                if prompt["recorded_at"] is not None else {}
             ),
         )
     return {
         "retained": True,
         "created": created and event_created,
+        "recorded_at": prompt["recorded_at"],
+        "presented_at": prompt["presented_at"],
+        "presented_at_status": prompt["presented_at_status"],
+        "selected_at": prompt["selected_at"],
+        "selected_at_status": prompt["selected_at_status"],
         "choice_id": prompt["choice_id"],
         "selected_key": selected_key,
         "selected_role": json.loads(event["payload_json"])["selected_role"],
@@ -998,7 +1109,7 @@ def append_choice_event(
     if rework_minutes is not None and rework_minutes < 0:
         raise ChoiceError("rework minutes cannot be negative")
     sanitized_supersedes = (
-        sanitize_text(supersedes_event_id, limit=200)
+        validate_event_reference(supersedes_event_id)
         if supersedes_event_id
         else None
     )
@@ -1085,9 +1196,11 @@ def close_branch(
         (choice_id, idempotency_key),
     ).fetchone()
     if existing_retry:
+        retry_payload = json.loads(existing_retry["payload_json"])
+        retry_payload.pop("timestamp_metadata", None)
         if (
             existing_retry["event_type"] != "branch_closed"
-            or existing_retry["payload_json"] != canonical_json(payload)
+            or retry_payload != payload
         ):
             raise ChoiceError("conflicting retry rejected; history was not overwritten")
     else:
@@ -1138,7 +1251,9 @@ def _events(connection: sqlite3.Connection, choice_id: str) -> list[dict[str, An
 
 
 def _decode_event_rows(rows: Iterable[sqlite3.Row]) -> list[dict[str, Any]]:
-    return [dict(row) | {"payload": json.loads(row["payload_json"])} for row in rows]
+    return [dict(row) | {"payload": json.loads(row["payload_json"]),
+                        "occurred_at_status": time_status(row, "occurred_at"),
+                        "recorded_at": row["recorded_at"] if "recorded_at" in row.keys() else None} for row in rows]
 
 
 def _current_outcome(events: list[dict[str, Any]]) -> dict[str, Any] | None:
@@ -1157,6 +1272,8 @@ def _current_outcome(events: list[dict[str, Any]]) -> dict[str, Any] | None:
             outcome = event["payload"] | {
                 "event_id": event["event_id"],
                 "occurred_at": event["occurred_at"],
+                "occurred_at_status": event["occurred_at_status"],
+                "recorded_at": event["recorded_at"],
             }
     return outcome
 
@@ -1191,6 +1308,9 @@ def _project_choice_rows(
             "actor": row["actor"],
             "presented_at": row["presented_at"],
             "selected_at": row["selected_at"],
+            "presented_at_status": time_status(row, "presented_at"),
+            "selected_at_status": time_status(row, "selected_at"),
+            "recorded_at": row["recorded_at"] if "recorded_at" in row.keys() else None,
             "options": json.loads(row["options_json"]),
             "options_hash": row["options_hash"],
             "recommended_key": row["recommended_key"],
@@ -1215,7 +1335,8 @@ def _project_choice_rows(
         "current_state": current_state,
         "closure": (
             closed["payload"]
-            | {"event_id": closed["event_id"], "occurred_at": closed["occurred_at"]}
+            | {"event_id": closed["event_id"], "occurred_at": closed["occurred_at"],
+               "occurred_at_status": closed["occurred_at_status"], "recorded_at": closed["recorded_at"]}
             if closed
             else None
         ),
@@ -1257,6 +1378,32 @@ def _verify_choice_rows(
     prompt: sqlite3.Row | dict[str, Any], events: list[dict[str, Any]]
 ) -> dict[str, Any]:
     failures: list[str] = []
+    def check_times(row, fields, label):
+        for field in fields:
+            status = time_status(row, field)
+            value = row[field]
+            if status not in {"exact", "unknown", "legacy-unassessed"}:
+                failures.append(f"invalid timestamp status: {label}.{field}")
+            if (status == "exact" and value is None) or (status == "unknown" and value is not None):
+                failures.append(f"timestamp status/value mismatch: {label}.{field}")
+            if value is not None:
+                try:
+                    validate_timestamp(value)
+                except ChoiceError:
+                    failures.append(f"invalid timestamp: {label}.{field}")
+        if "recorded_at" in row.keys() and row["recorded_at"] is not None:
+            try:
+                validate_timestamp(row["recorded_at"])
+            except ChoiceError:
+                failures.append(f"invalid recording time: {label}")
+    check_times(prompt, ("presented_at", "selected_at"), "choice")
+    if "selected_at_utc_us" in prompt.keys():
+        try:
+            expected_key = timestamp_order_key(prompt["selected_at"]) if prompt["selected_at"] is not None else None
+            if prompt["selected_at_utc_us"] != expected_key:
+                failures.append("selection ordering key mismatch")
+        except ChoiceError:
+            pass
     options = json.loads(prompt["options_json"])
     if digest(options) != prompt["options_hash"]:
         failures.append("immutable option-set identity mismatch")
@@ -1330,6 +1477,17 @@ def _verify_choice_rows(
     if closure_sequences and outcome_sequences and closure_sequences[0] > outcome_sequences[0]:
         failures.append("branch_closed event occurs after a recorded outcome")
     for expected, event in enumerate(events, start=1):
+        check_times(event, ("occurred_at",), f"event {expected}")
+        if event["event_type"] != "branch_selected" and event["occurred_at"] is None:
+            failures.append(f"missing non-selection occurrence time at sequence {expected}")
+        metadata = event["payload"].get("timestamp_metadata")
+        if metadata is not None and metadata != {
+            "recorded_at": event["recorded_at"], "occurred_at_status": event["occurred_at_status"]
+        }:
+            failures.append(f"timestamp metadata mismatch at sequence {expected}")
+        times = event["payload"].get("selection_times")
+        if times is not None and any(prompt[key] != value for key, value in times.items()):
+            failures.append(f"selection timestamp mismatch at sequence {expected}")
         if event["sequence"] != expected:
             failures.append(f"event ordering mismatch at sequence {expected}")
         if event["previous_hash"] != previous_hash:
@@ -1399,7 +1557,8 @@ def scoped_choices(
     if review_cohort is not None and version < 4:
         return []
     order = (
-        "selected_at_utc_us, choice_id"
+        "selected_at IS NULL, selected_at_utc_us, recorded_at, choice_id"
+        if version >= 6 else "selected_at_utc_us, choice_id"
         if version >= 2
         else "choice_id"
     )
@@ -1502,6 +1661,7 @@ def learning_context(
             "review_cohort": review_cohort,
         },
         "comparable_resolved_count": len(comparable),
+        "selection_time_groups": selection_time_groups(choices),
         "evidence_strength": "thin" if len(comparable) < 3 else "eligible",
         "recommendation_influence": influence,
         "selection_frequency_used": False,
@@ -1510,11 +1670,27 @@ def learning_context(
             {
                 "choice_id": item["choice"]["choice_id"],
                 "selected_at": item["choice"]["selected_at"],
+                "selected_at_status": item["choice"]["selected_at_status"],
+                "recorded_at": item["choice"]["recorded_at"],
                 "decision_summary": item["choice"]["decision_summary"],
             }
             for item in choices
             if item["current_state"] == "unresolved"
         ],
+    }
+
+
+def selection_time_groups(choices: list[dict[str, Any]]) -> dict[str, Any]:
+    def summary(item: dict[str, Any]) -> dict[str, Any]:
+        return {key: item["choice"][key] for key in (
+            "choice_id", "selected_at", "selected_at_status", "presented_at",
+            "presented_at_status", "recorded_at")}
+    return {
+        "known_event_times": [summary(item) for item in choices if item["choice"]["selected_at"] is not None],
+        "unknown_event_times": sorted(
+            [summary(item) for item in choices if item["choice"]["selected_at"] is None],
+            key=lambda item: (item["recorded_at"] or "", item["choice_id"])),
+        "ordering_note": "Known selection times use event order, including legacy-unassessed values. Unknown selection times use recording order only; this is not event chronology.",
     }
 
 
@@ -1638,6 +1814,8 @@ def review_scorecard(
     ]
     return {
         "projection_kind": "review-scorecard",
+        "selection_time_groups": selection_time_groups(choices),
+        "cohort_ordering": "known event order then unknown recording order; content review includes both groups",
         "projection_version": REVIEW_PROJECTION_VERSION,
         "assessment": assessment,
         "cohort_stage": cohort_stage,
@@ -1695,8 +1873,12 @@ def due_outcomes(
         review_cohort=sanitize_identifier(review_cohort),
     )
     candidates = []
+    excluded_unknown_closure = 0
     for item in choices:
         if item["current_state"] != "closed":
+            continue
+        if item["closure"]["occurred_at"] is None:
+            excluded_unknown_closure += 1
             continue
         closed_at = datetime.fromisoformat(
             item["closure"]["occurred_at"].replace("Z", "+00:00")
@@ -1712,7 +1894,7 @@ def due_outcomes(
                 "candidate_only": True,
             }
         )
-    candidates.sort(key=lambda item: (item["closed_at"], item["choice_id"]))
+    candidates.sort(key=lambda item: (timestamp_order_key(item["closed_at"]), item["choice_id"]))
     return {
         "projection_kind": "choice-outcome-due",
         "projection_version": PROJECTION_VERSION,
@@ -1724,6 +1906,8 @@ def due_outcomes(
         "as_of": validate_timestamp(as_of),
         "minimum_age_hours": minimum_age_hours,
         "due_count": len(candidates),
+        "timing_basis": "actual closure time; selection time is not required",
+        "timing_exclusions": {"unknown_closure_time": excluded_unknown_closure},
         "candidates": candidates[:limit],
         "candidate_is_not_observation": True,
         "authority_effect": AUTHORITY_EFFECT,
@@ -1805,7 +1989,8 @@ def choice_health(
     )
     timestamps = {"selection": [], "closure": [], "outcome": []}
     for item in choices:
-        timestamps["selection"].append(item["choice"]["selected_at"])
+        if item["choice"]["selected_at"] is not None:
+            timestamps["selection"].append(item["choice"]["selected_at"])
         if item["closure"]:
             timestamps["closure"].append(item["closure"]["occurred_at"])
         if item["outcome"]:
@@ -1841,8 +2026,10 @@ def choice_health(
             "ratio": (observed / denominator) if denominator else None,
         },
         "last_event_at": {
-            name: max(values) if values else None for name, values in timestamps.items()
+            name: max(values, key=timestamp_order_key) if values else None for name, values in timestamps.items()
         },
+        "timing_exclusions": {"last_selection_at": sum(item["choice"]["selected_at"] is None for item in choices)},
+        "selection_time_groups": selection_time_groups(choices),
         "due_count": due["due_count"],
         "cohort_progress": review_scorecard(
             connection,
@@ -1868,6 +2055,9 @@ def markdown_projection(payload: dict[str, Any], title: str) -> str:
                 f"- Choice: `{choice['choice_id']}`",
                 f"- State: `{payload['current_state']}`",
                 f"- Selected: `{choice['selected_key']}`",
+                f"- Presented at: {choice['presented_at'] or 'unknown'} ({choice['presented_at_status']})",
+                f"- Selected at: {choice['selected_at'] or 'unknown'} ({choice['selected_at_status']})",
+                f"- Recorded at: {choice['recorded_at'] or 'unknown (historical record)'}",
                 f"- Chain valid: `{str(payload['lineage']['valid']).lower()}`",
                 "",
                 "## Possibilities",
@@ -1921,6 +2111,13 @@ def markdown_projection(payload: dict[str, Any], title: str) -> str:
         lines.append("```json")
         lines.append(json.dumps(payload, indent=2, ensure_ascii=False))
         lines.append("```")
+    if "selection_time_groups" in payload and "assessment" in payload:
+        groups = payload["selection_time_groups"]
+        for label in ("known_event_times", "unknown_event_times"):
+            lines.extend(["", "## " + label.replace("_", " ").title(), ""])
+            for item in groups[label]:
+                lines.append(f"- {item['choice_id']}: selected {item['selected_at'] or 'unknown'} ({item['selected_at_status']}); recorded {item['recorded_at'] or 'unknown'}")
+        lines.extend(["", groups["ordering_note"]])
     return "\n".join(lines).rstrip() + "\n"
 
 
@@ -1943,6 +2140,18 @@ def unavailable_payload(
         ),
         "no_execution_authority": NO_AUTHORITY,
     }
+
+
+def require_current_schema(connection: sqlite3.Connection) -> None:
+    if int(connection.execute("PRAGMA user_version").fetchone()[0]) != SCHEMA_VERSION:
+        raise ChoiceError("migration required: run choice migrate-store explicitly")
+
+
+def validate_event_reference(value: str) -> str:
+    # Hash digits in an opaque lineage identifier are not telephone numbers.
+    if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._:-]{0,199}", value):
+        raise ChoiceError("invalid event reference")
+    return value
 
 
 def add_scope(parser: argparse.ArgumentParser, *, include_cohort: bool = True) -> None:
@@ -1973,7 +2182,7 @@ def parse_args(arguments: list[str] | None = None) -> argparse.Namespace:
     select.add_argument("--consequence-level", required=True)
     select.add_argument("--decision-summary", required=True)
     select.add_argument("--actor", default="operator")
-    select.add_argument("--presented-at", required=True)
+    select.add_argument("--presented-at", default=None)
     select.add_argument("--selected-at", default=None)
     select.add_argument("--idempotency-key", required=True)
     select.add_argument("--learning-ref", action="append")
@@ -2142,8 +2351,35 @@ def main(arguments: list[str] | None = None) -> int:
         print(json.dumps(payload, indent=2))
         return 0
     if args.command == "migrate-store":
+        if resolution.path is None:
+            raise ChoiceError(resolution.reason or "choice store unavailable")
         previous_version = schema_version_at(resolution.path)
-        connection = connect(resolution.path)
+        backup_path = None
+        backup_status = None
+        expected_history = None
+        if previous_version < SCHEMA_VERSION:
+            backup_path = resolution.path.parent / "choice-backups" / (
+                f"{resolution.path.stem}-v{previous_version}-{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')}.sqlite3")
+            create_backup(resolution.path, backup_path)
+            backup_status = compare_backup(resolution.path, backup_path)
+            if not backup_status["fresh"]:
+                raise ChoiceError("migration stopped: backup verification failed")
+            if previous_version == 5:
+                backup_connection = connect_read_only(backup_path)
+                try:
+                    expected_history = historical_rows(backup_connection)
+                finally:
+                    backup_connection.close()
+        try:
+            connection = connect(resolution.path, allow_migration=True, expected_history=expected_history)
+        except (ChoiceError, sqlite3.Error, OSError) as error:
+            if backup_path:
+                backup_path.with_suffix(".failure.json").write_text(json.dumps({
+                    "status": "migration-failed", "backup": str(backup_path),
+                    "store_path": str(resolution.path), "error": str(error),
+                    "normal_writes_allowed": False,
+                }, indent=2), encoding="utf-8")
+            raise
         try:
             current_version = int(connection.execute("PRAGMA user_version").fetchone()[0])
             payload = {
@@ -2154,12 +2390,35 @@ def main(arguments: list[str] | None = None) -> int:
                 "current_schema_version": current_version,
                 "store_path": str(resolution.path),
                 "store_changed": previous_version < SCHEMA_VERSION,
+                "verified_backup": str(backup_path) if backup_path else None,
+                "backup_verification": backup_status,
+                "historical_values_verified": expected_history is not None,
+                "historical_fingerprint": digest(expected_history) if expected_history is not None else None,
                 "authority_effect": AUTHORITY_EFFECT,
             }
         finally:
             connection.close()
+        readonly = connect_read_only(resolution.path)
+        try:
+            choice_ids = [row[0] for row in readonly.execute("SELECT choice_id FROM choice_prompts")]
+            invalid = [choice_id for choice_id in choice_ids if not verify_choice(readonly, choice_id)["valid"]]
+            payload["post_migration_integrity"] = {
+                "read_only": True,
+                "integrity_check": readonly.execute("PRAGMA integrity_check").fetchone()[0],
+                "choices_checked": len(choice_ids), "invalid_chains": invalid,
+                "historical_values_equal": historical_rows(readonly) == expected_history if expected_history is not None else None,
+            }
+        finally:
+            readonly.close()
+        integrity = payload["post_migration_integrity"]
+        if integrity["invalid_chains"] or integrity["integrity_check"] != "ok" or integrity["historical_values_equal"] is False:
+            payload["status"] = "integrity-failed"
+        if backup_path:
+            receipt = backup_path.with_suffix(".migration.json")
+            payload["integrity_receipt"] = str(receipt)
+            receipt.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
         print(json.dumps(payload, indent=2, ensure_ascii=False))
-        return 0
+        return 2 if payload["status"] == "integrity-failed" else 0
     if resolution.path is None:
         payload = unavailable_payload(
             resolution.reason or "choice store unavailable",
@@ -2248,7 +2507,7 @@ def main(arguments: list[str] | None = None) -> int:
                 decision_summary=args.decision_summary,
                 actor=args.actor,
                 presented_at=args.presented_at,
-                selected_at=args.selected_at or utc_now(),
+                selected_at=args.selected_at,
                 idempotency_key=args.idempotency_key,
                 learning_refs=args.learning_ref,
                 success_signals=args.success_signal,

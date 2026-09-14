@@ -168,6 +168,74 @@ def test_missing_private_store_is_unavailable(setup):
     assert journal.summary(repo, root)["status"] == "unavailable"
 
 
+@pytest.mark.parametrize("command", ["context", "prepare"])
+@pytest.mark.parametrize("state", ["missing", "empty", "populated"])
+def test_retrieval_status_is_additive_and_read_only(setup, monkeypatch, capsys, command, state):
+    repo, root, entry = setup
+    if state == "empty":
+        journal.location(repo, root).mkdir(parents=True)
+    elif state == "populated":
+        journal.record(entry, repo=repo, root=root)
+    before = {str(p): p.read_bytes() for p in root.rglob("*") if p.is_file()}
+    monkeypatch.setattr(journal, "REPO_ROOT", repo)
+    original = journal.context
+    monkeypatch.setattr(journal, "context", lambda focus, **kw: original(focus, repo=repo, **kw))
+    monkeypatch.setattr(sys, "argv", ["library-journal", "--root", str(root), command, "--json"])
+    journal.main()
+    result = json.loads(capsys.readouterr().out)
+    assert result["retrieval_status"] == state
+    assert len(result["latest"]) == (1 if state == "populated" else 0)
+    assert result["writes_performed"] is False
+    assert "corrections_and_predecessors" in result
+    if command == "prepare":
+        assert "entry_contract" in result and "expectation_contract" in result
+    assert before == {str(p): p.read_bytes() for p in root.rglob("*") if p.is_file()}
+    if state == "missing":
+        assert not root.exists()
+
+
+@pytest.mark.parametrize("command", ["context", "prepare"])
+@pytest.mark.parametrize("failure,category", [
+    ("folder-denial", "permission-denied"), ("entry-denial", "permission-denied"),
+    ("malformed", "invalid-data"), ("digest", "invalid-data"), ("io", "io-error"),
+])
+def test_retrieval_failures_keep_nonzero_error_envelope(setup, monkeypatch, capsys, command, failure, category):
+    repo, root, entry = setup
+    saved = journal.record(entry, repo=repo, root=root)
+    path = Path(saved["path"]).with_name("entry.json")
+    if failure == "malformed":
+        path.write_text("{broken", encoding="utf-8")
+    elif failure == "digest":
+        value = json.loads(path.read_text(encoding="utf-8"))
+        value["digest"] = "0" * 64
+        path.write_text(json.dumps(value), encoding="utf-8")
+    elif failure == "folder-denial":
+        original_iterdir = Path.iterdir
+        def denied_dir(p):
+            if p == journal.location(repo, root):
+                raise PermissionError("folder denied")
+            return original_iterdir(p)
+        monkeypatch.setattr(Path, "iterdir", denied_dir)
+    else:
+        original_read = Path.read_text
+        def denied_read(p, *args, **kwargs):
+            if p == path:
+                raise PermissionError("entry denied") if failure == "entry-denial" else OSError("read failed")
+            return original_read(p, *args, **kwargs)
+        monkeypatch.setattr(Path, "read_text", denied_read)
+    original_context = journal.context
+    monkeypatch.setattr(journal, "context", lambda focus, **kw: original_context(focus, repo=repo, **kw))
+    monkeypatch.setattr(sys, "argv", ["library-journal", "--root", str(root), command, "--json"])
+    with pytest.raises(SystemExit) as stopped:
+        journal.main()
+    assert stopped.value.code == 1
+    result = json.loads(capsys.readouterr().out)
+    assert result["status"] == "error" and result["error"]
+    assert result["error_category"] == category
+    assert result["writes_performed"] is False
+    assert "latest" not in result and "retrieval_status" not in result
+
+
 @pytest.mark.parametrize("author", journal.CORE)
 def test_all_core_eight_are_eligible(setup, author):
     repo, root, e = setup

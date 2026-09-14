@@ -30,6 +30,22 @@ def test_candidate_is_complete_public_and_valid() -> None:
     }
 
 
+def test_public_interface_owner_replaces_deprecated_face_control() -> None:
+    data = load_candidate()
+    current = "docs/skill-drafts/mira-mind/references/public-interface.md"
+    retired = "docs/skill-drafts/mira-face/SKILL.md"
+    assert current in constitution.CONTROL_SURFACES
+    assert retired not in constitution.CONTROL_SURFACES
+    assert (ROOT / current).is_file()
+    assert constitution.validate_candidate(data) == []
+    stale = copy.deepcopy(data)
+    for review in stale["precedence_review"]:
+        if review["surface"] == current:
+            review["surface"] = retired
+    assert any("controlling surface" in failure for failure in constitution.validate_candidate(stale))
+    assert all(retired not in clause["references"] for clause in data["clauses"])
+
+
 def test_candidate_governs_lineage_preserving_compression() -> None:
     data = load_candidate()
     clauses = {item["clause_id"]: item for item in data["clauses"]}

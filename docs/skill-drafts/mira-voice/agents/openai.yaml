@@ -1,4 +1,4 @@
 interface:
-  display_name: "Mira Voice"
-  short_description: "Shape Mira's writing across nine registers"
-  default_prompt: "Use $mira-voice to draft or revise this writing in the appropriate Mira register while preserving meaning, provenance, and relational character."
+  display_name: "Mira Voice (deprecated)"
+  short_description: "Compatibility route to Mira Mind expression"
+  default_prompt: "Use $mira-voice to route this expression request to Mira Mind while preserving its scope."

@@ -13,7 +13,20 @@ Do not report non-retention for a deliberately transient control.
 
 1. Reconstruct the exact displayed option set and stable role bindings.
 2. Sanitize direct contact data and reject secrets or credentials.
-3. Unless the choice runtime has already reported its store unavailable for the
+3. Establish presentation and selection times from available message or
+   presentation-event metadata before retention. Use timestamps for the actual
+   events, not the current time at recording. Do not substitute recording time,
+   invent precision, or put an approximation into an exact event-time field
+   with only a prose disclaimer. If either time cannot be recovered, omit that
+   argument: schema 6 retains it as null with status `unknown`. The two times
+   are independent. Supplied values must be timezone-aware and are labeled
+   `exact`; runtime `recorded_at` is separate. Do not ask the operator to guess
+   or infer times from sequence. Historical values remain `legacy-unassessed`;
+   do not silently correct them. Unknown-time choices remain available for
+   content reviews; timing-dependent calculations exclude and count them.
+   Retries reuse the same supplied values or omissions and idempotency key.
+4. Unless the choice runtime has
+   already reported its store unavailable for the
    current task, run `choice select` atomically with the selected key,
    recommendation binding, lane/workspace/tenant scope, choice kind,
    consequence, summary, actor, timestamps, and bounded signals. Let the
@@ -22,16 +35,18 @@ Do not report non-retention for a deliberately transient control.
    not inspect one environment variable and infer that retention is
    unavailable; only the compatibility-aware command result may establish
    availability.
-4. Use the stable workspace identifier `mira-core`; never pass a repository
+5. Use the stable workspace identifier `mira-core`; never pass a repository
    path as `--workspace`. Preserve the operational lane. For consequential
    universal-menu decisions being measured prospectively, use `choice_kind:
    menu-contract-decision-v1` and bind the selection to `--review-cohort
    menu-contract-natural-use-v1`. Do not assign a cohort to a transient
    control, historical selection, or infer one from its lane.
-5. State only when material that retention granted no authority; executable
+6. State only when material that retention granted no authority; executable
    authority came from the validated visible `selection_effect`.
-6. If the store is unavailable, continue and disclose that the selection was
-   not retained.
+7. If the store is unavailable, continue and disclose once per unchanged
+   task/store failure that the selection was not retained. Keep later eligible
+   selections quiet while the cached failure fingerprint is unchanged; disclose
+   again only when the store state, affected scope, or consequence changes.
 
 For a comma-separated compound selection, retain each learning-eligible branch
 as its own `choice select` row with the same exact option set and shared
@@ -44,7 +59,7 @@ Do not retain an unselected footer. Never store raw evidence bodies, secrets,
 credentials, personal contact data, or customer-private content. Link bounded
 evidence by reference.
 
-`choice select --options-json` accepts an array of three or four objects with
+`choice select --options-json` accepts an array of two to four objects with
 `key`, `role`, and `text`:
 
 ```json
@@ -74,8 +89,11 @@ Retry only after that state changes or the operator explicitly asks.
 
 ## Close a selected branch
 
-Run `choice close` with reason `completed`, `paused`, or `saturated`. Closure
-removes the branch from unresolved review without creating success,
+Run `choice close` with reason `completed`, `paused`, or `saturated`. This
+requires an existing retained selection, including one with unknown event times.
+Do not create synthetic selections or backfill previously skipped selections
+merely to close them. Closure timing uses the actual closure event independently.
+Closure removes the branch from unresolved review without creating success,
 cognitive-load, momentum, or discovery evidence. Do not close after an outcome
 has already resolved it, and do not reconstruct historical selections from
 memory. Successful closure retention stays quiet. Its machine-readable state

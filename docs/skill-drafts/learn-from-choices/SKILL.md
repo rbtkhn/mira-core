@@ -206,7 +206,6 @@ return-later controls are `none`. Eligibility is independent of
 
 When a terminal surface is rendered, validate it with `final_response: true`.
 This requires two to four options and explicit eligibility for each one.
-
 Validate the exact visible surface before presentation, not after selection.
 
 ## Preserve action authority
@@ -221,6 +220,10 @@ only when all of these are true:
 
 Put the stable role after the executable prefix. Labels such as `Patch both
 skills`, `Create tests`, or `Update the file` remain navigation-only.
+Any option that could mutate state must use an executable prefix visibly and
+literally: `Execute`, `Stage`, `Commit`, `Push`, or `Send`. Do not rely on
+context, a role label, or a bare-letter selection to convert `Create`, `Add`,
+`Patch`, `Update`, or `Review` into executable authority.
 `Stage` is valid only for exact scoped staging where the complete path or hunk
 boundary is visible and validated. Broad staging, `Publish`, and `Deploy`
 always require a direct explicit command.
@@ -241,8 +244,7 @@ selected scope.
 Treat a letter as the complete visible option, not a request for the operator
 to restate it. Once a branch is confirmed, paused, or settled, repeating the
 same selection is a no-op. Acknowledge closure once and do not regenerate the
-same substantive menu. Reuse unchanged transient settled controls when needed
-for an unsolicited footer. Present a new choice only for genuinely new evidence, scope,
+same substantive menu. Use ordinary prose for settled closure; requested controls remain optional. Present a new choice only for genuinely new evidence, scope,
 decision, or action.
 
 Treat comma-separated letters such as `B,C` as an ordered compound selection

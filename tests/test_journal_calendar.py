@@ -59,3 +59,13 @@ def test_dream_defaults_follow_date_and_reject_mismatched_future_zone(monkeypatc
     assert seen==[('2026-09-04','America/Denver'),('2026-09-05','America/New_York')]
     assert dream_eod.main(['--date','2026-09-06','--timezone','America/Denver','--check'])==1
     assert len(seen)==2
+
+
+def test_dream_close_date_keeps_after_midnight_with_previous_lived_day():
+    # 2026-09-06 04:30Z is 00:30 in New York after the dated transition.
+    assert calendar.current_date(datetime(2026,9,6,4,30,tzinfo=timezone.utc)) == date(2026,9,6)
+    assert calendar.dream_close_date(datetime(2026,9,6,4,30,tzinfo=timezone.utc)) == date(2026,9,5)
+
+
+def test_dream_close_date_moves_forward_after_closeout_cutoff():
+    assert calendar.dream_close_date(datetime(2026,9,6,10,30,tzinfo=timezone.utc)) == date(2026,9,6)

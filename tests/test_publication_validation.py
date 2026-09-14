@@ -1,10 +1,34 @@
 from __future__ import annotations
 
 import json
-import pytest
 from pathlib import Path
 
+import pytest
+
 import publication_validation as routing
+
+
+def test_provenance_dependency_is_exact_and_neighbors_stay_blocked(tmp_path):
+    for relative in ('projects/provenance.md', 'projects/provenance-private.md'):
+        target = tmp_path / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text('# Fixture')
+    report = routing.build_report(['projects/provenance.md'], repo_root=tmp_path)
+    assert report['owners'] == ['projects/provenance']
+    assert report['manual_checks'] == [routing.MANUAL_PROJECT_ORIENTATION_CHECK]
+    assert not report['blockers']
+    assert routing.build_report(['projects/provenance-private.md'], repo_root=tmp_path)['status'] == 'blocked'
+
+
+def test_required_package_dependencies_and_optional_navigation():
+    root = Path(__file__).resolve().parents[1]
+    provenance = root / 'projects/provenance.md'
+    journal = root / 'docs/work-journal/README.md'
+    assert provenance.is_file() and journal.is_file()
+    assert 'Pinned revision: `ccf82892261137465329d3dc724ade6c7c82e22d`' in provenance.read_text()
+    assert 'local-only:' in provenance.read_text()
+    assert 'local-only:' in journal.read_text()
+    assert 'No automatic links or scores.' in journal.read_text()
 
 
 def test_git_attributes_require_byte_preservation_review(tmp_path: Path) -> None:
@@ -14,6 +38,36 @@ def test_git_attributes_require_byte_preservation_review(tmp_path: Path) -> None
         "tools/run.ps1 test --path tests/test_publication_validation.py"
     ]
     assert any("clean conversion" in check for check in result["manual_checks"])
+
+
+@pytest.mark.parametrize("relative", [
+    "archive/letters/2026-09-07-example.md",
+    "archive/letters/thread/2026-09-07-outbound-v1.md",
+])
+def test_letters_require_manual_correspondence_review(tmp_path: Path, relative: str) -> None:
+    path = tmp_path / relative
+    path.parent.mkdir(parents=True)
+    path.write_text("Unsent draft\n", encoding="utf-8")
+    report = routing.build_report([relative], repo_root=tmp_path)
+    assert report["status"] == "manual-required"
+    assert report["owners"] == ["mira-letters"]
+    assert report["validation_classes"] == ["domain-governed"]
+    assert report["commands"] == []
+    assert report["blockers"] == []
+    check = " ".join(report["manual_checks"])
+    for boundary in ("recipients", "disposition", "privacy", "provenance", "version chain",
+                     "authority effect", "does not authorize sending"):
+        assert boundary in check
+
+
+def test_similarly_named_letter_shelf_is_not_authorized(tmp_path: Path) -> None:
+    relative = "archive/letters-other/example.md"
+    path = tmp_path / relative
+    path.parent.mkdir(parents=True)
+    path.write_text("Unrecognized shelf\n", encoding="utf-8")
+    report = routing.build_report([relative], repo_root=tmp_path)
+    assert report["status"] == "blocked"
+    assert report["owners"] == []
 
 
 def make_tree(root: Path) -> None:
@@ -63,6 +117,7 @@ def make_tree(root: Path) -> None:
         "docs/plans/2026-08-16-mira-archive-name-migration.md",
         "docs/experiments/leaner-skills/experiment.json",
         "docs/dev-journal/README.md",
+        "docs/work-journal/README.md",
         "mira/continuity/session-registry.json",
         "archive/library/README.md",
         "archive/library/library-registry.json",
@@ -147,20 +202,21 @@ def test_router_resolves_experiment_contracts(tmp_path: Path) -> None:
     assert report["blockers"] == []
 
 
-def test_router_resolves_dev_journal_docs(tmp_path: Path) -> None:
+@pytest.mark.parametrize("path", ["docs/work-journal/README.md", "docs/dev-journal/README.md"])
+def test_router_resolves_work_journal_and_legacy_redirect(tmp_path: Path, path: str) -> None:
     make_tree(tmp_path)
-    report = routing.build_report(["docs/dev-journal/README.md"], repo_root=tmp_path)
+    report = routing.build_report([path], repo_root=tmp_path)
 
     assert report["status"] == "manual-required"
-    assert report["owners"] == ["dev-journal"]
+    assert report["owners"] == ["work-journal"]
     assert report["validation_classes"] == ["repo-structural"]
     assert report["commands"] == ["tools/run.ps1 test --path tests/test_publication_validation.py"]
-    assert report["manual_checks"] == [routing.MANUAL_DEV_JOURNAL_CHECK]
+    assert report["manual_checks"] == [routing.MANUAL_WORK_JOURNAL_CHECK]
     assert report["blockers"] == []
 
 
-def test_dev_journal_readme_documents_retrospective_governance() -> None:
-    readme = (Path(__file__).resolve().parents[1] / "docs" / "dev-journal" / "README.md").read_text(
+def test_work_journal_readme_documents_retrospective_governance() -> None:
+    readme = (Path(__file__).resolve().parents[1] / "docs" / "work-journal" / "README.md").read_text(
         encoding="utf-8"
     )
 
@@ -170,11 +226,24 @@ def test_dev_journal_readme_documents_retrospective_governance() -> None:
         "Temporal stance: contemporaneous | near-contemporaneous | retrospective reconstruction",
         "Source basis: commits, diffs, tests, notes, plans, journal references, session receipts",
         "Confidence: high | medium | low",
-        "Record system rationale, not Mira selfhood.",
+        "not Mira selfhood.",
         "Mira Journal prose is interpretive context only",
         "not contemporaneous\nmental state",
     ):
         assert phrase in readme
+
+
+def test_work_journal_preserves_original_entry_and_redirects() -> None:
+    root = Path(__file__).resolve().parents[1]
+    import hashlib
+    entry = root / "docs/work-journal/2026-08-30-letters-orientation.md"
+    # Compare content portably across Git newline conversion; migration-time
+    # byte parity is recorded separately in the Work Journal receipt.
+    content = entry.read_text(encoding="utf-8").encode("utf-8")
+    assert hashlib.sha256(content).hexdigest() == "88ad762ba8bd6dd7e4089d64fc90ae053dc1ae00ab5bd550647933e09460e7ba"
+    for name in ("README.md", "2026-08-30-letters-orientation.md"):
+        redirect = (root / "docs/dev-journal" / name).read_text(encoding="utf-8")
+        assert f"../work-journal/{name}" in redirect
 
 
 def test_router_resolves_mira_library_paths(tmp_path: Path) -> None:
@@ -516,6 +585,41 @@ def test_router_resolves_grace_gems_files_to_stewardship_review(
     assert report["blockers"] == []
 
 
+def test_router_resolves_mentorship_artifacts_to_mira_mentor_review(
+    tmp_path: Path,
+) -> None:
+    make_tree(tmp_path)
+    tracker = tmp_path / "artifacts/mentorship/grace-gems-hannah-jon-response-tracker-2026-09-01.md"
+    ledger = tmp_path / "artifacts/mentorship/mentor-ledger-2026-09.md"
+    tracker.parent.mkdir(parents=True, exist_ok=True)
+    tracker.write_text("# Tracker\n", encoding="utf-8")
+    ledger.write_text("# Ledger\n", encoding="utf-8")
+
+    report = routing.build_report(
+        [
+            "artifacts/mentorship/grace-gems-hannah-jon-response-tracker-2026-09-01.md",
+            "artifacts/mentorship/mentor-ledger-2026-09.md",
+        ],
+        repo_root=tmp_path,
+    )
+
+    assert report["status"] == "manual-required"
+    assert report["owners"] == ["mira-mentor/artifacts"]
+    assert report["validation_classes"] == ["domain-governed"]
+    assert report["commands"] == []
+    assert report["manual_checks"] == [routing.MANUAL_MENTORSHIP_ARTIFACT_CHECK]
+    check = report["manual_checks"][0]
+    for boundary in (
+        "learner authority",
+        "privacy",
+        "task-versus-mentorship closure",
+        "legal/financial advice",
+        "unsupported capability claims",
+    ):
+        assert boundary in check
+    assert report["blockers"] == []
+
+
 def test_router_assigns_session_memorials_to_governing_validator(tmp_path: Path) -> None:
     make_tree(tmp_path)
     report = routing.build_report(["archive/sessions/memorials/registry.json", "archive/schemas/session-memorial.schema.json"], repo_root=tmp_path)
@@ -604,7 +708,7 @@ def test_nested_and_compatibility_gems_retain_domain_review(tmp_path: Path, rela
 
 
 def test_ottoman_rugs_requires_its_own_claim_review(tmp_path: Path) -> None:
-    relative = "projects/ottoman-rugs/README.md"
+    relative = "projects/grace-mar/ottoman-rugs/README.md"
     path = tmp_path / relative
     path.parent.mkdir(parents=True)
     path.write_text("# Ottoman Rugs\n", encoding="utf-8")
@@ -616,8 +720,8 @@ def test_ottoman_rugs_requires_its_own_claim_review(tmp_path: Path) -> None:
 
 @pytest.mark.parametrize("relative", [
     "projects/grace-mar/grace-gems/payments.md",
-    "projects/ottoman-rugs/inventory.md",
-    "projects/ottoman-rugs/private/README.md",
+    "projects/grace-mar/ottoman-rugs/inventory.md",
+    "projects/grace-mar/ottoman-rugs/private/README.md",
     "projects/grace-gems/private.md",
     "projects/grace-gems/other/README.md",
 ])
@@ -634,7 +738,7 @@ def test_project_homes_reconciled() -> None:
     root = Path(__file__).resolve().parents[1]
     assert not (root / "projects/grace-gems").exists()
     assert (root / "projects/grace-mar/grace-gems/admission-matrix.md").is_file()
-    assert (root / "projects/ottoman-rugs/README.md").is_file()
+    assert (root / "projects/grace-mar/ottoman-rugs/README.md").is_file()
 
 
 @pytest.mark.parametrize("relative,owner", [
@@ -677,7 +781,7 @@ def test_orientation_route_excludes_project_neighbors(tmp_path: Path, relative: 
     "decision-log.md", "preparation-plan.md", "creative-interface.md", "source-map.md",
 ])
 def test_mountain_villa_exact_documents_require_review(tmp_path: Path, name: str) -> None:
-    relative = "projects/mountain-villa/" + name
+    relative = "projects/grace-mar/mountain-villa/" + name
     path = tmp_path / relative
     path.parent.mkdir(parents=True)
     path.write_text("# Preparation only\n", encoding="utf-8")
@@ -689,10 +793,10 @@ def test_mountain_villa_exact_documents_require_review(tmp_path: Path, name: str
 
 
 @pytest.mark.parametrize("relative", [
-    "projects/mountain-villa/private/README.md",
-    "projects/mountain-villa/inspection.md",
-    "projects/mountain-villa/valuation.json",
-    "projects/mountain-villa/loop-examples/seasonal-readiness.yaml",
+    "projects/grace-mar/mountain-villa/private/README.md",
+    "projects/grace-mar/mountain-villa/inspection.md",
+    "projects/grace-mar/mountain-villa/valuation.json",
+    "projects/grace-mar/mountain-villa/loop-examples/seasonal-readiness.yaml",
     "projects/mountain-villa-extra/README.md",
 ])
 def test_mountain_villa_neighbors_remain_unapproved(tmp_path: Path, relative: str) -> None:
@@ -708,8 +812,43 @@ def test_mountain_villa_local_document_links_resolve() -> None:
     import re
 
     root = Path(__file__).resolve().parents[1]
-    for path in (root / "projects/mountain-villa").glob("*.md"):
+    for path in (root / "projects/grace-mar/mountain-villa").glob("*.md"):
         for link in re.findall(r"\[[^\]]+\]\(([^)]+)\)", path.read_text(encoding="utf-8")):
             if link.startswith(("https:", "http:", "#")):
                 continue
             assert (path.parent / link.split("#")[0]).resolve().is_file(), (path, link)
+
+
+@pytest.mark.parametrize("relative,owner", [
+    ("projects/README.md", "projects/index"),
+])
+def test_exact_project_orientation_routes(tmp_path: Path, relative: str, owner: str) -> None:
+    path = tmp_path / relative
+    path.parent.mkdir(parents=True)
+    path.write_text("# Prepared project orientation\n", encoding="utf-8")
+    report = routing.build_report([relative], repo_root=tmp_path)
+    assert report["owners"] == [owner]
+    assert report["validation_classes"] == ["domain-governed"]
+    assert report["manual_checks"] == [routing.MANUAL_PROJECT_ORIENTATION_CHECK]
+    assert report["commands"] == ["tools/run.ps1 test --path tests/test_publication_validation.py"]
+    assert report["status"] != "blocked"
+    assert report["blockers"] == []
+
+
+@pytest.mark.parametrize("relative", [
+    "projects/private.md",
+    "projects/book-club/README.md",
+    "projects/lab/results/private.md",
+    "projects/lab/pilots/MP-GG-001.md",
+    "projects/media-production/customer-brief.md",
+    "projects/media-production/private/README.md",
+])
+def test_orientation_route_excludes_project_neighbors(tmp_path: Path, relative: str) -> None:
+    path = tmp_path / relative
+    path.parent.mkdir(parents=True)
+    path.write_text("# Separate admission required\n", encoding="utf-8")
+    orientation = tmp_path / "projects/README.md"
+    orientation.write_text("# Projects\n", encoding="utf-8")
+    report = routing.build_report(["projects/README.md", relative], repo_root=tmp_path)
+    assert report["status"] == "blocked"
+    assert any("no deterministic" in blocker and relative in blocker for blocker in report["blockers"])

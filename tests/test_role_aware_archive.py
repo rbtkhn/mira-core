@@ -48,6 +48,11 @@ def test_cristoforou_aliases_resolve_to_canonical_person() -> None:
     assert MODULE.canonical_slug("christoforou") == "cristoforou"
 
 
+def test_role_archive_uses_shared_voice_registry_for_new_aliases() -> None:
+    assert MODULE.canonical_slug("anthony-aguilar") == "aguilar"
+    assert MODULE.canonical_slug("matthew-hoh") == "hoh"
+
+
 def test_guest_route_stays_person_and_host_separate() -> None:
     row = {
         "voice_slugs": ["barnes"],

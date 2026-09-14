@@ -3,6 +3,7 @@ from __future__ import annotations
 import copy
 import importlib.util
 import json
+import shutil
 from pathlib import Path
 
 import pytest
@@ -14,6 +15,23 @@ SPEC = importlib.util.spec_from_file_location("innermost_loop_simulation_tests",
 assert SPEC and SPEC.loader
 MODULE = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(MODULE)
+
+
+@pytest.fixture(autouse=True)
+def isolated_simulation(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    """Existing sealing tests must never write into the real experiment."""
+    bundle = tmp_path / MODULE.SIMULATION_ROOT
+    shutil.copytree(MODULE.RUN_ROOT, bundle)
+    original_baseline = MODULE.resolve_repo_path(
+        MODULE.load_json(MODULE.PROTOCOL_PATH)["baseline"]["path"]
+    )
+    baseline = tmp_path / original_baseline.relative_to(REPO_ROOT)
+    baseline.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(original_baseline, baseline)
+    monkeypatch.setattr(MODULE, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(MODULE, "RUN_ROOT", bundle)
+    monkeypatch.setattr(MODULE, "PROTOCOL_PATH", bundle / "protocol.json")
+    monkeypatch.setattr(MODULE, "STATE_PATH", bundle / "run-state.json")
 
 
 def test_current_simulation_packet_validates() -> None:

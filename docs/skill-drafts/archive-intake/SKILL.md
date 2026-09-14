@@ -187,6 +187,17 @@ than landing material in a convenient shelf.
 
 ## Boundaries
 
+Newsletter capture hands over private originals, extracted text, author and
+publication provenance, canonical URL, source and receipt dates, and completeness.
+Use the local newsletter-capture skill for acquisition and its pilot gate. Tower's
+post-pilot current entry supplies bounded admission authority for complete approved
+geopolitical newsletters; standalone capture alone does not. Keep original email
+headers and personal metadata private. Preserve the extracted substantive text.
+Previews and video notices are not complete articles or transcripts. Exact
+duplicates reuse archive membership; changed bodies require Archive Repair.
+Verify body parity and manifest membership before recording successful admission.
+Innermost Loop remains under its Singularity backend.
+
 - Do not fetch a missing source body, synthesize the day, adjudicate claims,
   repair an existing source, promote public material, hydrate collections,
   synchronize replicas, stage, commit, push, publish, or communicate

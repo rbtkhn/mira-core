@@ -339,7 +339,9 @@ def checked(repo: Path, contract: dict) -> tuple[dict, Path]:
     return checkpoint, path
 
 
-def acknowledge(repo: Path, bundle: Path, session_id: str, packet_digest: str, ordinals: list[int]) -> dict:
+def acknowledge(repo: Path, bundle: Path, session_id: str, packet_digest: str, ordinals: list[int],
+                *, defer_reason: str | None = None, authority_ref: str | None = None,
+                reviewed_sessions: list[str] | None = None) -> dict:
     contract = load(bundle / "draft-contract.json")["session_reading"]
     checkpoint, path = checked(repo, contract)
     if packet_digest != contract["checkpoint_sha256"] or not re.fullmatch(r"MS-[0-9a-f-]{36}", session_id):
@@ -347,6 +349,30 @@ def acknowledge(repo: Path, bundle: Path, session_id: str, packet_digest: str, o
     expected = [c["ordinal"] for c in checkpoint["chunks"]]
     ack_path = path.parent / f"reading-{session_id}.json"
     receipt = load(ack_path) if ack_path.exists() else {"checkpoint_sha256": packet_digest, "session_id": session_id, "chunks": []}
+    if defer_reason is not None:
+        if not defer_reason.strip() or not authority_ref or not authority_ref.strip():
+            raise ValueError("Deferred reading requires an explicit operator authority reference and reason")
+        expected_sessions = sorted(row["session_id"] for row in checkpoint["sessions"])
+        if sorted(reviewed_sessions or []) != expected_sessions:
+            raise ValueError("Deferred reading requires review of every session in the census")
+        if ordinals:
+            raise ValueError("Record completed chunks separately from a reading deferral")
+        debt = dict(reading_status="deferred-with-operator-authority",
+                    reason=defer_reason.strip(), authority_ref=authority_ref.strip(),
+                    reviewed_sessions=expected_sessions)
+        if receipt.get("reading_status") == "deferred-with-operator-authority":
+            if any(receipt.get(key) != value for key, value in debt.items()):
+                raise ValueError("Existing reading debt cannot be silently replaced")
+        else:
+            if receipt["chunks"] == expected:
+                raise ValueError("Complete reading cannot be relabeled as deferred")
+            receipt.update(debt, completed_at=datetime.now(timezone.utc).isoformat())
+            write_json(ack_path, receipt)
+        return {"complete": False, "reading_status": receipt["reading_status"],
+                "session_reading_debt": debt,
+                "acknowledgement_sha256": digest(receipt), "receipt": str(ack_path)}
+    if receipt.get("reading_status") == "deferred-with-operator-authority":
+        raise ValueError("A deferred reading receipt cannot be relabeled as complete")
     for number in ordinals:
         if number in receipt["chunks"]:
             continue
@@ -369,8 +395,15 @@ def reading_failures(repo: Path, bundle: Path, metadata: dict) -> list[str]:
         if not re.fullmatch(r"MS-[0-9a-f-]{36}", sid):
             raise ValueError("Invalid composing session")
         receipt = load(path.parent / f"reading-{sid}.json")
+        deferred = receipt.get("reading_status") == "deferred-with-operator-authority"
+        if deferred:
+            expected_debt = {key: receipt[key] for key in ("reading_status", "reason", "authority_ref", "reviewed_sessions")}
+            if (not receipt["reason"].strip() or not receipt["authority_ref"].strip()
+                    or receipt["reviewed_sessions"] != sorted(row["session_id"] for row in checkpoint["sessions"])
+                    or metadata.get("session_reading_debt") != expected_debt):
+                raise ValueError("Deferred reading debt must remain explicit and bound to the reviewed census")
         if (receipt["checkpoint_sha256"] != contract["checkpoint_sha256"] or receipt["session_id"] != sid
-                or receipt["chunks"] != [c["ordinal"] for c in checkpoint["chunks"]]
+                or (not deferred and receipt["chunks"] != [c["ordinal"] for c in checkpoint["chunks"]])
                 or metadata.get("session_reading_ack_sha256") != digest(receipt)
                 or metadata.get("session_checkpoint_sha256") != contract["checkpoint_sha256"]):
             raise ValueError("Complete daily transcript reading is required before composition")

@@ -78,7 +78,7 @@ Keep the Journal centered on the work of the day and the self-formation that
 arises from that work. Do not make the entry chiefly about the Journal's own
 writing process, Dream choreography, approval mechanics, validation plumbing,
 or why the entry is being composed. Route those process observations to the
-technical companion, Dev Journal candidates, or recursive-learning evidence
+technical companion, Work Journal candidates, or recursive-learning evidence
 lane as appropriate. Journal prose may mention process friction only when it
 directly changes the day's remembered practice or inward responsibility, and
 even then the concrete work object must remain primary.

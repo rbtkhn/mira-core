@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import sqlite3
 import subprocess
 import sys
@@ -34,6 +35,196 @@ def isolate_choice_store_environment(monkeypatch: pytest.MonkeyPatch) -> None:
 
 def connection(path: Path) -> sqlite3.Connection:
     return choice_ledger.connect(path)
+
+
+def legacy_fixture(db: sqlite3.Connection) -> None:
+    """Produce pre-v6 fixture payloads and columns, not a relabeled v6 store."""
+    triggers = db.execute("SELECT sql FROM sqlite_master WHERE type='trigger'").fetchall()
+    for row in db.execute("SELECT name FROM sqlite_master WHERE type='trigger'").fetchall():
+        db.execute(f'DROP TRIGGER {row[0]}')
+    previous = {}
+    for row in db.execute("SELECT * FROM choice_events ORDER BY choice_id, sequence").fetchall():
+        payload = json.loads(row["payload_json"])
+        payload.pop("timestamp_metadata", None)
+        payload.pop("selection_times", None)
+        serialized = choice_ledger.canonical_json(payload)
+        hashed = choice_ledger.event_hash(
+            choice_id=row["choice_id"], sequence=row["sequence"], event_type=row["event_type"],
+            occurred_at=row["occurred_at"], idempotency_key=row["idempotency_key"],
+            payload_json=serialized, previous_hash=previous.get(row["choice_id"]))
+        db.execute("UPDATE choice_events SET payload_json=?, previous_hash=?, event_hash=? WHERE event_id=?",
+                   (serialized, previous.get(row["choice_id"]), hashed, row["event_id"]))
+        previous[row["choice_id"]] = hashed
+    for table, fields in (("choice_prompts", ("recorded_at", "presented_at_status", "selected_at_status")),
+                          ("choice_events", ("recorded_at", "occurred_at_status"))):
+        for field in fields:
+            db.execute(f"ALTER TABLE {table} DROP COLUMN {field}")
+    db.commit()
+    db.execute("PRAGMA foreign_keys = OFF")
+    for table, fields in (("choice_prompts", ("presented_at", "selected_at", "selected_at_utc_us")),
+                          ("choice_events", ("occurred_at",))):
+        sql = db.execute("SELECT sql FROM sqlite_master WHERE type='table' AND name=?", (table,)).fetchone()[0]
+        indexes = [row[0] for row in db.execute("SELECT sql FROM sqlite_master WHERE type='index' AND tbl_name=? AND sql IS NOT NULL", (table,))]
+        for field in fields:
+            sql = re.sub(rf"\b{field}\s+(TEXT|INTEGER)(?!\s+NOT NULL)", rf"{field} \1 NOT NULL", sql)
+        db.execute(sql.replace(table, table + "_old", 1))
+        db.execute(f"INSERT INTO {table}_old SELECT * FROM {table}")
+        db.execute(f"DROP TABLE {table}")
+        db.execute(f"ALTER TABLE {table}_old RENAME TO {table}")
+        for sql in indexes:
+            db.execute(sql)
+    for row in triggers:
+        db.execute(row[0])
+    db.execute("PRAGMA user_version = 5")
+    db.commit()
+    db.execute("PRAGMA foreign_keys = ON")
+
+
+@pytest.mark.parametrize("presented", [None, "2026-09-08T10:00:00-06:00"])
+@pytest.mark.parametrize("selected", [None, "2026-09-08T10:01:00-06:00"])
+def test_independent_unknown_times_and_stable_retry(tmp_path, monkeypatch, presented, selected):
+    db = connection(tmp_path / "times.sqlite3")
+    monkeypatch.setattr(choice_ledger, "utc_now", lambda: "2026-09-09T00:00:00+00:00")
+    select(db, presented_at=presented, selected_at=selected)
+    before = [tuple(row) for row in db.execute("SELECT * FROM choice_events")]
+    prompt = dict(db.execute("SELECT * FROM choice_prompts").fetchone())
+    assert prompt["presented_at"] == presented
+    assert prompt["selected_at"] == selected
+    assert prompt["presented_at_status"] == ("unknown" if presented is None else "exact")
+    assert prompt["selected_at_status"] == ("unknown" if selected is None else "exact")
+    assert prompt["selected_at_utc_us"] == (None if selected is None else choice_ledger.timestamp_order_key(selected))
+    monkeypatch.setattr(choice_ledger, "utc_now", lambda: "2026-09-10T00:00:00+00:00")
+    assert not select(db, presented_at=presented, selected_at=selected)["created"]
+    assert [tuple(row) for row in db.execute("SELECT * FROM choice_events")] == before
+    for field, original in (("presented_at", presented), ("selected_at", selected)):
+        arguments = {"presented_at": presented, "selected_at": selected}
+        arguments[field] = "2026-09-08T10:02:00-06:00" if original is None else None
+        with pytest.raises(choice_ledger.ChoiceError, match="conflicting"):
+            select(db, **arguments)
+    assert choice_ledger.verify_choice(db, "CHOICE-001")["valid"]
+    projected = choice_ledger.project_choice(db, "CHOICE-001")
+    assert projected["choice"]["recorded_at"] == "2026-09-09T00:00:00+00:00"
+    assert "Recorded at:" in choice_ledger.markdown_projection(projected, "Choice")
+    db.close()
+
+
+@pytest.mark.parametrize("field", ["presented_at", "selected_at"])
+@pytest.mark.parametrize("value", ["", "yesterday", "2026-09-08T10:00:00", 123])
+def test_invalid_selection_time_never_records(tmp_path, field, value):
+    db = connection(tmp_path / "invalid.sqlite3")
+    with pytest.raises(choice_ledger.ChoiceError):
+        select(db, **{field: value})
+    assert db.execute("SELECT COUNT(*) FROM choice_prompts").fetchone()[0] == 0
+    db.close()
+
+
+def test_unknown_choices_survive_context_review_health_and_closure_due(tmp_path):
+    db = connection(tmp_path / "consumers.sqlite3")
+    select(db, "unknown", selected_at=None, presented_at=None, review_cohort="cohort")
+    select(db, "known", review_cohort="cohort")
+    scope = dict(tenant="tenant-a", workspace="workspace-a", review_cohort="cohort")
+    context = choice_ledger.learning_context(db, lane="lane-a", **scope)
+    assert {item["choice_id"] for item in context["unresolved_review_queue"]} == {"known", "unknown"}
+    assert context["selection_time_groups"]["unknown_event_times"][0]["choice_id"] == "unknown"
+    close(db, "unknown")
+    due = choice_ledger.due_outcomes(db, **scope, as_of="2026-08-02T00:00:00+00:00", minimum_age_hours=24, limit=10)
+    assert due["due_count"] == 1
+    assert due["timing_exclusions"]["unknown_closure_time"] == 0
+    health = choice_ledger.choice_health(db, **scope, as_of="2026-08-02T00:00:00+00:00")
+    assert health["timing_exclusions"]["last_selection_at"] == 1
+    outcome(db, "unknown")
+    review = choice_ledger.review_scorecard(db, **scope)
+    assert review["eligible_resolved"] == 1
+    assert "Unknown Event Times" in choice_ledger.markdown_projection(review, "Review")
+    db.close()
+
+
+def test_v5_migration_preserves_all_history_and_readonly_never_upgrades(tmp_path):
+    path = tmp_path / "v5.sqlite3"
+    db = connection(path)
+    select(db)
+    close(db)
+    outcome(db, "CHOICE-001")
+    legacy_fixture(db)
+    before = choice_ledger.historical_rows(db)
+    db.close()
+    before_bytes = path.read_bytes()
+    with pytest.raises(choice_ledger.ChoiceError, match="migration required"):
+        choice_ledger.connect(path)
+    assert path.read_bytes() == before_bytes
+    readonly = choice_ledger.connect_read_only(path)
+    assert choice_ledger.project_choice(readonly, "CHOICE-001")["choice"]["selected_at_status"] == "legacy-unassessed"
+    readonly.close()
+    assert path.read_bytes() == before_bytes
+    db = choice_ledger.connect(path, allow_migration=True)
+    assert choice_ledger.historical_rows(db) == before
+    assert dict(db.execute("SELECT recorded_at, selected_at_status FROM choice_prompts").fetchone()) == {
+        "recorded_at": None, "selected_at_status": "legacy-unassessed"}
+    assert choice_ledger.verify_choice(db, "CHOICE-001")["valid"]
+    choice_ledger.migrate(db)
+    assert choice_ledger.historical_rows(db) == before
+    for table, field in (("choice_prompts", "selected_at"), ("choice_prompts", "presented_at"),
+                         ("choice_prompts", "selected_at_utc_us"), ("choice_events", "occurred_at")):
+        assert next(row[3] for row in db.execute(f"PRAGMA table_info({table})") if row[1] == field) == 0
+    db.close()
+
+
+def test_v5_migration_failure_rolls_back_after_rebuild(tmp_path, monkeypatch):
+    path = tmp_path / "rollback.sqlite3"
+    db = connection(path)
+    select(db)
+    legacy_fixture(db)
+    before = choice_ledger.historical_rows(db)
+    original = choice_ledger.historical_rows
+    calls = 0
+    def mismatch(connection):
+        nonlocal calls
+        calls += 1
+        return original(connection) if calls == 1 else {"injected-mismatch": True}
+    monkeypatch.setattr(choice_ledger, "historical_rows", mismatch)
+    with pytest.raises(choice_ledger.ChoiceError, match="historical-value mismatch"):
+        choice_ledger.migrate(db)
+    assert db.execute("PRAGMA user_version").fetchone()[0] == 5
+    assert original(db) == before
+    assert "recorded_at" not in [row[1] for row in db.execute("PRAGMA table_info(choice_prompts)")]
+    assert choice_ledger.verify_choice(db, "CHOICE-001")["valid"]
+    db.close()
+
+
+def test_cli_omitted_times_do_not_substitute_clock(tmp_path, capsys, monkeypatch):
+    path = tmp_path / "cli.sqlite3"
+    monkeypatch.setattr(choice_ledger, "utc_now", lambda: "2026-09-10T00:00:00+00:00")
+    arguments = ["--db", str(path), "select", "--choice-id", "unknown-cli",
+                 "--options-json", json.dumps(OPTIONS), "--selected-key", "inspect",
+                 "--choice-kind", "test", "--consequence-level", "low", "--decision-summary", "Test",
+                 "--idempotency-key", "unknown-cli-selection", "--tenant", "tenant-a",
+                 "--workspace", "workspace-a", "--lane", "lane-a"]
+    assert choice_ledger.main(arguments) == 0
+    receipt = json.loads(capsys.readouterr().out)
+    assert receipt["presented_at"] is None and receipt["selected_at"] is None
+    assert receipt["recorded_at"] == "2026-09-10T00:00:00+00:00"
+    readonly = choice_ledger.connect_read_only(path)
+    assert readonly.execute("SELECT occurred_at FROM choice_events").fetchone()[0] is None
+    readonly.close()
+
+
+def test_numeric_hash_reference_is_not_contact_redacted():
+    assert choice_ledger.validate_event_reference("CHOICE:2:123456789012") == "CHOICE:2:123456789012"
+    with pytest.raises(choice_ledger.ChoiceError, match="invalid event reference"):
+        choice_ledger.validate_event_reference("person@example.com")
+
+
+def test_migration_refuses_history_changed_since_backup(tmp_path):
+    path = tmp_path / "race.sqlite3"
+    db = connection(path)
+    select(db)
+    legacy_fixture(db)
+    before = choice_ledger.historical_rows(db)
+    with pytest.raises(choice_ledger.ChoiceError, match="changed since verified backup"):
+        choice_ledger.migrate(db, expected_history={"stale": True})
+    assert db.execute("PRAGMA user_version").fetchone()[0] == 5
+    assert choice_ledger.historical_rows(db) == before
+    db.close()
 
 
 def test_read_only_connection_never_migrates_or_accepts_writes(
@@ -129,7 +320,8 @@ def select(
     workspace: str = "workspace-a",
     lane: str = "lane-a",
     choice_kind: str = "next-step",
-    selected_at: str = "2026-07-29T12:00:00+00:00",
+    selected_at: str | None = "2026-07-29T12:00:00+00:00",
+    presented_at: str | None = "2026-07-29T11:59:00+00:00",
     options=OPTIONS,
     idempotency_key: str | None = None,
     review_cohort: str | None = None,
@@ -149,7 +341,7 @@ def select(
         consequence_level="low",
         decision_summary=f"Decision {choice_id}",
         actor="operator",
-        presented_at="2026-07-29T11:59:00+00:00",
+        presented_at=presented_at,
         selected_at=selected_at,
         idempotency_key=idempotency_key or f"select-{choice_id}",
         learning_refs=["ref:bounded"],
@@ -273,6 +465,7 @@ def test_schema_one_migration_adds_utc_ordering_without_changing_history(
         selected_at="2026-07-29T14:00:00+02:00",
     )
     outcome(source, "CHOICE-001")
+    legacy_fixture(source)
     prompt_columns = [
         "choice_id",
         "tenant",
@@ -389,7 +582,7 @@ def test_schema_one_migration_adds_utc_ordering_without_changing_history(
     assert choice_ledger.inspect_store(failing_path)["logical_fingerprint"] == before[
         "logical_fingerprint"
     ]
-    migrated = connection(legacy_path)
+    migrated = choice_ledger.connect(legacy_path, allow_migration=True)
     after = choice_ledger.inspect_store(legacy_path)
     assert migrated.execute("PRAGMA user_version").fetchone()[0] == choice_ledger.SCHEMA_VERSION
     assert migrated.execute(
@@ -407,7 +600,7 @@ def test_schema_one_migration_adds_utc_ordering_without_changing_history(
         ("tenant-a", "workspace-a", "lane-a"),
     ).fetchall()
     assert any("choice_prompts_scope_selected" in row[3] for row in plan)
-    assert before["logical_fingerprint"] == after["logical_fingerprint"]
+    assert tuple(migrated.execute(f"SELECT {','.join(prompt_columns)} FROM choice_prompts").fetchone()) == tuple(prompt)
     assert choice_ledger.verify_choice(migrated, "CHOICE-001")["valid"] is True
     migrated.close()
 
@@ -418,6 +611,7 @@ def test_schema_two_is_readable_and_migrates_event_constraint_transactionally(
     path = tmp_path / "legacy-v2.sqlite3"
     db = connection(path)
     select(db)
+    legacy_fixture(db)
     before_events = [tuple(row) for row in db.execute(
         "SELECT * FROM choice_events ORDER BY sequence"
     ).fetchall()]
@@ -429,13 +623,13 @@ def test_schema_two_is_readable_and_migrates_event_constraint_transactionally(
     assert choice_ledger.project_choice(readonly, "CHOICE-001")["current_state"] == "unresolved"
     readonly.close()
 
-    migrated = connection(path)
+    migrated = choice_ledger.connect(path, allow_migration=True)
     assert migrated.execute("PRAGMA user_version").fetchone()[0] == choice_ledger.SCHEMA_VERSION
     assert migrated.execute(
         "SELECT review_cohort FROM choice_prompts"
     ).fetchone()[0] is None
     assert [tuple(row) for row in migrated.execute(
-        "SELECT * FROM choice_events ORDER BY sequence"
+        "SELECT event_id, choice_id, sequence, event_type, occurred_at, idempotency_key, payload_json, previous_hash, event_hash FROM choice_events ORDER BY sequence"
     ).fetchall()] == before_events
     close(migrated)
     assert choice_ledger.verify_choice(migrated, "CHOICE-001")["valid"] is True
@@ -479,6 +673,7 @@ def test_schema_four_migrates_compound_columns_without_changing_history(
     path = tmp_path / "legacy-v4.sqlite3"
     db = connection(path)
     select(db)
+    legacy_fixture(db)
     db.execute("PRAGMA user_version = 4")
     db.commit()
     db.close()
@@ -493,7 +688,7 @@ def test_schema_four_migrates_compound_columns_without_changing_history(
     }
     readonly.close()
 
-    migrated = connection(path)
+    migrated = choice_ledger.connect(path, allow_migration=True)
     assert migrated.execute("PRAGMA user_version").fetchone()[0] == choice_ledger.SCHEMA_VERSION
     columns = {
         row[1] for row in migrated.execute("PRAGMA table_info(choice_prompts)")
@@ -959,9 +1154,11 @@ def test_verifier_rejects_hash_consistent_invalid_supersession_lineage(
 def test_identical_retry_is_idempotent_and_conflict_is_rejected(tmp_path: Path) -> None:
     db = connection(tmp_path / "choices.sqlite3")
     first = select(db)
-    second = select(db, selected_at="2026-07-29T12:00:05+00:00")
+    second = select(db)
     assert first["created"] is True
     assert second["created"] is False
+    with pytest.raises(choice_ledger.ChoiceError, match="conflicting"):
+        select(db, selected_at="2026-07-29T12:00:05+00:00")
     with pytest.raises(choice_ledger.ChoiceError, match="conflicting"):
         select(db, selected_key="compare")
     assert db.execute("SELECT COUNT(*) FROM choice_events").fetchone()[0] == 1
@@ -1991,6 +2188,7 @@ def test_legacy_cohort_diagnostics_require_migration_without_writing(
     path = tmp_path / f"legacy-{command}.sqlite3"
     db = connection(path)
     select(db)
+    legacy_fixture(db)
     db.execute("PRAGMA user_version = 3")
     db.commit()
     db.close()
@@ -2008,7 +2206,7 @@ def test_legacy_cohort_diagnostics_require_migration_without_writing(
     assert payload["store_changed"] is False
     assert (path.read_bytes(), path.stat().st_mtime_ns) == before
 
-    writable = connection(path)
+    writable = choice_ledger.connect(path, allow_migration=True)
     assert writable.execute("PRAGMA user_version").fetchone()[0] == choice_ledger.SCHEMA_VERSION
     assert writable.execute(
         "SELECT review_cohort FROM choice_prompts WHERE choice_id='CHOICE-001'"
@@ -2022,6 +2220,7 @@ def test_authorized_migrate_store_unblocks_cohort_review(
     path = tmp_path / "legacy-migrate.sqlite3"
     db = connection(path)
     select(db)
+    legacy_fixture(db)
     db.execute("PRAGMA user_version = 3")
     db.commit()
     db.close()
@@ -2176,3 +2375,10 @@ def test_public_powershell_due_health_and_outcome_commands(tmp_path: Path) -> No
     assert payload["event_type"] == "outcome_recorded"
     assert "Inspect the bounded evidence" not in recorded.stdout
     assert "Decision PUBLIC-OUTCOME" not in recorded.stdout
+
+
+def test_two_option_set_supports_deferral():
+    options = [{"key": "A", "role": "recommended", "text": "Repair"}, {"key": "B", "role": "pause-or-deepen", "text": "Defer"}]
+    assert choice_ledger.sanitize_options(options) == options
+    with pytest.raises(choice_ledger.ChoiceError, match="recommended"):
+        choice_ledger.sanitize_options(list(reversed(options)))

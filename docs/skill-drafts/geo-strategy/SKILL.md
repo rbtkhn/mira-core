@@ -10,7 +10,9 @@ status: active
 
 # Geo-Strategy
 
-Use after intake has landed or when deepening an existing retrospective run.
+For explicitly requested current or pending geopolitical work, first follow
+[acquisition and pending work](references/acquisition.md). Otherwise use after
+intake has landed or when deepening an existing retrospective run.
 This skill turns source material into bounded strategic judgment; it does not
 provide operational advice or independently verify public facts.
 

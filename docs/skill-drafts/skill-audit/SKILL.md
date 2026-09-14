@@ -1,6 +1,6 @@
 ---
 name: skill-audit
-description: "Audit repository-local Codex skills for trigger clarity, workflow completeness, authority boundaries, progressive disclosure, testability, drift risk, benchmark cases, and revision readiness. Use when the operator asks to audit, review, benchmark, harden, validate, compare, or improve a skill, or asks whether a skill is working well."
+description: "Audit repository-local Codex skills for trigger clarity, workflow completeness, authority boundaries, progressive disclosure, testability, drift risk, benchmark cases, revision readiness, and observed performance. Use when the operator asks to audit, review, benchmark, harden, validate, compare, or improve a skill, asks whether a skill is working well, or requests evaluation of its recent use."
 ---
 
 # Skill Audit
@@ -22,10 +22,21 @@ Identify the target skill, audit mode, and intended use:
 - `benchmark`: representative cases, expected behavior, and regression checks.
 - `revision-readiness`: whether the smallest safe patch is clear enough to
   execute after explicit authorization.
+- `retrospective-performance`: assess observed runs over a declared period,
+  separating contract quality from execution, outcomes, friction, and recurrence.
+  Use this mode for requests about recent performance or repeated use; combine
+  it with contract review when necessary.
 
 Read the target `SKILL.md` completely. Read directly referenced resources only
 when they are necessary to assess the selected mode. Do not scan unrelated
 skills merely to enrich the audit.
+
+For `retrospective-performance`, read
+[`references/performance-review.md`](references/performance-review.md).
+Inspect a bounded sample of actual transitions and receipts before assigning
+an operational verdict. If run evidence is unavailable, report that limitation
+and restrict the verdict to contract quality; do not infer performance from
+the instructions or passing text-presence tests.
 
 ## Evaluate the contract
 
@@ -108,6 +119,11 @@ Classify repair readiness:
 Do not edit from an audit result alone. A later explicit repair command may
 authorize a bounded patch, but staging, committing, pushing, publication, and
 global skill synchronization remain separate authority boundaries.
+
+Apply the same authority checks to this audit's own next-action surface. A
+navigation option such as `Patch this skill` followed by a bare letter does not
+authorize edits. An executable selection must satisfy the current Learn From
+Choices validation, visible action, exact scope, and selection-effect rules.
 
 For repository-local validation, use `tools/run.ps1 test` for focused tests.
 Before invoking an external validator such as the skill quick-validator, obtain

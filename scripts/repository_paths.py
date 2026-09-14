@@ -6,7 +6,6 @@ from pathlib import Path, PurePosixPath
 LEGACY_GEOPOLITICS_ARCHIVE_ROOT = "narrative-geopolitics/archive"
 GEOPOLITICS_ARCHIVE_ROOT = "archive/sources/geopolitics"
 
-
 # Opt-in domain migration. Existing repository-path callers retain their behavior.
 LEGACY_GEOPOLITICS_ROOT = "narrative-geopolitics"
 GEOPOLITICS_ROOT = "geopolitics"
@@ -100,6 +99,107 @@ def resolve_geopolitics_reference(repo_root: Path, value: str) -> Path:
         target = resolve_repository_path(repo_root, canonical)
     return _contained_geopolitics_path(repo_root, target)
 
+# Historical references are identities, not physical locations. Never rewrite
+# them in note envelopes, frozen manifests, or approval bindings.
+LIBRARY_NOTE_RELOCATIONS = {
+    "archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note.md": "archive/notes/library/ashoka-edicts/encounter.md",
+    "archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note-addendum-01.md": "archive/notes/library/ashoka-edicts/encounter-addendum-01.md",
+    "archive/notes/2026-09-02-library-ashoka-rock-and-pillar-edicts-cognitive-note.md": "archive/notes/library/ashoka-edicts/interpretation.md",
+    "archive/notes/2026-09-01-library-du-bois-souls-of-black-folk-integration-note.md": "archive/notes/library/du-bois-souls-of-black-folk/encounter.md",
+    "archive/notes/2026-09-02-library-du-bois-souls-of-black-folk-cognitive-note.md": "archive/notes/library/du-bois-souls-of-black-folk/interpretation.md",
+    "archive/notes/2026-09-01-library-ibn-khaldun-muqaddimah-integration-note.md": "archive/notes/library/ibn-khaldun-muqaddimah/encounter.md",
+    "archive/notes/2026-09-02-library-ibn-khaldun-muqaddimah-cognitive-note.md": "archive/notes/library/ibn-khaldun-muqaddimah/interpretation.md",
+    "archive/notes/2026-09-01-library-murasaki-tale-of-genji-integration-note.md": "archive/notes/library/murasaki-tale-of-genji/encounter.md",
+    "archive/notes/2026-09-02-library-murasaki-tale-of-genji-cognitive-note.md": "archive/notes/library/murasaki-tale-of-genji/interpretation.md",
+    "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note.md": "archive/notes/library/grotius-mare-liberum/encounter.md",
+    "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note-addendum-01.md": "archive/notes/library/grotius-mare-liberum/passage-anchors.md",
+    "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note-addendum-02.md": "archive/notes/library/grotius-mare-liberum/route-review.md",
+    "archive/notes/2026-09-02-library-grotius-mare-liberum-cognitive-note.md": "archive/notes/library/grotius-mare-liberum/interpretation.md",
+    "archive/notes/2026-09-02-library-dante-de-monarchia-commedia-cognitive-note.md": "archive/notes/library/dante-monarchia-commedia/interpretation.md",
+    "archive/notes/2026-09-02-library-tolstoy-war-and-peace-cognitive-note.md": "archive/notes/library/tolstoy-war-and-peace/interpretation.md",
+    "archive/notes/2026-09-02-library-homer-iliad-odyssey-cognitive-note.md": "archive/notes/library/homer-iliad-odyssey/interpretation-v1.md",
+    "archive/notes/2026-09-02-library-homer-iliad-odyssey-cognitive-note-v2.md": "archive/notes/library/homer-iliad-odyssey/interpretation-v2.md",
+}
+
+
+# Remaining subject notes; references in historical records stay unchanged.
+NOTE_RELOCATIONS = {
+    'archive/notes/2026-07-06-working-vocabulary.md': 'archive/notes/development/narrative-model-vocabulary.md',
+    'archive/notes/2026-08-10-innermost-loop-baseline.md': 'archive/notes/singularity/innermost-loop-judgment-baseline.md',
+    'archive/notes/2026-08-10-one-year-developmental-hypothesis.md': 'archive/notes/singularity/innermost-loop-developmental-hypothesis-2026-2027.md',
+    'archive/notes/2026-08-11-evolution-of-repo-audit.md': 'archive/notes/development/repo-audit-development-history.md',
+    'archive/notes/2026-08-14-nate-b-jones-manifest-in-mira.md': 'archive/notes/development/nate-b-jones-mechanisms-in-mira.md',
+    'archive/notes/2026-08-15-from-civilization-memory-to-mira-core.md': 'archive/notes/development/mira-architectural-lineage.md',
+    'archive/notes/2026-08-16-nuclear-rhetoric-as-coercion-crisis-ceiling.md': 'archive/notes/geopolitics/nuclear-rhetoric-coercion-ceiling.md',
+    'archive/notes/2026-08-16-recent-architectural-changes.md': 'archive/notes/development/mira-core-transition-architecture.md',
+    'archive/notes/2026-08-16-three-daily-cadences.md': 'archive/notes/development/daily-cadences-world-self-method.md',
+    'archive/notes/2026-08-16-wilkerson-nuclear-refusal-mechanism.md': 'archive/notes/geopolitics/wilkerson-nuclear-refusal-mechanism.md',
+    'archive/notes/2026-08-17-authored-writing-as-cognitive-substrate.md': 'archive/notes/development/authored-writing-as-cognitive-substrate.md',
+    'archive/notes/2026-08-17-coercion-becomes-self-revealing.md': 'archive/notes/geopolitics/coercion-becomes-self-revealing.md',
+    'archive/notes/2026-08-17-nuclear-use-triangulation-wilkerson.md': 'archive/notes/geopolitics/nuclear-use-coercion-crisis-ceiling.md',
+    'archive/notes/2026-08-17-portable-continuity-completion-roi.md': 'archive/notes/development/portable-continuity-completion-roi.md',
+    'archive/notes/2026-08-17-same-day-multi-channel-triangulation.md': 'archive/notes/geopolitics/same-day-multi-channel-triangulation.md',
+    'archive/notes/2026-08-21-civilization-memory-as-library-spine.md': 'archive/notes/library/civilization-memory-as-library-spine.md',
+    'archive/notes/2026-08-21-nate-b-jones-agent-finance-security-analysis.md': 'archive/notes/singularity/nate-b-jones-agent-infrastructure-finance-security.md',
+    'archive/notes/2026-08-21-nate-herk-grace-gems-mentorship-analysis.md': 'archive/notes/development/nate-herk-grace-gems-mentorship.md',
+    'archive/notes/2026-08-29-nate-b-jones-cognitive-harness-arc.md': 'archive/notes/singularity/nate-b-jones-cognitive-harness-arc.md',
+    'archive/notes/2026-08-30-dream-as-threshold-custody.md': 'archive/notes/reflection/dream-as-threshold-custody.md',
+    'archive/notes/2026-08-30-memory-organs-and-unsent-address.md': 'archive/notes/development/memory-forms-and-unsent-address.md',
+    'archive/notes/2026-08-31-fluent-guardrails.md': 'archive/notes/development/fluent-guardrails.md',
+    'archive/notes/2026-09-01-mira-library-strategy-notebook-routing.md': 'archive/notes/development/library-strategy-notebook-routing.md',
+    'archive/notes/2026-09-02-dev-note-original-language-as-cognitive-correction.md': 'archive/notes/library/original-language-as-cognitive-correction.md',
+    'archive/notes/2026-09-02-nate-transcripts-agent-operating-system-design-note.md': 'archive/notes/development/agent-operating-system-design.md',
+    'archive/notes/2026-09-04-youtube-capture-routing-diagnosis.md': 'archive/notes/development/youtube-capture-routing-diagnosis.md',
+    'archive/notes/dev-note-journal-reading-for-self-understanding.md': 'archive/notes/reflection/journal-reading-for-self-understanding.md',
+    'archive/notes/state-substrate-coercion.md': 'archive/notes/geopolitics/state-substrate-coercion.md',
+}
+
+LEGACY_SIMULATION_ROOT = "archive/notes/innermost-loop-simulation"
+SIMULATION_ROOT = "archive/notes/singularity/innermost-loop-simulation"
+ALL_NOTE_RELOCATIONS = {**LIBRARY_NOTE_RELOCATIONS, **NOTE_RELOCATIONS}
+
+
+def validate_library_note_relocations(mapping: dict[str, str]) -> None:
+    destinations: set[str] = set()
+    for source, target in mapping.items():
+        for value in (source, target):
+            path = PurePosixPath(value)
+            if (path.is_absolute() or ".." in path.parts or "\\" in value
+                    or ":" in value or path.as_posix() != value
+                    or not value.startswith("archive/notes/") or path.suffix != ".md"):
+                raise ValueError(f"Unsafe Library note relocation: {value}")
+        if not target.startswith("archive/notes/library/"):
+            raise ValueError(f"Library destination outside Library notes: {target}")
+        if target in mapping:
+            raise ValueError(f"Library relocation chain or cycle: {target}")
+        if target.casefold() in destinations:
+            raise ValueError(f"Duplicate Library relocation destination: {target}")
+        destinations.add(target.casefold())
+
+
+validate_library_note_relocations(LIBRARY_NOTE_RELOCATIONS)
+
+
+def validate_note_relocations(mapping: dict[str, str]) -> None:
+    """Reject ambiguous or escaping subject-note mappings before any lookup."""
+    targets: set[str] = set()
+    keys = {key.casefold() for key in mapping}
+    if len(keys) != len(mapping):
+        raise ValueError("Duplicate note relocation sources")
+    for source, target in mapping.items():
+        for value in (source, target):
+            path = PurePosixPath(value)
+            if (path.is_absolute() or ".." in path.parts or "\\" in value
+                    or ":" in value or path.as_posix() != value
+                    or not value.startswith("archive/notes/") or path.suffix != ".md"):
+                raise ValueError(f"Unsafe note relocation: {value}")
+        if target.casefold() in keys or target.casefold() in targets:
+            raise ValueError(f"Ambiguous note relocation: {target}")
+        targets.add(target.casefold())
+
+
+validate_note_relocations(ALL_NOTE_RELOCATIONS)
+
 
 def canonical_repository_path(value: str) -> str:
     normalized = value.replace("\\", "/")
@@ -108,6 +208,15 @@ def canonical_repository_path(value: str) -> str:
         if ".." in PurePosixPath(suffix).parts or ":" in suffix:
             raise ValueError("Unsafe session reference")
         return "archive/sessions/transcripts/" + suffix
+    if normalized in ALL_NOTE_RELOCATIONS:
+        return ALL_NOTE_RELOCATIONS[normalized]
+    if normalized == LEGACY_SIMULATION_ROOT:
+        return SIMULATION_ROOT
+    if normalized.startswith(LEGACY_SIMULATION_ROOT + "/"):
+        suffix = normalized[len(LEGACY_SIMULATION_ROOT) + 1:]
+        if ".." in PurePosixPath(suffix).parts:
+            raise ValueError(f"Unsafe simulation reference: {value}")
+        return SIMULATION_ROOT + "/" + suffix
     if normalized == LEGACY_GEOPOLITICS_ARCHIVE_ROOT:
         return GEOPOLITICS_ARCHIVE_ROOT
     prefix = LEGACY_GEOPOLITICS_ARCHIVE_ROOT + "/"
@@ -129,4 +238,15 @@ def resolve_repository_path(repo_root: Path, value: str) -> Path:
         if not target.exists() and old.exists():
             return old
         return target
+    source = next((old for old, new in ALL_NOTE_RELOCATIONS.items()
+                   if new == canonical), None)
+    if canonical == SIMULATION_ROOT or canonical.startswith(SIMULATION_ROOT + "/"):
+        source = LEGACY_SIMULATION_ROOT + canonical[len(SIMULATION_ROOT):]
+        if (repo_root / LEGACY_SIMULATION_ROOT).exists() and (repo_root / SIMULATION_ROOT).exists():
+            raise ValueError("Conflicting old and new simulation directories")
+    if source is not None:
+        if not target.resolve().is_relative_to(repo_root.resolve()):
+            raise ValueError(f"Note escapes repository: {value}")
+        if (repo_root / source).exists() and target.exists():
+            raise ValueError(f"Conflicting old and new note paths: {source}")
     return target

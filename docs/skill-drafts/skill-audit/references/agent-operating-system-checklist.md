@@ -3,7 +3,7 @@
 Use this reference only while auditing whether a skill, workflow, or automation
 behaves like an operating system component rather than a loose prompt or
 capability demo. It was extracted from
-`archive/notes/2026-09-02-nate-transcripts-agent-operating-system-design-note.md`.
+`archive/notes/development/agent-operating-system-design.md`.
 
 This checklist is an audit lens, not a repair authority. Findings produced from
 it do not authorize edits, staging, commit, push, publication, deployment,

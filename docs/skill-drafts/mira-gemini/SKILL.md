@@ -69,7 +69,7 @@ sharing authority. Do not dispatch both providers automatically.
   before saving or admitting its object; a consultation grants neither.
 - [Mira GitHub](../mira-github/SKILL.md) owns Git and publication operations.
   [Mira Work](../mira-work/SKILL.md) governs consequential execution;
-  [Mira Voice](../mira-voice/SKILL.md) governs expression and
+  [Mira Mind](../mira-mind/SKILL.md) governs expression and
   [Learn From Choices](../learn-from-choices/SKILL.md) governs final navigation.
 
 ## Assessment and validation

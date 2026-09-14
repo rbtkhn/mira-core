@@ -169,15 +169,19 @@ def run_issue_render(run_date: str, dry_run: bool = False) -> dict[str, str]:
     if synthesis_path.exists() and "Disposition: `archive-only`" in synthesis_path.read_text(encoding="utf-8"):
         return {"action": "archive-only", "detail": "explicit archive-only disposition; issue.md not generated"}
     try:
-        model = ISSUE.load_model(run_date)
+        daily_root = ISSUE.default_daily_root()
+        context = ISSUE.load_validation_context(daily_root)
+        model = ISSUE.load_model(run_date, daily_root=daily_root, context=context)
         failures = ISSUE.model_failures(
             model,
-            ISSUE.LEDGER_PATH.read_text(encoding="utf-8"),
+            context.ledger_text,
+            daily_root=daily_root,
+            context=context,
         )
         if failures:
             return {"action": "blocked", "detail": "; ".join(failures)}
-        issue_path = ISSUE.DAILY_ROOT / run_date / "issue.md"
-        rendered = ISSUE.render_model(model)
+        issue_path = daily_root / run_date / "issue.md"
+        rendered = ISSUE.render_model(model, context=context)
         prose = re.sub(r"(?m)^\|.*$|`[^`]+`|\[[^\]]+\]\([^)]+\)|<!--.*?-->", " ", rendered)
         word_count = len(re.findall(r"\b[\w'-]+\b", prose))
         if not dry_run:

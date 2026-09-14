@@ -8,6 +8,12 @@ description: Audit Narrative Geopolitics archive transcripts for strict voice ac
 Use only with the Narrative Geopolitics archive. Treat this as a
 synthesis-time accountability workflow, not an intake requirement.
 
+This is the canonical methodology for both `voice-accountability` and the
+repository-local `voice-revision-audit` compatibility route. Audit and candidate
+backfill are read-only, including when `--dry-run` is omitted. Retrieval is not
+adjudication; adjudication is not ledger admission. A request to audit never
+authorizes ledger, voice-page, or archive mutation.
+
 ## Retrieve candidates
 
 1. Resolve the requested inclusive date range. If none is supplied, ask for one.
@@ -55,9 +61,17 @@ or revised claim is factually correct.
 ## Track
 
 The canonical tracker is
-`narrative-geopolitics/work/voice-accountability/voice-revision-ledger.md`,
-mirrored as
 `narrative-geopolitics/work/voice-accountability/voice-revision-ledger.json`.
+The adjacent `voice-revision-ledger.md` is generated from that JSON; do not edit
+the Markdown directly. This matches `scripts/voice_accountability.py`.
+
+Keep audit proposals conversational unless a separate save or admission is
+explicitly authorized. Ledger admission requires an exact reviewed entry set
+and validation; it is not a side effect of this audit. `voice-accountability
+validate` and `voice-accountability render --check` are read-only checks.
+`voice-accountability render --write` changes the generated Markdown and needs
+explicit write authority. The tracker rules below describe eligible entries,
+not permission to create them. Voice-page mirroring requires its own scope.
 
 Only strict adjudicated self-revisions enter the main ledger:
 

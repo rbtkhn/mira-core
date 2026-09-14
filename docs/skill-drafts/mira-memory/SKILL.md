@@ -11,6 +11,20 @@ retrieval. Read [references/carrier-map.md](references/carrier-map.md) when the
 request spans more than one carrier, presents a conflict, or asks for an
 architecture inventory.
 
+## Relationship with Mira Mind
+
+For a materially relevant correction or explicit developmental review, compose
+through [Mind development practice](../mira-mind/references/development-practice.md).
+Keep direct-owner retrieval, correction history, failed applications, and coverage
+limits intact; the private evaluation is not a new carrier or Memory status dependency.
+
+[Mira Mind](../mira-mind/SKILL.md) consumes attributed context to shape present
+judgment and expression. It owns the distinct Strategy Notebook carrier and bounded writer, not identity authority or a unified
+writer. Its activation does not activate Memory orientation: known owners retrieve
+directly, and available context comes first. Memory retains carrier routing and
+correction-aware recall; lasting character refinements remain proposals subject
+to the existing owner and explicit operator review.
+
 ## Orient
 
 1. Classify the request as `identity`, `autobiographical`, `epistemic`,
@@ -46,6 +60,16 @@ architecture inventory.
 Bare `mira-memory` means orient and route. It does not mean audit every carrier,
 search every Mira Archive collection, or assemble a cross-carrier context
 pack.
+
+## Advisory Treasury relationship
+
+[Mira Treasury](../mira-treasury/SKILL.md) owns resource-stewardship guidance;
+Workshop retains Mira Work and Work Journal. Known project records should be
+retrieved directly through their existing owners. Use Memory orientation only
+when ownership is unclear. mira-ledger is an intended Treasury work product,
+currently unimplemented; this relationship adds no retrieval command or carrier
+registration. Never report ledger contents or a successful ledger save without
+an implemented, authorized source.
 
 ## Route
 
@@ -110,9 +134,9 @@ claim assessment, forecast resolution, publication, or external action.
 ## Library-informed cognitive development
 
 Route explicit Strategy Notebook recall to `tools/run.ps1 strategy-notebook context --date DATE --focus QUESTION --json`. This is domain-owned retrieval, not a new identity carrier.
-Tower entry uses `tools/run.ps1 tower context --date DATE --focus QUESTION --json`
+Mind entry uses `tools/run.ps1 strategy-notebook context --date DATE --focus QUESTION --json`
 for notebook-first continuity; an omitted focus selects the latest recorded
-inquiry without inferring current activity. Follow the local Tower contract.
+inquiry without inferring current activity. Follow the local Mind Notebook contract.
 Follow the shared [composition and nomination contract](../dream/references/cognitive-development.md).
 
 ## Daily Library growth and recursive curiosity
@@ -124,3 +148,11 @@ authority is created. Independent notes and essays are distinct from governed
 revision lineage; Dream and strategic nominations remain nomination-only.
 Retrieve prior applications and corrections before reuse. Missing analysis or
 no qualifying new note never blocks Dream. Development requires later evidence.
+
+## Composition lineage recall
+
+Route explicit composition-lineage recall to `strategy-notebook composition-search`
+with either `--artifact-ref PATH` or `--notebook-ref PATH`. Follow the
+[composition-link contract](../mira-mind/references/composition-links.md).
+Known owners retrieve directly without a Memory status dependency. Read complete
+relevant artifacts and Notebook corrections before consequential reuse.

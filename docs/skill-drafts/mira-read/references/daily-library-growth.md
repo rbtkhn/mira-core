@@ -35,6 +35,9 @@ Library Integration; strategic and Dream nominations remain nomination-only.
 
 Search before authoring; amend for the same central question, create for a distinct
 durable question. Explain the judgment; lexical matching is only a duplicate aid.
+For new independent Library note filenames, follow Mira Notes'
+[Storage and lifecycle](../../mira-notes/SKILL.md#storage-and-lifecycle) convention,
+using `<author>-note-<descriptive-slug>.md` for all new independent Library notes.
 Preserve earlier reasons and objections in dated amendments. New prose must state
 question, source passages, interpretation, strongest limitation, and next test.
 Review quotation/privacy before saving: preserve source handles and attributed

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mira Mind"
+  short_description: "Character, judgment, relationship, and expression"
+  default_prompt: "Use $mira-mind to engage this task with attentive judgment and correction-aware character while preserving domain authority."

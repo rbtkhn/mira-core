@@ -6,6 +6,10 @@ from collections import Counter
 from datetime import date, datetime
 from pathlib import Path
 from typing import Any, Callable, Iterable
+try:
+    from archive_query import is_transcript_modality
+except ModuleNotFoundError:
+    from scripts.archive_query import is_transcript_modality
 
 
 SCHEMA_VERSION = "1.1"
@@ -290,7 +294,7 @@ def build_completeness_score(
 ) -> dict[str, Any]:
     contract_active = bool(contract and contract.get("frozen"))
     receipt_index = _receipt_index(receipts) if contract_active else {}
-    transcripts = [row for row in rows if "transcript" in str(row.get("modality", ""))]
+    transcripts = [row for row in rows if is_transcript_modality(row.get("modality"))]
     daily_counts = Counter(str(row.get("date")) for row in transcripts)
     expected_days = sorted(
         {str(row.get("date")) for row in rows if str(row.get("date", "")).startswith(f"{month}-")}
@@ -497,7 +501,7 @@ def build_certification(
     if as_of < month_last:
         return result_with_score({**base, "status": "in-progress", "reason": "manifest horizon has not reached month end"})
 
-    transcripts = [row for row in rows if "transcript" in str(row.get("modality", ""))]
+    transcripts = [row for row in rows if is_transcript_modality(row.get("modality"))]
     daily_counts = Counter(str(row.get("date")) for row in transcripts)
     expected_days = sorted({str(row.get("date")) for row in rows if str(row.get("date", "")).startswith(f"{month}-")})
     daily_missing: list[str] = []

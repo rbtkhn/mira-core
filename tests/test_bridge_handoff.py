@@ -119,14 +119,69 @@ def test_lock_prevents_concurrent_writer_and_ack(context):
     assert path.read_bytes() == before
 
 
+def test_coffee_pending_metadata_and_ack_delta(context, tmp_path):
+    repo, root = context
+    connection = cadence.connect(tmp_path / "cadence.sqlite3")
+    original = cadence.coffee_context(connection)
+    saved = save(context, "PRIVATE PROMPT NEVER IN COFFEE")
+    first = cadence.coffee_context(connection)
+    assert first["actions"][0] == original["actions"][0]
+    assert first["actions"][1] == original["actions"][1]
+    assert first["actions"][2] == original["actions"][2]
+    assert first["actions"][2]["target"] == "archive/library/library-registry.json"
+    assert first["actions"][3]["execution"]["kind"] == "bridge-resume"
+    assert "PRIVATE PROMPT" not in json.dumps(first)
+    rendered = cadence.render_coffee_markdown(first)
+    assert "resume latest Bridge" in rendered
+    cadence.record_coffee_presentation(connection, first, rendered)
+    assert bridge.peek(repo=repo, root=root)["status"] == "pending"
+    repeat = cadence.coffee_context(connection)
+    assert repeat["presentation"]["mode"] == "repeat-checkpoint"
+    assert repeat["actions"][3] == first["actions"][3]
+    bridge.read(saved["digest"], repo=repo, root=root)
+    bridge.acknowledge(saved["digest"], repo=repo, root=root)
+    after = cadence.coffee_context(connection)
+    assert "bridge_handoff" in after["presentation"]["changed_components"]
+    assert after["actions"] == original["actions"]
+    connection.close()
 
 
+def test_coffee_detects_concurrent_replacement(context, tmp_path):
+    repo, root = context
+    first = save(context)
+    connection = cadence.connect(tmp_path / "cadence.sqlite3")
+    ctx = cadence.coffee_context(connection)
+    bridge.save("replacement", repo=repo, root=root, replace_digest=first["digest"])
+    with pytest.raises(cadence.CadenceLedgerError, match="Bridge changed"):
+        cadence.record_coffee_presentation(connection, ctx, cadence.render_coffee_markdown(ctx))
+    connection.close()
 
 
+def test_corrupt_bridge_preserves_ordinary_coffee(context, tmp_path):
+    saved = save(context)
+    Path(saved["path"]).write_text("{}")
+    connection = cadence.connect(tmp_path / "cadence.sqlite3")
+    ctx = cadence.coffee_context(connection)
+    assert ctx["actions"] == cadence.build_cold_start_actions()
+    assert "Bridge handoff: unavailable" in cadence.render_coffee_markdown(ctx)
+    connection.close()
 
 
+def test_short_menu_keeps_existing_actions(context):
+    saved = save(context)
+    original = cadence.build_cold_start_actions()[:1]
+    result = cadence.with_bridge_action(original, {"status": "pending", "digest": saved["digest"]})
+    assert result[0] == original[0]
+    assert result[1]["key"] == "B"
+    assert len(result) == 2
 
 
+def test_tampered_execution_is_rejected(context):
+    saved = save(context)
+    actions = cadence.with_bridge_action(cadence.build_cold_start_actions(), {"status": "pending", "digest": saved["digest"]})
+    actions[3]["execution"]["ack_command"] = ["arbitrary-command"]
+    with pytest.raises(cadence.CadenceLedgerError, match="exact digest-bound"):
+        cadence.validate_actions(actions)
 
 
 def test_cli_save_read_ack_keeps_prompt_inert(tmp_path, capsys):

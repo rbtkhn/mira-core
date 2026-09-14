@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+from repository_paths import canonical_repository_path, resolve_repository_path
 from pathlib import Path
 from typing import Any, Mapping
 
@@ -349,7 +350,7 @@ def validate_note_paths(repo_root: Path, note_refs: list[str] | None = None) -> 
     failures: list[str] = []
     checked: list[str] = []
     for note_ref in refs:
-        path = repo_root / note_ref
+        path = resolve_repository_path(repo_root, note_ref)
         try:
             envelope = parse_note_envelope(path)
             checked.append(note_ref)
@@ -814,7 +815,7 @@ def reconcile_work(
 ) -> dict[str, Any]:
     work_dir = repo_root / work["artifact_root"]
     head_note_ref = revision_head_note_ref(work)
-    note_path = repo_root / head_note_ref
+    note_path = resolve_repository_path(repo_root, head_note_ref)
     envelope = parse_note_envelope(note_path)
     current = dependency_snapshot_for_note(work_dir, source, envelope)
     signals_path = work_dir / "note-signals.json"
@@ -996,13 +997,13 @@ def validate_work_registry(repo_root: Path, registry: Mapping[str, Any]) -> list
         note_envelopes: dict[str, dict[str, Any]] = {}
         for note_ref in note_refs:
             try:
-                envelope = parse_note_envelope(repo_root / note_ref)
+                envelope = parse_note_envelope(resolve_repository_path(repo_root, note_ref))
                 note_envelopes[note_ref] = envelope
                 if envelope.get("schema_version") not in SUPPORTED_NOTE_SCHEMAS:
                     failures.append(
                         f"{work_id} note has unsupported schema: {note_ref}"
                     )
-                failures.extend(validate_note_template(repo_root / note_ref, envelope))
+                failures.extend(validate_note_template(resolve_repository_path(repo_root, note_ref), envelope))
             except (IntegrationError, FileNotFoundError) as error:
                 failures.append(str(error))
         if registry_schema == WORK_REGISTRY_SCHEMA and note_refs:
@@ -1195,7 +1196,7 @@ def build_route_index(repo_root: Path, registry: Mapping[str, Any]) -> dict[str,
         profile = load_json(work_dir / "profile.json")
         stage_contract = str(work.get("integration_stage", "routed"))
         head_note_ref = revision_head_note_ref(work)
-        head_note = parse_note_envelope(repo_root / head_note_ref)
+        head_note = parse_note_envelope(resolve_repository_path(repo_root, head_note_ref))
         current_head_dependencies = dependency_snapshot_for_note(
             work_dir, source, head_note
         )
@@ -1259,7 +1260,7 @@ def build_route_index(repo_root: Path, registry: Mapping[str, Any]) -> dict[str,
                 review_note_refs = [head_note_ref]
             note_bindings: list[dict[str, Any]] = []
             for note_ref in review_note_refs:
-                note_path = repo_root / str(note_ref)
+                note_path = resolve_repository_path(repo_root, str(note_ref))
                 note = parse_note_envelope(note_path)
                 current_dependencies = dependency_snapshot_for_note(
                     work_dir, source, note
@@ -1391,6 +1392,16 @@ def build_route_index(repo_root: Path, registry: Mapping[str, Any]) -> dict[str,
     }
 
 
+def note_browsing_link(note_ref: str) -> str:
+    """Display physical locations without changing historical note identities."""
+    target = Path(canonical_repository_path(note_ref))
+    label = f"{target.parent.name}/{target.name}"
+    # Both generated indexes live in archive/library/integrations/.
+    import posixpath
+    href = posixpath.relpath(target.as_posix(), "archive/library/integrations")
+    return f"[{label}]({href})"
+
+
 def render_route_index(index: Mapping[str, Any]) -> str:
     lines = [
         "# Mira Library Operational Route Index",
@@ -1405,7 +1416,7 @@ def render_route_index(index: Mapping[str, Any]) -> str:
     for route in index["routes"]:
         signatures = ", ".join(f"`{item}`" for item in route["mechanism_signatures"])
         note_states = ", ".join(
-            f"`{Path(item['note_ref']).name}`: `{item['note_revision_state']}`"
+            f"{note_browsing_link(item['note_ref'])}: `{item['note_revision_state']}`"
             for item in route["note_bindings"]
         )
         eligibility = route["notebook_eligibility"]
@@ -1439,7 +1450,7 @@ def build_note_link_index(repo_root: Path) -> dict[str, Any]:
             if note_ref in seen_notes:
                 raise IntegrationError(f"note appears under multiple work records: {note_ref}")
             seen_notes.add(note_ref)
-            note_path = repo_root / note_ref
+            note_path = resolve_repository_path(repo_root, note_ref)
             envelope = parse_note_envelope(note_path)
             note_sha256 = sha256_file(note_path)
             note_sources.append({"note_ref": note_ref, "note_sha256": note_sha256})
@@ -1523,7 +1534,7 @@ def render_note_link_index(index: Mapping[str, Any]) -> str:
     ]
     for link in index["links"]:
         lines.append(
-            f"| `{link['link_id']}` | `{Path(link['note_ref']).name}` | "
+            f"| `{link['link_id']}` | {note_browsing_link(link['note_ref'])} | "
             f"`{link['target_id']}` | `{link['relation_type']}` | `{link['role']}` | "
             f"`{link['lineage_position']}` | {link['explanation']} |"
         )
@@ -1607,7 +1618,7 @@ def reconcile_repository(repo_root: Path, registry: Mapping[str, Any], *, write:
         if work.get("integration_stage") == "noted":
             work_dir = repo_root / str(work["artifact_root"])
             note_ref = revision_head_note_ref(work)
-            envelope = parse_note_envelope(repo_root / note_ref)
+            envelope = parse_note_envelope(resolve_repository_path(repo_root, note_ref))
             current = dependency_snapshot_for_note(work_dir, source, envelope)
             state = classify_note_changes(
                 envelope.get("dependency_snapshot", {}), current
@@ -1653,7 +1664,7 @@ def apply_reviewed_no_change_dispositions(
             raise IntegrationError(f"{work_id} references a missing Library source")
         work_dir = repo_root / str(work["artifact_root"])
         head_note_ref = revision_head_note_ref(work)
-        note_path = repo_root / head_note_ref
+        note_path = resolve_repository_path(repo_root, head_note_ref)
         envelope = parse_note_envelope(note_path)
         current = dependency_snapshot_for_note(work_dir, source, envelope)
         result = classify_note_changes(envelope.get("dependency_snapshot", {}), current)
@@ -1839,7 +1850,7 @@ def validate_pilot_contract(repo_root: Path, registry: Mapping[str, Any]) -> lis
             elif body.get("text_sha256") != body_ref.get("text_sha256"):
                 failures.append(f"{label} body digest mismatch: {body_ref.get('body_id')}")
         head_note_ref = revision_head_note_ref(work)
-        note_path = repo_root / head_note_ref
+        note_path = resolve_repository_path(repo_root, head_note_ref)
         try:
             envelope = parse_note_envelope(note_path)
             if envelope.get("schema_version") != NOTE_SCHEMA_V2:
@@ -1890,7 +1901,7 @@ def validate_pilot_contract(repo_root: Path, registry: Mapping[str, Any]) -> lis
             elif note_passages:
                 failures.append(f"{label} source-readiness-only note may not claim passage dependencies")
             predecessor_ref = envelope.get("predecessor_note_ref")
-            if predecessor_ref and not (repo_root / predecessor_ref).is_file():
+            if predecessor_ref and not (resolve_repository_path(repo_root, predecessor_ref)).is_file():
                 failures.append(f"{label} note predecessor is missing: {predecessor_ref}")
         except (IntegrationError, FileNotFoundError) as error:
             failures.append(str(error))
@@ -1899,12 +1910,12 @@ def validate_pilot_contract(repo_root: Path, registry: Mapping[str, Any]) -> lis
             if not note_ref:
                 continue
             try:
-                note_text = (repo_root / note_ref).read_text(encoding="utf-8")
+                note_text = (resolve_repository_path(repo_root, note_ref)).read_text(encoding="utf-8")
                 normalized_note = note_text.casefold()
                 prohibited_names = ("civilization memory", "civilization-memory", "civmem")
                 if any(name in normalized_note for name in prohibited_names):
                     failures.append(f"{label} integration note mentions a prohibited auxiliary corpus: {note_ref}")
-                note_envelope = parse_note_envelope(repo_root / note_ref)
+                note_envelope = parse_note_envelope(resolve_repository_path(repo_root, note_ref))
                 if note_envelope.get("schema_version") != NOTE_SCHEMA_V2:
                     failures.append(f"{label} integration note schema mismatch: {note_ref}")
                 if note_envelope.get("canonical_work_id") != work_id:
@@ -1933,7 +1944,7 @@ def validate_pilot_contract(repo_root: Path, registry: Mapping[str, Any]) -> lis
         candidate_paths = sorted(work_dir.glob("note-revision-candidate*.json"))
         current_note_ref = head_note_ref
         try:
-            current_note = parse_note_envelope(repo_root / str(current_note_ref))
+            current_note = parse_note_envelope(resolve_repository_path(repo_root, str(current_note_ref)))
             current_candidate_ref = current_note.get("revision_candidate_ref")
             if current_candidate_ref:
                 current_candidate_path = repo_root / str(current_candidate_ref)
@@ -1951,16 +1962,16 @@ def validate_pilot_contract(repo_root: Path, registry: Mapping[str, Any]) -> lis
                 if candidate.get("canonical_work_id") != work_id:
                     failures.append(f"{label} revision candidate canonical_work_id mismatch")
                 predecessor_ref = candidate.get("predecessor_note_ref")
-                if predecessor_ref and not (repo_root / predecessor_ref).is_file():
+                if predecessor_ref and not (resolve_repository_path(repo_root, predecessor_ref)).is_file():
                     failures.append(f"{label} revision candidate predecessor is missing: {predecessor_ref}")
                 if candidate.get("status") == "resolved" and candidate.get("disposition") in {"addendum", "revised"}:
                     successor_ref = candidate.get("successor_note_ref")
                     if not successor_ref:
                         failures.append(f"{label} resolved {candidate.get('disposition')} candidate requires successor_note_ref")
-                    elif not (repo_root / successor_ref).is_file():
+                    elif not (resolve_repository_path(repo_root, successor_ref)).is_file():
                         failures.append(f"{label} revision candidate successor is missing: {successor_ref}")
                     else:
-                        successor = parse_note_envelope(repo_root / successor_ref)
+                        successor = parse_note_envelope(resolve_repository_path(repo_root, successor_ref))
                         if successor.get("predecessor_note_ref") != predecessor_ref:
                             failures.append(f"{label} successor note does not preserve candidate predecessor lineage")
                         expected_candidate_ref = candidate_path.relative_to(repo_root).as_posix()
@@ -1977,7 +1988,8 @@ def validate_pilot_contract(repo_root: Path, registry: Mapping[str, Any]) -> lis
             if row.get("state") == "revision-due":
                 work = pilot_by_id.get(row.get("canonical_work_id"))
                 if work is None:
-                    # Living works outside the frozen pilot retain their own validation.
+                    # Reconciliation covers living works beyond this frozen pilot.
+                    # Their revision state remains in the reconciliation result.
                     continue
                 routing = load_json(repo_root / work["artifact_root"] / "routing.json")
                 if any(unit.get("route_state") != "suspended-due-to-note-revision" for unit in routing.get("route_units", [])):
@@ -2035,7 +2047,7 @@ def validate_living_contract(repo_root: Path, registry: Mapping[str, Any]) -> li
             failures.append("historical snapshot must seal exactly eight predecessor notes")
         else:
             for note_ref, expected in note_digests.items():
-                note_path = repo_root / str(note_ref)
+                note_path = resolve_repository_path(repo_root, str(note_ref))
                 if not note_path.is_file():
                     failures.append(f"missing historical predecessor note: {note_ref}")
                 elif sha256_file(note_path) != expected:
@@ -2100,12 +2112,12 @@ def validate_living_contract(repo_root: Path, registry: Mapping[str, Any]) -> li
                 failures.append(f"{work_id} body digest mismatch: {body_id}")
         head_note_ref = revision_head_note_ref(record)
         try:
-            envelope = parse_note_envelope(repo_root / head_note_ref)
+            envelope = parse_note_envelope(resolve_repository_path(repo_root, head_note_ref))
         except (IntegrationError, FileNotFoundError) as error:
             failures.append(str(error))
             continue
         head_notes[work_id] = (head_note_ref, envelope, stage)
-        failures.extend(validate_note_template(repo_root / head_note_ref, envelope))
+        failures.extend(validate_note_template(resolve_repository_path(repo_root, head_note_ref), envelope))
         if envelope.get("schema_version") != NOTE_SCHEMA:
             failures.append(f"{work_id} living revision head must use {NOTE_SCHEMA}")
         if envelope.get("canonical_work_id") != work_id:
@@ -2175,7 +2187,7 @@ def validate_living_contract(repo_root: Path, registry: Mapping[str, Any]) -> li
         ]
         if not own_focal or not own_focal[0].get("passage_refs"):
             failures.append(f"{work_id} focal relation must cite source-bound passages")
-        note_text = (repo_root / note_ref).read_text(encoding="utf-8") if note_ref else ""
+        note_text = (resolve_repository_path(repo_root, note_ref)).read_text(encoding="utf-8") if note_ref else ""
         for other_id in other_ids:
             companion_ref = head_notes.get(other_id, ("", {}, ""))[0]
             if not companion_ref or companion_ref not in note_text:

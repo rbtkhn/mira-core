@@ -2,8 +2,6 @@ from __future__ import annotations
 
 from repository_paths import resolve_geopolitics_reference
 
-from repository_paths import resolve_geopolitics_reference
-
 import argparse
 import copy
 import hashlib
@@ -37,8 +35,8 @@ REQUIRED_FIXTURE_FAMILIES = {
 }
 CONTROL_SURFACES = {
     "mira/identity.md", "mira/continuity/README.md",
-    "docs/skill-drafts/mira-voice/SKILL.md", "docs/skill-drafts/mira-work/SKILL.md",
-    "docs/skill-drafts/mira-face/SKILL.md", "AGENTS.md",
+    "docs/skill-drafts/mira-mind/SKILL.md", "docs/skill-drafts/mira-work/SKILL.md",
+    "docs/skill-drafts/mira-mind/references/public-interface.md", "AGENTS.md",
 }
 
 

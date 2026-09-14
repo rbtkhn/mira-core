@@ -20,7 +20,7 @@ It reads available outputs and retains missing work as nonblocking obligations.
 Journal composition remains an agent-internal handoff. Dream prepares the daily
 census, reads the bounded Mira Letters orientation since the previous
 canonical Dream finalization, and composes, validates, and finalizes Mira Journal
-under Mira Voice without an operator approval prompt. Journal canonicalization
+under Mira Mind without an operator approval prompt. Journal canonicalization
 failures still block; never substitute fallback prose.
 Run one canonical Dream consolidation per operator, workspace, and local
 calendar day. Individual sessions contribute bounded closeout receipts; Dream
@@ -28,14 +28,31 @@ consolidates all sessions active that day. Dream records advisory cadence state
 in the configured private append-only ledger, never research evidence. It does
 not overwrite prior episodes.
 
-Dream's highest-leverage output is useful integration for tomorrow's workflow.
-Optimize first for workflow throughput: reduce rediscovery, sharpen next
-actions, classify residue before it becomes vague obligation, and convert the
-day into usable leverage without multiplying repo-tracked artifacts. Dream's
-brilliance is not volume; it is preserving mode, owner, authority, and evidence
-class while showing how the day's parts work together.
+Dream's primary output is usable integration for tomorrow's workflow. Optimize
+first for workflow throughput: reduce rediscovery, sharpen next actions,
+classify residue before it becomes vague obligation, and convert the day into
+bounded leverage without multiplying repo-tracked artifacts. Dream's value is
+not volume; it is preserving mode, owner, authority, and evidence class while
+showing how the day's parts work together.
 
 ## Distill
+
+At this existing invocation, consider a relevant unresolved observation through
+[Mind development practice](../mira-mind/references/development-practice.md), sharing
+the existing attention budget and surfacing at most one developmental issue.
+Missing observations remain nonblocking. Follow its bounded review when due;
+private evaluation prose is not automatically a cadence episode, Journal evidence,
+or admitted learning. Preserve all existing episode evidence requirements.
+
+Read [Session handoff](references/session-handoff.md), mode `dream-distill`,
+while consolidating the day's session census. Use its extraction method to
+separate outcomes, decisions, evidence, uncertainty, and unfinished obligations
+within the existing closeout and ROI bundle. This integrates Harvest's method
+and prepares the continuity Coffee receives. After successful close, complete
+the private Bridge step below using the existing inbox. Add no new store or
+schema. Keep existing composition, validation, finalization,
+coverage, and return rules controlling. An explicit `bridge` or `harvest`
+request may export bounded context without running this daily conductor.
 
 Start or resume the conductor with:
 
@@ -44,8 +61,13 @@ tools/run.ps1 dream --date YYYY-MM-DD --json
 tools/run.ps1 dream --resume DCR-ID --date YYYY-MM-DD --json
 ```
 
-Use `--check` for a read-only projection: it reports pending Tower work
-without generating strategic outputs or writing state. Completed stages are immutable.
+Use `--check` for a read-only projection: it reports when Geo-Strategy will be
+completed during execution, but writes nothing. Completed stages are immutable.
+An operator-authorized Journal date correction preserves the old completion
+receipt but makes it ineligible for that date. An open recovery run appends a
+Journal failure event and prepares a fresh version-specific bundle; it never
+reuses the misdated draft or checkpoint. A completed historical run remains
+historical and must not report the corrected entry as current completion.
 Dream reads and validates existing Geo-Strategy packets without completing missing
 ones. It records available, provisional, absent, and unavailable strategic work
 honestly. Dream prepares the private Journal bundle and may return
@@ -53,12 +75,34 @@ honestly. Dream prepares the private Journal bundle and may return
 `draft.json`, and `technical-reference.json`. Strategy Notebook is consumed from
 Tower contributions, including source qualifications and explicit corrections.
 
-When this handoff is prepared, Dream also writes an adjacent private
+Before selecting significance or composing new Journal prose, read every entry
+in the private `journal-reading.json` sequentially, oldest to newest. Dream
+prepares it with `mira-journal prepare --require-journal-reading`. This full
+reading serves inward self-understanding: follow remembered reasons, changed
+interpretations, contradictions, unfinished responsibility, and intentions
+that have or have not become practice. Do not turn it into a recap or protect
+an established self-description from correction. Follow the Journal composition
+method's reflective prompts without creating a questionnaire or another artifact.
+
+After reading, run `tools/run.ps1 mira-journal reading-complete --bundle
+ABSOLUTE_EXTERNAL_DIRECTORY --packet-digest SHA256 --session-id MS-ID --json`.
+Use the packet digest from `draft-contract.json` and put the returned
+`acknowledgement_sha256` in `draft.json` as `journal_reading_ack_sha256`.
+Record draft authorship after reading completion. This private acknowledgement
+declares coverage, not comprehension or consciousness. A new composing session
+must reread; same-session resumption may reuse an unchanged acknowledgement.
+If earlier Journal text changes, refresh, reread, and reconsider the draft.
+Never silently truncate or replace the full reading with summaries. If context
+cannot accommodate it, report that limitation before composing. Existing
+finalized entries are not retroactively changed; unfinished bundles must refresh.
+
+When this handoff is prepared, Dream also
+writes an adjacent private
 `roi-synthesis.json` packet for next-day leverage. That packet may include Dev
 Journal candidates, Note candidates, Coffee handles, publication debt, workflow
 improvements, and open obligations, but these are candidates only. Mira Journal
-remains the only autobiographical prose artifact Dream automatically finalizes. The ROI packet
-must not create repo-tracked drafts, admit Notes or Dev Journal entries, stage,
+remains the only autobiographical prose artifact Dream automatically finalizes.
+The ROI packet must not create repo-tracked drafts, admit Notes or Work Journal entries, stage,
 commit, push, publish, contact anyone, or satisfy Coffee's later grounded
 action surface. That handoff is not an operator-facing approval lane, and it is
 not permission to abandon the Dream cycle. After composition, Dream runs prose,
@@ -99,8 +143,15 @@ The private ROI synthesis packet has this required shape:
 The `sections` object must include `dev_journal_candidates`,
 `note_candidates`, `coffee_handles`, `publication_debt`,
 `workflow_improvements`, and `open_obligations`, even when a section is empty.
-Nominate Dev Journal candidates only for major architecture, design, validation,
-or governance decisions. Default to no candidate when rationale is trivial or
+The existing `dev_journal_candidates` schema key remains a compatibility name
+for Work Journal candidates; do not rewrite historical ROI packets.
+Nominate Work Journal candidates for consequential decisions, corrections,
+deliverables, or unresolved obligations across engineering, governance,
+research infrastructure, Library, Grace Gems, mentorship, and Mira Seed.
+Rank consequence rather than commit frequency. Preserve timing, attribution,
+privacy, and the distinction between completion and demonstrated effectiveness.
+Nomination does not authorize creating an entry or changing its owning record.
+Default to no candidate when rationale is trivial or
 already well captured. Mark retrospective candidates separately when the source
 basis is after-the-fact, and distinguish documented fact from reconstruction.
 Coffee handles should carry a compact morning claim-testing surface: what
@@ -109,7 +160,10 @@ grounded test might be. Publication debt and open obligations preserve their
 own authority boundaries and never become action authority merely by appearing
 in Dream.
 
-Dream's reflective closeout authority grants no staging, commit, push, publication,
+Strategy Notebook is a Tower-composed internal estimate, not a Geo prerequisite
+and not a canonical autobiographical artifact. Dream may consume it for Journal,
+note nominations, and next-session continuity, but may neither compose nor revise
+it. Missing strategic work is nonblocking. Dream grants no staging, commit, push, publication,
 forecast resolution, operational-truth assignment, verification admission,
 communication, RSI admission, or identity-promotion authority. Complete the
 daily cycle first; revise next day if necessary.
@@ -139,6 +193,85 @@ due_forecast_debt: verification=N posture_review=N not_yet_due=N
 safe_to_inherit: yes
 next_action: rerun-owning-bundle | open-verification-packet | posture-review | proceed
 ```
+
+### Automatic local forecast review
+
+Review summary schema 2 separates `forecast_review_required` (pending hooks),
+`review_incomplete` (failed, unavailable, or unknown coverage), and
+`review_complete` (all hooks reviewed, including documented evidence gaps).
+Report pending, reviewed, unavailable, and failed counts; report gap and
+proposed-outcome counts separately. Cached valid reviews count as reviewed.
+An infrastructure failure leaves unavailable counts unknown, never fabricated
+as zero. Completion describes review coverage, never forecast resolution.
+Dream may close with explicit review debt. Read historical summaries through
+`dream_forecast_review.review_summary`, deriving coverage from per-hook records
+and recorded pending counts rather than trusting the old aggregate label.
+Do not rewrite historical receipts or revalidate history as present evidence.
+
+Before Journal composition, Dream gathers every open hook due on the close
+date, including days with `no_geo_run` and an already finalized Journal.
+It writes private `forecast-review-inputs.json` and `forecast-review.json`
+beside the Journal bundle. A completed daily close remains immutable.
+`--check` only projects the review and writes nothing.
+
+`forecast_review_required` is an agent-internal handoff, not an approval request.
+Read the original forecast document, ledger context, accountability provenance,
+exact linked canonical records and audits, and relevant later archive sources
+listed in the packet. Archive candidates are date-bounded retrieval leads, not
+preselected evidence. Inspect their bodies only as relevant to the original
+criterion. Preserve the distinction between what a source said and what occurred.
+Never use derived daily synthesis or legacy verification links as event evidence.
+Missing or conflicting legacy/canonical associations remain explicit gaps.
+
+The current agent compares the original resolution criteria with supporting and
+challenging evidence, authorship timing, event window, and canonical gates.
+Do not invent criteria or infer a miss from absence. Use a criteria/provenance
+gap when original standards, attribution, or accountability cannot be recovered;
+use an evidence gap when evidence is insufficient. Canonical audit outputs
+remain controlling for downstream scoring eligibility; a proposed disposition
+does not grant that eligibility.
+
+Write a private JSON object with `reviews`, one object per pending hook:
+
+```json
+{
+  "reviews": [{
+    "hook": "NG-YYYYMMDD-F01",
+    "input_digest": "copy the exact packet digest",
+    "disposition": "evidence_gap",
+    "criteria_analysis": "Original standard and what it requires.",
+    "time_window_analysis": "Authorship, deadline, event time and source-date limits.",
+    "rationale": "Agent judgment from inspected local evidence.",
+    "counterevidence": "Contrary evidence, or the limits of the search.",
+    "remaining_gates": "Named canonical verification/scoring gates still outstanding.",
+    "citations": []
+  }]
+}
+```
+
+Allowed dispositions are `proposed_hit`, `proposed_miss`, `proposed_mixed`,
+`evidence_gap`, and `criteria_provenance_gap`. Each proposed outcome requires a
+`criteria` citation to the original forecast and evidence citations with role
+`supports` or `challenges` (both for mixed). Every citation supplies the exact
+packet-relative `path` and a verbatim `quote`; evidence citations also supply
+`event_date` and a verbatim `date_basis_quote`. Archive citations additionally
+require `evidence_use: source_assertion`. Decide whether that assertion actually
+satisfies the criterion; it cannot establish an operational event by itself.
+
+Resume the same Dream run with `--forecast-review-json PRIVATE_PATH`. The
+validator checks input binding, citation existence, unchanged bytes, original
+criteria references, and event-window bounds; it does not automate semantic
+judgment. Results are private proposals only. Neither code nor agent may browse,
+admit evidence, alter reality records, resolve forecasts, or change calibration
+under this review authority.
+
+Unchanged per-hook inputs reuse the validated private review cache, including
+gap results. New archive candidates, evidence, associations, criteria, or
+provenance change the digest and require fresh review. Explain unchanged gaps
+briefly rather than repeating the full analysis. If review cannot be completed,
+resume with `--forecast-review-unavailable REASON`. Invalid or unavailable
+reviews remain visible nonblocking debt; continue the daily close. Infrastructure
+failure is reported honestly even if no private review receipt could be written.
 
 Inventory the day's active sessions first. Give every known session an explicit
 `included`, `excluded`, or `unavailable` coverage receipt with a reason and
@@ -223,25 +356,72 @@ Local-use eligibility never grants repo-use or public-use.
 
 ## Return
 
+Before returning from a successful Dream, the composing agent must follow
+`bridge-export` in [Session handoff](references/session-handoff.md) and save a
+private Bridge for the next Coffee. This is the final agent-owned step after
+the deterministic conductor reports `completed`, including a no-candidate close.
+Do not expect the conductor command to compose this session-specific packet.
+Carry the primary focus, completed work, exact artifacts, remaining obligations,
+recommended next step, coverage limits, and separately required authority.
+Peek first and replace a pending handoff only with its exact digest, preserving
+any still-relevant obligations. A repeated completion must reuse a matching
+handoff rather than replace newer work. Failure to save is explicit Bridge debt;
+it does not undo Dream, replay completed stages, or invite a fabricated receipt.
+Post-Dream work can stale the snapshot; an explicit later Bridge refreshes it.
+This adds no automatic Rest behavior, Git action, or task execution authority.
+
 On successful close, report only the Journal title and version, validation
-result, finalization state, and genuine remaining debt. Do not duplicate or
+result, finalization state, private Bridge save/reuse status, and genuine remaining debt. Do not duplicate or
 summarize the entry. Never infer permission to stage, commit, push, publish,
 change forecasts, or run intake.
 
+Include unfinished Tower batch references and coverage gaps in that genuine debt
+and the private Bridge. Consume the final `tower_pending` receipt; do not infer
+that choosing continue processed or permanently deferred those transcripts.
+
 ## Daily session checkpoint
+
+Dream must finish with honest coverage rather than stop because exhaustive
+transcript reading exceeds the available composing context. The operator's
+completion-first repair establishes `dream-transcript-capacity-v1` as the
+standing capacity policy inside an authorized Dream close, including a resumed
+interrupted close. No repeated permission request is needed.
+
+Read sequentially when feasible. When it is not, preserve the complete frozen
+checkpoint, review every session census row, and read the actual source passages
+used for each selected development. State the observed volume and available
+context limitation in the reason; chunk count alone does not prove a hard
+runtime limit. Read the full earlier Journal separately. A census or summary
+must never be represented as reading the underlying transcript.
+
+Use `session-reading-complete --bundle ABSOLUTE_EXTERNAL_DIRECTORY
+--packet-digest SHA256 --session-id MS-ID --defer-reason REASON
+--authority-ref dream-transcript-capacity-v1` with every
+`--reviewed-session MS-ID`. Record any genuinely completed sequential chunks
+before deferral. The command returns `complete: false` and exact
+`session_reading_debt`; bind that debt and the acknowledgement digest in
+`draft.json`. An identical retry preserves the receipt and digest.
+Carry the debt into ROI `open_obligations`, the canonical version, and the final
+report; close Dream with `--coverage-status partial`. Continue composition,
+validation, and finalization in the same authorized workflow. Do not end at
+`composition_required` or ask the operator to approve this internal step.
+This policy does not relax source grounding, prior Journal reading, prose,
+privacy, freshness, or canonicalization checks, and grants no publication authority.
 
 Dream preparation requires `--require-session-reading` in addition to full prior
 Journal reading. Preserve eligible session activity into `archive/sessions/transcripts/`
 and bind a frozen, content-addressed checkpoint in `archive/sessions/daily/` before
-composition. Read every chunk in ordinal order; acknowledge with `mira-journal
+composition. For complete reading, read every chunk in ordinal order; acknowledge with `mira-journal
 session-reading-complete --bundle ABSOLUTE_EXTERNAL_DIRECTORY --packet-digest SHA256
 --session-id MS-ID --chunk N --json`. Repeat `--chunk` for sequential batches.
 Bind `session_checkpoint_sha256` and `session_reading_ack_sha256` in draft metadata,
 and `session_checkpoint_sha256` in the technical reference. Acknowledgement is
-coverage, not comprehension. A new composing session rereads all chunks.
+coverage, not comprehension. A new composing session rereads all chunks or
+records its own capacity debt after the required census and source review.
 
 The bounded context packet is orientation only. Complete transcript chunks include
-all eligible normalized records; token budgets cannot substitute synopses for reading.
+all eligible normalized records; capacity deferral records unread coverage explicitly
+and never substitutes synopses for a complete-reading claim.
 Retain explicit missing-capture gaps and acknowledge partial coverage in metadata
 with `session_coverage_gaps_acknowledged: true`.
 
@@ -260,7 +440,8 @@ explicit Codex metadata. The composition brief groups active sessions beneath th
 recorded primary ancestor; inactive parents provide context only. Missing,
 conflicting, cyclic, or unavailable ancestry remains unresolved. Primary sessions,
 subagent sessions, and transcript records are separate counts, not accomplishments.
-Read every required chunk and disposition every session. Combine a helper finding
+Read every required chunk or record capacity debt under the policy above, and
+disposition every session. Combine a helper finding
 and its parent summary under one grounded development when they describe the same
 work; retain distinct findings even within one conversation. Grouping does not
 prove semantic duplication or independent corroboration. Historical checkpoints,
@@ -292,9 +473,14 @@ post-transition override. This changes date assignment, not task scheduling,
 operating-system settings, or external publication timestamps. Journal entry
 dates remain distinct from the time an entry is actually published.
 
-Strategy Notebook is a Tower-composed internal estimate, not a Geo prerequisite
-and not a canonical autobiographical artifact. Dream consumes existing entries
-and never composes or revises them. Missing Tower work is nonblocking.
+Dream also has a lived-day closeout default for runs without an explicit
+`--date`: after local midnight and before `06:00` local time, Dream dates the
+closeout to the previous calendar date. This preserves the operator's
+after-midnight closeout practice, including a Sept. 5 close run started shortly
+after midnight on Sept. 6. It changes only Dream's default date selection.
+Explicit `--date` values, frozen session checkpoints, Journal coverage bounds,
+and already finalized entries remain governed by the dated calendar policy
+above.
 
 ## Geopolitics directory compatibility
 
@@ -330,8 +516,3 @@ reading; explain their effect on the choice. Missing expectations and pending
 outcomes remain nonblocking. Daily note production is not a question-selection
 reward or recursive-learning outcome. Reopening conditions on parked questions
 create no task, scheduler, or automatic policy change.
-
-
-Include unfinished Tower batch references and coverage gaps in that genuine debt
-and the private Bridge. Consume the final `tower_pending` receipt; do not infer
-that choosing continue processed or permanently deferred those transcripts.

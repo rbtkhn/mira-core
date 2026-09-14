@@ -55,6 +55,41 @@ feature follows Workshop and its domain owner; a project name alone does not
 activate Treasury. Follow the relevant part of a mixed request without forcing
 all work through a fixed room sequence.
 
+## Default tools and artifact boundaries
+
+Treasury is the default home for Spreadsheets / Google Sheets and Data Analytics
+for resource assessments. Use the available spreadsheet skill for workbooks and
+the relevant Data Analytics skill for data quality, variance explanation,
+scenario comparison, and reports. Connected Google Sheets uses the unified
+Archive-owned Google Drive entry point and its Sheets specialist; Treasury
+retains resource-content judgment while Mira Archive owns Drive file lifecycle. This ownership is not an
+exclusive gateway: Workshop may use an experimental spreadsheet directly.
+
+[Study](../mira-study/SKILL.md) owns correspondence, document practice, and
+Google Calendar. Treasury may use Calendar directly without taking ownership.
+Use bounded calendar reads for an
+authorized time/capacity question; availability is not allocation or commitment.
+Study may compose a resource report while Treasury retains its resource judgment.
+
+Verify the intended account and exact file before connected work. An available
+tool is not proof of connection or access to a particular workbook. Preserve
+source dates, units, formulas, assumptions, and estimate-versus-actual distinctions;
+check calculations and material missingness before drawing a resource conclusion.
+Use the artifact skill's focused verification and read back authorized external
+edits. Do not overwrite original evidence with a revised estimate.
+
+Reading data, creating a local workbook, changing an external Sheet, sharing it,
+scheduling, and spending have separate authority boundaries. Honor the exact
+task's authorization without treating tool ownership as permission. Keep private
+business inputs and workbooks outside Git in the authorized destination. A local
+draft must not silently become a cloud upload or a mira-ledger entry. If access
+fails, report the specific gap and continue supported local preparation; do not
+change accounts, permissions, or plugins to repair it without authorization.
+
+The shared [Study and Treasury cases](../mira-study/references/validation-cases.md)
+cover these tool boundaries. They are synthetic review scenarios, not proof of
+live financial or correspondence outcomes.
+
 ## Work products and handoff
 
 **mira-ledger is an intended primary Treasury work product, currently

@@ -31,8 +31,9 @@ praise, or passing tests.
 
 Use the separate `menu-contract-natural-use-v1` cohort for the first five later
 natural uses of learning-eligible universal-menu decisions. Generic response
-controls never enter this cohort. Require 100 percent A-D coverage across the
-five sampled final responses, zero retained transient controls, zero compressed-
+controls never enter this cohort. Require valid surfaces for sampled decisions
+where navigation is appropriate; inquiry-limit quiet closure is not a missing menu.
+Require zero retained transient controls, zero compressed-
 selection authority incidents, and at least three observations for every
 primary measure before interpreting performance. Preserve `Missing` and
 `not_observable` honestly.
@@ -51,9 +52,17 @@ bounded post-action evidence. Use `choice health` for content-free lifecycle,
 coverage, timestamp, scope-variant, and cohort-progress diagnostics.
 On schema versions below v4, cohort-backed read-only commands return
 `migration-required`; they do not migrate or imitate an empty cohort. The next
-authorized writable choice operation may perform the existing schema migration.
+write does not migrate: use the explicit `choice migrate-store` route, which
+backs up and verifies the store before upgrading to schema 6.
 Health may report content-free legacy null-cohort and path-shaped workspace
 counts, but it never merges or rewrites those identities.
+
+Unknown presentation or selection times do not exclude a choice from ordinary
+retrieval or content-based review. Projections label known event times separately
+from unknown event times; the latter use recording order, never inferred event
+chronology. Timing-dependent calculations report excluded counts. Due reviews
+continue to depend on actual closure time. Historical times remain usable but
+`legacy-unassessed`, with unknown historical recording times.
 
 Use `corrected` and `superseded` events instead of rewriting history. Use
 `review_deferred` when an unresolved outcome returns through review.

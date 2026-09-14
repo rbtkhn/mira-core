@@ -16,6 +16,8 @@ from zoneinfo import ZoneInfo
 
 import cadence_ledger
 import journal_calendar
+import journal_date_correction
+import dream_forecast_review
 import cognitive_context
 import mira_journal_references
 from portable_paths import state_path
@@ -245,16 +247,19 @@ def forecast_ledger_rows(ledger_path: Path | None = None) -> list[dict[str, str]
         if not line.startswith("| `NG-"):
             continue
         cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
-        if len(cells) < 9:
+        # Older forecasts omit the causal-mechanism column. Both formats end
+        # with review date, source run, and status; provenance rows are separate.
+        if len(cells) not in (8, 9):
             continue
         hook = HOOK_RE.search(cells[0])
-        if not hook:
+        review_date = cells[-3].strip("`")
+        if not hook or not DATE_RE.fullmatch(review_date):
             continue
         rows.append({
             "hook_id": hook.group(1),
             "date": cells[1].strip("`"),
-            "review_date": cells[6].strip("`"),
-            "status": cells[8].strip("`"),
+            "review_date": review_date,
+            "status": cells[-1].strip("`"),
             "raw": line,
         })
     return rows
@@ -324,11 +329,18 @@ def journal_entry(run_date: str) -> dict | None:
     if not path.is_file():
         return None
     registry = json.loads(path.read_text(encoding="utf-8"))
-    return next((row for row in registry.get("entries", []) if row.get("entry_date") == run_date), None)
+    return journal_date_correction.completion_entry(registry, run_date)
 
 
 def journal_bundle(args, run_date: str) -> Path:
     root = state_path("journal/drafts")
+    registry_path = REPO_ROOT / "mira/journal-registry.json"
+    if registry_path.is_file():
+        registry = json.loads(registry_path.read_text(encoding="utf-8"))
+        entry = next((e for e in registry.get("entries", []) if e["entry_date"] == run_date), None)
+        if entry and journal_date_correction.correction_for(registry, entry["versions"][-1]):
+            # Never reuse the original frozen checkpoint or old draft after correction.
+            return (root / "date-corrections" / entry["current_version_id"] / run_date).resolve()
     return (args.journal_bundle or root / run_date).resolve()
 
 
@@ -689,7 +701,6 @@ def tower_pending(args, run_date):
     return tower.pending(run_date, REPO_ROOT, getattr(args, "tower_state_root", None))
 
 
-
 def tower_preflight(connection, projection, args, run_date):
     batch = tower_pending(args, run_date)
     args._tower_pending = batch
@@ -717,7 +728,6 @@ def tower_preflight(connection, projection, args, run_date):
         "mutation": True, "run": projection, "tower_pending": batch,
         "prompt": "Conduct a Tower session for this batch, then return to Dream, or continue Dream with this work unfinished?",
         "next_action": "Use --tower-choice tower|continue --tower-batch " + digest + " and resume this run."}
-
 
 
 def prerequisite_projection(args, run_date: str, *, auto_complete_geo: bool = False) -> dict:
@@ -764,6 +774,17 @@ def prerequisite_projection(args, run_date: str, *, auto_complete_geo: bool = Fa
     }
 
 
+def forecast_review_step(args, run_date: str, *, check: bool = False) -> dict:
+    try:
+        return dream_forecast_review.run(
+            REPO_ROOT, due_open_forecast_rows(run_date), run_date, journal_bundle(args, run_date),
+            result_path=getattr(args, "forecast_review_json", None),
+            unavailable=getattr(args, "forecast_review_unavailable", None), check=check,
+        )
+    except (OSError, ValueError) as error:
+        return dream_forecast_review.review_summary({"reason": str(error)})
+
+
 def check_projection(args, run_date: str) -> dict:
     resolution = cadence_ledger.resolve_store(args.db, require_exists=True)
     if resolution.path is not None:
@@ -793,6 +814,7 @@ def check_projection(args, run_date: str) -> dict:
         "mutation": False, "date": run_date,
         "stages": {
             **prerequisites["stages"],
+            "forecast_review": forecast_review_step(args, run_date, check=True),
             "dream": {"status": "ready" if dream_ready else "assessment_required"},
         },
         "incomplete_stages": prerequisites["incomplete_stages"],
@@ -824,13 +846,37 @@ def execute(args, run_date: str) -> dict:
                 idempotency_key=f"daily-close:{args.workspace_id}:{args.operator_id}:{run_date}",
             )
         if projection["state"] == "completed":
-            return {"status": "completed", "mutation": False, "run": projection, "tower_pending": next((e["payload"].get("tower_pending", {"status": "not-recorded"}) for e in reversed(projection["events"]) if e["event_type"] == "daily_close_completed"), {"status": "not-recorded"}), "cognitive_disposition": next((event["payload"].get("cognitive_disposition", {"status": "not-recorded"}) for event in reversed(projection["events"]) if event["event_type"] == "daily_close_completed"), {"status": "not-recorded"})}
+            if journal_entry(run_date) is None and "date-corrections" in journal_bundle(args, run_date).parts:
+                return {"status": "blocked", "mutation": False, "run": projection,
+                        "next_action": "Historical close has no eligible Journal; use the active recovery run after date correction."}
+            recorded = next((event["payload"].get("forecast_review", {})
+                             for event in reversed(projection["events"])
+                             if event["event_type"] == "daily_close_completed"), {})
+            return {"status": "completed", "mutation": False, "run": projection,
+                    "tower_pending": next((event["payload"].get("tower_pending", {"status": "not-recorded"})
+                        for event in reversed(projection["events"]) if event["event_type"] == "daily_close_completed"), {"status": "not-recorded"}),
+                    "forecast_review": dream_forecast_review.review_summary(recorded),
+                    "cognitive_disposition": next((event["payload"].get("cognitive_disposition", {"status": "not-recorded"})
+                        for event in reversed(projection["events"]) if event["event_type"] == "daily_close_completed"), {"status": "not-recorded"})}
 
         projection, tower_gate = tower_preflight(connection, projection, args, run_date)
         if tower_gate:
             return tower_gate
         prerequisites = prerequisite_projection(args, run_date)
         geo = prerequisites["stages"]["geo"]
+        forecast_review = dream_forecast_review.review_summary(forecast_review_step(args, run_date))
+        if forecast_review["status"] == "forecast_review_required":
+            return {
+                "status": "forecast_review_required", "mutation": True, "run": projection,
+                "forecast_review": forecast_review,
+                "next_action": (
+                    "Agent-internal handoff: read forecast-review-inputs.json and its local sources, "
+                    "write private reviews under the Dream contract, then resume with --forecast-review-json PATH. "
+                    "If review cannot be completed, resume with --forecast-review-unavailable REASON; "
+                    "forecast evidence debt must not block closeout."
+                ),
+            }
+
         if projection["stages"]["geo"] not in {"completed", "skipped"}:
             if geo["status"] in {"no_geo_run", "unfinished", "blocked"}:
                 projection = append_stage(connection, projection, "stage_skipped", "geo", geo["status"],
@@ -842,6 +888,12 @@ def execute(args, run_date: str) -> dict:
                     **{key: value for key, value in geo.items() if key not in {"status", "manifest_rows"}},
                 )
 
+        if (projection["stages"]["journal"] == "completed" and journal_entry(run_date) is None
+                and "date-corrections" in journal_bundle(args, run_date).parts):
+            projection = append_stage(
+                connection, projection, "stage_failed", "journal", "date_correction_requires_composition",
+                reason="The recorded Journal no longer satisfies this date; retain the old receipt and compose from fresh coverage.",
+            )
         if projection["stages"]["journal"] != "completed":
             entry = journal_entry(run_date)
             if entry:
@@ -871,12 +923,20 @@ def execute(args, run_date: str) -> dict:
                         "journal_bundle": str(bundle),
                         "strategy_notebook": strategy_notebook_status(run_date, geo),
                         "roi_synthesis": roi_synthesis,
+                        "forecast_review": forecast_review,
                         "next_action": (
                             "Agent-internal handoff, not operator approval: consume existing Tower outputs; read the complete "
                             "journal-reading.json sequentially, oldest first, for inward continuity. "
                             "Run mira-journal reading-complete with its packet digest and composing session; "
                             "bind journal_reading_ack_sha256 in draft.json. Read every session checkpoint "
                             "chunk in ordinal order and acknowledge it with mira-journal session-reading-complete. "
+                            "If transcript volume exceeds the available composing context, continue under "
+                            "docs/skill-drafts/dream/SKILL.md#daily-session-checkpoint: review every session "
+                            "census row and the source passages used, then record --defer-reason and "
+                            "--authority-ref dream-transcript-capacity-v1 with every --reviewed-session. "
+                            "Bind the returned session_reading_debt in draft.json, retain it in ROI open "
+                            "obligations, and finish with partial coverage; never claim unread chunks were read. "
+                            "Transcript capacity is not an operator approval or stopping point. "
                             "Bind session_checkpoint_sha256 and session_reading_ack_sha256 in draft.json, "
                             "and session_checkpoint_sha256 in technical-reference.json before composing "
                             "draft.md, draft.json, and technical-reference.json under the prepared "
@@ -960,7 +1020,7 @@ def execute(args, run_date: str) -> dict:
                 projection = append_stage(connection, projection, "stage_completed", "dream", "candidate_recorded",
                                           episode_id=dream["episode"]["episode_id"])
             else:
-                context = run_tool("mira-journal", "prepare", "--date", run_date, "--check", "--json")
+                context = run_tool("mira-journal", "prepare", "--date", run_date, "--require-journal-reading", "--check", "--json")
                 coverage_digest = hashlib.sha256(context.stdout.encode("utf-8")).hexdigest()
                 closeout_id = f"DCO-{run_date.replace('-', '')}-{projection['run_id'][-12:]}"
                 cadence_ledger.record_dream_closeout(connection, {
@@ -975,10 +1035,13 @@ def execute(args, run_date: str) -> dict:
         if geo.get("status") == "no_geo_run" and cognitive_disposition["notebook"]["status"] == "unavailable":
             cognitive_disposition["notebook"]["status"] = "not-applicable"
         projection = cadence_ledger.append_daily_close_event(
-            connection, projection["run_id"], "daily_close_completed", {"status": "completed", "cognitive_disposition": cognitive_disposition, "tower_pending": getattr(args, "_tower_pending", {})},
+            connection, projection["run_id"], "daily_close_completed",
+            {"status": "completed", "forecast_review": forecast_review, "cognitive_disposition": cognitive_disposition,
+             "tower_pending": getattr(args, "_tower_pending", {})},
             idempotency_key=f"{projection['run_id']}:completed", expected_version=projection["lifecycle_version"],
         )
-        return {"status": "completed", "mutation": True, "run": projection, "cognitive_disposition": cognitive_disposition, "tower_pending": getattr(args, "_tower_pending", {})}
+        return {"status": "completed", "mutation": True, "run": projection, "forecast_review": forecast_review,
+                "cognitive_disposition": cognitive_disposition, "tower_pending": getattr(args, "_tower_pending", {})}
     finally:
         connection.close()
 
@@ -993,12 +1056,15 @@ def parser() -> argparse.ArgumentParser:
     root.add_argument("--operator-id", default=DEFAULT_OPERATOR)
     root.add_argument("--db", type=Path)
     root.add_argument("--tower-choice", choices=("tower", "continue"))
-    root.add_argument("--tower-batch", help="Exact reviewed pending batch digest")
+    root.add_argument("--tower-batch", help="Exact pending batch digest reviewed by the operator")
     root.add_argument("--tower-state-root", type=Path)
     root.add_argument("--check", action="store_true")
     root.add_argument("--resume")
     root.add_argument("--journal-bundle", type=Path)
     root.add_argument("--dream-json", type=Path)
+    review = root.add_mutually_exclusive_group()
+    review.add_argument("--forecast-review-json", type=Path)
+    review.add_argument("--forecast-review-unavailable", metavar="REASON")
     root.add_argument("--no-candidate", metavar="REASON")
     root.add_argument("--coverage-status", choices=("complete", "partial"), default="complete")
     root.add_argument("--json", action="store_true")
@@ -1018,7 +1084,7 @@ def main(arguments: list[str] | None = None) -> int:
             finally:
                 connection.close()
         else:
-            run_date = args.date or journal_calendar.current_date().isoformat()
+            run_date = args.date or journal_calendar.dream_close_date().isoformat()
         calendar_day = datetime.strptime(run_date, "%Y-%m-%d").date()
         expected_zone = journal_calendar.timezone_name(calendar_day)
         if args.timezone and calendar_day >= journal_calendar.TRANSITION_DAY and args.timezone != expected_zone:

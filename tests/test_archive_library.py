@@ -222,6 +222,53 @@ def test_text_body_metadata_validation() -> None:
     assert "MULTI text body BODY-1 text_bytes must be a non-negative integer" in failures
 
 
+def test_text_body_mediation_seal_validation() -> None:
+    digest = "a" * 64
+    valid = {
+        "body_id": "BODY-VALID",
+        "work_title": "Translated Work",
+        "text_location": "library-text://BODY-VALID.txt",
+        "text_sha256": digest,
+        "text_bytes": 10,
+        "text_encoding": "utf-8",
+        "language": "english",
+        "translator": "Named Translator",
+        "editor": "",
+        "mediation_type": "translation",
+        "translator_status": "known",
+        "editor_status": "unknown",
+        "edition_label": "test edition",
+        "license_status": "public-domain",
+        "status": "available",
+    }
+    valid["mediation"] = archive_library.default_mediation_record("BODY-VALID", valid)
+    registry = base_registry()
+    registry["sources"] = [source(source_id="SEALED", text_bodies=[valid])]
+    assert archive_library.validate_registry(registry) == []
+
+    invalid = copy.deepcopy(valid)
+    invalid.update({
+        "body_id": "BODY-INVALID",
+        "translator": "",
+        "editor": "Named Editor",
+        "mediation_type": "",
+        "translator_status": "known",
+        "editor_status": "not-applicable",
+    })
+    invalid["mediation"]["lineage_graph_ref"] = {}
+    registry["sources"] = [source(source_id="INVALID-SEAL", text_bodies=[invalid])]
+    failures = archive_library.validate_registry(registry)
+    assert any(
+        failure.startswith("INVALID-SEAL text body BODY-INVALID has invalid mediation_type:")
+        for failure in failures
+    )
+    assert "INVALID-SEAL text body BODY-INVALID translator_status known requires a named translator" in failures
+    assert "INVALID-SEAL text body BODY-INVALID named editor requires editor_status known" in failures
+    assert "INVALID-SEAL text body BODY-INVALID editor_status not-applicable requires blank editor" in failures
+    assert any("legacy mediation_type does not match canonical mediation projection" in failure for failure in failures)
+    assert any("lineage_graph_ref must be null or a non-blank string" in failure for failure in failures)
+
+
 def test_missing_required_field_is_reported() -> None:
     registry = base_registry()
     row = source()
@@ -603,6 +650,13 @@ def test_admit_text_into_private_root(tmp_path: Path, monkeypatch, capsys) -> No
     assert row["text_location"] == "library-text://LIB-ROME-LIVY.txt"
     assert row["edition_label"] == "test edition"
     assert row["language"] == "latin"
+    assert row["mediation_type"] == "unknown"
+    assert row["translator_status"] == "unknown"
+    assert row["editor_status"] == "unknown"
+    assert row["mediation"]["schema_version"] == "mira-library-mediation-v1"
+    assert row["mediation"]["text_relation"]["kind"] == "unknown"
+    assert row["mediation"]["primary_path"][0]["kind"] == "unknown"
+    assert row["mediation"]["lineage_graph_ref"] is None
     assert (private_root / "LIB-ROME-LIVY.txt").read_text(encoding="utf-8") == "Ab urbe condita.\n"
 
 
@@ -634,9 +688,52 @@ def test_admit_text_check_does_not_copy_or_update_registry(tmp_path: Path, monke
     checked = json.loads(capsys.readouterr().out)
     assert checked["registry_updated"] is False
     assert checked["would_copy"] is True
+    assert checked["mediation_type"] == "unknown"
+    assert checked["translator_status"] == "unknown"
+    assert checked["editor_status"] == "unknown"
+    assert checked["mediation"]["schema_version"] == "mira-library-mediation-v1"
+    assert checked["mediation"]["primary_path"][0]["revision_relevance"] == "textual-integrity"
     assert not (private_root / "LIB-ROME-LIVY.txt").exists()
     unchanged = json.loads((tmp_path / "archive" / "library" / "library-registry.json").read_text(encoding="utf-8"))
     assert unchanged["sources"][0]["text_status"] == "missing"
+
+
+def test_admit_text_rejects_invalid_mediation_before_check_or_write(tmp_path: Path, monkeypatch, capsys) -> None:
+    registry = base_registry()
+    registry["sources"] = [source(text_status="missing")]
+    write_scaffold(tmp_path, registry)
+    registry_path = tmp_path / "archive" / "library" / "library-registry.json"
+    registry_before = registry_path.read_bytes()
+    private_root = tmp_path.parent / (tmp_path.name + "-state") / "library" / "texts"
+    source_file = tmp_path / "input.txt"
+    source_file.write_text("Ab urbe condita.\n", encoding="utf-8")
+    monkeypatch.setenv("MIRA_CORE_LIBRARY_TEXT_ROOT", str(private_root))
+    monkeypatch.setattr(archive_library, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(archive_library, "LIBRARY_ROOT", tmp_path / "archive" / "library")
+    monkeypatch.setattr(archive_library, "REGISTRY_PATH", registry_path)
+    arguments = [
+        "admit-text",
+        "--source-id",
+        "LIB-ROME-LIVY",
+        "--file",
+        str(source_file),
+        "--edition",
+        "test edition",
+        "--license-status",
+        "public-domain",
+        "--translator",
+        "Named Translator",
+        "--translator-status",
+        "not-applicable",
+        "--json",
+    ]
+
+    assert archive_library.main([*arguments, "--check"]) == 1
+    assert "named translator requires translator_status known" in capsys.readouterr().err
+    assert archive_library.main(arguments) == 1
+    assert "named translator requires translator_status known" in capsys.readouterr().err
+    assert registry_path.read_bytes() == registry_before
+    assert not private_root.exists()
 
 
 def test_admit_multiple_text_bodies_without_overwriting(tmp_path: Path, monkeypatch, capsys) -> None:

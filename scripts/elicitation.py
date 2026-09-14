@@ -543,7 +543,7 @@ def interpret_elicitation_response(surface: Any, response: Any) -> dict[str, Any
         branch for branch in branches if branch["learning_eligibility"] == "eligible"
     ]
     compound_selection_id = None
-    if mode == "compound" and presented_at is not None and len(retained_branches) >= 2:
+    if mode == "compound" and len(retained_branches) >= 2:
         compound_selection_id = (
             "compound-"
             + hashlib.sha256(
@@ -567,7 +567,8 @@ def interpret_elicitation_response(surface: Any, response: Any) -> dict[str, Any
             "options": receipt_options,
             "options_hash": option_hash,
             "presented_at": presented_at,
-            "requires_presentation_timestamp": presented_at is None,
+            "requires_presentation_timestamp": False,
+            "presented_at_status": "unknown" if presented_at is None else "exact",
             "choice_kind": LEARNING_CHOICE_KIND,
             "recommended_review_cohort": LEARNING_REVIEW_COHORT,
             "authority_effect": AUTHORITY_EFFECT,

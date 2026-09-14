@@ -199,6 +199,16 @@ def test_core_requires_every_response_surface_and_transient_control_isolation() 
     assert "menu-contract-decision-v1" in retention
     assert "menu-contract-natural-use-v1" in retention
     assert "no `choice select`" in " ".join(retention.split())
+    assert "disclose once per unchanged" in retention
+    assert "cached failure fingerprint is unchanged" in retention
+
+
+def test_navigation_saturation_rules_are_explicitly_composed() -> None:
+    core = read("SKILL.md")
+    normalized = " ".join(core.split())
+    assert "two consecutive navigation-only selections" in normalized
+    assert "three compact selections within the same inquiry" in normalized
+    assert "Apply the earlier bound whenever both describe the same sequence" in normalized
 
 
 def test_core_requires_silent_digest_bound_context_without_retention() -> None:

@@ -10,9 +10,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from repository_paths import SIMULATION_ROOT, resolve_repository_path
+
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-RUN_ROOT = REPO_ROOT / "archive" / "notes" / "innermost-loop-simulation"
+RUN_ROOT = resolve_repository_path(REPO_ROOT, SIMULATION_ROOT)
 PROTOCOL_PATH = RUN_ROOT / "protocol.json"
 STATE_PATH = RUN_ROOT / "run-state.json"
 REGISTRY_PATH = REPO_ROOT / "archive" / "registries" / "innermost-loop.json"
@@ -75,7 +77,7 @@ def repo_relative(path: Path) -> str:
 def resolve_repo_path(value: str) -> Path:
     if not value or Path(value).is_absolute():
         raise SimulationError(f"expected repository-relative path: {value!r}")
-    resolved = (REPO_ROOT / value).resolve()
+    resolved = resolve_repository_path(REPO_ROOT, value).resolve()
     try:
         resolved.relative_to(REPO_ROOT.resolve())
     except ValueError as error:
@@ -93,7 +95,9 @@ def parse_timestamp(value: str) -> datetime:
     return parsed.astimezone(timezone.utc)
 
 
-def validate(protocol_path: Path = PROTOCOL_PATH, state_path: Path = STATE_PATH) -> list[str]:
+def validate(protocol_path: Path | None = None, state_path: Path | None = None) -> list[str]:
+    protocol_path = protocol_path or PROTOCOL_PATH
+    state_path = state_path or STATE_PATH
     failures: list[str] = []
     try:
         protocol = load_json(protocol_path)
@@ -250,7 +254,7 @@ def seal_phase(phase: str, response: Path, completed_at: str, *, check: bool) ->
     if completed < not_before:
         raise SimulationError(f"{phase} cannot be sealed before {record['not_before']}")
     response_relative = repo_relative(response)
-    expected_prefix = f"archive/notes/innermost-loop-simulation/responses/{phase}"
+    expected_prefix = f"{SIMULATION_ROOT}/responses/{phase}"
     if not response_relative.startswith(expected_prefix):
         raise SimulationError(f"response must use {expected_prefix}*: {response_relative}")
     if not response.is_file():

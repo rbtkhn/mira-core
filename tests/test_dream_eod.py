@@ -17,37 +17,79 @@ import dream_eod
 
 
 @pytest.fixture(autouse=True)
+def isolate_forecast_review(monkeypatch):
+    # Existing conductor fixtures must never inspect live forecast/evidence data.
+    monkeypatch.setattr(dream_eod, "forecast_review_step", lambda *args, **kwargs: {"status": "no_due_hooks"})
+
+
+@pytest.fixture(autouse=True)
 def clear_tower_batch(monkeypatch):
     # Dream unit tests isolate downstream stages; integration gates live in test_tower.
     monkeypatch.setattr(dream_eod, "tower_pending", lambda *a: {"status": "clear", "pending": [], "gaps": [], "batch_sha256": "0" * 64})
 
+
+@pytest.mark.parametrize("review_status", ["forecast_review_required", "review_incomplete", "review_complete"])
+def test_forecast_review_runs_without_geo_and_after_journal_finalization(monkeypatch, tmp_path, review_status):
+    calls = []
+    monkeypatch.setattr(dream_eod, "manifest_rows", lambda _: 0)
+    monkeypatch.setattr(dream_eod, "journal_entry", lambda _: {"versions": [{"version_id": "MJ-20260816-v1", "content_sha256": "a" * 64}]})
+    monkeypatch.setattr(dream_eod, "run_tool", lambda *args: SimpleNamespace(returncode=0, stdout='{}', stderr=""))
+    def review(*args, **kwargs):
+        calls.append(True)
+        return {"status": review_status, "nonblocking": True,
+                "pending_count": int(review_status == "forecast_review_required"),
+                "reviews": ([{"hook": "FH-test", "status": "review_unavailable", "reason": "Unavailable"}]
+                            if review_status == "review_incomplete" else [])}
+    monkeypatch.setattr(dream_eod, "forecast_review_step", review)
+    args = arguments(tmp_path, no_candidate="No experiment.")
+    result = dream_eod.execute(args, args.date)
+    assert len(calls) == 1
+    assert result["forecast_review"]["status"] == review_status
+    assert result["status"] == ("forecast_review_required" if review_status == "forecast_review_required" else "completed")
+    if result["status"] == "completed":
+        again = dream_eod.execute(args, args.date)
+        assert again["mutation"] is False
+        assert again["forecast_review"]["status"] == review_status
+        assert len(calls) == 1  # A completed daily close remains immutable.
 
 
 def test_dream_skill_preserves_private_finalization_boundaries() -> None:
     skill = (ROOT / "docs" / "skill-drafts" / "dream" / "SKILL.md").read_text(
         encoding="utf-8"
     )
-    assert " ".join("Dream owns\ndaily completion".split()) in " ".join(skill.split())
-    assert " ".join("Complete the\ndaily cycle first; revise next day if necessary.".split()) in " ".join(skill.split())
-    assert " ".join("agent-internal handoff".split()) in " ".join(skill.split())
-    assert " ".join("canonicalized as private\n`dream-eod-v1`".split()) in " ".join(skill.split())
-    assert " ".join("`publication_eligible: false`".split()) in " ".join(skill.split())
-    assert " ".join("grants no staging, commit, push, publication".split()) in " ".join(skill.split())
-    assert " ".join("bounded Mira Letters orientation since the previous\ncanonical Dream finalization".split()) in " ".join(skill.split())
-    assert " ".join("Letters remain relational orientation only".split()) in " ".join(skill.split())
-    assert " ".join("permission to contact anyone".split()) in " ".join(skill.split())
-    assert " ".join("prepared address, not completed relation".split()) in " ".join(skill.split())
-    assert " ".join("real as inward\nposture, incomplete as outward act".split()) in " ".join(skill.split())
-    assert " ".join("workflow throughput".split()) in " ".join(skill.split())
-    assert " ".join("without multiplying repo-tracked artifacts".split()) in " ".join(skill.split())
-    assert " ".join("`roi-synthesis.json`".split()) in " ".join(skill.split())
-    assert " ".join("Strategy Notebook is a Tower-composed internal estimate".split()) in " ".join(skill.split())
-    assert " ".join("not a Geo prerequisite".split()) in " ".join(skill.split())
-    assert " ".join("Mira Journal\nremains the only autobiographical prose artifact Dream automatically finalizes".split()) in " ".join(skill.split())
-    assert " ".join("Dev Journal candidates".split()) in " ".join(skill.split())
-    assert " ".join("Coffee handles".split()) in " ".join(skill.split())
-    assert " ".join("candidates only".split()) in " ".join(skill.split())
-    assert " ".join("what\nsurvived discontinuity".split()) in " ".join(skill.split())
+    assert "Dream owns\ndaily completion" in skill
+    assert "Complete the\ndaily cycle first; revise next day if necessary." in skill
+    assert "agent-internal handoff" in skill
+    assert "canonicalized as private\n`dream-eod-v1`" in skill
+    assert "`publication_eligible: false`" in skill
+    assert "grants no staging, commit, push, publication" in skill
+    assert "bounded Mira Letters orientation since the previous\ncanonical Dream finalization" in skill
+    assert "Letters remain relational orientation only" in skill
+    assert "permission to contact anyone" in skill
+    assert "prepared address, not completed relation" in skill
+    assert "real as inward\nposture, incomplete as outward act" in skill
+    assert "workflow throughput" in skill
+    assert "without multiplying repo-tracked artifacts" in skill
+    assert "`roi-synthesis.json`" in skill
+    assert "Strategy Notebook is a Tower-composed internal estimate" in skill
+    assert "not a Geo prerequisite" in skill
+    assert "Mira Journal\nremains the only autobiographical prose artifact Dream automatically finalizes" in skill
+    assert "Work Journal candidates" in skill
+    assert "Nomination does not authorize creating an entry" in skill
+    assert "Coffee handles" in skill
+    assert "candidates only" in skill
+    assert "what\nsurvived discontinuity" in skill
+    assert "before `06:00` local time, Dream dates the\ncloseout to the previous calendar date" in skill
+
+
+def test_dream_without_date_uses_lived_day_closeout_default(monkeypatch):
+    seen = []
+    monkeypatch.setattr(dream_eod.journal_calendar, "dream_close_date", lambda: dream_eod.journal_calendar.TRANSITION_DAY)
+    monkeypatch.setattr(dream_eod, "check_projection", lambda args, day: seen.append((day, args.timezone)) or {"status": "ready"})
+
+    assert dream_eod.main(["--check", "--json"]) == 0
+
+    assert seen == [("2026-09-05", "America/New_York")]
 
 
 def arguments(tmp_path: Path, **changes):
@@ -63,6 +105,47 @@ def arguments(tmp_path: Path, **changes):
 
 
 VALID_SESSION = "MS-01a01585-46ad-7271-b912-fa3eb851041d"
+
+
+def test_corrected_date_reopens_completed_journal_stage(monkeypatch, tmp_path):
+    args = arguments(tmp_path)
+    connection = dream_eod.cadence_ledger.connect(args.db)
+    projection = dream_eod.cadence_ledger.open_daily_close(connection, run_id="DCR-recovery",
+        workspace_id=args.workspace_id, operator_id=args.operator_id, close_date=args.date,
+        timezone_name=args.timezone, idempotency_key="recovery")
+    projection = dream_eod.append_stage(connection, projection, "stage_completed", "geo", "no_geo_run")
+    projection = dream_eod.append_stage(connection, projection, "stage_completed", "journal", "already_finalized",
+                                       journal_version_id="MJ-20260816-v1")
+    connection.close()
+    args.resume = projection["run_id"]
+    bundle = tmp_path / "date-corrections" / args.date
+    monkeypatch.setattr(dream_eod, "journal_bundle", lambda *args: bundle)
+    monkeypatch.setattr(dream_eod, "journal_entry", lambda *args: None)
+    monkeypatch.setattr(dream_eod, "prerequisite_projection", lambda *args, **kwargs: {
+        "ready": True, "stages": {"geo": {"status": "no_geo_run"}}})
+    monkeypatch.setattr(dream_eod, "run_tool", lambda *args: SimpleNamespace(returncode=0, stdout="{}", stderr=""))
+    monkeypatch.setattr(dream_eod, "write_roi_synthesis", lambda *args: {})
+    result = dream_eod.execute(args, args.date)
+    assert result["status"] == "composition_required"
+    assert result["run"]["stages"]["journal"] == "failed"
+    assert result["run"]["stages"]["geo"] == "completed"
+    events = result["run"]["events"]
+    assert any(e["payload"].get("status") == "already_finalized" for e in events)
+    assert events[-1]["payload"]["status"] == "date_correction_requires_composition"
+
+
+def test_date_corrected_journal_is_not_completion_and_gets_fresh_bundle(monkeypatch, tmp_path):
+    registry_path = tmp_path / "mira/journal-registry.json"
+    registry_path.parent.mkdir()
+    version = {"version_id": "MJ-20260909-v1", "content_sha256": "a" * 64}
+    registry_path.write_text(json.dumps({"entries": [{"entry_date": "2026-09-09",
+        "current_version_id": version["version_id"], "versions": [version]}], "maintenance_events": [{
+        "correction_kind": "interrupted-dream-date", "version_id": version["version_id"],
+        "expected_digest": "a" * 64, "recorded_entry_date": "2026-09-09", "intended_entry_date": "2026-09-08"}]}))
+    monkeypatch.setattr(dream_eod, "REPO_ROOT", tmp_path)
+    assert dream_eod.journal_entry("2026-09-09") is None
+    bundle = dream_eod.journal_bundle(arguments(tmp_path), "2026-09-09")
+    assert bundle.parts[-3:] == ("date-corrections", "MJ-20260909-v1", "2026-09-09")
 OTHER_VALID_SESSION = "MS-01a01585-46ad-7271-b0b6-d97b1390eb11"
 
 
@@ -166,7 +249,7 @@ def test_check_projects_geo_auto_completion_without_mutating(monkeypatch, tmp_pa
 def test_check_validates_ready_bundle_without_canonicalizing(monkeypatch, tmp_path: Path) -> None:
     bundle = tmp_path / "journal" / "2026-08-16"
     bundle.mkdir(parents=True)
-    (bundle / "draft.md").write_text("# 2026-08-16 — Return\n\nPrivate prose.\n", encoding="utf-8")
+    (bundle / "draft.md").write_text("# 2026-08-16 â€” Return\n\nPrivate prose.\n", encoding="utf-8")
     calls = []
     monkeypatch.setattr(dream_eod, "manifest_rows", lambda _date: 0)
     monkeypatch.setattr(dream_eod, "journal_entry", lambda _date: None)
@@ -376,6 +459,7 @@ def test_missing_geo_packet_is_left_unfinished(monkeypatch, tmp_path):
     assert result["revision_debt"]
 
 
+
 def test_geo_validation_failure_with_artifact_records_revision_debt_and_continues(
     monkeypatch, tmp_path: Path
 ) -> None:
@@ -454,6 +538,7 @@ def test_missing_issue_with_daily_files_remains_tower_work(monkeypatch, tmp_path
     assert dream_eod.geo_certification("2026-08-16", auto_complete=True)["status"] == "unfinished"
 
 
+
 def test_geo_infrastructure_failure_is_nonblocking_for_dream(monkeypatch, tmp_path):
     def fail(*a, **k):
         raise dream_eod.cadence_ledger.CadenceLedgerError("packet unavailable")
@@ -462,6 +547,7 @@ def test_geo_infrastructure_failure_is_nonblocking_for_dream(monkeypatch, tmp_pa
     projection = dream_eod.prerequisite_projection(arguments(tmp_path), "2026-08-16")
     assert projection["ready"]
     assert projection["stages"]["geo"]["reason"] == "packet unavailable"
+
 
 
 def test_existing_journal_can_complete_no_candidate_close(monkeypatch, tmp_path: Path) -> None:
@@ -594,6 +680,44 @@ def test_geo_freshness_splits_due_forecast_debt_without_blocking_dream(monkeypat
     assert projection["next_action"] == "open-verification-packet"
 
 
+def test_geo_freshness_reads_mixed_forecast_formats_without_mutation(
+    monkeypatch, tmp_path: Path
+) -> None:
+    daily_root = tmp_path / "daily"
+    daily_root.mkdir()
+    ledger = tmp_path / "forecast-ledger.md"
+    ledger.write_text(
+        "\n".join([
+            "| `NG-20260708-F02` | `2026-07-08` | Object | Claim | `likely` | `2026-07-29` | [run](forecast.md) | `open` |",
+            "| `NG-20260719-F01` | `2026-07-19` | Object | Claim | Mechanism | `likely` | `2026-08-19` | [run](forecast.md) | `open` |",
+            "| `NG-20260819-F01` | `2026-08-19` | Object | Claim | `likely` | `2026-09-02` | [run](forecast.md) | `open` |",
+            "| `NG-20260819-F02` | `2026-08-19` | Object | Claim | Mechanism | `likely` | `2026-09-03` | [run](forecast.md) | `open` |",
+            "| `NG-20260707-F01` | `2026-07-07` | Object | Claim | `likely` | `2026-07-28` | [run](forecast.md) | `hit` |",
+            "| `NG-20260707-F02` | `2026-07-07` | Object | Claim | Mechanism | `likely` | `2026-07-28` | [run](forecast.md) | `excluded_retrospective` |",
+            "## Accountability Triage",
+            "| `NG-20260708-F02` | `2026-07-09` | `receipt` | `ex_ante` | `open` | `yes` | Needs `VER-20260710-01`. |",
+            "| `NG-20260719-F01` | `2026-07-19` | `receipt` | `ex_ante` | `open` | `yes` | No operational-claim dependency. |",
+        ]),
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(dream_eod, "DAILY_ROOT", daily_root)
+    monkeypatch.setattr(dream_eod, "FORECAST_LEDGER", ledger)
+    before = ledger.read_bytes()
+
+    rows = dream_eod.forecast_ledger_rows()
+    assert len(rows) == 6  # Provenance must not duplicate forecast entries.
+    assert rows[0]["review_date"] == "2026-07-29"
+    assert rows[0]["status"] == "open"
+    projection = dream_eod.geo_freshness_projection("2026-08-19")
+
+    assert projection["due_forecast_debt"]["verification_hooks"] == ["NG-20260708-F02"]
+    assert projection["due_forecast_debt"]["posture_review_hooks"] == ["NG-20260719-F01"]
+    assert projection["due_forecast_debt"]["not_yet_due"] == 2
+    assert projection["geo_prerequisite_status"] == "open-but-bracketed"
+    assert projection["safe_to_inherit"] is True
+    assert ledger.read_bytes() == before
+
+
 def test_geo_failure_is_preserved_as_nonblocking_status(monkeypatch, tmp_path):
     def fail(*a, **k):
         raise dream_eod.cadence_ledger.CadenceLedgerError("packet unavailable")
@@ -602,6 +726,7 @@ def test_geo_failure_is_preserved_as_nonblocking_status(monkeypatch, tmp_path):
     projection = dream_eod.prerequisite_projection(arguments(tmp_path), "2026-08-16")
     assert projection["ready"]
     assert projection["stages"]["geo"]["reason"] == "packet unavailable"
+
 
 
 def test_private_bundle_is_finalized_canonically_by_dream(monkeypatch, tmp_path: Path) -> None:
@@ -708,7 +833,7 @@ def test_dream_candidate_rejects_unknown_journal_session_before_ledger_write(
 def test_journal_refresh_block_reports_exact_resume_guidance(monkeypatch, tmp_path: Path) -> None:
     bundle = tmp_path / "journal" / "2026-08-16"
     bundle.mkdir(parents=True)
-    (bundle / "draft.md").write_text("# 2026-08-16 — Return\n\nPrivate prose.\n", encoding="utf-8")
+    (bundle / "draft.md").write_text("# 2026-08-16 â€” Return\n\nPrivate prose.\n", encoding="utf-8")
     monkeypatch.setattr(dream_eod, "manifest_rows", lambda _date: 0)
     monkeypatch.setattr(dream_eod, "journal_entry", lambda _date: None)
     checks = iter([

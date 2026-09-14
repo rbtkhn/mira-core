@@ -37,6 +37,7 @@ def queue(repo, key="abcdefghijk", status="available"):
 def land(repo, key="abcdefghijk", text="source evidence"):
     rel = "archive/sources/geopolitics/sources/test.md"
     path = put(repo, rel, text)
+    # Historical fixtures must exist within their declared analysis window.
     observed = datetime(2026, 9, 12, 12, tzinfo=timezone.utc).timestamp()
     os.utime(path, (observed, observed))
     put(repo, "archive/sources/geopolitics/source-manifest.json", json.dumps({"sources": [{
@@ -163,7 +164,7 @@ def test_end_to_end_tower_dream_and_completed_replay(repo, tmp_path, monkeypatch
     tower.initialize(repo, state)
     monkeypatch.setattr(dream, "REPO_ROOT", repo)
     monkeypatch.setattr(dream, "journal_entry", lambda _: {"versions": [{"version_id": "MJ-test-v1", "content_sha256": "a" * 64}]})
-    monkeypatch.setattr(dream, "forecast_review_step", lambda *a, **k: {"status": "no_due_hooks"}, raising=False)
+    monkeypatch.setattr(dream, "forecast_review_step", lambda *a, **k: {"status": "no_due_hooks"})
     monkeypatch.setattr(dream, "manifest_rows", lambda _: 0)
     monkeypatch.setattr(dream, "run_tool", lambda *a: SimpleNamespace(returncode=0, stdout="{}", stderr=""))
     args = arguments(tmp_path, date="2026-09-12", timezone="America/New_York", tower_state_root=state, no_candidate="No process experiment.")
@@ -198,7 +199,7 @@ def test_continue_leaves_sources_untouched(repo, tmp_path, monkeypatch):
     monkeypatch.setattr(dream, "REPO_ROOT", repo)
     monkeypatch.setattr(dream, "manifest_rows", lambda _: 2)
     monkeypatch.setattr(dream, "journal_entry", lambda _: {"versions": [{"version_id": "MJ-test-v1", "content_sha256": "a" * 64}]})
-    monkeypatch.setattr(dream, "forecast_review_step", lambda *a, **k: {"status": "no_due_hooks"}, raising=False)
+    monkeypatch.setattr(dream, "forecast_review_step", lambda *a, **k: {"status": "no_due_hooks"})
     monkeypatch.setattr(dream, "run_tool", lambda *a: SimpleNamespace(returncode=0, stdout="{}", stderr=""))
     batch = tower.pending("2026-09-12", repo, state)
     args = arguments(tmp_path, date="2026-09-12", timezone="America/New_York", tower_state_root=state,

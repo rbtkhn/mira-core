@@ -11,17 +11,79 @@ The encounter develops through our particular history, not a generic book list.
 Ordinary reading is read-only until substantive close. Closeout saves qualifying
 local work-in-progress Library idea notes and one private Library Journal entry
 unless the operator requests no saving. Follow the daily Library growth contract below.
+An explicitly requested simulation follows its separate local artifact scope below.
 
 ## Suggest a reading
 
 Read [Library Journal](../library-journal/SKILL.md) and run
 `tools/run.ps1 library-journal context --focus "CURRENT QUESTION" --json`.
 Recover the latest three entries, up to three relevant older learning threads,
-their corrections, and unresolved questions. Consult the provisional Core-8 ancestry map when available through note-search;
-missing map context does not block reading or establish a new roster.
+their corrections, and unresolved questions. Consult the provisional ancestry
+at `archive/notes/library/core-8-cognitive-integration-map.md` rather than
+reconstructing the roster from earlier menus.
 
 Briefly explain how retrieved learning changed the current question or reading
 choice, or why it was not useful. Retrieval alone does not demonstrate transfer.
+
+### Essential context and bounded recovery
+
+Before recommending a continuity-based reading, recover relevant prior
+corrections and explain how they change the question, or why they do not apply.
+Classify missing context by its consequence for this encounter: essential,
+useful but optional, or irrelevant. Disclosure does not finish recoverable work.
+An honestly empty history permits a first encounter; optional missing context
+does not block reading. Missing history is not proof that no history exists.
+
+`library-journal context` and `prepare` return `retrieval_status` as `populated`,
+`empty`, or `missing`. Errors retain a nonzero exit status and identify
+`error_category` as `permission-denied`, `invalid-data`, or `io-error`.
+These diagnostics describe access and data, not how essential the context is.
+Existing evidence gaps and historical corrections remain controlling.
+
+On failure, inspect the smallest relevant diagnostic surface within scope.
+Allow one distinct recovery attempt only when evidence supports it, reusing a
+known successful execution context and the established approval mechanism when
+needed. Never retry an unchanged failure, silently substitute a private store
+or edition, repair permissions without authority, or bypass a denied approval.
+An integrity error is not permission to reconstruct or ignore the record.
+
+If essential context remains unavailable, pause continuity-dependent claims and
+offer the operator a fresh source-grounded reading or deferral. Continue
+independent source preparation while awaiting that choice; do not silently
+choose the fresh-reading fallback. A direct operator choice to proceed without
+the missing context satisfies this decision without another menu.
+
+### Trial evidence at substantive close
+
+For a materially relevant correction, compose with
+[Mind development practice](../mira-mind/references/development-practice.md).
+Reuse existing expectations, applications, and corrections; preserve rejected
+analogies and inappropriate transfers. The three-encounter Library trial below
+keeps its own scope and limit; the Mind evaluation references its records without
+duplicating bodies or restarting either trial. Insight alone is not later-use evidence.
+
+Reuse the existing Library Journal narrative and learning-change fields to
+preserve the decision trigger, relevant correction, and rejection condition.
+Include a tempting inadequate response when it explains the failure, such as
+"Disclosed the essential retrieval failure and continued." Keep actual dialogue
+and private history out of repository fixtures.
+
+Effective September 9, 2026, for the next three substantive Mira Read encounters
+closing after this intervention (not three new encounters per session),
+use existing closeout records to distinguish autonomous application,
+operator-prompted correction, unnecessary interruption, and no opportunity to
+observe. At the third eligible close, review those records for reduced repeated
+supervision and avoidable interruptions; retrieve them through the Journal
+rather than introducing a counter or automatic review process. Missing records
+or no opportunity mean insufficient evidence, not success or failure. Narrow
+the trigger through a reviewed revision if it causes repetitive checks.
+
+This is an unproven behavioral trial, not demonstrated recursive learning.
+Menus, implementation, and incomplete readings create no learning entry or
+shared closure; no-save instructions still control. Do not weaken integrity
+checks or revert the independently verified Journal access repair.
+
+### Choose the passage
 
 The fixed, coequal pool is Homer, Biblical tradition, Cicero, Dante,
 Shakespeare, Goethe, Voltaire, and Tolstoy. Their established roles aid retrieval
@@ -60,6 +122,13 @@ Report its actual location, passage boundary, interpretive question, and what th
 text supports. Distinguish interpretation and modern analogy from textual claims.
 End at a concrete stopping point and identify the remaining evidence limit.
 Do not claim to have read the whole work from an excerpt.
+
+For a requested literary simulation, council, or staged dialogue, read
+[Library Simulation](../library-simulation/SKILL.md). It owns precomposition
+source and voice-profile anchoring, fictional scene review, and the explicitly
+requested exercise's local artifact scope. Ordinary Mira Read creates no essay; qualifying idea notes save only at
+substantive close under the daily Library growth contract. Reading a simulation does not itself establish a
+substantive reading close or demonstrated learning.
 
 Engage with the operator's interpretation and corrections before declaring a
 substantive close. Distinguish what we understood, the cognitive change proposed,

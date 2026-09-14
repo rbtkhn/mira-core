@@ -39,6 +39,28 @@ archive object.
 
 ## Modes and authority
 
+For ASR wording repair, use contextual inference from the supplied transcript.
+Read [contextual ASR correction](references/contextual-asr.md). Never attempt
+audio recovery: do not seek recordings, play or download audio for repair,
+invoke speech recognition, or ask the operator to obtain audio. Uncertainty
+remains a text-review gap, not an audio-recovery task.
+
+Contextual correction is agent-authored review, distinct from the deterministic
+`--class asr` command below. That command does not infer new corrections.
+
+For an explicit contextual repair batch, use `archive-repair contextual`
+(`prepare`, `search`, `check`, `save`, `review`, `report`). This private derivative
+route accepts explicitly selected Geopolitics raw captures with queue provenance
+or manifest-backed transcripts. The batch request authorizes private frozen
+inputs, corrected derivatives, correction history, and agent review; routine
+corrections need no repeated approval. Samples remain conversational unless
+saving is requested. Follow the packet and storage contract in the reference.
+Canonical execution rules below continue to govern canonical archive repair;
+they do not impose an additional approval on these authorized private batches.
+Contextual inputs may contain working-tree changes: freeze the selected current
+bytes and reject subsequent changes at validation, without requiring a clean
+canonical target or changing its archive metadata.
+
 - Use `archive-audit` to diagnose health, coverage, parity, drift,
   metadata, manifest membership, ASR state, sectioning state, and approved
   repair classes without proposing changed bytes.

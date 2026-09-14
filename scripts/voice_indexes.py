@@ -107,8 +107,7 @@ def rows_by_voice(manifest: dict[str, Any], run_date: str | None = None, voices_
         if run_date and row.get("date") != run_date:
             continue
         for slug in row.get("voice_slugs") or []:
-            if slug in voice_metadata.VOICE_ALIASES:
-                continue
+            slug = voice_metadata.canonical_slug(str(slug))
             if slug in available:
                 result[slug].append(row)
             else:
@@ -365,7 +364,8 @@ def reconcile(
     failures = list(report["failures"])
     if write:
         for index_path, updated in updates.items():
-            index_path.write_text(updated, encoding="utf-8", newline="\n")
+            if index_path.read_text(encoding="utf-8") != updated:
+                index_path.write_text(updated, encoding="utf-8", newline="\n")
     if write:
         # Missing routes and stale counts are repaired by the write; structural failures remain.
         failures = [item for item in failures if not item.startswith(("manifest route missing voice shelf:", "stale voice corpus count:", "duplicate voice route:"))]

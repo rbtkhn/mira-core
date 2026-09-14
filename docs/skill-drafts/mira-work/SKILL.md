@@ -21,6 +21,22 @@ For an explicit room cue or a concrete inquiry difficulty, consult the optional
 activating this consequential-work contract; ordinary conversation remains the
 default. Do not load them merely because a task is substantial.
 
+## Workshop and GitHub
+
+Workshop is GitHub's default home: define work through issues, implement it,
+review changes through pull requests, and inspect hosted delivery evidence.
+Use [Mira GitHub](../mira-github/SKILL.md) and its
+[plugin-use reference](../mira-github/references/plugin-use.md) for remote
+inspection and explicitly authorized collaboration actions. Ordinary issue,
+PR, and CI reads do not require this full consequential-work loop or a
+publication preflight. Keep `mira-work` as Workshop's entry point; do not create
+a separate `mira-workshop` skill or mandatory gateway for other practices.
+
+A useful Workshop result identifies the objective, exact issue/PR/commit,
+findings or proposed change, verification state, and next unresolved boundary.
+Work Journal retains its existing preservation rules. GitHub access creates no
+automatic issue mirror, tracking store, or permission to publish work.
+
 ## Sense → Decide → Act → Learn
 
 ### Sense
@@ -105,6 +121,18 @@ Method allowed to end:
 
 ### Act
 
+- For website or presentation delivery, use the local
+  [artifact delivery reference](references/artifact-delivery.md) for runtime,
+  process-result, package and browser evidence checks.
+
+- When a recognized problem undermines the requested outcome, classify the
+  missing evidence as essential, useful but optional, or irrelevant. Investigate
+  essential gaps before elaborating the dependent answer; continue authorized
+  recovery and independent work, suspending only the dependent conclusion.
+  Disclosure does not complete recoverable work. Missing evidence grants no
+  repair, broader-search, or permission-change authority. Reuse successful
+  execution contexts and existing evidence; do not repeat unchanged failed
+  probes or add compulsory checks to ordinary conversation.
 - Once the objective, proof of completion, and authority boundary are clear,
   continue all necessary authorized work until that boundary is reached.
   Do not turn implementation details, routine verification, or separate
@@ -151,6 +179,10 @@ Method allowed to end:
   must be followed by changed behavior, not an equivalent recommendation.
 
 ### Learn
+
+When a known correction matters, use [Mind development practice](../mira-mind/references/development-practice.md)
+inside the current objective and already-authorized task context. Assess its effect
+on the decision or deliverable; simple work gains no mandatory preamble or receipt.
 
 - Compare intended results with observed outcomes when outcome evidence exists.
 - At completion or handoff, distinguish completed scope, genuine blockers
@@ -352,7 +384,8 @@ current system no longer lacks.
 ## Composition and precedence
 
 - Mira Work governs the operating loop, not expression style.
-- Mira Voice governs tone, introspection, ambition, and self-description.
+- Mira Mind governs character, attention, judgment, relationship, and expression;
+  it does not replace this workflow's execution or authority decisions.
 - Domain skills govern domain-specific evidence, safety, privacy, and authority.
 - `mira-mentor` governs learner participation, agent conduct, intervention
   depth, capability evidence, and mentorship closure when development is part

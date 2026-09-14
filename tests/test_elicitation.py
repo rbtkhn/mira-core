@@ -217,7 +217,7 @@ def neutral_surface(*, hold: bool = False) -> dict:
     return {"type": "neutral-evidence", "options": options}
 
 
-@pytest.mark.parametrize("count", (2, 3, 4))
+@pytest.mark.parametrize("count", (3, 4))
 def test_decision_surface_accepts_three_or_four_options(count: int) -> None:
     surface = decision_surface()
     surface["options"] = surface["options"][:count]
@@ -563,17 +563,17 @@ def test_mixed_surface_retains_only_learning_eligible_selection() -> None:
     assert "compound_size" not in directive
 
 
-def test_compound_metadata_requires_timestamped_retained_bundle() -> None:
+def test_compound_metadata_retains_unknown_time_bundle() -> None:
     surface = decision_surface()
     surface.pop("presented_at")
     interpretation = elicitation.interpret_elicitation_response(surface, "A,C")
     assert len(interpretation["receipt_directives"]) == 2
     assert all(
-        directive["requires_presentation_timestamp"] is True
+        directive["requires_presentation_timestamp"] is False
         for directive in interpretation["receipt_directives"]
     )
     assert all(
-        "compound_selection_id" not in directive
+        "compound_selection_id" in directive
         for directive in interpretation["receipt_directives"]
     )
 
@@ -926,15 +926,13 @@ def test_skill_contract_limits_repeated_selection_chains() -> None:
     skill = (
         REPO_ROOT / "docs" / "skill-drafts" / "elicitation" / "SKILL.md"
     ).read_text(encoding="utf-8")
-    assert "After three consecutive compact selections" in skill
-    assert "continue the" in skill
-    assert "selected branch" in skill
-    assert "to a meaningful result" in skill
-    assert "compact settled closure" in skill
-    assert "do not manufacture another" in skill
-    assert "Explicit creative or preference discovery" in skill
-    assert "ten-question limit" in skill
-    assert "earlier two-selection saturation rule controls" in skill
+    normalized = " ".join(skill.split())
+    for phrase in ("two consecutive navigation-only selections", "three compact selections",
+                   "same inquiry", "complete the authorized work", "pause automatic menus",
+                   "does not reset", "transient conversation context", "newly emerged blocker",
+                   "ten-question limit", "cannot reset the limit"):
+        assert phrase in normalized
+
 
 
 def test_skill_contract_exposes_transient_context_and_exact_action_metadata() -> None:
@@ -1024,6 +1022,43 @@ def test_cli_json_is_console_safe_and_round_trips_unicode() -> None:
     assert "\\u039a" in result.stdout
     payload = json.loads(result.stdout)
     assert payload["options"][1]["label"] == 'Καλημέρα "quoted"'
+
+
+def test_two_option_action_still_requires_context():
+    surface = decision_surface(labels=("Execute: repair file", "Defer"), selection_effects=("execute", "navigate"), learning_eligibility=("eligible", "none"), final_response=True)
+    surface["options"][1]["role"] = "pause-or-deepen"
+    with pytest.raises(elicitation.ElicitationError, match="action_context"):
+        elicitation.validate_elicitation_surface(surface)
+    surface["action_context"] = {"path-0": {"target": "scripts/example.py", "verification": "focused check", "required_authority": "local edit only"}}
+    result = elicitation.validate_elicitation_surface(surface)
+    assert result["action_readiness"]["ready_option_keys"] == ["path-0"]
+
+
+def test_requested_two_controls_have_no_actions():
+    surface = response_controls("Explicitly requested controls")
+    surface["options"] = surface["options"][:2]
+    result = elicitation.validate_elicitation_surface(surface)
+    assert result["context_capsule"]["pending_actions"] == []
+
+
+def test_recommended_must_be_first_and_roles_remain_unique():
+    surface = decision_surface(labels=("Compare", "Recommended"))
+    surface["options"][0]["role"] = "alternative"
+    surface["options"][1]["role"] = "recommended"
+    with pytest.raises(elicitation.ElicitationError, match="start with recommended"):
+        elicitation.validate_elicitation_surface(surface)
+    surface["options"][0]["role"] = "recommended"
+    with pytest.raises(elicitation.ElicitationError, match="unique"):
+        elicitation.validate_elicitation_surface(surface)
+
+
+def test_settled_contract_does_not_require_synthetic_surface():
+    for path in ("AGENTS.md", "docs/skill-drafts/learn-from-choices/SKILL.md"):
+        text = (REPO_ROOT / path).read_text(encoding="utf-8")
+        assert "without a menu" in text
+        assert "exactly one four-option A-D surface on every final" not in text
+    fixture = json.loads((REPO_ROOT / "docs/skill-drafts/learn-from-choices/references/decision-fixtures.json").read_text(encoding="utf-8"))
+    assert next(row for row in fixture if row["id"] == "LFC-SETTLED-01")["expected_terminal"] == "compact-settled-prose"
 
 
 def test_decision_only_default_preserves_quiet_stops_and_action_checks():

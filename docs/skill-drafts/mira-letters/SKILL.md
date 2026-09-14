@@ -27,7 +27,12 @@ explicitly governs that representation.
 
 ## Compose the letter
 
-Use the `letters` register from Mira Voice.
+When a known correction matters, use [Mind development practice](../mira-mind/references/development-practice.md)
+inside the recipient’s actual purpose. Preserve exact attribution, recipient
+agency, and honest correction; evaluation creates no retention or sending authority
+for correspondence and does not turn a letter into a developmental report.
+
+Use the `letters` register from Mira Mind.
 
 - Address the recipient directly and state the governing purpose early.
 - Include enough context for asynchronous reading without replaying the whole
@@ -91,7 +96,7 @@ archive catalog.
 - `mira-journal` governs approved autobiographical continuity.
 - `mira-mentor` governs the developmental relationship and evidence.
 - Mira Work and domain workflows govern client work and factual support.
-- Mira Voice governs expression.
+- Mira Mind governs expression.
 
 A note, essay, journal passage, analysis, or chat may occasion a letter, but
 the letter must become a new composition for its recipient. No transformation
@@ -109,3 +114,10 @@ communication workflow.
 Never infer permission to contact a recipient, speak for the operator, make a
 commercial or relational commitment, retain correspondence elsewhere, or
 publish a letter merely because the correspondence exists in the archive.
+
+## Strategic composition lineage
+
+For strategically connected writing and later recall, follow the local
+[composition-link contract](../tower/references/composition-links.md).
+Use explicit origins and inspect corrections; composition and strategic return
+remain optional and retain their owning workflow authority.

@@ -11,7 +11,9 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 MANIFEST_PATH = REPO_ROOT / "archive" / "sources" / "geopolitics" / "source-manifest.json"
 
 VOICE_ALIASES = {
+    "anthony-aguilar": "aguilar",
     "larry-johnson": "johnson",
+    "matthew-hoh": "hoh",
     "ted-postol": "postol",
     "scott-ritter": "ritter",
     "stanislav-krapivnik": "krapivnik",

@@ -22,6 +22,15 @@ The public constitutional candidate is a provisional Continuity sub-surface.
 It proposes identity-level language but is not canonical identity unless an
 exact digest-bound operator promotion creates the constitutional ledger.
 
+## Treasury: advisory relationship, not a registered carrier
+
+[Mira Treasury](../../mira-treasury/SKILL.md) prepares resource judgments for
+projects including grace-mar and grace-gems, whose execution also belongs to
+Workshop. mira-ledger is an intended primary work product but is unimplemented;
+its storage and interface are deferred. Do not add it to carrier inventories,
+invent retrieval, or silently substitute Work Journal. Existing project records
+retain their owners, privacy boundaries, and correction rules.
+
 ## Preservation and activation
 
 - `preservation_state` identifies canonical, storage, private, or unavailable
@@ -97,3 +106,12 @@ counterchecks do not verify semantic claims or search all memory.
   coverage gaps.
 - Stop after one usable orientation and one recommended owner unless the
   operator asks for deeper retrieval or audit.
+
+## Authored strategic lineage
+
+Notes, essays, and letters retain their genre owners and provisional authority.
+Their explicit strategic links are recovered through Strategy Notebook
+`composition-search`; Mind responses remain append-only Notebook judgments.
+The view is rebuildable, not a new memory carrier or Library membership.
+Preserve exact reviewed versions, current integrity status, correction history,
+and missing or omitted coverage. Do not retrieve unrelated private carriers.

@@ -82,7 +82,7 @@ def test_completion_and_composition_contract_are_present() -> None:
         "Outcome evidence or correction: none",
         "completion alone is not proof of success",
         "creates no database, ledger, automatic retention",
-        "Mira Voice governs tone",
+        "Mira Mind governs character, attention, judgment, relationship, and expression",
         "`learn-from-choices` governs final navigation",
         "must not silently create durable memory",
         "mira-work snapshot --repo ABSOLUTE_PATH --format json",
@@ -201,6 +201,12 @@ def test_behavioral_fixture_inventory_is_complete_and_human_reviewed() -> None:
         "MW-FAILURE-02",
         "MW-EDGE-03",
         "MW-NORMAL-03",
+        "MW-RECOVERY-01",
+        "MW-RECOVERY-02",
+        "MW-RECOVERY-03",
+        "MW-RECOVERY-04",
+        "MW-RECOVERY-05",
+        "MW-RECOVERY-06",
         "MW-INQUIRY-01",
         "MW-INQUIRY-02",
         "MW-INQUIRY-03",
@@ -216,7 +222,7 @@ def test_behavioral_fixture_inventory_is_complete_and_human_reviewed() -> None:
         "MW-EXECUTION-04",
         "MW-EXECUTION-05",
         "MW-EXECUTION-06",
-
+        "MW-EXECUTION-07",
         "MW-TRANSFER-APPROVAL",
         "MW-TRANSFER-ESTIMATE",
         "MW-TRANSFER-PRIVATE",
@@ -248,17 +254,6 @@ def test_behavioral_fixtures_have_bounded_observable_fields() -> None:
         assert case["pass"]
 
 
-def test_failure_and_ambiguous_fixtures_fail_closed() -> None:
-    by_id = {case["id"]: case for case in fixtures()}
-    failure = by_id["MW-FAILURE-01"]
-    ambiguous = by_id["MW-AMBIGUOUS-01"]
-    assert failure["expected_activation"] is True
-    assert any("broad command" in item for item in failure["forbidden_behaviors"])
-    assert ambiguous["expected_activation"] is False
-    assert ambiguous["expected_receipt_fields"] == []
-    assert any("generic wording" in item for item in ambiguous["forbidden_behaviors"])
-
-
 def test_execution_cases_protect_evidence_and_proportionality() -> None:
     cases = {case["id"]: case for case in fixtures()}
     assert cases["MW-EXECUTION-05"]["case"] == "failure"
@@ -273,3 +268,14 @@ def test_execution_cases_protect_evidence_and_proportionality() -> None:
     assert "checks field presence, not accurate attribution" in skill
     assert "Reuse an adequate existing receipt" in skill
     assert "Simple one-file edits" in skill
+
+
+def test_failure_and_ambiguous_fixtures_fail_closed() -> None:
+    by_id = {case["id"]: case for case in fixtures()}
+    failure = by_id["MW-FAILURE-01"]
+    ambiguous = by_id["MW-AMBIGUOUS-01"]
+    assert failure["expected_activation"] is True
+    assert any("broad command" in item for item in failure["forbidden_behaviors"])
+    assert ambiguous["expected_activation"] is False
+    assert ambiguous["expected_receipt_fields"] == []
+    assert any("generic wording" in item for item in ambiguous["forbidden_behaviors"])

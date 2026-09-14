@@ -1,6 +1,6 @@
 ---
 name: mira-github
-description: "Repository-local publication traffic control for GitHub-facing work in Mira Core. Use when the operator says push, commit, PR, GitHub operations, repo hygiene with staging/commit/push/branch/remote scope, or compressed follow-ups such as you choose or make it so when they could cross staging, commit, branch publication, PR, or main synchronization boundaries. Choose lane, scope, branch, validation, and authority boundaries before any GitHub-facing mutation."
+description: "Workshop's local GitHub contract for issue and PR inspection, reviews, CI investigation, explicitly authorized collaboration, and publication traffic control. Use for mira-github, GitHub issues/reviews/checks, push, commit, PR, or repo hygiene with Git lifecycle scope. Ordinary reads use the plugin reference without publication preflight; mutations retain exact authority and validation boundaries."
 ---
 
 # Mira GitHub
@@ -19,6 +19,18 @@ and retain its digest. A snapshot is stale after a commit, checkout, rebase,
 migration, relevant environment change, or remote fetch. Re-snapshot
 immediately after every Git mutation; never carry a stale digest across the
 next action boundary.
+
+## Workshop plugin routing
+
+Workshop owns GitHub's default workflow. For issue inspection or updates, PR
+preparation or review, and CI investigation, read
+[plugin use](references/plugin-use.md). It separates read-only inspection,
+collaboration mutations, and Git publication. A request to inspect or review
+does not authorize posting, rerunning jobs, or publishing. Ordinary remote
+reads and issue metadata changes do not require a checkout fetch, LFS check,
+or publication validation; use the reference's exact-target checks instead.
+PR creation and merge remain publication boundaries under the applicable
+controls below. Plugin availability does not bypass local Git or validated-push.
 
 ## Start with fresh state
 
@@ -300,6 +312,15 @@ through the deterministic router:
 tools/run.ps1 publication-validation --path <path> --json
 ```
 
+Settle the exact candidate and required dependencies before costly release checks.
+Separate required controls from explicitly optional local-only/private navigation;
+never import a source body merely to make a link resolve. Run focused owner checks
+first, then identify the controlling release requirement. A dirty-tree Fast preview
+does not by itself establish that an unrelated Full workload proves this candidate.
+After an authorized commit, obtain immutable-candidate evidence through
+`tools/run.ps1 test --candidate-ref FULL_COMMIT_SHA --path tests/EXACT_TEST_FILE.py
+--temp-root ABSOLUTE_PATH`. Never fill its export with working-tree dependencies.
+
 Run every returned validator and complete every returned manual check. Proceed
 only when every path has an owner and every requirement has an explicit pass.
 Treat `blocked`, an unknown path, ambiguous ownership, or an incomplete mixed
@@ -445,12 +466,24 @@ SHA-256 `--authority-context-digest` for the validating interaction. Never
 encode this state as a generic pass. A failed required gate without all four
 exception fields fails closed, as does a failed narrower validation profile.
 
+An explicit operator override of the named gate is distinct from a demonstrated
+unchanged-baseline exception. Record the exact instruction, failure fingerprint,
+scope, and qualifying evidence without inventing a baseline finding. Neither
+form creates standing permission, authorizes a different candidate, or converts
+failed validation into a pass. Follow higher-priority execution and approval
+requirements; an exception to Full does not silently waive candidate defects.
+
 The check receipt has `authority_effect: none`. Invoke `push` only after a
 direct bounded push command, an operator-defined note or essay lifecycle
 shorthand, or a validated Elicitation option whose visible label begins with
 `Push:` and whose effect is `push`. The command supports one new branch or one
 fast-forward branch update; it rejects changed remote state, tags, deletion,
 wildcards, abbreviated SHAs, multiple refs, and non-fast-forward publication.
+
+Route eligible pushes through this existing helper; do not create a second push
+implementation. Follow the shared [delivery reference](../mira-work/references/artifact-delivery.md)
+for standalone PowerShell exit propagation and unborn-repository initial-state
+records. A missing HEAD is not a landed snapshot; never fabricate its digest.
 
 Never force-push, rebase, broaden the refspec, open a PR, mutate hosted
 settings, or publish generated drift as part of a plain `push`.
@@ -493,7 +526,10 @@ conclusions, and exact job count. The current workflow has four public-package
 matrix jobs and one corpus-integrity job. Report both groups separately; a public
 pass cannot make a failing corpus job or overall workflow successful. Require all
 five jobs to pass before claiming overall hosted validation passed. See the
-[validation scopes](../../validation-scopes.md) for their coverage.
+[validation scopes](../../validation-scopes.md) for their coverage. If interrupted, inaccessible, or failed, preserve
+the exact run and commit and report `remote-verified; hosted validation unfinished`
+or `remote-verified; hosted validation failed`. Do not silently finish at a running
+job snapshot or rerun publication to obtain missing hosted evidence.
 
 ### Windows main-merge friction
 
@@ -598,6 +634,14 @@ force-push, or broaden the target branch to work around a credential-context
 split.
 
 ## Handle Git index locks
+
+Use [the bounded lock helper](../../../tools/git-index-lock.ps1) for recovery:
+`& tools/git-index-lock.ps1 -Repository C:/dev/mira-core` inspects only;
+add `-RemoveStale` only within an authorized Git operation. Capture its native
+exit code immediately. A blocked result leaves the lock intact. After successful
+removal, inspect completed staging effects and retry only the unfinished scope.
+The helper implements the following checks; do not substitute a shorter ad hoc
+process check or broaden recovery to another lock.
 
 Resolve the exact Git directory before handling a lock:
 

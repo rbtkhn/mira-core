@@ -59,6 +59,87 @@ def test_markdown_digest_is_stable_across_line_endings() -> None:
     assert subject.parse_markdown(body)["content_sha256"] == subject.parse_markdown(crlf)["content_sha256"]
 
 
+def test_date_correction_preserves_history_and_permits_only_fresh_eod(monkeypatch, tmp_path):
+    _, drafts = configure_repo(monkeypatch, tmp_path)
+    day = "2026-08-09"
+    body = prose(day)
+    bundle = write_v2_bundle(drafts, day, body, metadata(day, body)).parent
+    add_reading_ack(monkeypatch, bundle)
+    monkeypatch.setattr(subject, "latest_activity_after", lambda *args, **kwargs: [])
+    finalize = argparse.Namespace(date=day, bundle=bundle, dream_run_id="DCR-test",
+                                  finalized_at="2026-08-09T10:00:00+00:00", check=False)
+    subject.command_eod_finalize(finalize)
+    original = copy.deepcopy(subject.load_registry()["entries"][0])
+    correction_args = argparse.Namespace(version="MJ-20260809-v1", expected_digest=subject.sha256_bytes(body),
+        intended_date="2026-08-08", authority_ref=SESSION, reason="Interrupted prior-day close was misdated.", check=True)
+    correction = subject.journal_date_correction
+    assert correction.record(correction_args, subject)["mutation"] is False
+    assert subject.load_registry()["entries"][0] == original
+    correction_args.check = False
+    receipt = correction.record(correction_args, subject)
+    assert subject.load_registry()["entries"][0] == original
+    assert (subject.REPO_ROOT / receipt["correction"]["preserved_path"]).read_bytes() == body
+    assert correction.completion_entry(subject.load_registry(), day) is None
+    assert correction.record(correction_args, subject)["status"] == "already_corrected"
+    reading = subject.journal_reading_packet(subject.parse_entry_date(day))
+    assert reading["entries"][0]["entry_date"] == "2026-08-08"
+    assert reading["entries"][0]["continuity_role"] == "readable-legacy-context"
+    assert subject.validate_registry(subject.load_registry(), repo_root=subject.REPO_ROOT, index_path=subject.INDEX_PATH) == []
+    # Isolate the new authorship gate; the full finalization path below keeps its normal validations.
+    monkeypatch.setattr(subject, "reading_failures", lambda *args: [])
+    monkeypatch.setattr(subject.session_checkpoints, "reading_failures", lambda *args: [])
+    with pytest.raises(subject.JournalError, match="newly authored"):
+        subject.command_eod_finalize(finalize)
+    # Bind a fresh second version, preserving v1 rather than reusing its identity.
+    revised_body = prose(day, title="A Fresh Day", marker="new")
+    value = metadata(day, revised_body, version=2, previous=subject.sha256_bytes(body))
+    value["authored_at"] = subject.utc_text(datetime.now(timezone.utc))
+    value["coverage"]["as_of"] = subject.utc_text(subject.day_bounds(subject.parse_entry_date(day))[1])
+    def refreshed_pack(seed="a", day=day):
+        return subject.context_pack(subject.parse_entry_date(day), {
+            "estimated_tokens": 0, "coverage": copy.deepcopy(value["coverage"]),
+            "selected_records": [], "commits": [], "source_refs": [],
+            "input_object_ids": [], "omissions": []}, 16000)
+    monkeypatch.setitem(globals(), "context_pack", refreshed_pack)
+    revised_bundle = write_v2_bundle(drafts / "fresh", day, revised_body, value).parent
+    reference = subject.load_json(revised_bundle / "technical-reference.json")
+    reference["continuity"]["inherited_thread_ids"] = [f"MJT-{day.replace('-', '')}-01"]
+    reference["continuity"]["thread_events"][0]["event_type"] = "deepened"
+    subject.atomic_write_json(revised_bundle / "technical-reference.json", reference)
+    finalize.bundle = revised_bundle
+    finalize.finalized_at = None
+    result = subject.command_eod_finalize(finalize)
+    assert result["version_id"] == "MJ-20260809-v2"
+    updated = subject.load_registry()
+    assert updated["entries"][0]["versions"][0] == original["versions"][0]
+    assert correction.completion_entry(updated, day)["current_version_id"] == "MJ-20260809-v2"
+    # The correction survives replacement: each version keeps its own date,
+    # prose and authority, and a retrospective packet still sees the old day.
+    before_read = subject.REGISTRY_PATH.read_bytes()
+    earlier = subject.journal_reading_packet(subject.parse_entry_date(day))["entries"]
+    assert [row["version_id"] for row in earlier] == ["MJ-20260809-v1"]
+    later = subject.journal_reading_packet(subject.parse_entry_date("2026-08-10"))["entries"]
+    assert [(row["entry_date"], row["version_id"], row["continuity_role"]) for row in later] == [
+        ("2026-08-08", "MJ-20260809-v1", "readable-legacy-context"),
+        ("2026-08-09", "MJ-20260809-v2", "authoritative-ancestry"),
+    ]
+    assert later[0]["prose"] == body.decode("utf-8")
+    assert later[1]["prose"] == revised_body.decode("utf-8")
+    assert subject.REGISTRY_PATH.read_bytes() == before_read
+    preserved = subject.REPO_ROOT / receipt["correction"]["preserved_path"]
+    preserved.write_text("damaged", encoding="utf-8")
+    with pytest.raises(subject.JournalError, match="digest mismatch"):
+        subject.journal_reading_packet(subject.parse_entry_date("2026-08-10"))
+
+
+def test_date_correction_rejects_wrong_digest(monkeypatch, tmp_path):
+    registry = {"entries": [{"current_version_id": "MJ-20260909-v1", "entry_date": "2026-09-09",
+                            "versions": [{"version_id": "MJ-20260909-v1", "content_sha256": "a" * 64}]}]}
+    monkeypatch.setattr(subject, "load_registry", lambda: registry)
+    with pytest.raises(subject.JournalError, match="digest"):
+        subject.journal_date_correction.record(argparse.Namespace(version="MJ-20260909-v1", expected_digest="b" * 64), subject)
+
+
 def test_local_timezone_fails_when_tzdata_is_unavailable() -> None:
     def missing_zone(_name: str):
         raise subject.ZoneInfoNotFoundError
@@ -1195,7 +1276,8 @@ def test_technical_reference_resolves_migrated_note_alias(tmp_path: Path) -> Non
         tmp_path
         / "archive"
         / "notes"
-        / "2026-08-15-from-civilization-memory-to-mira-core.md"
+        / "development"
+        / "mira-architectural-lineage.md"
     )
     successor.parent.mkdir(parents=True)
     successor.write_text("preserved note", encoding="utf-8")

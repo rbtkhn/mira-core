@@ -150,6 +150,67 @@ def test_failure_payload_distinguishes_preflight_from_attempted_push() -> None:
     assert subject.failure_payload(attempted)["remote_state_changed"] == "unknown"
 
 
+def checked_fixture(tmp_path):
+    work, remote = repositories(tmp_path)
+    source = commit(work, "first\n")
+    receipt, path = subject.build_check_receipt(repo=work.resolve(), remote="origin", source_sha=source,
+        target_ref="refs/heads/codex/test", temp_root=tmp_path, **PASSED_VALIDATION)
+    return work, remote, receipt, path
+
+
+def test_failed_git_configuration_is_not_absent_configuration(tmp_path, monkeypatch):
+    monkeypatch.setattr(subject, "run_git", lambda *a, **kw: subprocess.CompletedProcess(a, 128, "", "failed"))
+    with pytest.raises(subject.PushError, match="configuration"):
+        subject.lfs_status(tmp_path)
+
+
+def test_real_local_remote_rejection_propagates_to_cli(tmp_path):
+    work, remote, receipt, path = checked_fixture(tmp_path)
+    hook = remote / "hooks/pre-receive"
+    hook.write_text("#!/bin/sh\nexit 7\n", encoding="utf-8", newline="\n")
+    hook.chmod(hook.stat().st_mode | stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH)
+    assert subject.main(["push", "--receipt", str(path), "--temp-root", str(tmp_path)]) == 1
+    assert subject.advertised_sha(work, "origin", receipt["target_ref"]) == "absent"
+
+
+def test_changed_checkout_rejects_stale_validation(tmp_path):
+    work, remote, receipt, _ = checked_fixture(tmp_path)
+    commit(work, "changed\n")
+    with pytest.raises(subject.PushError, match="checkout changed"):
+        subject.execute_push(receipt)
+    assert subject.advertised_sha(work, "origin", receipt["target_ref"]) == "absent"
+
+
+@pytest.mark.parametrize("failure", ["push", "post-query", "post-mismatch", "fetch"])
+def test_git_failure_never_reports_success(tmp_path, monkeypatch, failure):
+    work, remote, receipt, path = checked_fixture(tmp_path)
+    original = subject.run_git
+    pushed = False
+    def failing(repo, *args, **kwargs):
+        nonlocal pushed
+        if args[0] == "push":
+            pushed = True
+            if failure == "push":
+                return subprocess.CompletedProcess(args, 9, "", "rejected")
+        if pushed and args[0] == "ls-remote":
+            if failure == "post-query":
+                return subprocess.CompletedProcess(args, 9, "", "unavailable")
+            if failure == "post-mismatch":
+                return subprocess.CompletedProcess(args, 0, "", "")
+        return original(repo, *args, **kwargs)
+    if failure == "fetch":
+        git(work, "push", "origin", f"{receipt['source_sha']}:{receipt['target_ref']}")
+        monkeypatch.setattr(subject, "run_git", lambda repo, *args, **kw: subprocess.CompletedProcess(args, 8, "", "") if args[0] == "fetch" else original(repo, *args, **kw))
+        with pytest.raises(subject.PushError, match="fetch failed"):
+            subject.fetch_and_classify(work, "origin", receipt["target_ref"], receipt["source_sha"], receipt["source_sha"])
+    else:
+        monkeypatch.setattr(subject, "run_git", failing)
+        with pytest.raises(subject.PushError) as error:
+            subject.execute_push(receipt)
+        assert error.value.remote_state_changed == "unknown"
+        assert subject.main(["push", "--receipt", str(path), "--temp-root", str(tmp_path)]) == 1
+
+
 def test_receipt_digest_and_external_root_are_enforced(tmp_path: Path) -> None:
     work, _ = repositories(tmp_path)
     source = commit(work, "first\n")

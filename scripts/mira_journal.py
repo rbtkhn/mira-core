@@ -3,6 +3,7 @@ from __future__ import annotations
 from repository_paths import resolve_geopolitics_reference, geopolitics_reference_for_read
 import session_checkpoints
 import journal_calendar
+import journal_date_correction
 
 from repository_paths import resolve_repository_path
 
@@ -1739,6 +1740,15 @@ def render_index(registry: dict[str, Any]) -> str:
         lines.append("No operator-approved journal entries exist.")
     for entry in entries:
         current = entry["versions"][-1]
+        correction = journal_date_correction.correction_for(registry, current)
+        if correction:
+            lines.append(
+                f"- [{correction['intended_entry_date']} — {current['title']} "
+                f"(corrected attribution; recorded as {entry['entry_date']})]"
+                f"(journal/corrections/{current['version_id']}.md) — `{current['version_id']}`; "
+                f"{entry['entry_date']} composition remains required. Original capture bounds are unchanged."
+            )
+            continue
         line = (
             f"- [{entry['entry_date']} — {current['title']}](journal/{entry['entry_date']}.md) "
             f"— `{current['version_id']}`"
@@ -1747,6 +1757,14 @@ def render_index(registry: dict[str, Any]) -> str:
         if isinstance(reference, dict):
             line += f" · [technical reference](journal/references/{reference['reference_id']}.md)"
         lines.append(line)
+    historical = [e for e in registry.get("maintenance_events", [])
+                  if e.get("correction_kind") == journal_date_correction.KIND
+                  and not any(row.get("current_version_id") == e["version_id"] for row in entries)]
+    if historical:
+        lines.extend(["", "## Date attribution history", ""])
+        for event in historical:
+            lines.append(f"- [{event['intended_entry_date']} — corrected attribution of `{event['version_id']}`]"
+                         f"(journal/corrections/{event['version_id']}.md). Original capture bounds and timestamps preserved.")
     return "\n".join(lines) + "\n"
 
 
@@ -2062,6 +2080,19 @@ def validate_registry(
             failures.append(f"malformed journal maintenance digest: {event_id}")
         if not SESSION_ID_RE.fullmatch(str(event.get("authority_ref", ""))):
             failures.append(f"malformed journal maintenance authority: {event_id}")
+        if event.get("correction_kind") == journal_date_correction.KIND:
+            bound = next((v for e in registry.get("entries", []) for v in e.get("versions", [])
+                          if v.get("version_id") == event.get("version_id")), None)
+            try:
+                if bound is None or not journal_date_correction.correction_for(registry, bound):
+                    raise ValueError("missing version")
+                expected = f"mira/journal/corrections/{bound['version_id']}.md"
+                if event.get("preserved_path") != expected:
+                    raise ValueError("invalid preserved path")
+                if sha256_bytes((repo_root / expected).read_bytes()) != bound["content_sha256"]:
+                    raise ValueError("preserved bytes changed")
+            except (ValueError, KeyError, OSError) as error:
+                failures.append(f"invalid journal date correction {event_id}: {error}")
         try:
             parse_timestamp(str(event.get("recorded_at", "")), label="maintenance recorded_at")
         except JournalError:
@@ -2978,6 +3009,8 @@ def normalized_version(
     if approved_time > datetime.now(timezone.utc).replace(microsecond=0) + timedelta(minutes=5):
         raise JournalError("approved_at is implausibly in the future")
     if finalization_mode == "operator":
+        if metadata.get("session_reading_debt"):
+            raise JournalError("Deferred transcript reading is restricted to private Dream finalization")
         if not SESSION_ID_RE.fullmatch(authority_ref):
             raise JournalError("operator authority reference must be an MS session ID")
         if not RECORD_ID_RE.fullmatch(approval_record_ref):
@@ -3116,7 +3149,9 @@ def normalized_version(
             ),
         },
         **({"session_reading": {"checkpoint_sha256": metadata["session_checkpoint_sha256"],
-              "acknowledgement_sha256": metadata["session_reading_ack_sha256"]}}
+              "acknowledgement_sha256": metadata["session_reading_ack_sha256"],
+              **({"debt": copy.deepcopy(metadata["session_reading_debt"])}
+                 if metadata.get("session_reading_debt") else {})}}
            if metadata.get("session_checkpoint_sha256") else {}),
         "previous_version_digest": previous_digest,
         **({"context_consumption": copy.deepcopy(metadata["context_consumption"])}
@@ -3347,16 +3382,12 @@ def journal_reading_packet(entry_date: date) -> dict[str, Any]:
     registry = load_registry()
     entries = []
     seen = set()
-    for entry in sorted(registry.get("entries", []), key=lambda row: row["entry_date"]):
-        if entry["entry_date"] >= entry_date.isoformat():
-            continue
-        if entry["entry_date"] in seen:
-            raise JournalError("duplicate Journal reading date")
-        seen.add(entry["entry_date"])
-        version = entry["versions"][-1]
-        if entry.get("current_version_id") != version["version_id"]:
-            raise JournalError("Journal reading current-version mismatch")
-        path = (REPO_ROOT / entry["current_path"]).resolve()
+    def include_version(entry, version):
+        correction = journal_date_correction.correction_for(registry, version)
+        attributed_date = correction["intended_entry_date"] if correction else entry["entry_date"]
+        if attributed_date >= entry_date.isoformat():
+            return
+        path = (REPO_ROOT / (correction["preserved_path"] if correction else entry["current_path"])).resolve()
         if not path.is_relative_to(JOURNAL_ROOT.resolve()) or not path.is_file():
             raise JournalError("Journal reading source missing or outside Journal")
         body = path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
@@ -3364,14 +3395,29 @@ def journal_reading_packet(entry_date: date) -> dict[str, Any]:
             raise JournalError(f"Journal reading digest mismatch: {entry['entry_date']}")
         status = version["approval"]["status"]
         entries.append({
-            "entry_date": entry["entry_date"], "version_id": version["version_id"],
+            "entry_date": attributed_date, "version_id": version["version_id"],
             "content_sha256": version["content_sha256"], "prose": body.decode("utf-8"),
             "approval_status": status, "approved_at": version["approval"].get("approved_at"),
             "authored_at": version.get("authored_at"),
-            "continuity_role": "authoritative-ancestry" if status in {
+            "continuity_role": "authoritative-ancestry" if not correction and status in {
                 AFFIRMATIVE_APPROVAL_STATUS, COMBINED_APPROVAL_STATUS, DREAM_EOD_STATUS
             } else "readable-legacy-context", "may_promote": False,
+            **({"date_correction": correction} if correction else {}),
         })
+    for entry in sorted(registry.get("entries", []), key=lambda row: row["entry_date"]):
+        if entry["entry_date"] in seen:
+            raise JournalError("duplicate Journal reading date")
+        seen.add(entry["entry_date"])
+        current = entry["versions"][-1]
+        if entry.get("current_version_id") != current["version_id"]:
+            raise JournalError("Journal reading current-version mismatch")
+        # A corrected version belongs to its attributed day even after a fresh
+        # version fills the original date. Ordinary superseded versions stay out.
+        for version in entry["versions"][:-1]:
+            if journal_date_correction.correction_for(registry, version):
+                include_version(entry, version)
+        include_version(entry, current)
+    entries.sort(key=lambda row: (row["entry_date"], row.get("authored_at", "")))
     return {"schema_version": 1, "entry_date": entry_date.isoformat(), "entries": entries,
             "authority_boundary": "Reflective interpretation, not factual evidence or action authority. "
             "Current revisions may postdate the target day; do not import later knowledge into earlier certainty."}
@@ -3517,7 +3563,7 @@ def command_prepare(args: argparse.Namespace) -> dict[str, Any]:
     root = external_draft_root(args.output_root)
     previous_contract_path = root / entry_date.isoformat() / "draft-contract.json"
     if getattr(args, "refresh_strategy_context", False):
-        if any(row.get("entry_date") == entry_date.isoformat() for row in load_registry().get("entries", [])):
+        if journal_date_correction.completion_entry(load_registry(), entry_date.isoformat()):
             raise JournalError("cannot refresh a finalized Journal context")
         if not previous_contract_path.is_file():
             raise JournalError("context refresh requires an existing prepared bundle")
@@ -3635,7 +3681,8 @@ def command_prepare(args: argparse.Namespace) -> dict[str, Any]:
 
 def command_status(args: argparse.Namespace) -> dict[str, Any]:
     registry = load_registry()
-    approved = {entry["entry_date"]: entry for entry in registry.get("entries", [])}
+    approved = {entry["entry_date"]: entry for entry in registry.get("entries", [])
+                if not journal_date_correction.correction_for(registry, entry["versions"][-1])}
     today = journal_calendar.current_date()
     start = parse_entry_date(args.from_date) if args.from_date else (parse_entry_date(min(approved)) if approved else today)
     end = parse_entry_date(args.to_date) if args.to_date else today
@@ -3772,21 +3819,37 @@ def command_eod_finalize(args: argparse.Namespace) -> dict[str, Any]:
         raise JournalError("; ".join(failures))
     technical_reference = load_draft_reference(args.bundle / "draft.md")
     registry = load_registry()
-    if any(item.get("entry_date") == entry_date.isoformat() for item in registry.get("entries", [])):
+    existing = next((item for item in registry.get("entries", []) if item.get("entry_date") == entry_date.isoformat()), None)
+    correction = journal_date_correction.correction_for(registry, existing["versions"][-1]) if existing else None
+    if existing and not correction:
         raise JournalError("journal date already exists; Dream EOD never rewrites canonical continuity")
+    if correction:
+        if parse_timestamp(metadata.get("authored_at", ""), label="authored_at") <= parse_timestamp(correction["recorded_at"], label="correction time"):
+            raise JournalError("Date correction requires newly authored Journal prose")
+        if sha256_bytes(body) == existing["versions"][-1]["content_sha256"]:
+            raise JournalError("Date correction cannot refinalize the old Journal prose")
+        old_cutoff = existing["versions"][-1]["coverage"]["as_of"]
+        new_cutoff = metadata.get("coverage", {}).get("as_of", "")
+        if parse_timestamp(new_cutoff, label="new cutoff") <= parse_timestamp(old_cutoff, label="old cutoff"):
+            raise JournalError("Date correction requires refreshed daily coverage")
     finalized_at = args.finalized_at or utc_text(datetime.now(timezone.utc))
     version = normalized_version(
-        body, metadata, technical_reference, expected_date=entry_date, expected_number=1,
+        body, metadata, technical_reference, expected_date=entry_date, expected_number=len(existing["versions"]) + 1 if existing else 1,
         authority_ref="", approval_record_ref="", approved_at=finalized_at,
-        previous_digest=None, draft_directory=args.bundle.expanduser().resolve(),
+        previous_digest=existing["versions"][-1]["content_sha256"] if existing else None, draft_directory=args.bundle.expanduser().resolve(),
         finalization_mode="dream-eod", dream_run_id=args.dream_run_id,
     )
     updated = copy.deepcopy(registry)
     relative = f"mira/journal/{entry_date.isoformat()}.md"
-    updated.setdefault("entries", []).append({
-        "journal_id": journal_id(entry_date), "entry_date": entry_date.isoformat(),
-        "current_version_id": version["version_id"], "current_path": relative, "versions": [version],
-    })
+    if existing:
+        revised = next(e for e in updated["entries"] if e["entry_date"] == entry_date.isoformat())
+        revised["versions"].append(version)
+        revised["current_version_id"] = version["version_id"]
+    else:
+        updated.setdefault("entries", []).append({
+            "journal_id": journal_id(entry_date), "entry_date": entry_date.isoformat(),
+            "current_version_id": version["version_id"], "current_path": relative, "versions": [version],
+        })
     updated["entries"].sort(key=lambda item: item["entry_date"])
     failures = validate_registry_candidate(updated, entry_date, body)
     if failures:
@@ -4141,10 +4204,22 @@ def parser() -> argparse.ArgumentParser:
     root = argparse.ArgumentParser(description="Govern Mira's operator-approved daily journal.")
     subparsers = root.add_subparsers(dest="command", required=True)
 
+    correction = subparsers.add_parser("correct-date", help="Record operator-authorized date attribution without rewriting historical provenance.")
+    correction.add_argument("--version", required=True)
+    correction.add_argument("--expected-digest", required=True)
+    correction.add_argument("--intended-date", required=True)
+    correction.add_argument("--authority-ref", required=True)
+    correction.add_argument("--reason", required=True)
+    correction.add_argument("--check", action="store_true")
+    add_output(correction)
+    correction.set_defaults(handler=lambda args: journal_date_correction.record(args, sys.modules[__name__]))
+
     prepare = subparsers.add_parser("prepare", help="Build a bounded private daily context and draft contract.")
     prepare.add_argument("--date", required=True)
     prepare.add_argument("--as-of")
     prepare.add_argument("--token-budget", type=int, default=16000)
+    prepare.add_argument("--strategy-focus", default="", help="Question for bounded strategic and Library recall.")
+    prepare.add_argument("--refresh-strategy-context", action="store_true", help="Refresh only unfinalized composition context, preserving transcript acknowledgements.")
     prepare.add_argument("--refresh-session-checkpoint", action="store_true", help="Explicitly refresh unfinished session coverage; rereading is required.")
     prepare.add_argument("--require-session-reading", action="store_true", help="Preserve and bind complete daily transcript reading.")
     prepare.add_argument("--require-journal-reading", action="store_true",
@@ -4165,9 +4240,13 @@ def parser() -> argparse.ArgumentParser:
     session_reading.add_argument("--packet-digest", required=True)
     session_reading.add_argument("--session-id", required=True)
     session_reading.add_argument("--chunk", type=int, action="append", default=[])
+    session_reading.add_argument("--defer-reason", help="Explicit operator-authorized incomplete reading; never claims completion.")
+    session_reading.add_argument("--authority-ref")
+    session_reading.add_argument("--reviewed-session", action="append", default=[])
     add_output(session_reading)
     session_reading.set_defaults(handler=lambda args: session_checkpoints.acknowledge(REPO_ROOT,
-        private_draft_path(args.bundle, label="session reading bundle"), args.session_id, args.packet_digest, args.chunk))
+        private_draft_path(args.bundle, label="session reading bundle"), args.session_id, args.packet_digest, args.chunk,
+        defer_reason=args.defer_reason, authority_ref=args.authority_ref, reviewed_sessions=args.reviewed_session))
 
     prose_check = subparsers.add_parser(
         "prose-check",

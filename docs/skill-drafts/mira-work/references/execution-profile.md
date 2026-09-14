@@ -24,7 +24,11 @@ Reuse its resolved runtime, repository, temporary root, and active process value
 until a relevant input changes. Before an unfamiliar command, inspect its actual
 entrypoint or help; do not guess a script name. Bound diagnostic output at the
 producer where possible. For large tool responses, select relevant records before
-displaying them and report truncation or omitted coverage.
+displaying them and report truncation or omitted coverage. The canonical test
+route retains raw phase logs externally and displays a bounded tail. Use short
+pytest tracebacks; early stopping belongs to an explicitly labeled diagnostic
+rerun, not normal test coverage. A log path preserves detail without flooding
+the conversation.
 
 After partial failure, inspect completed effects before retrying. Preserve completed
 writes and retry only unfinished work; a failed overall command is not proof that
@@ -43,12 +47,17 @@ $miraWorkPython = $miraWorkPython.Trim()
 if ($LASTEXITCODE -ne 0) { throw 'Script help failed' }
 ```
 
-For a native command, capture its exit code before another command can replace it:
+For a native command, capture its exit code before another command can replace it.
+If a diagnostic must follow failure, retain the original result and exit with it;
+never use the diagnostic's success as the work's result:
 
 ```powershell
 git -C 'C:/dev/mira-core' diff --check -- 'REPOSITORY_RELATIVE_TARGET'
 $miraWorkExit = $LASTEXITCODE
-if ($miraWorkExit -ne 0) { exit $miraWorkExit }
+if ($miraWorkExit -ne 0) {
+    Write-Output 'Scoped validation failed; inspect the retained diagnostic output.'
+    exit $miraWorkExit
+}
 ```
 
 Use the existing bounded snapshot instead of printing a large status inventory:
@@ -87,6 +96,14 @@ and governing Full requirements still control.
 
 For migrations, test the integrated proposed state as well as individual helpers.
 Label component, candidate, and repository-wide checks by their actual coverage.
+After an immutable commit exists, use `tools/run.ps1 test --candidate-ref
+FULL_COMMIT_SHA --path tests/EXACT_TEST_FILE.py --temp-root ABSOLUTE_PATH`
+for publication-candidate evidence. This uses the established runtime and a fresh
+Git-blob export, never a working-tree overlay. Each attempt retains its own result,
+complete before/after inventory, and raw output. Missing required dependencies
+fail the candidate; an explicitly optional private reference is not a request to
+publish its body. Before a commit, working-tree and synthetic-fixture checks remain
+useful but must not be labeled immutable-candidate proof.
 Use bulk inventories and batched parity comparisons; do not launch a subprocess
 per file when one bounded Git query supplies equivalent evidence.
 
