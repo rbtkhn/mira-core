@@ -278,11 +278,11 @@ def test_coffee_has_grounded_navigation_contract(tmp_path: Path) -> None:
         "newest_eligible_episode_id": "CD-20260816-01",
     }
     markdown = cadence_ledger.render_coffee_markdown(context)
-    assert "A. Execute: Confirm" in markdown
+    assert context["actions"][0]["label"] in markdown
     assert "Rest coverage: covered-current." in markdown
     assert "Authority boundary: Execute only the named read-only comparison; tests, writes, and disposition remain separate." in markdown
     assert all(f"{key}. {verb}:" in markdown for key, verb, _ in cadence_ledger.ACTION_SHAPE[1:])
-    assert markdown.rstrip().endswith("Recommendation: A. Confirm the claimed improvement before adoption.")
+    assert markdown.rstrip().endswith("Recommendation: A. Inspect the named current source before designing a further test.")
     connection.close()
 
 

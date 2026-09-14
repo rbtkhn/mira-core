@@ -305,7 +305,8 @@ def test_hosted_state_is_distinct_and_uses_one_compact_watcher() -> None:
     assert "gh run watch <run-id> --repo OWNER/REPO --compact --exit-status --interval 15" in skill
     assert "Do not start parallel watchers" in skill
     assert "one structured `gh run view` query" in skill
-    assert "exactly four jobs must pass" in skill
+    assert "four public-package matrix jobs and one corpus-integrity job" in skill
+    assert "Require all five jobs to pass" in skill
 
 
 def test_powershell_refspec_examples_are_exact_and_unambiguous() -> None:

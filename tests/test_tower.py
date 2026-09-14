@@ -1,4 +1,6 @@
 import json
+import os
+from datetime import datetime, timezone
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -34,7 +36,9 @@ def queue(repo, key="abcdefghijk", status="available"):
 
 def land(repo, key="abcdefghijk", text="source evidence"):
     rel = "archive/sources/geopolitics/sources/test.md"
-    put(repo, rel, text)
+    path = put(repo, rel, text)
+    observed = datetime(2026, 9, 12, 12, tzinfo=timezone.utc).timestamp()
+    os.utime(path, (observed, observed))
     put(repo, "archive/sources/geopolitics/source-manifest.json", json.dumps({"sources": [{
         "local_path": rel, "source_url": "https://www.youtube.com/watch?v=" + key, "date": "2026-09-12"}]}))
 

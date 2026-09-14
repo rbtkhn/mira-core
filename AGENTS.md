@@ -486,3 +486,11 @@ adaptive native clickable sequence. This local route supersedes the installed
 Elicitation mirror. Answers express preferences, not save or action authority.
 Keep pending asynchronous questions open; do not finish the turn immediately
 after presenting one. Keep these local instructions out of global sync.
+
+For an explicit `mira-gemini` request, read `docs/skill-drafts/mira-gemini/SKILL.md` completely and follow its scope and authority controls.
+
+For an explicit `mira-grok` request, read `docs/skill-drafts/mira-grok/SKILL.md` completely and follow its scope and authority controls.
+
+For an explicit `mira-treasury` request, read `docs/skill-drafts/mira-treasury/SKILL.md` completely and follow its scope and authority controls.
+
+For an explicit `mira-youtube` request, read `docs/skill-drafts/mira-youtube/SKILL.md` completely and follow its scope and authority controls.

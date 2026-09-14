@@ -23,7 +23,7 @@ def test_core_is_discoverable_and_routes_lifecycle_references() -> None:
     metadata = read("agents/openai.yaml")
     frontmatter = core.split("---", 2)[1]
     assert "name: learn-from-choices" in frontmatter
-    assert "compact contextual A-D surface required on every final response" in frontmatter
+    assert "genuine decision needs optional structured navigation" in frontmatter
     assert 'display_name: "Learn From Choices"' in metadata
     assert "references/choice-retention.md" in core
     assert "references/outcome-review.md" in core
@@ -35,7 +35,7 @@ def test_core_retains_nonnegotiable_authority_and_terminal_forms() -> None:
     core = read("SKILL.md")
     normalized = " ".join(core.split())
     for role in ("recommended", "alternative", "overlooked", "pause-or-deepen"):
-        assert f"`{role}`" in core
+        assert role in core + read("references/choice-retention.md")
     for verb in ("Execute", "Stage", "Commit", "Push", "Send"):
         assert f"`{verb}`" in core
     for phrase in (
@@ -48,7 +48,7 @@ def test_core_retains_nonnegotiable_authority_and_terminal_forms() -> None:
         "closure-debt audit",
         "Keep Options Specific",
         "do not fall back to the generic `Close`, `Correct`, `Deepen`",
-        "at least two options should preserve the actual operational shape",
+        "pause automatic menus",
     ):
         assert phrase in normalized
 
@@ -118,6 +118,7 @@ def test_decision_fixture_is_complete_and_authority_bounded(
         "stale-context",
         "settled-repeat",
         "freeform-recovery",
+        "substantive-completion",
     }
     assert case["expected_terminal"]
     assert case["required_resource"] in {
@@ -162,8 +163,9 @@ def test_fixture_inventory_covers_required_runtime_decisions() -> None:
         "stale-context",
         "settled-repeat",
         "freeform-recovery",
+        "substantive-completion",
     }
-    assert len(fixtures()) == 31
+    assert len(fixtures()) == 32
 
 
 def test_settled_terminal_fixtures_require_compact_contextual_closure() -> None:
@@ -176,9 +178,9 @@ def test_settled_terminal_fixtures_require_compact_contextual_closure() -> None:
     ):
         fixture = indexed[fixture_id]
         assert "compact" in str(fixture["expected_terminal"])
-        assert "a-d-surface" in str(fixture["expected_terminal"])
+        assert "prose" in str(fixture["expected_terminal"])
         combined = " ".join(fixture["allowed"] + fixture["forbidden"])
-        assert "transient" in combined.casefold() or "no-op" in combined.casefold()
+        assert any(term in combined.casefold() for term in ("transient", "no-op", "no menu"))
     assert "append a second generic A-D menu" in indexed[
         "LFC-WORKFLOW-MENU-01"
     ]["forbidden"]

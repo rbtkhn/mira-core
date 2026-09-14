@@ -489,8 +489,11 @@ gh run watch <run-id> --repo OWNER/REPO --compact --exit-status --interval 15
 Resume that watcher by its returned process identifier until terminal. Do not
 start parallel watchers or emit repeated full job snapshots. After completion,
 use one structured `gh run view` query to require the expected head SHA,
-successful conclusion, and exact job count; for the current validation matrix,
-exactly four jobs must pass.
+conclusions, and exact job count. The current workflow has four public-package
+matrix jobs and one corpus-integrity job. Report both groups separately; a public
+pass cannot make a failing corpus job or overall workflow successful. Require all
+five jobs to pass before claiming overall hosted validation passed. See the
+[validation scopes](../../validation-scopes.md) for their coverage.
 
 ### Windows main-merge friction
 

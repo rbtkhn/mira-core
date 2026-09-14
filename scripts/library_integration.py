@@ -1972,9 +1972,13 @@ def validate_pilot_contract(repo_root: Path, registry: Mapping[str, Any]) -> lis
         failures.append(f"integration pilot must contain exactly {EXPECTED_TOPICS} topics")
     try:
         reconciliation = reconcile_repository(repo_root, registry, write=False)
+        pilot_by_id = {item.get("canonical_work_id"): item for item in works}
         for row in reconciliation["works"]:
             if row.get("state") == "revision-due":
-                work = next(item for item in works if item.get("canonical_work_id") == row.get("canonical_work_id"))
+                work = pilot_by_id.get(row.get("canonical_work_id"))
+                if work is None:
+                    # Living works outside the frozen pilot retain their own validation.
+                    continue
                 routing = load_json(repo_root / work["artifact_root"] / "routing.json")
                 if any(unit.get("route_state") != "suspended-due-to-note-revision" for unit in routing.get("route_units", [])):
                     failures.append(f"{row.get('canonical_work_id')} is revision-due but routing is not suspended")

@@ -147,6 +147,10 @@ def test_library_countercheck_is_tiered_and_bounded(monkeypatch) -> None:
     import archive_library
     import mira_memory
 
+    # Exercise dispatch and redaction independently of live corpus health.
+    import library_integration
+    monkeypatch.setattr(archive_library, "validate_registry", lambda registry: [])
+    monkeypatch.setattr(library_integration, "validate_repository", lambda *a: [])
     calls = 0
 
     def verify(_args):
@@ -166,6 +170,12 @@ def test_library_countercheck_is_tiered_and_bounded(monkeypatch) -> None:
     library = next(row for row in automatic["carriers"] if row["id"] == "mira-library")
     assert library["countercheck"]["failing_body_ids"] == ["BODY-ONE"]
     assert "secret.txt" not in json.dumps(library)
+    monkeypatch.setattr(library_integration, "validate_repository", lambda *a: ["synthetic invalid control"])
+    invalid = mira_memory.library_carrier(inspect_texts=True)
+    assert calls == 1
+    assert invalid["availability"] == "degraded"
+    assert "countercheck" not in invalid
+
 
 
 def test_former_archive_carrier_name_routes_to_canonical_owner() -> None:

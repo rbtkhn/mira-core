@@ -390,6 +390,13 @@ def _library_validation_route(*, cognitive_note: bool = False) -> dict[str, Any]
 
 
 def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
+    if path in {"docs/validation-scopes.md", ".github/workflows/validate.yml"}:
+        return {
+            "owner": "repo-structural/validation-scopes",
+            "validation_class": "repo-structural",
+            "commands": ["tools/run.ps1 test --path tests/test_validation_scopes.py"],
+            "manual_checks": ["Verify public and corpus claims stay distinct, privacy enforcement remains public, failures are not suppressed, and Full cache or hosted required-check policy is not bypassed."],
+        }
     if path == ".gitattributes":
         return {
             "owner": "repo-structural/git-attributes",

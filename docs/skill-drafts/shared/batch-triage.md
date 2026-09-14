@@ -12,7 +12,10 @@ applies; a larger allowance requires explicit user direction.
    retrieval limits, not an unsupported claim of exhaustive reading.
 3. Run the [quotation checker](../../../scripts/check_consultation_quotes.py)
    before relying on anchors. Using the canonical Python runtime:
-   `python scripts/check_consultation_quotes.py --index <private-index.json> --quotes <private-quotes.json>`.
+   resolve `scripts/check_consultation_quotes.py` beneath the established repository
+   root and invoke that path with the established Python executable, passing
+   `--index <private-index.json> --quotes <private-quotes.json>`. Capture the exit
+   code immediately; do not select a different interpreter from PATH.
    The index is the pilot format: a nonempty list of source objects with `id` and
    `paragraphs`, each paragraph containing `id` and `text`; other metadata is ignored.
    Quotes are a nonempty list of `{"paragraph_id":"S01-P001","quotation":"exact words"}`.

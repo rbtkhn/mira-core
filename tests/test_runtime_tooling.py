@@ -38,6 +38,10 @@ repository_validation = load_module(
 
 
 EXPECTED_SURFACES = {
+    "tower": "tower.py",
+    "strategy-notebook": "strategy_notebook.py",
+    "library-journal": "library_journal.py",
+    "ideation-benchmark": "ideation_benchmark.py",
     "archive": "archive.py",
     "archive-audit": "archive_audit.py",
     "archive-density": "report_archive_density.py",
@@ -740,20 +744,17 @@ def test_legacy_repository_display_name_is_rejected_outside_allowlist(
     ]
 
 
-def test_ci_uses_only_canonical_validation_with_four_jobs() -> None:
-    workflow = (REPO_ROOT / ".github" / "workflows" / "validate.yml").read_text(
-        encoding="utf-8"
-    )
+def test_ci_separates_public_matrix_from_blocking_corpus() -> None:
+    workflow = (REPO_ROOT / ".github/workflows/validate.yml").read_text(encoding="utf-8")
     assert 'python-version: ["3.11", "3.13"]' in workflow
     assert "os: [ubuntu-latest, windows-latest]" in workflow
-    assert workflow.count("python tools/validate_repo.py") == 1
-    assert "pytest" not in workflow
-    assert "validate_repository.py" not in workflow
-    validation_step = """      - run: python tools/validate_repo.py
-        env:
-          MIRA_CORE_SESSION_TEMP_ROOT: ${{ runner.temp }}"""
-    assert validation_step in workflow
-    assert "    env:\n      MIRA_CORE_SESSION_TEMP_ROOT: ${{ runner.temp }}" not in workflow
+    assert workflow.count("python tools/validate_repo.py") == 2
+    assert "python tools/validate_repo.py --scope public-package" in workflow
+    assert "python tools/validate_repo.py --scope corpus" in workflow
+    assert "  corpus-integrity:" in workflow
+    assert "continue-on-error" not in workflow and "needs:" not in workflow
+    assert "pytest" not in workflow and "validate_repository.py" not in workflow
+    assert workflow.count("MIRA_CORE_SESSION_TEMP_ROOT: ${{ runner.temp }}") == 2
 
 
 def test_validation_mode_defaults_to_full_and_accepts_force() -> None:

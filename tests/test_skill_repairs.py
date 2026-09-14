@@ -50,7 +50,7 @@ def test_settled_shortcut_rejects_consequential_metadata(change):
     elif change == "context":
         surface["action_context"] = {}
     elif change == "three":
-        surface["options"].pop()
+        surface["options"] = surface["options"][:1]
     elif change == "null":
         surface["options"] = None
     else:

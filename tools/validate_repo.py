@@ -170,6 +170,7 @@ def validation_environment(
 
 def parse_args(arguments: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Validate the repository or focused tests.")
+    parser.add_argument("--scope", choices=("all", "public-package", "corpus"), default="all")
     parser.add_argument(
         "--mode",
         choices=("full", "fast"),
@@ -406,6 +407,9 @@ def main(
     temp_root: Path | None = None
     try:
         args = parse_args(arguments)
+        if args.scope != 'all' and (getattr(args, 'candidate_ref', None) is not None or args.paths or args.mode != 'full' or args.cache_only or args.force or args.explain_route):
+            print('validation scope excludes candidate, focused, Fast and cache options', file=sys.stderr)
+            return 2
         if args.cache_only and (args.mode != "full" or args.force or args.paths or args.explain_route):
             print("validation argument error: --cache-only requires Full and cannot be combined with --force, --path, or --explain-route", file=sys.stderr)
             return 2
@@ -505,8 +509,28 @@ def main(
             "not repository_integrity",
             "--basetemp",
             str(pytest_root),
+            "--tb=short",
             *pytest_paths,
         ]
+        if args.scope != 'all':
+            mode = args.scope
+            if args.scope == 'public-package':
+                pytest_command.extend(['-p', 'scripts.validation_scopes', '--public-package'])
+            else:
+                pytest_command.extend(['-p', 'scripts.validation_scopes', '--corpus-only'])
+            commands = [('structural', [str(python), 'scripts/validate_repository.py', '--scope', args.scope])]
+            # Corpus retains its explicit modules and live-record cases, including
+            # collection failures when the published corpus transaction is incomplete.
+            commands.append(('pytest', pytest_command))
+            returncode = 0
+            for phase, command in commands:
+                code = run_phase(command, mode=mode, phase=phase, environment=environment,
+                                 clock=monotonic, timeout_seconds=STRUCTURAL_TIMEOUT_SECONDS if phase == 'structural' else PYTEST_TIMEOUT_SECONDS)
+                if code and not returncode:
+                    returncode = code
+            final_status = 'passed' if returncode == 0 else 'failed'
+            return returncode
+
         if paths:
             emit_timing(
                 mode=mode,

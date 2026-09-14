@@ -55,6 +55,11 @@ MANIFEST_PATH = NG_ROOT.parent / "archive" / "sources" / "geopolitics" / "source
 DAILY_ROOT = NG_ROOT / "work" / "daily"
 LEDGER_PATH = NG_ROOT / "work" / "forecasts" / "forecast-ledger.md"
 LOCAL_SKILLS = {
+    "tower",
+    "mira-youtube",
+    "mira-treasury",
+    "mira-grok",
+    "mira-gemini",
     "geo-strategy",
     "ideation",
     "archive-audit",
@@ -926,7 +931,14 @@ def validate_repository(
 
 
 def main() -> None:
-    failures = validate_repository()
+    import argparse
+    from validation_scopes import checks_for_scope
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--scope', choices=('all', 'public-package', 'corpus'), default='all')
+    scope = parser.parse_args().scope
+    checks = None if scope == 'all' else checks_for_scope(REPOSITORY_CHECKS, scope)
+    print(f'validation_scope={scope}; corpus success is not implied by public-package success')
+    failures = validate_repository(checks=checks)
     print(f"repository_integrity_failures={len(failures)}")
     for item in failures:
         print(f"FAIL {item}")

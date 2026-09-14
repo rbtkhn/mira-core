@@ -10,6 +10,7 @@ import pytest
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(REPO_ROOT / 'scripts'))
 SCRIPT_PATH = REPO_ROOT / "scripts" / "cadence.py"
 
 
@@ -76,6 +77,7 @@ def test_formatted_coffee_fails_closed_without_private_ledger(monkeypatch, tmp_p
 def test_formatted_coffee_renders_governed_menu_from_explicit_store(
     monkeypatch, tmp_path: Path, capsys
 ) -> None:
+    monkeypatch.setattr(cadence, "unread_dream_journal_entries", lambda *a, **k: [])
     store = tmp_path / "cadence.sqlite3"
     cadence.cadence_ledger.connect(store).close()
     args = SimpleNamespace(
@@ -128,6 +130,7 @@ def test_cold_start_coffee_actions_do_not_inherit_or_change_method(tmp_path: Pat
 
 
 def test_coffee_receipt_failure_prints_no_actionable_menu(monkeypatch,tmp_path: Path,capsys) -> None:
+    monkeypatch.setattr(cadence, "unread_dream_journal_entries", lambda *a, **k: [])
     store=tmp_path/"cadence.sqlite3"; cadence.cadence_ledger.connect(store).close()
     args=SimpleNamespace(command="coffee",db=store,format="markdown",episode_id=None,json=False,check=False)
     monkeypatch.setattr(cadence,"build_parser",lambda:SimpleNamespace(parse_args=lambda:args))
@@ -138,6 +141,7 @@ def test_coffee_receipt_failure_prints_no_actionable_menu(monkeypatch,tmp_path: 
 
 
 def test_coffee_check_keeps_schema_three_store_byte_identical(monkeypatch,tmp_path: Path,capsys) -> None:
+    monkeypatch.setattr(cadence, "unread_dream_journal_entries", lambda *a, **k: [])
     store=tmp_path/"cadence-v3.sqlite3"; connection=cadence.cadence_ledger.connect(store)
     connection.execute("DROP TABLE coffee_presentations"); connection.execute("PRAGMA user_version=3"); connection.commit(); connection.close()
     before=store.read_bytes()

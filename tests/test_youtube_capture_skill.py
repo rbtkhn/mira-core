@@ -20,11 +20,11 @@ def test_named_voice_browser_only_excludes_yt_dlp_helpers() -> None:
     ) in text
 
 
-def test_manual_rows_preserve_channel_slug_for_export_intake() -> None:
+def test_manual_rows_preserve_channel_slug_for_intake_draft() -> None:
     text = " ".join(skill_text().split())
     assert "For manually added or browser-discovered Geopolitics rows" in text
     assert "include `channel_slug=SLUG` in notes" in text
-    assert "current exporter contract" in text
+    assert "`intake-draft`" in text
 
 
 def test_skill_defines_one_cross_archive_router() -> None:
