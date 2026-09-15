@@ -1,9 +1,9 @@
 ---
-status: private-provisional
+status: working
 created: 2026-09-14
-revised: 2026-09-14
+revised: 2026-09-15
 class: working-note
-privacy: private-provisional
+privacy: public
 ---
 
 # Strategy Notebook quality progression
@@ -98,7 +98,8 @@ authorizes a cross-system refactor, synchronization, or publication.
 
 ## Authority boundary
 
-This note is private-provisional. It creates no Strategy Notebook contribution,
+This is a public working note whose interpretations remain provisional.
+It creates no Strategy Notebook contribution,
 no canonical cognitive relationship, no source admission, and no publication
 authority. Future methodological changes should be made through the relevant
 Notebook or skill workflow.
