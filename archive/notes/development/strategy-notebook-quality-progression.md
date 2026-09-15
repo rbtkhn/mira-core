@@ -60,6 +60,42 @@ evidence dispositions, correction lineage, disconfirmation conditions, and a
 bounded return point. Preserve recovery-only entries when appropriate; their
 refusal to overclaim is itself a quality feature.
 
+## Transferable system lessons
+
+The observed improvement suggests a reusable pattern for other Mira surfaces,
+including archive synthesis, verification packets, voice judgments, research
+briefs, and repository audits:
+
+- Separate evidence classes everywhere: observation, source assertion,
+  interpretation, proposal, and verification need.
+- Require an explicit answer to “what changed?” so repeated activity cannot
+  masquerade as progress.
+- State the strongest rival explanation and the evidence that would distinguish
+  it.
+- Add a return point naming what should be checked next and what would change
+  the judgment.
+- Treat honest non-completion as valid; recovery and inventory work must not
+  manufacture conclusions.
+- Preserve correction lineage instead of silently rewriting earlier reasoning.
+- Test authority and enforceability, not merely the presence of signals or
+  stated intentions.
+- Bind consequential claims to exact sources, versions, and hashes where
+  evidence matters.
+- Separate reasoning quality from truth of the underlying claims.
+
+The highest-value general rule is: every analytical artifact should state what
+it knows, what it is inferring, what it cannot yet establish, and what would
+change its mind. Applying that rule should make the wider system more
+auditable, less repetitive, and more capable of learning without overclaiming.
+
+## Future-session pickup
+
+Resume by testing these lessons against one adjacent workflow rather than
+redesigning the system globally. Compare its current artifact contract with
+the later Strategy Notebook pattern, identify the smallest missing fields or
+gates, and propose a bounded improvement. Do not infer that this note itself
+authorizes a cross-system refactor, synchronization, or publication.
+
 ## Authority boundary
 
 This note is private-provisional. It creates no Strategy Notebook contribution,
