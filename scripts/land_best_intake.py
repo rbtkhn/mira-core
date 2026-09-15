@@ -926,6 +926,15 @@ def normalize_args(args: SimpleNamespace) -> SimpleNamespace:
     args.host_people = [item for item in (args.host_people or []) if item]
     args.guest_people = [item for item in (args.guest_people or []) if item]
     normalize_voice_slugs(args)
+    # Keep the continuity thread aligned with the canonical voice route.
+    # Callers may supply a display-derived alias (for example,
+    # ``larry-johnson``) that normalize_voice_slugs maps to ``johnson``.
+    # Without this synchronization the manifest and front matter diverge.
+    if args.voice_slugs and (
+        not getattr(args, "thread", None)
+        or canonical_slug(args.thread) == args.voice_slugs[0]
+    ):
+        args.thread = args.voice_slugs[0]
     ensure_required_fields(args)
     return args
 

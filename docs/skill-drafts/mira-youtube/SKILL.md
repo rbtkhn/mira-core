@@ -55,7 +55,19 @@ watch URL, title, channel, date, duration, format, route, and disposition.
 Duration is never closed from RSS, search-result cards, recommendation cards,
 stale queue values, partial accessibility overlays, or an ad/player pre-roll
 state. For each approved or candidate watch URL, open the canonical watch page
-in the in-app browser, clear or skip ads where possible, and read the post-ad
+in the in-app browser and run the post-ad readiness loop before attempting
+transcript export:
+
+1. Wait for a visible `Skip` control and activate it when available.
+2. If no `Skip` control appears, continue waiting for the ad to end; a
+   non-skippable ad is not a transcript failure.
+3. Confirm that the player duration has changed from the ad duration to the
+   candidate's actual duration and that the page is no longer in a sponsored
+   player state.
+4. Start playback if the player is paused, then attempt transcript export.
+
+Never export while the player still shows a short ad duration or while the
+player is sponsored. Read the post-ad
 player duration or the transcript's final timestamp. If those disagree, preserve
 both in notes and mark the row `needs transcript` or `blocked` until the
 operator-facing table can show a defensible duration. A short-looking player
