@@ -19,15 +19,23 @@
       "revision_head_note_ref": "archive/notes/2026-09-02-library-ashoka-rock-and-pillar-edicts-cognitive-note.md",
       "route_reviews": [
         {
-          "mechanism_signatures": ["legitimacy_under_overreach"],
-          "note_refs": ["archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note-addendum-01.md"],
+          "mechanism_signatures": [
+            "legitimacy_under_overreach"
+          ],
+          "note_refs": [
+            "archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note-addendum-01.md"
+          ],
           "review_binding": null,
           "review_disposition": "unreviewed",
           "route_handle": "ashoka-remorse-capacity"
         },
         {
-          "mechanism_signatures": ["legitimacy_under_overreach"],
-          "note_refs": ["archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note-addendum-01.md"],
+          "mechanism_signatures": [
+            "legitimacy_under_overreach"
+          ],
+          "note_refs": [
+            "archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note-addendum-01.md"
+          ],
           "review_binding": null,
           "review_disposition": "unreviewed",
           "route_handle": "ashoka-inscription-governance"
@@ -48,15 +56,23 @@
       "revision_head_note_ref": "archive/notes/2026-09-02-library-ibn-khaldun-muqaddimah-cognitive-note.md",
       "route_reviews": [
         {
-          "mechanism_signatures": ["settlement_architecture"],
-          "note_refs": ["archive/notes/2026-09-01-library-ibn-khaldun-muqaddimah-integration-note.md"],
+          "mechanism_signatures": [
+            "settlement_architecture"
+          ],
+          "note_refs": [
+            "archive/notes/2026-09-01-library-ibn-khaldun-muqaddimah-integration-note.md"
+          ],
           "review_binding": null,
           "review_disposition": "blocked-source",
           "route_handle": "khaldun-solidarity-dynasty"
         },
         {
-          "mechanism_signatures": ["legitimacy_under_overreach"],
-          "note_refs": ["archive/notes/2026-09-01-library-ibn-khaldun-muqaddimah-integration-note.md"],
+          "mechanism_signatures": [
+            "legitimacy_under_overreach"
+          ],
+          "note_refs": [
+            "archive/notes/2026-09-01-library-ibn-khaldun-muqaddimah-integration-note.md"
+          ],
           "review_binding": null,
           "review_disposition": "blocked-source",
           "route_handle": "khaldun-history-credulity"
@@ -77,15 +93,23 @@
       "revision_head_note_ref": "archive/notes/2026-09-02-library-murasaki-tale-of-genji-cognitive-note.md",
       "route_reviews": [
         {
-          "mechanism_signatures": ["coercion_indirect_instruments"],
-          "note_refs": ["archive/notes/2026-09-01-library-murasaki-tale-of-genji-integration-note.md"],
+          "mechanism_signatures": [
+            "coercion_indirect_instruments"
+          ],
+          "note_refs": [
+            "archive/notes/2026-09-01-library-murasaki-tale-of-genji-integration-note.md"
+          ],
           "review_binding": null,
           "review_disposition": "unreviewed",
           "route_handle": "genji-indirect-power"
         },
         {
-          "mechanism_signatures": ["legitimacy_under_overreach"],
-          "note_refs": ["archive/notes/2026-09-01-library-murasaki-tale-of-genji-integration-note.md"],
+          "mechanism_signatures": [
+            "legitimacy_under_overreach"
+          ],
+          "note_refs": [
+            "archive/notes/2026-09-01-library-murasaki-tale-of-genji-integration-note.md"
+          ],
           "review_binding": null,
           "review_disposition": "unreviewed",
           "route_handle": "genji-aesthetic-ethical-split"
@@ -108,8 +132,12 @@
       "revision_head_note_ref": "archive/notes/2026-09-02-library-grotius-mare-liberum-cognitive-note.md",
       "route_reviews": [
         {
-          "mechanism_signatures": ["maritime_access_order"],
-          "note_refs": ["archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note-addendum-02.md"],
+          "mechanism_signatures": [
+            "maritime_access_order"
+          ],
+          "note_refs": [
+            "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note-addendum-02.md"
+          ],
           "review_binding": {
             "body_digests": {
               "LIB-COLONIAL-AUTHORITY-065-GROTIUS-MARE-LIBERUM-LATIN-WIKISOURCE": "f5fd4847ecb3e2b8d83ef41c8f788d5f7a0fca2326fa2e6f6d4de37192c64c33"
@@ -127,8 +155,13 @@
           "route_handle": "grotius-interested-universal"
         },
         {
-          "mechanism_signatures": ["maritime_access_order", "commerce_to_sovereignty"],
-          "note_refs": ["archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note-addendum-02.md"],
+          "mechanism_signatures": [
+            "maritime_access_order",
+            "commerce_to_sovereignty"
+          ],
+          "note_refs": [
+            "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note-addendum-02.md"
+          ],
           "review_binding": null,
           "review_disposition": "unreviewed",
           "route_handle": "grotius-open-access-coercion"
@@ -149,15 +182,23 @@
       "revision_head_note_ref": "archive/notes/2026-09-02-library-du-bois-souls-of-black-folk-cognitive-note.md",
       "route_reviews": [
         {
-          "mechanism_signatures": ["legitimacy_under_overreach"],
-          "note_refs": ["archive/notes/2026-09-01-library-du-bois-souls-of-black-folk-integration-note.md"],
+          "mechanism_signatures": [
+            "legitimacy_under_overreach"
+          ],
+          "note_refs": [
+            "archive/notes/2026-09-01-library-du-bois-souls-of-black-folk-integration-note.md"
+          ],
           "review_binding": null,
           "review_disposition": "unreviewed",
           "route_handle": "dubois-divided-perception"
         },
         {
-          "mechanism_signatures": ["legitimacy_under_overreach"],
-          "note_refs": ["archive/notes/2026-09-01-library-du-bois-souls-of-black-folk-integration-note.md"],
+          "mechanism_signatures": [
+            "legitimacy_under_overreach"
+          ],
+          "note_refs": [
+            "archive/notes/2026-09-01-library-du-bois-souls-of-black-folk-integration-note.md"
+          ],
           "review_binding": null,
           "review_disposition": "unreviewed",
           "route_handle": "dubois-counter-memory-song"
@@ -183,11 +224,12 @@
       "essay_refs": [],
       "integration_stage": "noted",
       "library_source_id": "LIB-INDUSTRIAL-AUTHORITY-012-TOLSTOY",
-      "note_ref": "archive/notes/2026-09-02-library-tolstoy-war-and-peace-cognitive-note.md",
+      "note_ref": "archive/notes/library/tolstoy-war-and-peace/councils-command-and-anchored-simulation.md",
       "note_refs": [
-        "archive/notes/2026-09-02-library-tolstoy-war-and-peace-cognitive-note.md"
+        "archive/notes/2026-09-02-library-tolstoy-war-and-peace-cognitive-note.md",
+        "archive/notes/library/tolstoy-war-and-peace/councils-command-and-anchored-simulation.md"
       ],
-      "revision_head_note_ref": "archive/notes/2026-09-02-library-tolstoy-war-and-peace-cognitive-note.md",
+      "revision_head_note_ref": "archive/notes/library/tolstoy-war-and-peace/councils-command-and-anchored-simulation.md",
       "route_reviews": []
     },
     {
@@ -196,11 +238,12 @@
       "essay_refs": [],
       "integration_stage": "noted",
       "library_source_id": "LIB-ANCIENT-AUTHOR-039-HOMER",
-      "note_ref": "archive/notes/2026-09-02-library-homer-iliad-odyssey-cognitive-note.md",
+      "note_ref": "archive/notes/2026-09-02-library-homer-iliad-odyssey-cognitive-note-v2.md",
       "note_refs": [
-        "archive/notes/2026-09-02-library-homer-iliad-odyssey-cognitive-note.md"
+        "archive/notes/2026-09-02-library-homer-iliad-odyssey-cognitive-note.md",
+        "archive/notes/2026-09-02-library-homer-iliad-odyssey-cognitive-note-v2.md"
       ],
-      "revision_head_note_ref": "archive/notes/2026-09-02-library-homer-iliad-odyssey-cognitive-note.md",
+      "revision_head_note_ref": "archive/notes/2026-09-02-library-homer-iliad-odyssey-cognitive-note-v2.md",
       "route_reviews": []
     }
   ]

@@ -1,5 +1,15 @@
 # Mira Library
 
+## Sections
+
+- [History](history/README.md): historical sources, organized by subject era.
+- [Science](science/README.md): curated scientific papers, organized by
+  publication date and subject, without eras.
+
+Both sections use `library-registry.json` and the existing private text store.
+Existing records without `section` are History; Science records explicitly use
+`section: science`. Historical source paths remain stable.
+
 Status: `sealed-v1.0` for the four governed historical shelves; Digital remains
 operational but outside the v1.0 release scope.
 
@@ -8,9 +18,9 @@ certifies the Ancient, Medieval, Colonial, and Industrial seal lineage. It does
 not claim a complete world canon, public-reuse rights, or a fresh live replay
 of every historical private payload.
 
-`archive/library/` is Mira Core's curated source-library shelf for primary,
-ancient, and historical sources, organized by the source or work's primary
-historical subject period. It is a repository-local navigation and retrieval
+`archive/library/` is Mira Core's curated source library for History and Science.
+History is organized by the source or work's primary historical subject period;
+Science uses publication date. It is a repository-local navigation and retrieval
 surface, not a private Archive catalog collection and not a wholesale mirror of
 Civilization Memory.
 
@@ -66,7 +76,7 @@ the work stage (`profiled`, `pressure-test-ready`, `fully-integrated`, or
 `stale`). Unreviewed, rejected, blocked-source, stale, source-readiness-only,
 unanchored, and body-unready routes remain ineligible.
 
-## Era Taxonomy
+## History Era Taxonomy
 
 | Era | ID | Range | Use |
 | --- | --- | --- | --- |
@@ -102,10 +112,14 @@ Future source entries in `library-registry.json` use:
 - `status`
 - `notes`
 
-`subject_era` is required and classifies the primary historical subject period.
+For History, `subject_era` is required and classifies the primary historical subject period.
 `source_composition_era` records when the work was composed when known.
 `edition_era` records the era of the edition, translation, URL, database, or
 digital object when relevant.
+
+Science records instead require `section: science`, `publication_date` (year,
+year-month, or full date at known precision), and `subjects`. They omit era fields
+and carry version, DOI, original-file provenance, and a separate reading state.
 
 ## Original And English Text Policy
 

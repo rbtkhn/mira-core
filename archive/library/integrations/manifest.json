@@ -116,9 +116,10 @@
       "integration_stage": "noted",
       "library_source_id": "LIB-INDUSTRIAL-AUTHORITY-012-TOLSTOY",
       "note_refs": [
-        "archive/notes/2026-09-02-library-tolstoy-war-and-peace-cognitive-note.md"
+        "archive/notes/2026-09-02-library-tolstoy-war-and-peace-cognitive-note.md",
+        "archive/notes/library/tolstoy-war-and-peace/councils-command-and-anchored-simulation.md"
       ],
-      "revision_head_note_ref": "archive/notes/2026-09-02-library-tolstoy-war-and-peace-cognitive-note.md",
+      "revision_head_note_ref": "archive/notes/library/tolstoy-war-and-peace/councils-command-and-anchored-simulation.md",
       "work_title": "War and Peace"
     },
     {
@@ -127,9 +128,10 @@
       "integration_stage": "noted",
       "library_source_id": "LIB-ANCIENT-AUTHOR-039-HOMER",
       "note_refs": [
-        "archive/notes/2026-09-02-library-homer-iliad-odyssey-cognitive-note.md"
+        "archive/notes/2026-09-02-library-homer-iliad-odyssey-cognitive-note.md",
+        "archive/notes/2026-09-02-library-homer-iliad-odyssey-cognitive-note-v2.md"
       ],
-      "revision_head_note_ref": "archive/notes/2026-09-02-library-homer-iliad-odyssey-cognitive-note.md",
+      "revision_head_note_ref": "archive/notes/2026-09-02-library-homer-iliad-odyssey-cognitive-note-v2.md",
       "work_title": "Iliad and Odyssey"
     }
   ]

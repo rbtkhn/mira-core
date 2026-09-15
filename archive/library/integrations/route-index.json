@@ -3,9 +3,9 @@
   "eligible_route_count": 1,
   "generated_from": {
     "library_registry_ref": "archive/library/library-registry.json",
-    "library_registry_sha256": "ea066bab65971778fb80de5c3f14ce45f18b768c0408b908158b306d67db4aa0",
+    "library_registry_sha256": "32e4aec83be7fc72ceb41d0578e4786d272e97b28e3dda204f87256ab01902ee",
     "work_registry_ref": "archive/library/integrations/work-registry.json",
-    "work_registry_sha256": "77d0588b76794fdb32e6d336f42034bcd30cd55d47400e33462e51dfb965ea57"
+    "work_registry_sha256": "48a4f95dff89accd0d2bcde7cde290df2ba5c7529595d70ad37c2329610b1807"
   },
   "route_count": 10,
   "routes": [

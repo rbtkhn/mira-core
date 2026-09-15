@@ -144,7 +144,7 @@ wording-sensitive conclusions.
 
 This note is deliberately placed beside
 `archive/notes/2026-09-02-library-dante-de-monarchia-commedia-cognitive-note.md`
-and `archive/notes/2026-09-02-library-homer-iliad-odyssey-cognitive-note.md`.
+and `archive/notes/2026-09-02-library-homer-iliad-odyssey-cognitive-note-v2.md`.
 Homer, Dante, and Tolstoy are being held as a curatorial civilizational trio;
 the exact comparison remains analysis-pending. The present edges do not claim
 that Dante's office, Homer's divine-human field, and Tolstoy's distributed

@@ -155,12 +155,14 @@ a single unbroken doctrine.
 ## Cross-work constellation
 
 This note is deliberately placed beside
-`archive/notes/2026-09-02-library-homer-iliad-odyssey-cognitive-note.md` and
+`archive/notes/2026-09-02-library-homer-iliad-odyssey-cognitive-note-v2.md` and
 `archive/notes/2026-09-02-library-tolstoy-war-and-peace-cognitive-note.md`.
 Homer, Dante, and Tolstoy are being held as a curatorial civilizational trio;
 their exact comparative structure remains analysis-pending. Dante's explicit
 literary relation to classical epic may later support a reception analysis, but
 the present edge does not claim that analysis has been completed.
+
+Current Tolstoy companion: `archive/notes/library/tolstoy-war-and-peace/councils-command-and-anchored-simulation.md` (navigation update only; comparison remains analysis-pending).
 
 ## Anti-analogy and scope limits
 

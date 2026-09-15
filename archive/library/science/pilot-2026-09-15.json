@@ -1,0 +1,123 @@
+{
+  "date": "2026-09-15",
+  "section": "science",
+  "counts": {
+    "attempted": 4,
+    "downloaded": 4,
+    "inspected": 4,
+    "admitted": 4,
+    "deferred": 0,
+    "rejected": 0,
+    "metadata_only": 0
+  },
+  "registry_represented": true,
+  "private_payload_present": true,
+  "hash_verified": true,
+  "seal_reproducible": "not-claimed; Science pilot is outside historical seals",
+  "papers": [
+    {
+      "source_id": "LIB-SCIENCE-SLOBODKIN-2024-ATTRIBUTE-FIRST",
+      "state": "admitted",
+      "original": {
+        "location": "library-text://science/originals/LIB-SCIENCE-SLOBODKIN-2024-ATTRIBUTE-FIRST.pdf",
+        "source_url": "https://aclanthology.org/2024.acl-long.182.pdf",
+        "sha256": "002048ec1e28b95a183d6f5d6aee0427cc05721e588cce5a12b14e380ea8085b",
+        "bytes": 864172,
+        "pages": 36
+      },
+      "text_bodies": [
+        {
+          "body_id": "LIB-SCIENCE-SLOBODKIN-2024-ATTRIBUTE-FIRST-TEXT",
+          "text_location": "library-text://LIB-SCIENCE-SLOBODKIN-2024-ATTRIBUTE-FIRST-TEXT.txt",
+          "text_sha256": "9d818637de95611d854fb78faab4453f65610c45025c0888b6882651c2749d6c",
+          "text_bytes": 135675,
+          "coverage_status": "partial-work"
+        }
+      ],
+      "reading_state": "saved"
+    },
+    {
+      "source_id": "LIB-SCIENCE-QIAN-2025-VERICITE",
+      "state": "admitted",
+      "original": {
+        "location": "library-text://science/originals/LIB-SCIENCE-QIAN-2025-VERICITE.pdf",
+        "source_url": "https://arxiv.org/pdf/2510.11394v1",
+        "sha256": "a37cd528615ff19b46241414c2c1862350822b54825210cc511ac9e3f8daa39c",
+        "bytes": 650427,
+        "pages": 8
+      },
+      "text_bodies": [
+        {
+          "body_id": "LIB-SCIENCE-QIAN-2025-VERICITE-TEXT",
+          "text_location": "library-text://LIB-SCIENCE-QIAN-2025-VERICITE-TEXT.txt",
+          "text_sha256": "084fd469879e081ab39ea92179b63f7fec666d086a7e5324afbaadf7a2a10e22",
+          "text_bytes": 49509,
+          "coverage_status": "partial-work"
+        }
+      ],
+      "reading_state": "saved"
+    },
+    {
+      "source_id": "LIB-SCIENCE-QIAN-2024-CITATION-CAPACITY",
+      "state": "admitted",
+      "original": {
+        "location": "library-text://science/originals/LIB-SCIENCE-QIAN-2024-CITATION-CAPACITY.pdf",
+        "source_url": "https://export.arxiv.org/pdf/2410.11217v1",
+        "sha256": "d91bc17b9214c4d46faba01f5b75d565596ea3926ef369e15be69ddba7d4d16f",
+        "bytes": 191247,
+        "pages": 14
+      },
+      "text_bodies": [
+        {
+          "body_id": "LIB-SCIENCE-QIAN-2024-CITATION-CAPACITY-TEXT",
+          "text_location": "library-text://LIB-SCIENCE-QIAN-2024-CITATION-CAPACITY-TEXT.txt",
+          "text_sha256": "576300e18af76817ca49e58601538b479761e111701f45dc833b73a01e1cad0e",
+          "text_bytes": 43096,
+          "coverage_status": "partial-work"
+        }
+      ],
+      "reading_state": "saved"
+    },
+    {
+      "source_id": "LIB-SCIENCE-GODBOLE-2024-PLAN-RETRIEVAL",
+      "state": "admitted",
+      "original": {
+        "location": "library-text://science/originals/LIB-SCIENCE-GODBOLE-2024-PLAN-RETRIEVAL.pdf",
+        "source_url": "https://aclanthology.org/2024.emnlp-main.727.pdf",
+        "sha256": "659251e471421432c03c65cdc058eb653d11b89b23d60cb2d43cbb37eea2a6bf",
+        "bytes": 317984,
+        "pages": 19
+      },
+      "text_bodies": [
+        {
+          "body_id": "LIB-SCIENCE-GODBOLE-2024-PLAN-RETRIEVAL-TEXT",
+          "text_location": "library-text://LIB-SCIENCE-GODBOLE-2024-PLAN-RETRIEVAL-TEXT.txt",
+          "text_sha256": "2312dcce2f47b82e6fb41d1c05cd732808a6f8fbf9d2541e9adf5ea16e334786",
+          "text_bytes": 86473,
+          "coverage_status": "partial-work"
+        }
+      ],
+      "reading_state": "saved"
+    }
+  ],
+  "validation": {
+    "registry": "passed",
+    "generated_indexes": "passed",
+    "focused_library_tests": "31 passed",
+    "full_private_text_verification": "passed; 806 active text bodies checked; 23 authorities without active bodies remain outside pilot"
+  },
+  "authority": {
+    "git_staged": false,
+    "git_committed": false,
+    "pushed": false,
+    "archive_ingested": false,
+    "new_routes": false
+  },
+  "checkpoint_validation": {
+    "isolated_tests": "80 passed",
+    "registry": "passed",
+    "generated_views": "passed",
+    "necessary_dependencies": "17 existing Library note relocations; Tolstoy/Homer successor registrations; regenerated Library views",
+    "exception_required": false
+  }
+}

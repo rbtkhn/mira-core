@@ -44,6 +44,15 @@ seal after registry changes, index changes, or private text-store drift.
 
 ## Start New Eras With An Architecture Contract
 
+Library has separate [History](../../../archive/library/history/README.md) and
+[Science](../../../archive/library/science/README.md) sections. History retains
+the existing era rules below. Science papers use `section: science`, publication
+date at known precision, and subjects; do not require or assign an era. Preserve
+the exact paper version, DOI/source URL, selection rationale, limitations, and
+saved/read/assessed distinction. Keep original PDFs privately with recorded
+hashes and readable text derivatives in the existing admission system. No new
+Science era contract is needed. Existing records without `section` are History.
+
 Before building a new era shelf beyond a minor already-governed continuation,
 create or inspect an era architecture contract under
 `archive/library/<era>/`. Do this before roster design, metadata mutation, body

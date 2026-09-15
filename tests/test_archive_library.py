@@ -241,6 +241,7 @@ def test_text_body_mediation_seal_validation() -> None:
         "license_status": "public-domain",
         "status": "available",
     }
+
     valid["mediation"] = archive_library.default_mediation_record("BODY-VALID", valid)
     registry = base_registry()
     registry["sources"] = [source(source_id="SEALED", text_bodies=[valid])]
@@ -974,3 +975,61 @@ def test_run_repo_exposes_library_surface() -> None:
         text=True,
     )
     assert json.loads(result.stdout)["status"] == "passed"
+
+
+def science_source(**overrides: object) -> dict:
+    row = dict(source_id="LIB-SCIENCE-TEST", section="science", title="A paper",
+               author="Researcher", publication_date="2024-08", date_label="2024-08",
+               subjects=["citation-evaluation"], source_type="primary", location={}, status="located")
+    row.update(overrides)
+    return row
+
+
+def test_science_uses_publication_date_and_history_retains_eras() -> None:
+    registry = base_registry()
+    registry["sources"] = [source(), science_source()]
+    assert archive_library.validate_registry(registry) == []
+    assert archive_library.matching_sources(registry["sources"], section="science") == [registry["sources"][1]]
+    assert archive_library.matching_sources(registry["sources"], section="history") == [registry["sources"][0]]
+    assert archive_library.matching_sources(registry["sources"], section="science", era="digital") == []
+    assert archive_library.matching_sources(registry["sources"], query="citation-evaluation") == [registry["sources"][1]]
+    assert "A paper" not in archive_library.render_era_index(registry, "digital")
+    assert "A paper" in archive_library.render_science_index(registry)
+    for bad in (science_source(publication_date="2024-02-30"), science_source(subject_era="digital"),
+                science_source(reading_state="learned"), science_source(subjects=[])):
+        assert archive_library.validate_source(bad, set(), 1)
+    historical = source()
+    del historical["subject_era"]
+    assert archive_library.validate_source(historical, set(), 1)
+
+
+def test_science_index_drift_is_detected(tmp_path: Path, monkeypatch) -> None:
+    registry = base_registry()
+    registry["sources"] = [science_source()]
+    write_scaffold(tmp_path, registry)
+    monkeypatch.setattr(archive_library, "REPO_ROOT", tmp_path)
+    assert any("science index is stale" in f for f in archive_library.validate_scaffold(tmp_path))
+    index = tmp_path / "archive/library/science/index.md"
+    index.parent.mkdir()
+    index.write_text(archive_library.render_science_index(registry), encoding="utf-8")
+    assert not any("science index is stale" in f for f in archive_library.validate_scaffold(tmp_path))
+
+
+def test_science_original_integrity_and_census(tmp_path: Path, monkeypatch) -> None:
+    from argparse import Namespace
+    pdf = tmp_path / "paper.pdf"
+    pdf.write_bytes(b"%PDF-original")
+    registry = base_registry()
+    registry["sources"] = [science_source(location={"original_pdf": {
+        "location": "library-text://paper.pdf", "sha256": hashlib.sha256(pdf.read_bytes()).hexdigest(),
+        "bytes": pdf.stat().st_size}})]
+    monkeypatch.setattr(archive_library, "load_registry", lambda: registry)
+    monkeypatch.setattr(archive_library, "resolve_text_root", lambda: tmp_path)
+    monkeypatch.setattr(archive_library, "resolve_text_location", lambda uri: pdf)
+    assert archive_library.verify_texts_command(Namespace())["status"] == "passed"
+    census = archive_library.census_texts_command(Namespace(era=None, limit=5))
+    assert census["science"]["authority_count"] == 1
+    assert census["library_wide"]["authority_count"] == 1
+    assert all(row["authority_count"] == 0 for row in census["eras"])
+    pdf.write_bytes(b"%PDF-changed")
+    assert archive_library.verify_texts_command(Namespace())["status"] == "failed"

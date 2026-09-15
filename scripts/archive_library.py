@@ -7,6 +7,7 @@ import os
 import re
 import shutil
 import sys
+from datetime import date
 from pathlib import Path
 from typing import Any, Iterable, Mapping
 
@@ -19,6 +20,7 @@ LIBRARY_ROOT = REPO_ROOT / "archive" / "library"
 REGISTRY_PATH = LIBRARY_ROOT / "library-registry.json"
 TEXT_SOURCES_INDEX_PATH = LIBRARY_ROOT / "text-sources-index.md"
 ERA_IDS = ("ancient", "medieval", "colonial", "industrial", "digital")
+SECTIONS = ("history", "science")
 SOURCE_TYPES = {
     "primary",
     "classical",
@@ -304,6 +306,8 @@ def source_text(source: Mapping[str, Any]) -> str:
         "title",
         "author",
         "date_label",
+        "publication_date",
+        "section",
         "source_type",
         "status",
         "notes",
@@ -322,6 +326,7 @@ def source_text(source: Mapping[str, Any]) -> str:
         "license_notes",
     ):
         parts.append(text(source.get(key)))
+    parts.extend(text(item) for item in source.get("subjects", []))
     source_mediation = source.get("mediation")
     if isinstance(source_mediation, Mapping):
         parts.append(json.dumps(source_mediation, ensure_ascii=True, sort_keys=True))
@@ -654,7 +659,26 @@ def validate_source(source: Any, seen: set[str], index: int) -> list[str]:
         if source_id in seen:
             failures.append(f"duplicate library source_id: {source_id}")
         seen.add(source_id)
-    for field in sorted(REQUIRED_SOURCE_FIELDS):
+    section = source.get("section", "history")
+    if section not in SECTIONS:
+        failures.append(f"{label} has invalid section: {section}")
+    required = REQUIRED_SOURCE_FIELDS
+    if section == "science":
+        required = (required - {"subject_era", "era_basis", "civilization_tags"}) | {"publication_date", "subjects"}
+        try:
+            published = str(source.get("publication_date", ""))
+            if not re.fullmatch(r"\d{4}(-\d{2})?(-\d{2})?", published):
+                raise ValueError("invalid date")
+            date.fromisoformat(published + {4: "-01-01", 7: "-01", 10: ""}[len(published)])
+        except ValueError:
+            failures.append(f"{label} requires an ISO publication_date")
+        if not isinstance(source.get("subjects"), list) or not source.get("subjects"):
+            failures.append(f"{label} requires nonempty subjects")
+        if source.get("reading_state", "saved") not in {"saved", "read", "assessed"}:
+            failures.append(f"{label} has invalid reading_state")
+        if any(source.get(key) for key in ("subject_era", "source_composition_era", "edition_era", "secondary_eras", "era_basis")):
+            failures.append(f"{label} science records use publication date, not eras")
+    for field in sorted(required):
         if field not in source:
             failures.append(f"{label} missing required field: {field}")
     for field in ("source_id", "title", "author", "date_label"):
@@ -779,6 +803,10 @@ def validate_scaffold(repo_root: Path | None = None) -> list[str]:
         content = index.read_text(encoding="utf-8")
         if content != render_era_index(registry, era):
             failures.append(f"library era index is stale: {relative(index)}")
+    if any(s.get("section") == "science" for s in registry.get("sources", [])):
+        index = root / "science" / "index.md"
+        if not index.is_file() or index.read_text(encoding="utf-8") != render_science_index(registry):
+            failures.append(f"library science index is stale: {relative(index)}")
     return failures
 
 
@@ -789,10 +817,13 @@ def matching_sources(
     civilization: str | None = None,
     source_type: str | None = None,
     query: str | None = None,
+    section: str | None = None,
 ) -> list[Mapping[str, Any]]:
     result = []
     query_terms = [term.casefold() for term in re.findall(r"[A-Za-z0-9-]+", query or "")]
     for source in sources:
+        if section and source.get("section", "history") != section:
+            continue
         if era and source.get("subject_era") != era and era not in source.get("secondary_eras", []):
             continue
         if civilization and civilization.casefold() not in {text(item).casefold() for item in source.get("civilization_tags", [])}:
@@ -1069,6 +1100,27 @@ def render_text_sources_index(registry: Mapping[str, Any]) -> str:
     return "\n".join(lines) + "\n"
 
 
+def render_science_index(registry: Mapping[str, Any]) -> str:
+    sources = sorted(
+        (s for s in registry.get("sources", []) if s.get("section") == "science"),
+        key=lambda s: (s.get("publication_date", ""), s.get("source_id", "")),
+        reverse=True,
+    )
+    lines = ["# Science Library Index", "", "[Collection guide](README.md) | [History](../history/README.md)", "",
+             "Generated from `../library-registry.json`. Organized by publication date, without eras.", "",
+             "Saved means locally retained; read and assessed require separate evidence.", "",
+             "| Paper | Authors | Publication date | Subjects | Version | Reading state | Original |",
+             "| --- | --- | --- | --- | --- | --- | --- |"]
+    for s in sources:
+        loc = s.get("location", {})
+        lines.append(f"| {markdown_cell(s.get('title'))} | {markdown_cell(s.get('author'))} | {s.get('publication_date')} | {markdown_cell(', '.join(s.get('subjects', [])))} | {markdown_cell(s.get('version'))} | {markdown_cell(s.get('reading_state', 'saved'))} | [Source]({loc.get('url', '')}) |")
+    for s in sources:
+        loc = s.get("location", {})
+        lines.extend(["", f"- `{s['source_id']}`: {s.get('notes', '')}",
+                      f"  Original PDF: `{loc.get('original_pdf', {}).get('location', '')}`."])
+    return "\n".join(lines) + "\n"
+
+
 def era_definition(registry: Mapping[str, Any], era: str) -> Mapping[str, Any]:
     for item in registry.get("era_definitions", []):
         if isinstance(item, dict) and text(item.get("id")) == era:
@@ -1147,7 +1199,7 @@ def list_command(args: argparse.Namespace) -> dict[str, Any]:
     failures = validate_registry(registry)
     if failures:
         raise LibraryError("; ".join(failures))
-    sources = matching_sources(registry.get("sources", []), era=args.era)
+    sources = matching_sources(registry.get("sources", []), era=args.era, section=getattr(args, "section", None))
     return {"status": "ok", "era": args.era, "count": len(sources), "sources": sources}
 
 
@@ -1162,6 +1214,7 @@ def search_command(args: argparse.Namespace) -> dict[str, Any]:
         civilization=args.civilization,
         source_type=args.type,
         query=args.query,
+        section=getattr(args, "section", None),
     )
     return {
         "status": "ok",
@@ -1196,6 +1249,8 @@ def render_index_command(args: argparse.Namespace) -> dict[str, Any]:
         raise LibraryError("; ".join(failures))
     rendered = {TEXT_SOURCES_INDEX_PATH: render_text_sources_index(registry)}
     rendered.update({LIBRARY_ROOT / era / "index.md": render_era_index(registry, era) for era in ERA_IDS})
+    if any(s.get("section") == "science" for s in registry.get("sources", [])):
+        rendered[LIBRARY_ROOT / "science" / "index.md"] = render_science_index(registry)
     stale_paths = [path for path, content in rendered.items() if not path.is_file() or path.read_text(encoding="utf-8") != content]
     would_update = bool(stale_paths)
     if args.check:
@@ -1299,7 +1354,7 @@ def registry_text_body_rows(registry: Mapping[str, Any]) -> list[dict[str, Any]]
     for source in registry.get("sources", []):
         if not isinstance(source, dict):
             continue
-        era = text(source.get("subject_era")) or "unknown"
+        era = "science" if source.get("section") == "science" else text(source.get("subject_era")) or "unknown"
         source_id = text(source.get("source_id"))
         for body in all_text_bodies(source):
             body_id = text(body.get("body_id")) or source_id
@@ -1341,13 +1396,13 @@ def census_texts_command(args: argparse.Namespace) -> dict[str, Any]:
         raise LibraryError("; ".join(failures))
     text_root = resolve_text_root()
     rows = registry_text_body_rows(registry)
-    eras = list(ERA_IDS) + ["unknown"]
+    eras = list(ERA_IDS) + ["science", "unknown"]
     by_era = {era: empty_census_row(era) for era in eras}
     represented: dict[str, set[str]] = {era: set() for era in eras}
     for source in registry.get("sources", []):
         if not isinstance(source, dict):
             continue
-        era = text(source.get("subject_era")) or "unknown"
+        era = "science" if source.get("section") == "science" else text(source.get("subject_era")) or "unknown"
         by_era.setdefault(era, empty_census_row(era))
         represented.setdefault(era, set())
         by_era[era]["authority_count"] += 1
@@ -1369,7 +1424,7 @@ def census_texts_command(args: argparse.Namespace) -> dict[str, Any]:
                     missing.append(row["body_id"])
     eras_output = []
     totals = empty_census_row("all")
-    for era in ERA_IDS:
+    for era in (*ERA_IDS, "science", "unknown"):
         item = by_era[era]
         item["registry_represented_authorities"] = len(represented.get(era, set()))
         eras_output.append(item)
@@ -1391,7 +1446,8 @@ def census_texts_command(args: argparse.Namespace) -> dict[str, Any]:
         "resolved_private_text_root": str(text_root.resolve()),
         "private_text_root_exists": text_root.exists(),
         "library_wide": totals,
-        "eras": eras_output,
+        "eras": [row for row in eras_output if row["era"] in ERA_IDS],
+        "science": {"section": "science", **{k: v for k, v in by_era["science"].items() if k != "era"}},
     }
     if args.era:
         result["eras"] = [item for item in eras_output if item["era"] == args.era]
@@ -1410,6 +1466,16 @@ def verify_texts_command(args: argparse.Namespace) -> dict[str, Any]:
         if not isinstance(source, dict):
             continue
         bodies = all_text_bodies(source)
+        location = source.get("location", {})
+        original = location.get("original_pdf") if isinstance(location, dict) else None
+        if original:
+            path = resolve_text_location(original.get("location", ""))
+            if not path or not path.is_file():
+                text_failures.append(f"{source['source_id']}: original PDF missing")
+            elif (not path.read_bytes().startswith(b"%PDF") or
+                  hashlib.sha256(path.read_bytes()).hexdigest() != original.get("sha256") or
+                  path.stat().st_size != original.get("bytes")):
+                text_failures.append(f"{source['source_id']}: original PDF integrity mismatch")
         if not bodies:
             missing += 1
             continue
@@ -1590,11 +1656,13 @@ def parser() -> argparse.ArgumentParser:
     validate.set_defaults(handler=validate_command)
     listing = sub.add_parser("list")
     listing.add_argument("--era", choices=ERA_IDS)
+    listing.add_argument("--section", choices=SECTIONS)
     listing.add_argument("--json", action="store_true")
     listing.set_defaults(handler=list_command)
     search = sub.add_parser("search")
     search.add_argument("--query", default="")
     search.add_argument("--era", choices=ERA_IDS)
+    search.add_argument("--section", choices=SECTIONS)
     search.add_argument("--civilization")
     search.add_argument("--type", choices=sorted(SOURCE_TYPES))
     search.add_argument("--json", action="store_true")
