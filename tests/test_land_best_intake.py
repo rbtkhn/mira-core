@@ -1738,6 +1738,33 @@ def test_voice_index_failure_rolls_back_sources_indexes_and_manifest(
     assert manifest_path.read_text(encoding="utf-8") == original_manifest
 
 
+def test_intake_does_not_project_unrelated_same_date_voice(monkeypatch, tmp_path: Path) -> None:
+    _, manifest_path = configure_transaction_root(monkeypatch, tmp_path)
+    other = transaction_args('2026-07-15', 'Unrelated source', 'https://example.com/other')
+    other.voice_slugs = ['other-voice']
+    plans, manifest = land_best_intake.prepare_batch([other], land_best_intake.load_manifest())
+    land_best_intake.publish_batch(plans, manifest)
+    voices = tmp_path / 'narrative-geopolitics/voices'
+    header = ('Corpus: 0 local route rows across 0 central archive source files.\n\n'
+              '| Date | Source | Role | Host slug | Archive link |\n'
+              '| --- | --- | --- | --- | --- |\n')
+    for voice in ['other-voice', 'audit-voice']:
+        (voices / voice).mkdir(parents=True)
+        (voices / voice / 'source-index.md').write_text(header, encoding='utf-8')
+    unrelated = voices / 'other-voice/source-index.md'
+    orphan = '| `2026-07-15` | Pending unrelated work | `guest` | `none` | [source](../../../archive/sources/geopolitics/sources/pending.md) |\n'
+    unrelated.write_text(header + orphan, encoding='utf-8')
+    before = unrelated.read_bytes()
+    plans, proposed = land_best_intake.prepare_batch(
+        [transaction_args('2026-07-15', 'New source', 'https://example.com/new')], manifest)
+    updates, _ = land_best_intake.project_voice_indexes_for_plans(plans, proposed)
+    assert unrelated not in updates
+    assert voices / 'audit-voice/source-index.md' in updates
+    land_best_intake.publish_batch(plans, proposed, updates)
+    assert unrelated.read_bytes() == before
+    assert json.loads(manifest_path.read_text(encoding='utf-8'))['sources'][0] == manifest['sources'][0]
+
+
 def test_source_publication_failure_rolls_back_prior_sources_and_manifest(
     monkeypatch, tmp_path: Path
 ) -> None:

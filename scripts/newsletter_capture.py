@@ -1,4 +1,5 @@
-"""Private, retryable newsletter capture. No implicit source or memory admission."""
+"""Retryable newsletter mailbox capture; raw email originals stay private while
+rendered article bodies are admitted to the canonical archive through intake."""
 from __future__ import annotations
 
 import argparse
@@ -353,6 +354,81 @@ def status(store):
     return {"status": "available" if (store.path / "routes.json").exists() else "not-configured", "routine_enabled": store.read("pilot.json", {}).get("passed", False), "counts": counts, "items": items, "last_retrieval": store.read("checkpoint.json", {}).get("retrieved_at"), "gap": store.read("failure.json", {}).get("reason")}
 
 
+def browser_archive_match(store, payload):
+    from newsletter_backfill import authors, match
+    return match(store.repo, {**payload, "voice_slugs": authors(payload)})
+
+
+def browser_plan(store, batch_file, plan_file, run=subprocess.run):
+    from newsletter_backfill import plan
+    return plan(store, batch_file, plan_file, run)
+
+
+def browser_land_plan(store, plan_file, run=subprocess.run):
+    from newsletter_backfill import execute
+    try:
+        return execute(store, plan_file, run)
+    except (ValueError, OSError, KeyError, TypeError) as error:
+        path = Path(plan_file).resolve()
+        if not path.is_relative_to(store.repo.resolve()):
+            write(path.with_suffix('.failure.json'), {'status': 'stopped', 'reason': str(error), 'plan_file': str(path)})
+        raise
+
+
+def browser_capture_batch(store, batch_path, land=False, run=subprocess.run):
+    # Legacy JSONL transport remains supported; review evidence is never inferred.
+    from newsletter_backfill import authors
+    source = Path(batch_path).resolve()
+    root = source.parent / ("newsletter-plan-" + digest(source.read_bytes())[:16])
+    if root.is_relative_to(store.repo.resolve()):
+        raise ValueError("Capture artifacts must use an external temporary root")
+    candidates = []
+    for line in source.read_text(encoding="utf-8-sig").splitlines():
+        if not line.strip():
+            continue
+        payload = json.loads(line)
+        authors(payload)
+        raw = line.encode("utf-8")
+        target = root / (digest(raw) + ".json")
+        if not target.exists():
+            write(target, raw)
+        elif target.read_bytes() != raw:
+            raise ValueError("Immutable capture collision")
+        candidates.append({"capture_file": str(target), "review": payload.get("review", {})})
+    if not land:
+        return {"status": "batch-complete", "processed": len(candidates), "results": [
+            {"status": "browser-captured", "capture_file": c["capture_file"]} for c in candidates]}
+    batch = root / "input.json"
+    plan = root / "plan.json"
+    if not batch.exists():
+        write(batch, {"candidates": candidates, "discovery": {"complete": False, "reason": "Legacy input does not declare discovery coverage"}})
+    if not plan.exists():
+        browser_plan(store, batch, plan, run)
+    return browser_land_plan(store, plan, run)
+
+
+def browser_capture(store, payload_path, land=False, run=subprocess.run):
+    source = Path(payload_path).resolve()
+    if source.parent.is_relative_to(store.repo.resolve()):
+        raise ValueError("Capture artifacts must use an external temporary root")
+    raw = source.read_bytes()
+    batch = source.parent / (digest(raw) + ".jsonl")
+    if not batch.exists():
+        write(batch, json.dumps(json.loads(raw), ensure_ascii=False).encode("utf-8"))
+    result = browser_capture_batch(store, batch, land, run)
+    return result["results"][0] if result["results"] else result
+
+
+def browser_capture_stdin(store, land=False, run=subprocess.run):
+    # Stdin needs an explicit temporary location rather than permanent body storage.
+    raw = sys.stdin.buffer.read()
+    root = Path(os.environ.get("MIRA_NEWSLETTER_TEMP_ROOT", tempfile.gettempdir())).resolve()
+    path = root / ("newsletter-stdin-" + digest(raw) + ".jsonl")
+    if not path.exists():
+        write(path, raw)
+    return browser_capture_batch(store, path, land, run)
+
+
 def land_ready(store, publication=None, since=None, until=None, pilot=False, run=subprocess.run):
     if not pilot and not store.read("pilot.json", {}).get("passed"):
         raise ValueError("Routine admission disabled until supervised pilot passes; use --pilot only for supervised work")
@@ -424,7 +500,7 @@ def tower_refresh(store, credentials, **filters):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=["status", "fetch", "intake-draft", "seed-review", "approve-route", "land-ready", "accept-pilot", "tower-refresh"])
+    parser.add_argument("command", choices=["status", "fetch", "intake-draft", "seed-review", "approve-route", "browser-plan", "browser-land-plan", "browser-capture", "browser-capture-batch", "browser-capture-stdin", "land-ready", "accept-pilot", "tower-refresh"])
     parser.add_argument("--state-root", type=Path)
     parser.add_argument("--credentials", type=Path)
     parser.add_argument("--publication", choices=sorted(SEEDS))
@@ -433,6 +509,10 @@ def main():
     parser.add_argument("--sample", type=Path)
     parser.add_argument("--article-class")
     parser.add_argument("--notebook-ref")
+    parser.add_argument("--plan-file", type=Path)
+    parser.add_argument("--payload-file", type=Path)
+    parser.add_argument("--batch-file", type=Path)
+    parser.add_argument("--land", action="store_true")
     parser.add_argument("--pilot", action="store_true")
     parser.add_argument("--json", action="store_true")
     args = parser.parse_args()
@@ -455,6 +535,24 @@ def main():
                     if not args.sample:
                         raise ValueError("--sample is required")
                     result = approve_route(store, args.publication, args.sample, args.article_class)
+                elif args.command == "browser-plan":
+                    if not args.batch_file or not args.plan_file:
+                        raise ValueError("--batch-file and --plan-file are required")
+                    result = browser_plan(store, args.batch_file, args.plan_file)
+                elif args.command == "browser-land-plan":
+                    if not args.plan_file:
+                        raise ValueError("--plan-file is required")
+                    result = browser_land_plan(store, args.plan_file)
+                elif args.command == "browser-capture":
+                    if not args.payload_file:
+                        raise ValueError("--payload-file is required")
+                    result = browser_capture(store, args.payload_file, args.land)
+                elif args.command == "browser-capture-batch":
+                    if not args.batch_file:
+                        raise ValueError("--batch-file is required")
+                    result = browser_capture_batch(store, args.batch_file, args.land)
+                elif args.command == "browser-capture-stdin":
+                    result = browser_capture_stdin(store, args.land)
                 elif args.command == "land-ready":
                     result = land_ready(store, args.publication, args.since, args.until, args.pilot)
                 elif args.command == "accept-pilot":

@@ -187,12 +187,26 @@ than landing material in a convenient shelf.
 
 ## Boundaries
 
-Newsletter capture hands over private originals, extracted text, author and
-publication provenance, canonical URL, source and receipt dates, and completeness.
+Newsletter capture hands over a rendered article body, author and publication
+provenance, canonical URL, source and receipt dates, and completeness. Raw email
+originals and personal headers remain private and are not required as an
+intermediate article store.
+For explicitly authorized historical browser backfills, use Newsletter Capture's
+reviewed `browser-plan` / `browser-land-plan` path. It invokes this native helper
+and verifies the full reviewed author set and author roles. Capture evidence and
+review decisions remain separate and hash-bound. A plan alone grants no authority.
+Hold conflicting existing records unchanged while independent authorized new
+sources proceed; shared integrity failures stop admission. Do not rewrite an
+existing source or replace its edition through this route. Preserve one selected
+primary edition with related URLs, selection evidence, and reviewed differences.
+Inspect accompanying written text even on media-marked candidates; descriptions,
+announcements, narrations, and guest-authored content must retain honest dispositions.
+
 Use the local newsletter-capture skill for acquisition and its pilot gate. Tower's
 post-pilot current entry supplies bounded admission authority for complete approved
 geopolitical newsletters; standalone capture alone does not. Keep original email
-headers and personal metadata private. Preserve the extracted substantive text.
+headers and personal metadata private. Preserve the extracted substantive text
+directly in the selected archive source.
 Previews and video notices are not complete articles or transcripts. Exact
 duplicates reuse archive membership; changed bodies require Archive Repair.
 Verify body parity and manifest membership before recording successful admission.

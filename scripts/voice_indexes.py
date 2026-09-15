@@ -308,6 +308,7 @@ def project(
     repo_root: Path | None = None,
     voices_root: Path | None = None,
     role_overrides: dict[tuple[str, str], str] | None = None,
+    target_voice_slugs: set[str] | None = None,
 ) -> tuple[dict[Path, str], dict[str, Any]]:
     repo_root = REPO_ROOT if repo_root is None else repo_root
     voices_root = default_voices_root(repo_root) if voices_root is None else voices_root
@@ -320,6 +321,9 @@ def project(
             failures.append(str(exc))
     failures.extend(role_override_failures(manifest, role_overrides))
     targeted, unindexed = rows_by_voice(manifest, run_date, voices_root)
+    if target_voice_slugs is not None:
+        targeted = {slug: rows for slug, rows in targeted.items() if slug in target_voice_slugs}
+        unindexed &= target_voice_slugs
     changed: list[str] = []
     added: list[str] = []
     updates: dict[Path, str] = {}

@@ -623,6 +623,11 @@ def build_frontmatter(args: SimpleNamespace, title_slug: str, body: str) -> str:
     else:
         lines.append("  -")
 
+    if getattr(args, "publication_url", ""):
+        lines.append(f"publication_url: {yaml_quote(args.publication_url)}")
+    for key, value in authored_participation_metadata(args).items():
+        if key not in {"publication_url", "source_form"}:
+            lines.append(f"{key}: {json.dumps(value, ensure_ascii=False)}")
     lines.extend(
         [
             f"show_title: {args.show_title}",
@@ -738,6 +743,35 @@ def manifest_bytes(manifest: dict) -> bytes:
     return payload
 
 
+def authored_participation_metadata(args: SimpleNamespace) -> dict:
+    """Use the shared role model for authored intake without rewriting old rows."""
+    import role_aware_archive
+
+    if getattr(args, "source_form", "") not in {"newsletter", "article", "essay", "substack-post", "x-post-text"}:
+        return {}
+    row = {
+        "voice_slugs": args.voice_slugs,
+        "host_slug": args.host_slug,
+        "source_class": "authored",
+        "modality": args.modality,
+        "source_url": args.url,
+    }
+    roles, statuses, bases = role_aware_archive.infer_roles(row)
+    metadata = {
+        "source_form": args.source_form,
+        "voice_roles": roles,
+        "role_status": statuses,
+        "role_basis": bases,
+        "host_kind": role_aware_archive.host_kind(row),
+    }
+    publication = role_aware_archive.publication_from_row(row)
+    if publication:
+        metadata.update(publication)
+    else:
+        metadata["publication_absence_reason"] = role_aware_archive.publication_absence_reason(row)
+    return metadata
+
+
 def build_manifest_row(
     args: SimpleNamespace,
     source_path: Path,
@@ -760,12 +794,14 @@ def build_manifest_row(
         "date_basis": getattr(args, "date_basis", "operator-supplied"),
         "inference_basis": list(getattr(args, "inference_basis", [])),
         "import_status": "imported",
+        **authored_participation_metadata(args),
+        **({"publication_url": args.publication_url} if getattr(args, "publication_url", "") else {}),
     }
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Land Narrative Geopolitics best-intake sources and append manifest rows."
+        description="Land Geopolitics best-intake sources and append manifest rows."
     )
     parser.add_argument("--pub-date")
     parser.add_argument("--ingest-date")
@@ -774,6 +810,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("quick_positionals", nargs="*", help=argparse.SUPPRESS)
     parser.add_argument("--title")
     parser.add_argument("--url")
+    parser.add_argument("--publication-url", default="", help="Reviewed publication homepage for authored sources.")
     parser.add_argument("--body-file")
     parser.add_argument("--body-text")
     parser.add_argument("--voice-slug", dest="voice_slugs", action="append")
@@ -1015,6 +1052,7 @@ def args_from_metadata(metadata: dict[str, object], metadata_path: Path, cli_arg
             "review_state": metadata.get("review_state", defaults["review_state"]),
             "routing_state": metadata.get("routing_state", defaults["routing_state"]),
             "source_note": metadata.get("source_note", defaults["source_note"]),
+            "publication_url": metadata.get("publication_url", ""),
             "editorial_note": metadata.get("editorial_note", defaults["editorial_note"]),
             "upstream_path": metadata.get("upstream_path") or None,
             "trim_opening": metadata.get("trim_opening", defaults["trim_opening"]),
@@ -1072,6 +1110,7 @@ def args_from_cli(cli_args: argparse.Namespace, *, normalize: bool = True) -> Si
         "review_state": cli_args.review_state,
         "routing_state": cli_args.routing_state,
         "source_note": cli_args.source_note,
+        "publication_url": getattr(cli_args, "publication_url", ""),
         "editorial_note": cli_args.editorial_note,
         "upstream_path": cli_args.upstream_path,
         "dry_run": cli_args.dry_run,
@@ -2302,6 +2341,8 @@ def project_voice_indexes_for_plans(
             run_date=run_date,
             repo_root=REPO_ROOT,
             voices_root=voices_root,
+            target_voice_slugs={voice for plan in plans if plan.manifest_row.get('date') == run_date
+                                for voice in plan.manifest_row.get('voice_slugs', [])},
         )
         updates.update(projected)
         changed_shelves.update(report.get("changed_shelves", []))
@@ -2474,12 +2515,12 @@ def main() -> int:
             print(json.dumps(result, indent=2) if cli_args.json else f"ALREADY LANDED\nArchive: {result['archive']}")
             return 0
         plans, proposed_manifest = prepare_batch(source_args, manifest)
+        voice_updates, voice_messages = project_voice_indexes_for_plans(
+            plans, proposed_manifest
+        )
         if cli_args.dry_run:
             messages = dry_run_messages(plans)
         else:
-            voice_updates, voice_messages = project_voice_indexes_for_plans(
-                plans, proposed_manifest
-            )
             messages = publish_batch(plans, proposed_manifest, voice_updates)
             messages.extend(voice_messages)
             messages.append(f"Manifest count: {proposed_manifest['source_count']}")
