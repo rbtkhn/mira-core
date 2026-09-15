@@ -1,5 +1,37 @@
 [
   {
+    "id": "MW-RESEARCH-01",
+    "case": "edge",
+    "prompt": "Recommend whether to adopt an evidence-first research workflow for this project.",
+    "context": "Synthetic source packet: a broad review omits a central experiment; targeted discovery finds it. Its table shows citation gains but a dataset-specific answer loss. A further material claim remains unresolved after bounded recovery.",
+    "expected_activation": true,
+    "required_resources": ["core", "../mira-study/references/research-practice.md"],
+    "required_behaviors": [
+      "inspect the original experiment and revise the recommendation for its contrary evidence",
+      "carry the dataset-specific loss and unanswered question into the existing decision or handoff",
+      "separate correctness from source support and citation quality"
+    ],
+    "forbidden_behaviors": [
+      "treat synthesis coverage as complete because many papers are cited",
+      "turn citation improvement into a claim of improved answer correctness",
+      "start implementation or a new retention mechanism from the recommendation"
+    ],
+    "expected_receipt_fields": ["Risks or limits", "Unresolved dependency"],
+    "pass": "The recommendation changes for the experiment, preserves the loss and unresolved claim, and uses the existing handoff without an extra research receipt."
+  },
+  {
+    "id": "MW-RESEARCH-02",
+    "case": "ambiguous",
+    "prompt": "Does Study's new research reference mean we have learned to research better?",
+    "context": "Only installation and manual fixture review are observed; no consequential work or later application is requested.",
+    "expected_activation": false,
+    "required_resources": ["core"],
+    "required_behaviors": ["answer conversationally and distinguish validated guidance from demonstrated later improvement"],
+    "forbidden_behaviors": ["activate full Work or research merely from the reference mention", "claim lasting improvement or create an observation window"],
+    "expected_receipt_fields": [],
+    "pass": "No new workflow starts and no outcome is inferred from installation."
+  },
+  {
     "id": "MW-NORMAL-01",
     "case": "normal",
     "prompt": "Implement this bounded multi-file repository control repair.",

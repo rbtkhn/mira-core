@@ -1,13 +1,21 @@
 ---
 name: mira-study
-description: "Read and triage correspondence, compose or revise documents, and coordinate meetings arising from an exchange. Use for mira-study, an explicit Study invitation, or correspondence spanning reading and response; direct genre and artifact commands keep their existing routes."
+description: "Conduct scholarly research and literature synthesis, read and triage correspondence, compose or revise documents, and coordinate meetings arising from an exchange. Use for direct scholarly-research requests, mira-study, an explicit Study invitation, or correspondence spanning reading and response; specialist domain, genre, and artifact commands keep their existing routes."
 ---
 
 # Mira Study
 
 Study attends to what someone has written, what it means for the present inquiry,
 and what should be written in response. Use only in Mira Core. Architectural
-discussion and quoted room names do not activate mailbox or document retrieval.
+discussion and quoted room names do not activate retrieval.
+
+For scholarly research or literature synthesis, read the shared
+[research practice](references/research-practice.md). Mind judges what needs
+grounding and reconsiders the result; Study owns the method, and Work carries
+any authorized consequence. These are responsibilities within the same task,
+not mandatory room announcements or separate agents. Specialist domain routes,
+including research-brief for investigation plans, retain their existing scope
+and evidence authority.
 
 ## Default capabilities and owners
 

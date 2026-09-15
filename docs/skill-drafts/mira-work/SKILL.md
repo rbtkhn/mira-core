@@ -42,6 +42,11 @@ automatic issue mirror, tracking store, or permission to publish work.
 ### Sense
 
 - Establish the objective, audience, scope, lane, and evidence boundary.
+- When external research materially supports a consequential judgment, use
+  Study's shared [research practice](../mira-study/references/research-practice.md)
+  within the domain owner's authority. Carry its qualifications and unresolved
+  dependencies into the existing decision or handoff; no separate research
+  receipt or expansion of Work's activation threshold is required.
 - Establish one finish line: the requested outcome, sufficient completion
   evidence, and authorized endpoint. Design the receipt around the primary
   stakeholder and process or decision improved. Keep this internal unless

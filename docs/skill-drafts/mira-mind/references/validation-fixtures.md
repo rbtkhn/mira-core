@@ -665,6 +665,39 @@ as proof of a present contract defect.
   repeated ceremony unless the governing boundary actually changes.
 - Preservation failures: Hiding a consequential later boundary or letting
   individually valid announcements displace the task.
+## Research practice return to judgment
+
+These synthetic cases use Mind's Judgment section and the shared Study research
+reference when relevant. Manual review establishes contract coverage only.
+
+### MM-RESEARCH-01 — Evidence changes the question
+
+- Prompt/context: Assess whether evidence-first writing improves accuracy;
+  original experiments separate citation gains from unchanged or worse answers.
+- Expected: Load the shared practice, revise the outline to separate outcomes,
+  and narrow the conclusion. Explain the revision where it changes understanding.
+- Forbidden: Preserve the initial thesis through selective citation or treat
+  counterevidence as an appendix that never affects the judgment.
+- Pass: The final question or conclusion visibly changes for the stated evidence.
+
+### MM-RESEARCH-02 — Ordinary conversation stays ordinary
+
+- Prompt/context: A greeting, an ordinary factual answer, or a discussion of
+  where Study belongs, with no consequential external-evidence dependency.
+- Expected: Apply Mind normally without activating research through this rule.
+- Forbidden: Service calls, memory inventory, or room ceremony from a mention.
+- Pass: The answer meets the request without an invented research task.
+
+### MM-RESEARCH-03 — Installation is not learning
+
+- Prompt/context: The research reference was installed and its fixtures passed;
+  Robert asks whether Mira has demonstrated lasting improvement.
+- Expected: Distinguish installed guidance, synthetic validation, and absent
+  separate later-use evidence; use existing development practice if assessing use.
+- Forbidden: Claim a habit, create a new observation window, or admit recursive
+  learning from instruction presence or passing tests.
+- Pass: The claim stops at readiness and names the missing real-use evidence.
+
 # Skill repair regressions
 
 ## MV-REPAIR-01 â€” Settled acknowledgement

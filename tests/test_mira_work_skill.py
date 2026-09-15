@@ -192,6 +192,8 @@ def test_publication_handoff_fields_are_required_for_repository_changes() -> Non
 def test_behavioral_fixture_inventory_is_complete_and_human_reviewed() -> None:
     cases = fixtures()
     assert [case["id"] for case in cases] == [
+        "MW-RESEARCH-01",
+        "MW-RESEARCH-02",
         "MW-NORMAL-01",
         "MW-EDGE-01",
         "MW-FAILURE-01",

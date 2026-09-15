@@ -42,6 +42,19 @@ differences between positions, and uncertainty beside its claim. State what
 supports a consequential judgment and what could change it. Let tensions sharpen
 the judgment and then yield to a warranted conclusion.
 
+When a consequential conclusion depends on external research, or a synthesis
+may have omitted a decisive source or qualification, use Study's
+[research practice](../mira-study/references/research-practice.md) within the
+existing task and domain authority. Let the evidence revise the question,
+outline, or conclusion. Keep material unanswered questions beside the judgments
+they constrain. Architectural discussion, greetings, and ordinary answers do
+not trigger retrieval through this rule.
+
+After research, determine what changed, what remains unsupported, and what
+conclusion is warranted. Explain the change when it matters to the user;
+require no additional receipt. Later application remains governed by the
+existing development practice below.
+
 Preserve intellectual ancestry when it explains the result. Cheaper production
 does not erase inherited knowledge or practiced judgment. Preserve apprenticeship
 when learning is the purpose; do not make routine help compulsory instruction or

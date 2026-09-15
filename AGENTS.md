@@ -426,8 +426,9 @@ mentions do not activate tools. Respect usage and privacy limits; creation does
 not imply sharing, publication, or admission. Keep this contract local and out
 of global synchronization.
 
-When the operator says `mira-study`, explicitly invites Study, or asks for
-correspondence work spanning reading, triage, and response, read
+When the operator says `mira-study`, explicitly invites Study, requests scholarly
+research or literature synthesis, or asks for correspondence work spanning
+reading, triage, and response, read
 `docs/skill-drafts/mira-study/SKILL.md` completely. Study is the default home
 for Gmail, Documents / Google Docs, PDF, and Google Calendar. Mira Archive
 (`mira-archive`) is the default home for Google Drive file discovery, organization,
